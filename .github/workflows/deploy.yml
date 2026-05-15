@@ -1,4 +1,5 @@
 name: Deploy to AWS S3
+
 on:
   push:
     branches:
@@ -10,28 +11,25 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18
-          cache: 'npm'  # Cache dependencies for faster builds
+          node-version: 24
+          cache: "npm"
 
-
-      - name: Install Dependencies (Clean Install)
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
+      - name: Install Dependencies
+        run: npm install
 
       - name: Build the Project
         run: npm run build
 
-      - name: List Build Directory (Debugging)
-        run: ls -R dist  # Verify build files exist
+      - name: List Build Directory
+        run: ls -R dist
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
