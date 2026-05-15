@@ -1,0 +1,44 @@
+name: Deploy to AWS S3
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'  # Cache dependencies for faster builds
+
+
+      - name: Install Dependencies (Clean Install)
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install
+
+      - name: Build the Project
+        run: npm run build
+
+      - name: List Build Directory (Debugging)
+        run: ls -R dist  # Verify build files exist
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
+          aws-region: us-east-1
+
+      - name: Deploy Static Site to S3 Bucket
+        run: aws s3 sync ./dist s3://www.alexrussell.info --delete
+
+      - name: Invalidate CloudFront Cache
+        run: aws cloudfront create-invalidation --distribution-id E2IJYG6SCPF50B --paths "/*"
