@@ -159,9 +159,9 @@ export default function Contact() {
               placeholder={fieldPlaceholders.message}
               resetKey={resetKey}
             />
-            <span>."</span>
+            <span>.</span>
             <div className="mt-5">
-              <span>Email me back at</span>
+              <span>You can email me back at</span>
               <EditablePhraseField
                 aria-label="Your email"
                 className="max-w-[27ch]"
@@ -170,6 +170,7 @@ export default function Contact() {
                 placeholder={fieldPlaceholders.email}
                 resetKey={resetKey}
               />
+              <span>"</span>
             </div>
           </div>
 
@@ -192,9 +193,8 @@ export default function Contact() {
 
           {statusMessage ? (
             <p
-              className={`mt-5 flex items-center justify-center gap-2 text-sm font-semibold ${
-                status === "success" ? "text-moss-dark" : "text-clay"
-              }`}
+              className={`mt-5 flex items-center justify-center gap-2 text-sm font-semibold ${status === "success" ? "text-moss-dark" : "text-clay"
+                }`}
               role="status"
             >
               {status === "success" ? (
