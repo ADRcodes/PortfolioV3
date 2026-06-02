@@ -7,6 +7,7 @@ on:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  CLOUDFRONT_DISTRIBUTION_ID: E2IJYG6SCPF50B
 
 jobs:
   deploy:
@@ -31,6 +32,9 @@ jobs:
       - name: Build the Project
         run: pnpm build
 
+      - name: Add SPA fallback document
+        run: cp dist/index.html dist/404.html
+
       - name: List Build Directory
         run: ls -R dist
 
@@ -41,8 +45,61 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
           aws-region: us-east-1
 
-      - name: Deploy Static Site to S3 Bucket
-        run: aws s3 sync ./dist s3://www.alexrussell.info --delete
+      # Upload hashed Vite assets with long-lived caching. Do not use --delete here:
+      # cached HTML from a previous deploy can still request older hashed assets briefly,
+      # and deleting them causes intermittent S3/CloudFront AccessDenied responses.
+      - name: Deploy Immutable Static Assets
+        run: |
+          aws s3 sync ./dist s3://www.alexrussell.info \
+            --exclude "index.html" \
+            --exclude "404.html" \
+            --cache-control "public,max-age=31536000,immutable"
+
+      # Keep HTML uncached so visitors do not keep an old asset manifest.
+      # For BrowserRouter deep links, CloudFront should also map 403/404 errors to /index.html with HTTP 200.
+      - name: Deploy HTML Entry Points
+        run: |
+          aws s3 cp ./dist/index.html s3://www.alexrussell.info/index.html \
+            --content-type "text/html" \
+            --cache-control "no-cache,no-store,must-revalidate"
+          aws s3 cp ./dist/404.html s3://www.alexrussell.info/404.html \
+            --content-type "text/html" \
+            --cache-control "no-cache,no-store,must-revalidate"
+
+      # BrowserRouter routes like /projects do not exist as S3 objects. With an S3 origin,
+      # CloudFront receives 403/404 for those paths and must serve /index.html instead.
+      - name: Configure CloudFront SPA Fallback
+        run: |
+          aws cloudfront get-distribution-config \
+            --id "$CLOUDFRONT_DISTRIBUTION_ID" \
+            > /tmp/distribution-config.json
+
+          ETAG=$(jq -r '.ETag' /tmp/distribution-config.json)
+
+          jq '.DistributionConfig.CustomErrorResponses = {
+            "Quantity": 2,
+            "Items": [
+              {
+                "ErrorCode": 403,
+                "ResponsePagePath": "/index.html",
+                "ResponseCode": "200",
+                "ErrorCachingMinTTL": 0
+              },
+              {
+                "ErrorCode": 404,
+                "ResponsePagePath": "/index.html",
+                "ResponseCode": "200",
+                "ErrorCachingMinTTL": 0
+              }
+            ]
+          } | .DistributionConfig' \
+            /tmp/distribution-config.json \
+            > /tmp/distribution-update.json
+
+          aws cloudfront update-distribution \
+            --id "$CLOUDFRONT_DISTRIBUTION_ID" \
+            --if-match "$ETAG" \
+            --distribution-config file:///tmp/distribution-update.json
 
       - name: Invalidate CloudFront Cache
-        run: aws cloudfront create-invalidation --distribution-id E2IJYG6SCPF50B --paths "/*"
+        run: aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths "/*"
