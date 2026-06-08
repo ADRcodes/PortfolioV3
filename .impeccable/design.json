@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-04T17:07:02Z",
+  "title": "Design System: PortfolioV3",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Deep Ink",
+        "canonical": "#1f2a24",
+        "tonalRamp": ["#17201b", "#26332b", "#3b4b41", "#52655a", "#708277", "#95a49b", "#c5cec8", "#eef1ef"]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#526059",
+        "tonalRamp": ["#1d2420", "#303b35", "#46544d", "#5f6e66", "#7d8b83", "#a1ada6", "#cbd2ce", "#f0f2f1"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#fbf8ef",
+        "tonalRamp": ["#28251e", "#484238", "#6c6354", "#938876", "#b9ad99", "#dbd0bd", "#eee7da", "#fbf8ef"]
+      },
+      "paper-soft": {
+        "role": "neutral",
+        "displayName": "Soft Paper",
+        "canonical": "#f3ead9",
+        "tonalRamp": ["#28231b", "#4a4032", "#70614b", "#98856a", "#bea98b", "#dbc8ad", "#eadcc7", "#f3ead9"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Quiet Line",
+        "canonical": "#ded2bf",
+        "tonalRamp": ["#28231c", "#4a4033", "#6f624f", "#958570", "#b8a78e", "#d1c2ab", "#ded2bf", "#f5f1e9"]
+      },
+      "moss": {
+        "role": "primary",
+        "displayName": "Moss Green",
+        "canonical": "#607466",
+        "tonalRamp": ["#172019", "#29372d", "#3e5144", "#566d5c", "#718a78", "#96aa9b", "#c4d0c7", "#eef2ef"]
+      },
+      "moss-dark": {
+        "role": "primary",
+        "displayName": "Dark Moss",
+        "canonical": "#3d5146",
+        "tonalRamp": ["#152019", "#26372d", "#3d5146", "#57705f", "#76907d", "#9db1a2", "#cbd6ce", "#f0f4f1"]
+      },
+      "clay": {
+        "role": "secondary",
+        "displayName": "Clay",
+        "canonical": "#bd6f4c",
+        "tonalRamp": ["#2d1810", "#522b1d", "#7a412c", "#a45b3e", "#c97a56", "#df9e80", "#efc7b5", "#faeee8"]
+      },
+      "sky": {
+        "role": "secondary",
+        "displayName": "Sky",
+        "canonical": "#8ab6c8",
+        "tonalRamp": ["#13252d", "#25434f", "#3b6272", "#568397", "#76a4b7", "#9dc4d3", "#c7e0e8", "#eff7f9"]
+      },
+      "peach": {
+        "role": "tertiary",
+        "displayName": "Peach",
+        "canonical": "#ffb58e",
+        "tonalRamp": ["#321b10", "#60331e", "#904d2e", "#c26b43", "#e98d63", "#ffb58e", "#ffd7c2", "#fff2ea"]
+      },
+      "cobalt": {
+        "role": "tertiary",
+        "displayName": "Cobalt",
+        "canonical": "#3157ff",
+        "tonalRamp": ["#08133d", "#102477", "#1836b1", "#2449e5", "#5271ff", "#8da2ff", "#c5ceff", "#f0f2ff"]
+      },
+      "lilac": {
+        "role": "tertiary",
+        "displayName": "Lilac",
+        "canonical": "#b6a4ca",
+        "tonalRamp": ["#241d2c", "#413650", "#615076", "#836d9c", "#a68dbd", "#c4b2d5", "#dfd5e8", "#f6f2f9"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero statements, page titles, and large project names."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Major section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project cards, component titles, and dense content headings."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Explanatory copy and project narratives."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navigation, metadata, and occasional short section labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "soft-ambient",
+        "value": "0 24px 80px rgb(57 45 32 / 0.12)",
+        "purpose": "Large floating surfaces and framed project imagery."
+      },
+      {
+        "name": "control-lift",
+        "value": "0 14px 34px rgb(31 42 36 / 0.18)",
+        "purpose": "Primary actions and small identity marks."
+      },
+      {
+        "name": "navigation-float",
+        "value": "0 18px 65px rgb(31 42 36 / 0.08)",
+        "purpose": "Translucent floating navigation."
+      },
+      {
+        "name": "focus-ring",
+        "value": "0 0 0 3px rgb(96 116 102 / 0.28)",
+        "purpose": "Visible keyboard focus treatment."
+      }
+    ],
+    "motion": [
+      {
+        "name": "page-transition",
+        "value": "450ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Page-level opacity and vertical entrance."
+      },
+      {
+        "name": "stagger-children",
+        "value": "80ms stagger with 50ms initial delay",
+        "purpose": "Grouped content entrances where sequencing adds meaning."
+      },
+      {
+        "name": "control-transition",
+        "value": "200ms",
+        "purpose": "Button and control hover responses."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "A strong action control with a quiet lift on hover.",
+      "html": "<button class=\"ds-button-primary\">Start a conversation</button>",
+      "css": ".ds-button-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border: 0; border-radius: 9999px; background: var(--color-ink, #1f2a24); color: var(--color-paper, #fbf8ef); padding: 0.75rem 1.25rem; font: 600 0.875rem/1.25 Inter, ui-sans-serif, system-ui, sans-serif; box-shadow: 0 14px 34px rgb(31 42 36 / 0.18); transition: transform 200ms, background-color 200ms; } .ds-button-primary:hover { background: var(--color-moss-dark, #3d5146); transform: translateY(-2px); } .ds-button-primary:focus-visible { outline: none; box-shadow: 0 0 0 3px rgb(96 116 102 / 0.28); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A quieter action control for supporting links.",
+      "html": "<button class=\"ds-button-secondary\">View project</button>",
+      "css": ".ds-button-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border: 1px solid rgb(222 210 191 / 0.82); border-radius: 9999px; background: rgb(251 248 239 / 0.7); color: var(--color-ink, #1f2a24); padding: 0.75rem 1.25rem; font: 600 0.875rem/1.25 Inter, ui-sans-serif, system-ui, sans-serif; transition: transform 200ms, border-color 200ms, background-color 200ms; } .ds-button-secondary:hover { border-color: rgb(96 116 102 / 0.35); background: rgb(255 255 255 / 0.7); transform: translateY(-2px); } .ds-button-secondary:focus-visible { outline: none; box-shadow: 0 0 0 3px rgb(96 116 102 / 0.28); }"
+    },
+    {
+      "name": "Moss Chip",
+      "kind": "chip",
+      "refersTo": "chip-neutral",
+      "description": "Compact metadata with a calm tinted state.",
+      "html": "<span class=\"ds-chip-moss\">AI systems</span>",
+      "css": ".ds-chip-moss { display: inline-flex; align-items: center; border: 1px solid rgb(96 116 102 / 0.2); border-radius: 9999px; background: rgb(96 116 102 / 0.1); color: var(--color-moss-dark, #3d5146); padding: 0.25rem 0.75rem; font: 500 0.75rem/1.25 Inter, ui-sans-serif, system-ui, sans-serif; }"
+    },
+    {
+      "name": "Tonal Surface",
+      "kind": "card",
+      "refersTo": "surface",
+      "description": "A softly layered content surface used when flat page structure is insufficient.",
+      "html": "<article class=\"ds-surface\"><h3>Thoughtful systems</h3><p>Clear structure, useful detail, and enough personality to feel authored.</p></article>",
+      "css": ".ds-surface { max-width: 24rem; border: 1px solid rgb(222 210 191 / 0.76); border-radius: 0.5rem; background: linear-gradient(145deg, rgb(255 255 255 / 0.68), rgb(243 234 217 / 0.56)), rgb(251 248 239 / 0.88); color: var(--color-ink, #1f2a24); padding: 1.5rem; box-shadow: 0 24px 80px rgb(57 45 32 / 0.12); } .ds-surface h3 { margin: 0; font: 600 1.875rem/1.25 Inter, ui-sans-serif, system-ui, sans-serif; } .ds-surface p { margin: 1rem 0 0; color: var(--color-ink-soft, #526059); font: 400 1rem/1.75 Inter, ui-sans-serif, system-ui, sans-serif; }"
+    },
+    {
+      "name": "Editable Phrase Field",
+      "kind": "input",
+      "description": "The signature inline contact field, identified by an underline rather than a box.",
+      "html": "<span class=\"ds-editable-field\" contenteditable=\"true\" role=\"textbox\" aria-label=\"Your name\">Cody Appleseed</span>",
+      "css": ".ds-editable-field { display: inline; margin: 0 0.06em 0 0.12em; padding-inline: 0.08em; border-radius: 0.08em; background: transparent; color: var(--color-ink, #1f2a24); caret-color: var(--color-clay, #bd6f4c); text-decoration-line: underline; text-decoration-color: rgb(31 42 36 / 0.3); text-decoration-thickness: 0.03em; text-underline-offset: 0.14em; outline: none; transition: color 180ms, text-decoration-color 180ms; } .ds-editable-field:focus { text-decoration-color: var(--color-clay, #bd6f4c); text-decoration-thickness: 0.045em; }"
+    },
+    {
+      "name": "Active Navigation Item",
+      "kind": "nav",
+      "refersTo": "navigation-active",
+      "description": "A compact active-route treatment inside the floating navigation.",
+      "html": "<a class=\"ds-nav-active\" href=\"#\">Projects</a>",
+      "css": ".ds-nav-active { display: inline-flex; border-radius: 9999px; background: var(--color-ink, #1f2a24); color: var(--color-paper, #fbf8ef); padding: 0.5rem 0.875rem; font: 500 0.875rem/1.25 Inter, ui-sans-serif, system-ui, sans-serif; text-decoration: none; transition: background-color 200ms; } .ds-nav-active:hover { background: var(--color-moss-dark, #3d5146); } .ds-nav-active:focus-visible { outline: none; box-shadow: 0 0 0 3px rgb(96 116 102 / 0.28); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Builder's Studio",
+    "overview": "PortfolioV3 should feel like entering the personal space of a creative, thoughtful, fun, and professional builder. The system is warm and technical rather than corporate or futuristic, and it uses clear project storytelling, selected color, useful imagery, and authored motion to reveal both judgment and personality.",
+    "keyCharacteristics": [
+      "Warm, technical, and personal",
+      "Clear project storytelling with room for experimentation",
+      "Mostly flat layouts with selective ambient depth",
+      "Soft, confident, and quietly playful components",
+      "Intentional motion that contributes to the brand"
+    ],
+    "rules": [
+      {
+        "name": "The Ink First Rule",
+        "body": "Deep Ink and Paper establish the visual hierarchy before accents are introduced.",
+        "section": "colors"
+      },
+      {
+        "name": "The Selected Color Rule",
+        "body": "Bright accents should appear as authored moments, not as a rainbow applied evenly across every component.",
+        "section": "colors"
+      },
+      {
+        "name": "The Scale Carries the Voice Rule",
+        "body": "Use clear changes in scale and weight to create hierarchy instead of repeated decorative labels.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat by Default Rule",
+        "body": "Start with spacing, color, and borders. Add shadow only when an element needs to float or respond.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do present projects as stories about problems, approaches, decisions, outcomes, and lessons.",
+      "Do let motion contribute to the identity through thoughtful, distinctive, and occasionally playful interactions.",
+      "Do keep keyboard access, visible focus states, readable contrast, semantic structure, and reduced-motion alternatives in normal implementation work."
+    ],
+    "donts": [
+      "Don't build a generic developer portfolio template.",
+      "Don't use corporate stock-site aesthetics or impersonal consulting language.",
+      "Don't use overly dark cyberpunk styling, terminal cosplay, or technical decoration without purpose.",
+      "Don't use excessive animations, visual clutter, or novelty that competes with the work.",
+      "Don't treat pill-shaped controls, soft shadows, or any other current implementation pattern as mandatory."
+    ]
+  }
+}

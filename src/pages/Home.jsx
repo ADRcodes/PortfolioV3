@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { NavLink } from "react-router";
 
@@ -9,8 +9,14 @@ const introLines = [
       text: "Alex Russell",
       to: "/about",
       destination: "About",
-      color: "#7f95bd",
+      color: "#7188b2",
       colorDelay: 0.04,
+      hoverEffect: "lift",
+      underlinePath:
+        "M3 7.4 C16 4.6 31 7.8 45 6.2 C61 4.5 75 8.1 91 6.5 C103 5.2 111 5.8 117 4.8",
+      underlineAccentPath:
+        "M6 8.3 C24 6.6 37 8.4 54 7.1 C72 5.8 85 7.7 101 6.7 C110 6.1 115 6.5 118 5.9",
+      underlineDelay: 0.46,
     },
     { text: "." },
   ],
@@ -20,17 +26,29 @@ const introLines = [
       text: "AI-powered web tools",
       to: "/projects",
       destination: "Projects",
-      color: "#c08b7d",
+      color: "#b47d6f",
       colorDelay: 0.16,
+      hoverEffect: "spread",
+      underlinePath:
+        "M2 6.5 C18 7.7 28 4.9 43 6.1 C59 7.3 72 5.0 88 6.0 C101 6.8 109 4.8 118 5.7",
+      underlineAccentPath:
+        "M4 7.8 C19 6.9 35 7.9 50 7.0 C67 6.0 78 7.3 94 6.5 C106 5.9 113 6.3 118 5.6",
+      underlineDelay: 0.64,
     },
     { text: " for messy workflows and " },
     {
       text: "ideas that inspire me",
       to: "/playground",
       destination: "Playground",
-      color: "#7fa587",
+      color: "#71987a",
       colorDelay: 0.28,
+      underlineDelay: 0.82,
       confettiWord: "inspire",
+      hoverEffect: "glow",
+      underlinePath:
+        "M2 7.0 C14 5.7 27 6.8 39 5.5 C55 3.9 69 7.5 84 6.2 C98 5.1 108 7.0 118 5.2",
+      underlineAccentPath:
+        "M5 8.5 C20 7.2 32 8.1 48 7.0 C62 6.1 78 8.4 93 7.0 C106 5.8 113 6.8 118 6.1",
     },
     { text: "." },
   ],
@@ -107,6 +125,22 @@ function getAccessibleTypedText(typedLength) {
   }
 
   return `${firstLineText} ${secondLineText.slice(0, typedLength - firstLineLength)}`;
+}
+
+function useIsMobileViewport() {
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 639px)");
+    const updateViewportState = () => setIsMobileViewport(media.matches);
+
+    updateViewportState();
+    media.addEventListener("change", updateViewportState);
+
+    return () => media.removeEventListener("change", updateViewportState);
+  }, []);
+
+  return isMobileViewport;
 }
 
 function MotionConfettiBurst({ isVisible }) {
@@ -239,6 +273,125 @@ function LinkedRevealText({ token, startIndex, typedLength, hasStarted, isComple
   );
 }
 
+function AnimatedLinkText({
+  children,
+  color,
+  colorDelay,
+  hoverEffect = "lift",
+  isEmphasized,
+  isInteractive,
+  mobileCompact = false,
+  restingColor,
+  underlineAccentPath,
+  underlineDelay,
+  underlinePath,
+}) {
+  const shouldReduceMotion = useReducedMotion();
+  const isMobileViewport = useIsMobileViewport();
+  const [hasDrawnUnderline, setHasDrawnUnderline] = useState(false);
+  const encodedColor = color.replace("#", "%23");
+  const mainPath =
+    underlinePath ||
+    "M3 7.4 C17 3.9 30 7.9 45 6.4 C61 4.7 73 8.4 88 6.6 C101 5.1 110 5.8 117 4.6";
+  const accentPath =
+    underlineAccentPath ||
+    "M5 8.2 C23 6.6 36 8.7 52 7.4 C69 6.1 82 7.8 98 6.8 C108 6.2 114 6.6 118 5.9";
+  const underlineImage = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='${mainPath}' fill='none' stroke='${encodedColor}' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round' opacity='0.92'/%3E%3Cpath d='${accentPath}' fill='none' stroke='${encodedColor}' stroke-width='1.35' stroke-linecap='round' opacity='0.45'/%3E%3C/svg%3E")`;
+  const hoverStyles = {
+    lift: {
+      filter: "brightness(0.96) saturate(1.08)",
+      underlinePosition: "0 104%",
+      underlineSize: "102% 0.235em",
+    },
+    spread: {
+      filter: "brightness(0.97) saturate(1.12)",
+      underlinePosition: "50% 104%",
+      underlineSize: "102% 0.245em",
+    },
+    glow: {
+      filter: "brightness(0.94) saturate(1.18)",
+      underlinePosition: "0 105%",
+      underlineSize: "101% 0.25em",
+    },
+    settle: {
+      filter: "brightness(0.96) saturate(1.08)",
+      underlinePosition: "0 103%",
+      underlineSize: "101% 0.22em",
+    },
+  };
+  const activeHoverStyle = hoverStyles[hoverEffect] ?? hoverStyles.lift;
+  const shouldUseCompactUnderline = mobileCompact && isMobileViewport;
+  const restingUnderlineSize = shouldUseCompactUnderline ? "100% 0.15em" : "100% 0.175em";
+  const underlineSize = isEmphasized ? activeHoverStyle.underlineSize : restingUnderlineSize;
+  const underlinePosition = isEmphasized ? activeHoverStyle.underlinePosition : "0 101%";
+  const isIntroducingUnderline = isInteractive && !hasDrawnUnderline;
+
+  useEffect(() => {
+    if (!isInteractive) {
+      setHasDrawnUnderline(false);
+      return undefined;
+    }
+
+    if (shouldReduceMotion) {
+      setHasDrawnUnderline(true);
+      return undefined;
+    }
+
+    const timer = window.setTimeout(
+      () => setHasDrawnUnderline(true),
+      underlineDelay * 1000 + 250,
+    );
+
+    return () => window.clearTimeout(timer);
+  }, [isInteractive, shouldReduceMotion, underlineDelay]);
+
+  useEffect(() => {
+    if (isInteractive && isEmphasized) {
+      setHasDrawnUnderline(true);
+    }
+  }, [isEmphasized, isInteractive]);
+
+  return (
+    <motion.span
+      initial={false}
+      animate={{
+        color: isInteractive ? color : restingColor,
+        backgroundSize: isInteractive ? underlineSize : "0% 0.06em",
+        backgroundPosition: underlinePosition,
+        filter: isInteractive && isEmphasized ? activeHoverStyle.filter : "brightness(1) saturate(1)",
+      }}
+      transition={{
+        color: {
+          duration: shouldReduceMotion ? 0 : 0.34,
+          delay: shouldReduceMotion || !isInteractive ? 0 : colorDelay,
+          ease: [0.22, 1, 0.36, 1],
+        },
+        backgroundSize: {
+          duration: shouldReduceMotion ? 0 : isEmphasized ? 0.16 : 0.22,
+          delay: shouldReduceMotion || !isIntroducingUnderline ? 0 : underlineDelay,
+          ease: [0.22, 1, 0.36, 1],
+        },
+        backgroundPosition: {
+          duration: shouldReduceMotion ? 0 : 0.2,
+          ease: [0.22, 1, 0.36, 1],
+        },
+        filter: {
+          duration: shouldReduceMotion ? 0 : 0.2,
+          ease: [0.22, 1, 0.36, 1],
+        },
+      }}
+      style={{
+        backgroundImage: underlineImage,
+        backgroundRepeat: "no-repeat",
+        boxDecorationBreak: "clone",
+        WebkitBoxDecorationBreak: "clone",
+      }}
+    >
+      {children}
+    </motion.span>
+  );
+}
+
 function HeroTextLink({
   token,
   startIndex,
@@ -248,11 +401,14 @@ function HeroTextLink({
   isInteractive,
   onHoverChange,
 }) {
+  const [isEmphasized, setIsEmphasized] = useState(false);
+
   const showHoverTarget = () => {
     if (!isInteractive) {
       return;
     }
 
+    setIsEmphasized(true);
     const placement = getRandomHoverPlacement();
 
     onHoverChange({
@@ -273,18 +429,27 @@ function HeroTextLink({
       className="group/link relative inline text-inherit"
       style={{ pointerEvents: isInteractive ? "auto" : "none" }}
       onMouseEnter={showHoverTarget}
-      onMouseLeave={() => onHoverChange(null)}
+      onMouseLeave={() => {
+        setIsEmphasized(false);
+        onHoverChange(null);
+      }}
       onFocus={showHoverTarget}
-      onBlur={() => onHoverChange(null)}
+      onBlur={() => {
+        setIsEmphasized(false);
+        onHoverChange(null);
+      }}
     >
-      <motion.span
-        initial={false}
-        animate={{ color: isInteractive ? token.color : "#1f2a24" }}
-        transition={{
-          duration: 0.34,
-          delay: isInteractive ? token.colorDelay : 0,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+      <AnimatedLinkText
+        color={token.color}
+        colorDelay={token.colorDelay}
+        hoverEffect={token.hoverEffect}
+        isEmphasized={isEmphasized}
+        isInteractive={isInteractive}
+        mobileCompact
+        restingColor="#1f2a24"
+        underlineAccentPath={token.underlineAccentPath}
+        underlineDelay={token.underlineDelay}
+        underlinePath={token.underlinePath}
       >
         <LinkedRevealText
           token={token}
@@ -293,7 +458,7 @@ function HeroTextLink({
           hasStarted={hasStarted}
           isComplete={isComplete}
         />
-      </motion.span>
+      </AnimatedLinkText>
     </NavLink>
   );
 }
@@ -303,7 +468,7 @@ function IntroText({ typedLength, hasStarted, isComplete, isInteractive, onHover
 
   return (
     <motion.h1
-      className="relative w-full text-[clamp(2.1rem,4.8vw,4.35rem)] font-semibold leading-[1.04] tracking-normal text-ink"
+      className="relative w-full text-[clamp(1.72rem,8.9vw,2.85rem)] font-semibold leading-[1.1] tracking-normal text-ink sm:text-[clamp(2.1rem,4.8vw,4.35rem)] sm:leading-[1.04]"
       initial={{ opacity: 0, y: 12 }}
       animate={hasStarted ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -311,7 +476,7 @@ function IntroText({ typedLength, hasStarted, isComplete, isInteractive, onHover
       aria-live="polite"
     >
       {introLines.map((line, lineIndex) => (
-        <span key={lineIndex} className={lineIndex === 0 ? "block whitespace-nowrap" : "block"}>
+        <span key={lineIndex} className={lineIndex === 0 ? "block sm:whitespace-nowrap" : "block"}>
           {line.map((token) => {
             const startIndex = consumed;
             consumed += token.text.length;
@@ -348,12 +513,28 @@ function IntroText({ typedLength, hasStarted, isComplete, isInteractive, onHover
   );
 }
 
-function InlineNavLink({ to, destination, color, colorDelay, isInteractive, onHoverChange, children }) {
+function InlineNavLink({
+  to,
+  destination,
+  color,
+  colorDelay,
+  hoverEffect,
+  underlineAccentPath,
+  underlineDelay,
+  underlinePath,
+  isInteractive,
+  mobileCompact = false,
+  onHoverChange,
+  children,
+}) {
+  const [isEmphasized, setIsEmphasized] = useState(false);
+
   const showHoverTarget = () => {
     if (!isInteractive) {
       return;
     }
 
+    setIsEmphasized(true);
     const placement = getRandomHoverPlacement();
 
     onHoverChange({
@@ -374,21 +555,30 @@ function InlineNavLink({ to, destination, color, colorDelay, isInteractive, onHo
       className="group/link relative inline text-inherit"
       style={{ pointerEvents: isInteractive ? "auto" : "none" }}
       onMouseEnter={showHoverTarget}
-      onMouseLeave={() => onHoverChange(null)}
+      onMouseLeave={() => {
+        setIsEmphasized(false);
+        onHoverChange(null);
+      }}
       onFocus={showHoverTarget}
-      onBlur={() => onHoverChange(null)}
+      onBlur={() => {
+        setIsEmphasized(false);
+        onHoverChange(null);
+      }}
     >
-      <motion.span
-        initial={false}
-        animate={{ color: isInteractive ? color : "#526059" }}
-        transition={{
-          duration: 0.34,
-          delay: isInteractive ? colorDelay : 0,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+      <AnimatedLinkText
+        color={color}
+        colorDelay={colorDelay}
+        hoverEffect={hoverEffect}
+        isEmphasized={isEmphasized}
+        isInteractive={isInteractive}
+        mobileCompact={mobileCompact}
+        restingColor="#526059"
+        underlineAccentPath={underlineAccentPath}
+        underlineDelay={underlineDelay}
+        underlinePath={underlinePath}
       >
         {children}
-      </motion.span>
+      </AnimatedLinkText>
     </NavLink>
   );
 }
@@ -450,6 +640,7 @@ export default function Home() {
       let lastStepAt = performance.now();
       let pauseUntil = 0;
       const characterDelay = 42;
+      const secondLineCharacterDelay = 30;
       const namePauseDelay = 850;
 
       const step = (now) => {
@@ -465,13 +656,15 @@ export default function Home() {
           return;
         }
 
-        if (now - lastStepAt < characterDelay) {
+        const currentCharacterDelay = index >= firstLineLength ? secondLineCharacterDelay : characterDelay;
+
+        if (now - lastStepAt < currentCharacterDelay) {
           frameRef.current = window.requestAnimationFrame(step);
           return;
         }
 
         const previousIndex = index;
-        const stepsToCatchUp = Math.max(1, Math.floor((now - lastStepAt) / characterDelay));
+        const stepsToCatchUp = Math.max(1, Math.floor((now - lastStepAt) / currentCharacterDelay));
         index = Math.min(totalIntroLength, index + stepsToCatchUp);
 
         if (previousIndex < firstLineLength && index >= firstLineLength) {
@@ -529,7 +722,7 @@ export default function Home() {
 
       <HoverPageLabel hoverTarget={hoverTarget} />
 
-      <div className="relative z-10 mx-auto flex h-svh w-full max-w-5xl flex-col items-center justify-center gap-10 px-8 py-24 text-center sm:px-10 md:px-16 lg:px-12">
+      <div className="relative z-10 mx-auto flex h-svh w-full max-w-5xl flex-col items-center justify-center gap-8 px-5 py-20 text-center sm:gap-10 sm:px-10 sm:py-24 md:px-16 lg:px-12">
         <IntroText
           typedText={typedText}
           typedLength={typedLength}
@@ -538,9 +731,22 @@ export default function Home() {
           isInteractive={isNavVisible}
           onHoverChange={setHoverTarget}
         />
+        <motion.p
+          className="mx-auto -mt-4 max-w-[18rem] text-sm font-semibold leading-6 text-ink-soft/85 sm:hidden"
+          aria-hidden={!isNavVisible}
+          initial={false}
+          animate={isNavVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+          transition={{
+            duration: 0.45,
+            delay: 4,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
+          Tap an underlined phrase to explore.
+        </motion.p>
         <div className="min-h-[8.5rem] sm:min-h-[9rem] lg:min-h-[10rem]">
           <motion.p
-            className="max-w-3xl text-balance text-2xl font-semibold leading-9 text-ink-soft sm:text-3xl sm:leading-10 lg:text-4xl lg:leading-[1.15]"
+            className="max-w-3xl text-balance text-xl font-semibold leading-8 text-ink-soft sm:text-3xl sm:leading-10 lg:text-4xl lg:leading-[1.15]"
             aria-hidden={!isNavVisible}
             initial={false}
             animate={
@@ -565,9 +771,14 @@ export default function Home() {
             <InlineNavLink
               to="/contact"
               destination="Contact"
-              color="#a38ac0"
+              color="#957bb4"
               colorDelay={0.4}
+              hoverEffect="settle"
+              underlinePath="M3 6.9 C16 7.6 26 5.9 39 6.7 C52 7.6 63 5.8 77 6.4 C91 7.1 104 5.7 117 6.2"
+              underlineAccentPath="M6 8.1 C20 7.4 34 8.0 49 7.2 C64 6.4 80 7.7 96 6.9 C106 6.4 113 6.7 118 6.2"
+              underlineDelay={1.18}
               isInteractive={isNavVisible}
+              mobileCompact
               onHoverChange={setHoverTarget}
             >
               connect

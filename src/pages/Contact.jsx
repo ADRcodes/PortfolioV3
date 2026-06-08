@@ -9,9 +9,9 @@ const emailServiceId = "service_119lqg7";
 const emailTemplateId = "template_f8d6noz";
 const emailPublicKey = "_rSpqJBYqopPqe0dz";
 const fieldPlaceholders = {
-  name: "Cody Appleseed",
-  message: "I love your work. Please work on a project with me, you can name your price",
-  email: "cody.appleseed@example.com",
+  name: "Cody",
+  message: "I have a project idea",
+  email: "cody@example.com",
 };
 
 const getEmailErrorMessage = (error) => {
@@ -175,20 +175,26 @@ export default function Contact() {
           </div>
 
           <div className="mt-10 flex min-h-12 justify-center">
-            {isReadyToSend ? (
-              <button
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-ink px-6 text-sm font-semibold text-paper shadow-[0_14px_34px_rgb(31_42_36_/_0.18)] transition duration-200 hover:-translate-y-0.5 hover:bg-moss-dark disabled:cursor-not-allowed disabled:opacity-65 disabled:hover:translate-y-0 disabled:hover:bg-ink"
-                type="submit"
-                disabled={isSending}
-              >
-                {isSending ? (
-                  <LoaderCircle aria-hidden="true" className="animate-spin" size={17} />
-                ) : (
-                  <Send aria-hidden="true" size={17} />
-                )}
-                {isSending ? "Sending" : "Send message"}
-              </button>
-            ) : null}
+            <button
+              className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold transition duration-200 ${
+                isReadyToSend
+                  ? "bg-ink text-paper shadow-[0_14px_34px_rgb(31_42_36_/_0.18)] hover:-translate-y-0.5 hover:bg-moss-dark disabled:cursor-wait disabled:opacity-65 disabled:hover:translate-y-0 disabled:hover:bg-ink"
+                  : "border border-line/80 bg-paper/70 text-ink-soft"
+              }`}
+              type="submit"
+              disabled={!isReadyToSend || isSending}
+            >
+              {isSending ? (
+                <LoaderCircle aria-hidden="true" className="animate-spin" size={17} />
+              ) : (
+                <Send aria-hidden="true" size={17} />
+              )}
+              {isSending
+                ? "Sending"
+                : isReadyToSend
+                  ? "Send message"
+                  : "Fill in the underlined parts"}
+            </button>
           </div>
 
           {statusMessage ? (
@@ -208,10 +214,10 @@ export default function Contact() {
         </form>
       </section>
 
-      <section className="mt-20">
+      <section className="mt-10 sm:mt-12">
         <div className="flex flex-wrap justify-center gap-3">
           {contactLinks.map((link) => (
-            <LinkButton key={link.label} href={link.href} variant="secondary">
+            <LinkButton key={link.label} href={link.href} variant="secondary" showIcon={false}>
               {link.label}
             </LinkButton>
           ))}
