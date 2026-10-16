@@ -59,3 +59,7 @@ Make PortfolioV3 a polished, credible portfolio for practical AI systems and pro
 - Should hiRAG be publicly demoable, private but described, or linked only through screenshots?
 - Should the AI consulting page remain service-oriented, or become a more direct offer page with pricing or engagement packages?
 - Should deployment remain S3/CloudFront only, or should preview deployments be added later?
+
+## techNL Summit foundation
+
+The isolated application and file-based publishing foundation are implemented and validated. See `src/summit/README.md` for authoring and extraction details. Next, replace fictional conference data, confirm the schedule and public recording links, and establish the visual identity and sharing metadata. Add a prominent portfolio link only when launch is authorized. Keep the existing build/deployment process; do not push or merge without authorization.

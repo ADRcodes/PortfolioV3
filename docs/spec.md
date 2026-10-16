@@ -72,3 +72,11 @@ The site should make it clear that Alex builds useful web tools and AI systems f
 - Text must not overlap or overflow awkwardly.
 - Project pages should have enough substance to justify being linked from the main Projects route.
 - Deployment changes should be treated as high risk because they affect live availability.
+
+## techNL Summit foundation
+
+- Mount an independent conference notes site at `/technlsummit`, with its own layout, navigation and scoped styles under `src/summit/`.
+- Support home, session/speaker/company directories and individual detail routes without changing existing portfolio behavior.
+- Discover individual session JSON files automatically at build time; use stable speaker/company IDs and derive reverse relationships.
+- Exclude drafts and unpublished summaries/recording links from production content. Keep the existing Vite build and deployment fallback.
+- This phase uses clearly marked demonstration data and neutral functional styling; final branding and real conference content follow separately.

@@ -39,3 +39,19 @@ Last updated: 2026-06-03
 - Confirm GitHub Actions deploy behavior after the workflow changes are intentionally pushed.
 - Replace placeholder visuals on AI Consulting when better assets are ready.
 - Decide which additional project pages should get custom case-study treatment.
+
+## October 16, 2026: techNL Summit foundation
+
+- Completed the initial requested phase under `src/summit/`: independent layout/header/footer/navigation, all seven route patterns, directories/profile/session pages, linked relationships, not-found handling and neutral responsive styles.
+- Kept portfolio routes and presentation components separate. Conditional summit host styles suppress portfolio decoration only while the summit is mounted.
+- Added automatic per-session JSON discovery, stable profile IDs, derived reverse relationships, build-time validation and exclusion of draft/unpublished summary content from the production assets.
+- Added explicit fictional demonstration content and a guide containing the exact schemas, content workflow, local commands and extraction steps in `src/summit/README.md`.
+- Final acceptance: `pnpm build`, all five Node content tests and whitespace checks passed. No source/build errors remained. pnpm emitted a non-blocking EPERM warning reading its user preferences file.
+- Browser checks on the running Vite dev server covered homepage, session/speaker/company directories, individual details, cross-links, footer navigation, upcoming placeholders, draft URLs and invalid routes.
+- Production preview checks confirmed a newly added session JSON generated a working page without React/profile changes, while draft session routes returned the summit not-found page. Unique markers covering draft title, description, every summary section and recording URL were absent from every dist file; the upcoming-summary marker was also absent.
+- Removed temporary validation JSON files and rebuilt; final assets contain neither private markers nor temporary content.
+- Inspected responsive layouts at 320px, 390px and 1280px: no horizontal overflow, one independent header/footer and wrapped navigation. Verified portfolio styles restore when leaving the summit.
+- Existing Home, Projects, hiRAG detail, AI Consulting, Playground, About and Contact rendered with portfolio navigation and styling. No email was sent.
+- Reviewed architecture against the original requirements: no extra dependencies, backend, registry, separate build, final visual design, portfolio homepage link, workflow or AWS changes.
+- Confirmed branch `codex/technl-summit-foundation`. Git staging and commit dry-run succeed after the user's permission update. Foundation changes are prepared for a local commit; no push, merge or deployment is authorized. Earlier unrelated portfolio changes remain outside the foundation commit.
+- Launch follow-ups remain real content/schedule/timezone verification, public-source-link review, visual identity and dedicated sharing metadata/favicon. Draft exclusion protects site routes and assets, not source files committed to Git.

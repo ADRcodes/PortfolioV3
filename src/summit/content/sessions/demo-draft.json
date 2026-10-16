@@ -1,0 +1,31 @@
+{
+  "id": "session-demo-draft",
+  "slug": "demo-draft",
+  "title": "DRAFT_PRIVATE_CONTENT_SENTINEL",
+  "date": "2026-10-26",
+  "startTime": "09:00",
+  "endTime": "09:45",
+  "location": "Demo room",
+  "description": "Demonstration session about turning an idea into a small, testable system. This is not a real conference session.",
+  "speakerIds": [
+    "speaker-demo-jordan"
+  ],
+  "companyIds": [
+    "company-demo-labs"
+  ],
+  "status": "draft",
+  "summary": {
+    "overview": "This demonstration summary illustrates the publishing format. It is not based on a conference recording.",
+    "keyTakeaways": [
+      "Start with a clearly defined problem."
+    ],
+    "notableIdeas": [
+      "Test the smallest useful workflow."
+    ],
+    "practicalApplications": [
+      "Write a short evaluation checklist before building."
+    ]
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-16T12:00:00Z"
+}

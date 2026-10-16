@@ -1,0 +1,12 @@
+[
+  {
+    "id": "speaker-demo-jordan",
+    "slug": "demo-jordan-lee",
+    "name": "Jordan Lee (demo)",
+    "description": "Fictional speaker used to demonstrate session and company relationships.",
+    "companyIds": ["company-demo-labs"],
+    "urls": [{ "label": "Example website", "url": "https://example.com" }],
+    "image": null,
+    "imageAlt": ""
+  }
+]

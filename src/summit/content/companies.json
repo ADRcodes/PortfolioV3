@@ -1,0 +1,11 @@
+[
+  {
+    "id": "company-demo-labs",
+    "slug": "demo-labs",
+    "name": "Demo Labs (demo)",
+    "description": "A fictional organization for testing the conference content structure.",
+    "urls": [{ "label": "Example website", "url": "https://example.com" }],
+    "image": null,
+    "imageAlt": ""
+  }
+]

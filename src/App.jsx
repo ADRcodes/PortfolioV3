@@ -7,10 +7,12 @@ import Home from "./pages/Home.jsx";
 import ProjectDetail from "./pages/ProjectDetail.jsx";
 import Playground from "./pages/Playground.jsx";
 import Projects from "./pages/Projects.jsx";
+import SummitRoutes from "./summit/routing/SummitRoutes.jsx";
 
 export default function App() {
   return (
     <Routes>
+      <Route path="technlsummit/*" element={<SummitRoutes />} />
       <Route element={<AppShell />}>
         <Route index element={<Home />} />
         <Route path="projects" element={<Projects />} />

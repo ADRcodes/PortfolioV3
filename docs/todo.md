@@ -21,3 +21,9 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 - [ ] Confirm whether hiRAG should be publicly demoable, privately described, or linked only through screenshots.
 - [ ] Confirm whether the AI Consulting page should remain service-oriented or become a direct offer page with pricing/packages.
 - [ ] Confirm whether deployment should remain S3/CloudFront only or add preview deployments later.
+
+## techNL Summit foundation (October 16, 2026)
+
+- [x] Add an isolated `/technlsummit` application, directory/detail routes, automatic JSON session loading, publication filtering, relationship validation, sample content and neutral responsive styling.
+- [ ] Replace all summit demonstration content with verified conference information; confirm schedule/timezone and public recording links.
+- [ ] Establish summit visual identity and launch metadata; add a portfolio homepage link only when launch is authorized.

@@ -47,3 +47,12 @@ Last updated: 2026-06-03
 - Do not push to GitHub unless the user explicitly asks for it.
 - Do not deploy unless the user explicitly asks for it.
 - Preserve user edits and untracked files. Check `git status --short` before making changes.
+
+## October 16, 2026: techNL Summit
+
+- Keep the independent conference notes application in `src/summit/`, mounted beside the portfolio route layout; do not reuse AppShell or portfolio presentation components.
+- Use one automatically discovered JSON file per session and stable speaker/company IDs. Derive reverse session relationships rather than maintaining duplicate registries.
+- Filter drafts and unpublished summary/recording fields before Vite bundles JSON; validate schemas, unique identities and references during build. Speaker/company directories are public.
+- Keep neutral styles scoped to `.summit-app` with separate tokens and an opaque root. Defer final identity, real content, social metadata and any prominent portfolio link.
+- Retain the existing single Vite build and deployment fallback. No dependencies, backend, workflow, AWS changes, push or deployment are part of this phase.
+- Extraction requires moving the summit directory, retaining its Vite content plugin and router entry, changing its mount constant and making the portfolio footer link absolute. See `src/summit/README.md`.

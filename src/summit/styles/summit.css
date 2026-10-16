@@ -1,0 +1,63 @@
+/* Host overrides apply only while the summit is mounted, including scroll gutters.
+   Remove these when extracting into a standalone app with its own HTML reset. */
+:root:has(.summit-app), body:has(.summit-app) {
+  min-width: 0;
+  background: #ffffff;
+}
+body:has(.summit-app)::before, body:has(.summit-app)::after { display: none; }
+
+/* Component styles and tokens are scoped to the independent application. */
+.summit-app {
+  --summit-bg: #ffffff;
+  --summit-surface: #f4f4f4;
+  --summit-ink: #202020;
+  --summit-muted: #555555;
+  --summit-line: #d2d2d2;
+  --summit-link: #174b80;
+  isolation: isolate;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--summit-bg);
+  color: var(--summit-ink);
+  font: 400 1rem/1.65 system-ui, sans-serif;
+  color-scheme: light;
+  overflow-wrap: anywhere;
+}
+.summit-app *, .summit-app *::before, .summit-app *::after { box-sizing: border-box; }
+.summit-app a { color: var(--summit-link); text-decoration: underline; text-underline-offset: .2em; }
+.summit-app a:hover { text-decoration-thickness: 2px; }
+.summit-app :focus-visible { outline: 2px solid var(--summit-link); outline-offset: 4px; box-shadow: none; }
+.summit-app ::selection { background: #d8e8f8; color: var(--summit-ink); }
+.summit-app .summit-container { width: min(100% - 3rem, 70rem); margin-inline: auto; }
+.summit-app .summit-header { border-bottom: 1px solid var(--summit-line); }
+.summit-app .summit-header-inner { display: flex; justify-content: space-between; align-items: center; gap: 1rem 2rem; flex-wrap: wrap; padding-block: 1.25rem; }
+.summit-app .summit-brand { font-weight: 700; color: var(--summit-ink); text-decoration: none; font-size: 1.2rem; }
+.summit-app nav { display: flex; gap: .25rem 1rem; flex-wrap: wrap; }
+.summit-app nav a { padding-block: .65rem; }
+.summit-app nav a[aria-current="page"] { color: var(--summit-ink); text-decoration-thickness: 2px; font-weight: 650; }
+.summit-app .summit-main { flex: 1; padding-block: 2rem 4rem; }
+.summit-app .summit-notice { background: var(--summit-surface); border: 1px solid var(--summit-line); padding: 1rem; margin-bottom: 2rem; max-width: none; font-size: .95rem; }
+.summit-app h1, .summit-app h2, .summit-app h3 { font-weight: 650; line-height: 1.25; text-wrap: balance; }
+.summit-app h1 { font-size: clamp(2rem, 5vw, 3rem); margin-block: 0 1rem; }
+.summit-app h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+.summit-app h3 { font-size: 1.2rem; margin-block: .5rem; }
+.summit-app p { max-width: 72ch; margin-block: .75rem; }
+.summit-app .summit-intro { font-size: 1.15rem; }
+.summit-app section { margin-top: 2.5rem; }
+.summit-app .summit-meta { font-size: .95rem; color: var(--summit-muted); }
+.summit-app .summit-links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; list-style: none; padding: 0; margin-block: 1rem; }
+.summit-app .summit-session-list, .summit-app .summit-directory { list-style: none; padding: 0; margin: 0; }
+.summit-app .summit-session-list > li, .summit-app .summit-directory > li { padding-block: 1.5rem; border-bottom: 1px solid var(--summit-line); }
+.summit-app .summit-status { display: inline-block; padding: .2rem .55rem; background: var(--summit-surface); font-size: .875rem; font-weight: 600; }
+.summit-app .summit-bullets { list-style: disc; padding-left: 1.5rem; max-width: 72ch; }
+.summit-app .summit-bullets li { margin-block: .5rem; }
+.summit-app .summit-profile-image { width: 12rem; max-width: 100%; height: auto; margin-block: 1rem; }
+.summit-app .summit-footer { border-top: 1px solid var(--summit-line); padding-block: 1.5rem; color: var(--summit-muted); font-size: .9rem; }
+.summit-app .summit-skip { position: absolute; top: .5rem; left: 1rem; transform: translateY(-200%); padding: .75rem; background: var(--summit-bg); z-index: 1; }
+.summit-app .summit-skip:focus { transform: none; }
+@media (max-width: 40rem) {
+  .summit-app .summit-container { width: calc(100% - 2rem); }
+  .summit-app .summit-header-inner { align-items: flex-start; flex-direction: column; gap: .5rem; }
+}
