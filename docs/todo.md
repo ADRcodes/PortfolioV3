@@ -27,3 +27,7 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 - [x] Add an isolated `/technlsummit` application, directory/detail routes, automatic JSON session loading, publication filtering, relationship validation, sample content and neutral responsive styling.
 - [ ] Replace all summit demonstration content with verified conference information; confirm schedule/timezone and public recording links.
 - [ ] Establish summit visual identity and launch metadata; add a portfolio homepage link only when launch is authorized.
+
+## Summit editorial implementation
+
+- [x] Implement the approved article schema/rendering, preserve legacy content and publication filtering, validate with automated/browser tests and document the final ChatGPT publishing contract.

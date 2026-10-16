@@ -55,3 +55,13 @@ Last updated: 2026-06-03
 - Reviewed architecture against the original requirements: no extra dependencies, backend, registry, separate build, final visual design, portfolio homepage link, workflow or AWS changes.
 - Confirmed branch `codex/technl-summit-foundation`. Git staging and commit dry-run succeed after the user's permission update. Foundation changes are prepared for a local commit; no push, merge or deployment is authorized. Earlier unrelated portfolio changes remain outside the foundation commit.
 - Launch follow-ups remain real content/schedule/timezone verification, public-source-link review, visual identity and dedicated sharing metadata/favicon. Draft exclusion protects site routes and assets, not source files committed to Git.
+
+## October 16, 2026: editorial article structure
+
+- Added structured takeaways with optional `heading` and required `explanation`, retaining legacy strings. Added optional `detailedSummary` sections with headings, paragraphs and optional bullets; optional notable/practical lists may be omitted or empty.
+- Session pages now read overview → takeaways → detailed summary → optional insights/applications → speaker/company information. Kept the neutral responsive styling and AI-assisted disclosure.
+- Publication projection explicitly includes recognised article fields only; draft records and upcoming summaries/recordings remain excluded before bundling.
+- Added the approved editorial guide as the source of truth, with a complete valid fictional reference article, final field rules and scoped publishing authorization. Updated the summit authoring README.
+- All 13 content/rendering/build-integration tests passed, including legacy compatibility, missing optional sections, field-specific validation, escaped text, guide example validation and automatic JSON discovery with private article markers absent from all build output. Production build and whitespace checks passed.
+- Browser checks covered full/legacy/minimal article rendering, detailed sections with/without bullets, draft/upcoming states and the requested reading order. Inspected 320px, 390px and 1280px layouts without horizontal overflow. Removed temporary browser fixtures; existing session JSON is unchanged.
+- No dependencies, registry, local-only production data, workflow, infrastructure or portfolio presentation changes. Development branch only; no merge or production deployment.

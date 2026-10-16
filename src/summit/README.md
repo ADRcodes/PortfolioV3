@@ -36,6 +36,8 @@ Unknown summit paths, missing profiles and draft session URLs show the summit no
 
 ## Adding a session
 
+Use [EDITORIAL_GUIDE.md](./EDITORIAL_GUIDE.md) as the source of truth for editorial standards and the full implemented article schema/example.
+
 Create any uniquely named `.json` file directly in `content/sessions/`. `import.meta.glob('./sessions/*.json', { eager: true, import: 'default' })` discovers it automatically on the next build. There is no session registry, and no React edit is required. Restart the dev server after content edits if hot updates do not appear; a fresh build is the publishing check.
 
 Exact session shape (all fields required except `recordingUrl`, which may be omitted or null):
@@ -71,7 +73,7 @@ Rules:
 - `date`: valid `YYYY-MM-DD`. Times are 24-hour `HH:mm`, in `America/St_Johns`. End time must follow start time on the same day. Overnight sessions are not supported in this phase.
 - `speakerIds` and `companyIds`: arrays of existing profile IDs, empty arrays allowed. Missing references, duplicate IDs/slugs and malformed fields fail the build.
 - `status`: exactly `upcoming`, `draft` or `published`.
-- `summary`: plain-text overview plus arrays of plain-text strings. No HTML or Markdown rendering. A published session requires a nonempty overview and at least one takeaway. Other summary lists may be empty.
+- `summary`: required plain-text `overview` and `keyTakeaways` array. Takeaways accept legacy strings or `{ "heading": "Optional heading", "explanation": "Required explanation" }`. Optional `detailedSummary` sections contain `heading`, nonempty `paragraphs` and optional `bullets`. Optional `notableIdeas` and `practicalApplications` remain string arrays. Missing/empty optional arrays are hidden; null/blank entries are invalid. No HTML or Markdown rendering. Published sessions require an overview and at least one takeaway.
 - `recordingUrl`: optional absolute HTTP(S) URL or null. Only published sessions expose it. Confirm a source link is suitable for public sharing before including it.
 - `updatedAt`: ISO timestamp including `Z` or an explicit timezone offset. Update it when publishing/editing; recent summaries sort by this timestamp.
 
@@ -129,7 +131,7 @@ From the PortfolioV3 root, using Node 24 and existing pnpm dependencies:
 pnpm dev --host 127.0.0.1
 # Open http://127.0.0.1:5173/technlsummit
 
-node --test src/summit/content/model.test.js
+node --test --test-concurrency=1 src/summit/content/*.test.js
 pnpm build
 pnpm preview --host 127.0.0.1 --port 4173 --strictPort
 # Open http://127.0.0.1:4173/technlsummit

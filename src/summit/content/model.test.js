@@ -45,3 +45,58 @@ test('duplicate slugs and broken references fail clearly', () => {
   assert.throws(() => createContent([{ ...published, speakerIds: ['missing'] }], speakers, companies), /unknown speaker reference/);
   assert.throws(() => createContent([{ ...published, companyIds: ['missing'] }], speakers, companies), /unknown company reference/);
 });
+
+const structuredSummary = {
+  overview: 'A useful overview.',
+  keyTakeaways: [{ heading: 'Measure first', explanation: 'Define a baseline before changing the workflow.' }, 'Legacy takeaway'],
+  detailedSummary: [{ heading: 'Evaluation', paragraphs: ['Compare outcomes against a baseline.'], bullets: ['Record errors.'] }],
+};
+
+test('structured and legacy takeaways can coexist, with optional article fields omitted', () => {
+  assert.equal(validateSession({ ...published, summary: structuredSummary }).summary, structuredSummary);
+  assert.deepEqual(publicSession({ ...published, summary: structuredSummary }).summary, structuredSummary);
+  validateSession({ ...published, summary: { overview: 'Overview', keyTakeaways: [{ explanation: 'Explanation without a heading.' }] } });
+  validateSession({ ...published, summary: { ...structuredSummary, detailedSummary: [], notableIdeas: [], practicalApplications: [] } });
+});
+
+test('invalid article fields identify the session and field path', () => {
+  const cases = [
+    [{ keyTakeaways: [null] }, 'keyTakeaways[0].explanation'],
+    [{ keyTakeaways: [{ heading: 'Heading', text: 'Wrong field' }] }, 'keyTakeaways[0].explanation'],
+    [{ keyTakeaways: [{ heading: '', explanation: 'Explanation' }] }, 'keyTakeaways[0].heading'],
+    [{ keyTakeaways: [' '] }, 'keyTakeaways[0]'],
+    [{ detailedSummary: null }, 'detailedSummary'],
+    [{ detailedSummary: [null] }, 'detailedSummary[0].heading'],
+    [{ detailedSummary: [{ heading: 'Section', paragraphs: [] }] }, 'detailedSummary[0].paragraphs'],
+    [{ detailedSummary: [{ heading: 'Section', paragraphs: [' '] }] }, 'detailedSummary[0].paragraphs'],
+    [{ detailedSummary: [{ heading: 'Section', paragraphs: ['Text'], bullets: 'Wrong type' }] }, 'detailedSummary[0].bullets'],
+    [{ notableIdeas: null }, 'notableIdeas'],
+    [{ practicalApplications: [4] }, 'practicalApplications'],
+  ];
+  for (const [change, field] of cases) {
+    assert.throws(() => validateSession({ ...published, summary: { ...structuredSummary, ...change } }), error => {
+      assert.ok(error.message.includes(published.id));
+      assert.ok(error.message.includes(`summary.${field}`));
+      return true;
+    });
+  }
+});
+
+test('new article fields follow publication rules and unknown fields are not bundled', () => {
+  const session = { ...published, summary: { ...structuredSummary, privateNotes: 'Not a public field' } };
+  assert.equal(publicSession({ ...session, status: 'draft' }), null);
+  assert.equal('summary' in publicSession({ ...session, status: 'upcoming' }), false);
+  assert.equal('privateNotes' in publicSession(session).summary, false);
+  assert.deepEqual(publicSession(session).summary.detailedSummary, structuredSummary.detailedSummary);
+});
+
+test('the complete editorial-guide example matches the implemented schema', () => {
+  const guide = readFileSync(new URL('../EDITORIAL_GUIDE.md', import.meta.url), 'utf8');
+  const examples = [...guide.matchAll(/```json\n([\s\S]*?)\n```/g)];
+  const example = JSON.parse(examples.at(-1)[1]);
+  validateSession(example);
+  validateSession({ ...example, status: 'published' });
+  createContent([example], speakers, companies);
+  assert.equal(example.summary.keyTakeaways.length, 3);
+  assert.ok(example.summary.detailedSummary.length >= 3);
+});

@@ -23,8 +23,30 @@ export function validateSession(session) {
   if (!text(session.updatedAt) || !/(Z|[+-]\d{2}:\d{2})$/.test(session.updatedAt) || Number.isNaN(Date.parse(session.updatedAt))) fail(`invalid updatedAt for ${session.id}`);
   if (session.recordingUrl != null && !url(session.recordingUrl)) fail(`invalid recordingUrl for ${session.id}`);
   if (!session.summary || typeof session.summary.overview !== 'string') fail(`summary required for ${session.id}`);
-  for (const key of ['keyTakeaways', 'notableIdeas', 'practicalApplications']) {
-    if (!strings(session.summary[key])) fail(`invalid summary.${key} for ${session.id}`);
+  const summary = session.summary;
+  const invalid = (field, expected) => fail(`${session.id}: summary.${field} ${expected}`);
+  if (!Array.isArray(summary.keyTakeaways)) invalid('keyTakeaways', 'must be an array');
+  summary.keyTakeaways.forEach((takeaway, index) => {
+    if (typeof takeaway === 'string') {
+      if (!text(takeaway)) invalid(`keyTakeaways[${index}]`, 'must not be blank');
+      return;
+    }
+    if (!takeaway || typeof takeaway !== 'object' || Array.isArray(takeaway) || !text(takeaway.explanation)) {
+      invalid(`keyTakeaways[${index}].explanation`, 'must be a nonempty string (or use a legacy string takeaway)');
+    }
+    if (takeaway.heading !== undefined && !text(takeaway.heading)) invalid(`keyTakeaways[${index}].heading`, 'must be a nonempty string when supplied');
+  });
+  for (const key of ['notableIdeas', 'practicalApplications']) {
+    if (summary[key] !== undefined && !strings(summary[key])) invalid(key, 'must be an array of nonempty strings when supplied');
+  }
+  if (summary.detailedSummary !== undefined) {
+    if (!Array.isArray(summary.detailedSummary)) invalid('detailedSummary', 'must be an array when supplied');
+    summary.detailedSummary.forEach((section, index) => {
+      const field = `detailedSummary[${index}]`;
+      if (!section || !text(section.heading)) invalid(`${field}.heading`, 'must be a nonempty string');
+      if (!strings(section.paragraphs) || !section.paragraphs.length) invalid(`${field}.paragraphs`, 'must contain at least one nonempty paragraph');
+      if (section.bullets !== undefined && !strings(section.bullets)) invalid(`${field}.bullets`, 'must be an array of nonempty strings when supplied');
+    });
   }
   if (session.status === 'published' && (!text(session.summary.overview) || !session.summary.keyTakeaways.length)) fail(`published session ${session.id} requires an overview and takeaways`);
   return session;
@@ -36,7 +58,25 @@ export function publicSession(session) {
   if (session.status === 'draft') return null;
   const { id, slug, title, date, startTime, endTime, location, description, speakerIds, companyIds, status, updatedAt } = session;
   return { id, slug, title, date, startTime, endTime, location, description, speakerIds, companyIds, status, updatedAt,
-    ...(status === 'published' ? { summary: session.summary, recordingUrl: session.recordingUrl ?? null } : {}) };
+    ...(status === 'published' ? { summary: publicSummary(session.summary), recordingUrl: session.recordingUrl ?? null } : {}) };
+}
+
+// Only validated article fields belong in the browser bundle.
+function publicSummary(summary) {
+  return {
+    overview: summary.overview,
+    keyTakeaways: summary.keyTakeaways.map(item => typeof item === 'string' ? item : {
+      ...(item.heading !== undefined ? { heading: item.heading } : {}),
+      explanation: item.explanation,
+    }),
+    ...(summary.detailedSummary !== undefined ? { detailedSummary: summary.detailedSummary.map(section => ({
+      heading: section.heading,
+      paragraphs: section.paragraphs,
+      ...(section.bullets !== undefined ? { bullets: section.bullets } : {}),
+    })) } : {}),
+    ...(summary.notableIdeas !== undefined ? { notableIdeas: summary.notableIdeas } : {}),
+    ...(summary.practicalApplications !== undefined ? { practicalApplications: summary.practicalApplications } : {}),
+  };
 }
 
 export function createContent(rawSessions, speakers, companies) {
