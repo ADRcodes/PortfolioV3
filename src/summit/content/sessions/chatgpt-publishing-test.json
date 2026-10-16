@@ -1,0 +1,32 @@
+{
+  "id": "session-chatgpt-publishing-test",
+  "slug": "chatgpt-publishing-test",
+  "title": "ChatGPT publishing pipeline test (demo)",
+  "date": "2026-10-19",
+  "startTime": "08:00",
+  "endTime": "08:20",
+  "location": "Test room (fictional)",
+  "description": "Fictional session created solely to verify that ChatGPT can add summit content directly to GitHub. This is not part of the real techNL Summit agenda.",
+  "speakerIds": [
+    "speaker-demo-jordan"
+  ],
+  "companyIds": [
+    "company-demo-labs"
+  ],
+  "status": "published",
+  "summary": {
+    "overview": "This is a demonstration of the content publishing pipeline, not a summary of an actual conference talk. It verifies that a new JSON file can be added remotely and rendered by the summit site after the branch is pulled.",
+    "keyTakeaways": [
+      "A standalone JSON file can represent a published session.",
+      "The site should discover new session files during its Vite build."
+    ],
+    "notableIdeas": [
+      "Test remote content publishing before relying on it at the conference."
+    ],
+    "practicalApplications": [
+      "Pull the updated feature branch and confirm this session is listed and its detail page loads."
+    ]
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-16T15:26:00Z"
+}
