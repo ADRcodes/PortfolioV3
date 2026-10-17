@@ -1,79 +1,77 @@
 {
   "id": "session-wills-ai-meetup-editorial-test",
   "slug": "wills-ai-meetup-editorial-test",
-  "title": "Will's AI Meetup: Model Distillation and Practical AI Demos (test article)",
+  "title": "Will's AI Meetup: Five AI Talks & Demos (test article)",
   "date": "2026-10-13",
   "startTime": "17:00",
   "endTime": "17:57",
   "location": "External AI meetup (test entry; not a techNL session)",
-  "description": "Editorial and publishing test using a real October 13 meetup recording, not techNL Summit 2026 programming. The displayed clock time is an illustrative placeholder because the actual session start time could not be verified.",
+  "description": "Editorial layout test based on a real October 13 AI meetup, not a techNL Summit session. The time shown is illustrative; the actual start time was not verified.",
   "speakerIds": [],
   "companyIds": [],
   "status": "published",
   "summary": {
-    "overview": "Will's AI Meetup combined a technical look at model distillation with demonstrations of AI-assisted software development. Will described an experiment in which a smaller language model learned from a larger one, comparing training on generated responses with training on the teacher's next-token probabilities. The discussion then shifted to a voice-driven workflow using ChatGPT and Google tools, locally generated speech, AI-assisted 3D game creation and a way to publish agent-built websites. Across these examples, a common theme emerged: generating plausible output is only the beginning. Evaluation, context hand-offs, resource limits and deployment constraints determine whether a prototype becomes genuinely useful.",
+    "overview": "This meetup combined five distinct topics, not one continuous presentation. Will opened with a technical walkthrough of model distillation and a local training experiment. Attendees then demonstrated a voice-first software workflow, local text-to-speech, AI-assisted 3D game creation and agent-friendly website publishing. Together, the examples showed both how accessible AI experimentation has become and where evaluation, context and infrastructure still matter.",
     "keyTakeaways": [
       {
-        "heading": "Distillation transfers behaviour, not guaranteed parity",
-        "explanation": "A smaller student model can learn from a larger teacher's example answers or from a richer distribution of predicted tokens. Those approaches offer different trade-offs, and neither guarantees that the student will match the teacher on new work. The intended task matters more than copying a benchmark curve."
+        "heading": "Better training metrics don't guarantee better answers",
+        "explanation": "In Will's local distillation experiment, learning a teacher model's probability distribution improved its training objective, but training on generated responses appeared to reproduce the teacher's written answers more closely."
       },
       {
-        "heading": "Judge the student on unseen tasks and actual responses",
-        "explanation": "Will described measuring a student before training, holding evaluation questions aside and comparing the results afterward. In his experiment, learning the teacher's probability distribution reduced a training metric, but response-based training more closely matched the teacher's written answers. Lower loss did not automatically mean better visible output."
+        "heading": "Shared context makes AI workflows more useful",
+        "explanation": "A voice-driven software demo used Google Sheets and Drive to carry tasks and design decisions between ChatGPT and coding tools, reducing the need to reconstruct earlier conversations."
       },
       {
-        "heading": "AI-generated prototypes still need dependable workflows",
-        "explanation": "Attendee demonstrations showed promising ways to connect voice conversations, shared documents, coding agents and publishing tools. They also exposed limits: usage budgets can interrupt long tasks, game-building agents can mishandle scale and spatial layout, and a hosted app may still depend on unsupported background processes."
+        "heading": "A working AI demo is not a finished product",
+        "explanation": "Local speech, game creation and website publishing all looked promising, but each exposed practical constraints—from spatial consistency to long-running backend requirements."
       }
     ],
     "detailedSummary": [
       {
-        "heading": "Two ways to distil a larger model",
+        "heading": "01 · Model distillation — Will's technical presentation",
         "paragraphs": [
-          "Will introduced distillation as a teacher–student training process. A capable teacher model answers carefully selected prompts; a smaller student is then trained to reproduce useful parts of that behaviour. Response distillation uses the teacher's generated text as training examples. Probability-based distillation instead tries to match the teacher's distribution over possible next tokens (often called logits before they are converted to probabilities). That richer signal shows not only what the teacher chose, but which alternatives it considered more or less likely.",
-          "The approaches have different practical requirements. Generated text can be collected from an accessible model interface, subject to its terms, while probability-based methods generally need access to model internals and compatible token representations. Will also distinguished legitimate use of distillation to make one's own models cheaper to run from attempts to replicate a provider's proprietary system without permission."
-        ]
-      },
-      {
-        "heading": "A local teacher–student experiment",
-        "paragraphs": [
-          "For a hands-on example, Will described using an approximately 27-billion-parameter teacher and a 9-billion-parameter student running locally, with a compatible tokenizer. His workflow began by writing prompts that reflect the skill being learned, such as producing tool calls or following a particular response style. Teacher responses or token probabilities become training material. He recommended evaluating the unmodified student first and keeping a separate set of questions out of training so there is a meaningful comparison afterward.",
-          "He compared training on text responses with training on token probabilities, including discussion of fine-tuning and low-rank adapters that change a smaller set of parameters. Both training curves improved by their respective loss measures. The important qualification was that the probability-trained student did not necessarily produce closer written answers in this particular comparison; training on responses appeared to do better for that objective. This was an illustrative local experiment, not evidence that one method is universally superior."
+          "Can a smaller model learn useful behaviour from a larger one? Will compared two training signals. Response distillation teaches a student using the teacher's generated text; probability-based distillation uses its probabilities for possible next tokens. The latter offers richer information but generally requires compatible tokenizers and access to probability outputs.",
+          "For a local experiment, Will described an approximately 27-billion-parameter teacher and 9-billion-parameter student. He generated task-focused examples, evaluated the untouched student and reserved unseen questions for comparison. His key observation was that lower loss when matching probabilities did not necessarily translate into answers that sounded more like the teacher's. For that goal, training on text responses appeared more effective in his test—not a universal verdict on either method."
         ],
         "bullets": [
-          "Define the behaviour being transferred before generating training prompts.",
-          "Reserve unseen questions for evaluation rather than measuring only on training examples.",
-          "Compare the outputs people actually need, not just a declining loss curve."
+          "Response training: imitate the teacher's written output.",
+          "Probability training: imitate its next-token probability distribution.",
+          "The practical test: compare answers on held-out prompts, not loss curves alone."
         ]
       },
       {
-        "heading": "Turning voice conversations into development hand-offs",
+        "heading": "02 · Voice-first software development — attendee demo",
         "paragraphs": [
-          "An attendee showed an early-stage to-do application connected to a broader experiment in voice-first development. The idea was to use ChatGPT conversations to capture tasks and reason through software architecture, then write structured information into Google Sheets or project documents in Google Drive. A coding agent could use those documents as a starting specification, avoiding the need to reconstruct a long conversational design discussion before implementation.",
-          "The demo was explicitly described as rough and exploratory. Participants discussed the convenience of a shared information layer as well as the limitations of using documents instead of a proper code repository, including version control and synchronization. There was also discussion of reasoning-model usage limits: a lengthy design task could consume a large share of an available window. The proposed workflow was therefore as much about allocating tools and compute sensibly as about voice input."
+          "An attendee demonstrated an early-stage to-do app connected to ChatGPT Voice. The proposed workflow captured tasks and software-design decisions during conversations, stored them in Google Sheets or Drive and made that material available to coding agents. It aimed to turn planning done away from a keyboard into useful project documentation.",
+          "The demo was exploratory. The group discussed version control and data synchronization as limitations of a document-based hand-off, plus an anecdote about a long design task consuming a reasoning-model usage allowance. The takeaway was a workflow worth testing, not a completed replacement for a code repository."
         ]
       },
       {
-        "heading": "Local speech generation and 3D game experiments",
+        "heading": "03 · Local AI speech — attendee demo",
         "paragraphs": [
-          "A local text-to-speech demonstration played several generated voices and an AI radio-style sequence combining narration with music. The model name was imperfectly transcribed; the description and stated release timing are consistent with Breeze TTS 2. The presenter saw local generation as an alternative for repeated narration work, but the meeting did not include a controlled comparison against a hosted speech service.",
-          "Another participant demonstrated AI-assisted game prototyping using tool connections to 3D software. The prototype could generate or place assets and respond to commands, yet the presenter highlighted weak spatial judgment: object scale, proportions and scene placement could be implausible even when individual instructions were followed. The discussion distinguished a quick proof of concept from a game that feels coherent to play."
+          "A presenter played locally generated voices and a radio-style audio example. The appeal was generating narration repeatedly without sending every request to a hosted speech service—for example, when producing course material. The group heard examples but did not run a controlled quality or cost comparison."
         ]
       },
       {
-        "heading": "Publishing an agent-built site is easier than operating every backend",
+        "heading": "04 · AI-assisted 3D games — attendee demo",
         "paragraphs": [
-          "The final demonstration explored an agent-friendly web-publishing service, apparently Spacefast, that can make a site accessible without manually configuring every hosting component. The presenter showed deployment history, a database interface and the idea of letting an agent consult platform documentation before publishing. This was a demonstration of the workflow, not an independent assessment of the service's capabilities.",
-          "Participants also identified a boundary that simple publishing does not remove: an application depending on continuous crawling or other persistent background jobs may need a different execution environment. The practical lesson was to ask what a project actually requires—static assets, request-driven functions, database storage or a long-running process—before assuming a one-step deployment tool can host all of it."
+          "Another participant showed a game prototype built with AI and tools connected to a 3D workflow. The agent could follow requests and produce objects, but it struggled to judge whether their sizes, positions and surroundings made sense together. The demonstration made a useful distinction: command-following can create a scene quickly, while convincing game design still needs spatial judgment and iteration."
+        ]
+      },
+      {
+        "heading": "05 · Agent-friendly web publishing — attendee demo",
+        "paragraphs": [
+          "The final demo explored a platform intended to let coding agents publish sites and manage supporting services with less manual configuration. Participants discussed deployment history, database access and how agents could consult documentation to understand the platform.",
+          "A limitation emerged around persistent work. Publishing a site is not the same as running a continuous crawler or other long-lived process. Before choosing a hosting tool, developers still need to distinguish static pages, request-driven functions, databases and background services."
         ]
       }
     ],
     "practicalApplications": [
-      "Editorial interpretation: When evaluating a distilled model, keep a held-out test set and inspect real outputs alongside training metrics.",
-      "Editorial interpretation: For voice-driven software projects, make decisions and requirements available in versioned, reusable documents rather than depending on one long chat.",
-      "Editorial interpretation: Before publishing an AI-built app, identify which parts require persistent background execution and which can run on a static or request-driven platform."
+      "Editorial interpretation: Evaluate model distillation with held-out examples and real responses, not training curves alone.",
+      "Editorial interpretation: Use shared project documentation for AI hand-offs, but retain proper source control.",
+      "Editorial interpretation: Match hosting infrastructure to the background work an application actually needs."
     ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-16T19:14:19.783Z"
+  "updatedAt": "2026-10-17T20:34:36.869Z"
 }
