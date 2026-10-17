@@ -100,3 +100,54 @@ test('the complete editorial-guide example matches the implemented schema', () =
   assert.equal(example.summary.keyTakeaways.length, 3);
   assert.ok(example.summary.detailedSummary.length >= 3);
 });
+
+const multipartSummary = {
+  ...structuredSummary,
+  highlightedInsight: { explanation: 'A session-wide observation.' },
+  presentations: [
+    { title: 'First demo', speakerIds: [], explanation: 'A concise explanation.',
+      sections: [{ heading: 'Evidence', paragraphs: ['Observed result.'], bullets: ['A qualification.'] }],
+      highlightedInsight: { heading: 'Important result', explanation: 'A qualified finding.' } },
+    { title: 'Short demo', explanation: 'This presentation needs no extra sections.' },
+  ],
+};
+
+test('multi-presentation articles preserve optional sections and filter nested unknown fields', () => {
+  const session = { ...published, summary: multipartSummary };
+  validateSession(session);
+  assert.deepEqual(publicSession(session).summary, multipartSummary);
+  const changed = structuredClone(session);
+  changed.summary.presentations[0].privateNotes = 'Private';
+  changed.summary.presentations[0].sections[0].transcript = 'Private';
+  changed.summary.presentations[0].highlightedInsight.privateNotes = 'Private';
+  changed.summary.highlightedInsight.privateNotes = 'Private';
+  assert.deepEqual(publicSession(changed).summary, multipartSummary);
+  assert.equal(publicSession({ ...session, status: 'draft' }), null);
+  assert.equal('summary' in publicSession({ ...session, status: 'upcoming' }), false);
+});
+
+test('multi-presentation validation identifies malformed sections, insights and speaker references', () => {
+  const cases = [
+    [{ presentations: null }, 'presentations'],
+    [{ presentations: [null] }, 'presentations[0].title'],
+    [{ presentations: [{ title: 'Title', explanation: '' }] }, 'presentations[0].explanation'],
+    [{ presentations: [{ title: 'Title', explanation: 'Text', speakerIds: ['missing'] }] }, 'presentations[0].speakerIds'],
+    [{ presentations: [{ title: 'Title', explanation: 'Text', sections: [{ heading: 'Heading', paragraphs: [] }] }] }, 'presentations[0].sections[0].paragraphs'],
+    [{ presentations: [{ title: 'Title', explanation: 'Text', highlightedInsight: null }] }, 'presentations[0].highlightedInsight.explanation'],
+    [{ highlightedInsight: { heading: '', explanation: 'Text' } }, 'highlightedInsight.heading'],
+  ];
+  for (const [change, path] of cases) assert.throws(() => validateSession({ ...published, summary: { ...multipartSummary, ...change } }), error => error.message.includes(published.id) && error.message.includes(`summary.${path}`));
+  const speaker = { id: 'known', slug: 'known', name: 'Known speaker', description: 'Description', companyIds: [], urls: [] };
+  const session = { ...published, speakerIds: ['known'], summary: { ...structuredSummary, presentations: [{ title: 'Title', explanation: 'Text', speakerIds: ['known'] }] } };
+  validateSession(session);
+  createContent([session], [speaker], []);
+  assert.throws(() => createContent([session], [], []), /unknown speaker reference/);
+});
+
+test('Will’s migration retains five presentations and the revised source wording', () => {
+  const session = sessions.find(item => item.slug === 'wills-ai-meetup-editorial-test');
+  assert.equal(session.summary.presentations.length, 5);
+  assert.ok(session.summary.presentations[0].highlightedInsight.explanation.includes('local experiment'));
+  assert.ok(session.summary.presentations.every(item => !item.speakerIds?.length));
+  assert.ok(!session.summary.detailedSummary);
+});

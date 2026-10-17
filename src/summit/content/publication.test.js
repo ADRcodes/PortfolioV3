@@ -25,6 +25,11 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
       detailedSummary: [{ heading: `${marker} section`, paragraphs: [`${marker} paragraph`], bullets: [`${marker} bullet`] }],
       notableIdeas: [`${marker} notable`],
       practicalApplications: [`${marker} application`],
+      highlightedInsight: { explanation: `${marker} session insight` },
+      presentations: [{ title: `${marker} presentation`, explanation: `${marker} presentation explanation`,
+        sections: [{ heading: `${marker} presentation section`, paragraphs: [`${marker} presentation paragraph`], bullets: [`${marker} presentation bullet`] }],
+        highlightedInsight: { heading: `${marker} insight heading`, explanation: `${marker} insight explanation` },
+      }],
     });
     for (const status of ['published', 'draft', 'upcoming']) {
       const marker = `${status}-${token}`;
@@ -40,7 +45,7 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
     }
     await build({ logLevel: 'silent', build: { outDir: output, emptyOutDir: true } });
     const built = await outputText(output);
-    for (const field of ['overview', 'heading', 'explanation', 'section', 'paragraph', 'bullet', 'notable', 'application']) {
+    for (const field of ['overview', 'heading', 'explanation', 'section', 'paragraph', 'bullet', 'notable', 'application', 'session insight', 'presentation', 'presentation explanation', 'presentation section', 'presentation paragraph', 'presentation bullet', 'insight heading', 'insight explanation']) {
       assert.ok(built.includes(`published-${token} ${field}`), `Missing automatically discovered ${field}`);
       for (const status of ['draft', 'upcoming']) assert.ok(!built.includes(`${status}-${token} ${field}`), `${status} ${field} leaked`);
     }

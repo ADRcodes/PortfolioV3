@@ -39,13 +39,30 @@ export function validateSession(session) {
   for (const key of ['notableIdeas', 'practicalApplications']) {
     if (summary[key] !== undefined && !strings(summary[key])) invalid(key, 'must be an array of nonempty strings when supplied');
   }
-  if (summary.detailedSummary !== undefined) {
-    if (!Array.isArray(summary.detailedSummary)) invalid('detailedSummary', 'must be an array when supplied');
-    summary.detailedSummary.forEach((section, index) => {
-      const field = `detailedSummary[${index}]`;
+  const sections = (value, path) => {
+    if (!Array.isArray(value)) invalid(path, 'must be an array when supplied');
+    value.forEach((section, index) => {
+      const field = `${path}[${index}]`;
       if (!section || !text(section.heading)) invalid(`${field}.heading`, 'must be a nonempty string');
       if (!strings(section.paragraphs) || !section.paragraphs.length) invalid(`${field}.paragraphs`, 'must contain at least one nonempty paragraph');
       if (section.bullets !== undefined && !strings(section.bullets)) invalid(`${field}.bullets`, 'must be an array of nonempty strings when supplied');
+    });
+  };
+  const insight = (value, path) => {
+    if (!value || !text(value.explanation)) invalid(`${path}.explanation`, 'must be a nonempty string');
+    if (value.heading !== undefined && !text(value.heading)) invalid(`${path}.heading`, 'must be a nonempty string when supplied');
+  };
+  if (summary.detailedSummary !== undefined) sections(summary.detailedSummary, 'detailedSummary');
+  if (summary.highlightedInsight !== undefined) insight(summary.highlightedInsight, 'highlightedInsight');
+  if (summary.presentations !== undefined) {
+    if (!Array.isArray(summary.presentations)) invalid('presentations', 'must be an array when supplied');
+    summary.presentations.forEach((presentation, index) => {
+      const path = `presentations[${index}]`;
+      if (!presentation || !text(presentation.title)) invalid(`${path}.title`, 'must be a nonempty string');
+      if (!text(presentation.explanation)) invalid(`${path}.explanation`, 'must be a nonempty string');
+      if (presentation.speakerIds !== undefined && (!strings(presentation.speakerIds) || presentation.speakerIds.some(id => !session.speakerIds.includes(id)))) invalid(`${path}.speakerIds`, 'must reference speakers also listed in the session speakerIds');
+      if (presentation.sections !== undefined) sections(presentation.sections, `${path}.sections`);
+      if (presentation.highlightedInsight !== undefined) insight(presentation.highlightedInsight, `${path}.highlightedInsight`);
     });
   }
   if (session.status === 'published' && (!text(session.summary.overview) || !session.summary.keyTakeaways.length)) fail(`published session ${session.id} requires an overview and takeaways`);
@@ -63,16 +80,22 @@ export function publicSession(session) {
 
 // Only validated article fields belong in the browser bundle.
 function publicSummary(summary) {
+  const sectionFields = section => ({ heading: section.heading, paragraphs: section.paragraphs, ...(section.bullets !== undefined ? { bullets: section.bullets } : {}) });
+  const insightFields = insight => ({ ...(insight.heading !== undefined ? { heading: insight.heading } : {}), explanation: insight.explanation });
   return {
     overview: summary.overview,
     keyTakeaways: summary.keyTakeaways.map(item => typeof item === 'string' ? item : {
       ...(item.heading !== undefined ? { heading: item.heading } : {}),
       explanation: item.explanation,
     }),
-    ...(summary.detailedSummary !== undefined ? { detailedSummary: summary.detailedSummary.map(section => ({
-      heading: section.heading,
-      paragraphs: section.paragraphs,
-      ...(section.bullets !== undefined ? { bullets: section.bullets } : {}),
+    ...(summary.detailedSummary !== undefined ? { detailedSummary: summary.detailedSummary.map(sectionFields) } : {}),
+    ...(summary.highlightedInsight !== undefined ? { highlightedInsight: insightFields(summary.highlightedInsight) } : {}),
+    ...(summary.presentations !== undefined ? { presentations: summary.presentations.map(presentation => ({
+      title: presentation.title,
+      explanation: presentation.explanation,
+      ...(presentation.speakerIds !== undefined ? { speakerIds: presentation.speakerIds } : {}),
+      ...(presentation.sections !== undefined ? { sections: presentation.sections.map(sectionFields) } : {}),
+      ...(presentation.highlightedInsight !== undefined ? { highlightedInsight: insightFields(presentation.highlightedInsight) } : {}),
     })) } : {}),
     ...(summary.notableIdeas !== undefined ? { notableIdeas: summary.notableIdeas } : {}),
     ...(summary.practicalApplications !== undefined ? { practicalApplications: summary.practicalApplications } : {}),

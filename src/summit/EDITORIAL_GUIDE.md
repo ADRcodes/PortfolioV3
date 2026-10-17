@@ -1,6 +1,6 @@
 # techNL Summit Editorial Guide
 
-**Status:** Approved editorial direction and implemented article schema, 16 October 2026. This guide is the source of truth for session publishing. Launch has not been confirmed; development remains on `codex/technl-summit-foundation`.
+**Status:** Approved editorial direction and implemented article schema, 17 October 2026. This guide is the source of truth for session publishing. Launch has not been confirmed; development remains on `codex/technl-summit-foundation`.
 
 ## 1. Purpose and scope
 
@@ -119,6 +119,8 @@ The implemented `summary` contract is:
 | `overview` | Required string; nonempty for published sessions. |
 | `keyTakeaways` | Required array of legacy nonempty strings and/or objects with required nonempty `explanation` and optional nonempty `heading`. Published sessions need at least one; aim editorially for three, not a rigid validator quota. Use `explanation`, not the earlier draft proposal's `text`. |
 | `detailedSummary` | Optional array of sections. Each has a required nonempty `heading`, required `paragraphs` array containing at least one nonempty string, and optional `bullets` array of nonempty strings. |
+| `presentations` | Optional ordered array of distinct presentations. Each requires nonempty `title` and `explanation`; optional `speakerIds`, `sections` and `highlightedInsight` are described below. |
+| `highlightedInsight` | Optional object with required nonempty `explanation` and optional nonempty `heading`. Supported at summary level and within a presentation. |
 | `notableIdeas` | Optional array of nonempty strings. Displayed as “Notable insights.” |
 | `practicalApplications` | Optional array of nonempty strings. Label editorial interpretations explicitly. |
 
@@ -167,11 +169,11 @@ Revisit the affected source passage, correct only what is wrong, preserve unrela
 
 ## 10. Implemented rendering and compatibility
 
-Reading order is fixed: session title/metadata and description → quick overview → key takeaways → detailed summary → optional notable insights → optional practical applications → speaker/company information. Source recording links, when approved and present, follow article content. JSON object key order does not control layout.
+Reading order is fixed: session title/metadata and description → quick overview → presentation index (when there is more than one) → key takeaways → optional session insight → numbered presentations (when supplied) → detailed summary (when supplied) → optional notable insights → optional practical applications. Speaker/company links remain in the session metadata and may also identify individual presentations. Source recording links, when approved and present, follow article content. JSON object key order does not control layout.
 
 Legacy string takeaways render as text. Structured takeaways render a heading when supplied and the explanation beneath it. Missing/empty detailed summaries, notable ideas and practical applications produce no empty headings or placeholder copy. Existing legacy sessions require no migration. Do not rewrite them automatically.
 
-The validator reports the session ID and field path for malformed article content. The publication projection excludes entire draft sessions and omits all summary/source fields from upcoming sessions, including the new detailed summary. Rendering never decides whether private content belongs in a bundle; that exclusion happens before bundling. The single Vite build, automatic file discovery and GitHub Actions workflow are unchanged.
+The validator reports the session ID and field path for malformed article content. The publication projection excludes entire draft sessions and omits all summary/source fields from upcoming sessions, including detailed summaries, presentations, nested speaker references and highlighted insights. Rendering never decides whether private content belongs in a bundle; that exclusion happens before bundling. The single Vite build, automatic file discovery and GitHub Actions workflow are unchanged.
 
 Tests cover mixed legacy/structured takeaways, paragraph/bullet ordering, optional sections, invalid data, HTML escaping and a real build with temporary published/draft/upcoming fixtures. The production-asset test creates and removes its own temporary session files and temporary output directory; run the documented test command serially. No new runtime dependencies or external content services are required.
 
@@ -186,6 +188,53 @@ Tests cover mixed legacy/structured takeaways, paragraph/bullet ordering, option
 - [ ] Ran available tests/build and checked rendering; recorded any checks that could not be run.
 - [ ] Reviewed only the intended session diff against the latest remote file; committed to the authorized branch.
 - [ ] Verified GitHub commit/contents and, for production publication, exact Actions run and live page; reported results accurately.
+
+## Multi-presentation sessions
+
+Use `summary.presentations` when a single session contains distinct talks or demonstrations with their own subjects, such as a meetup or a lightning-talk programme. A panel with several speakers discussing one topic normally remains a single article using `detailedSummary`. Do not convert every topical section into a presentation.
+
+Each presentation supports:
+
+- `title`: required nonempty string. Use a descriptive title without a manual number; the site supplies numbering.
+- `explanation`: required nonempty string introducing what was presented. A brief demo can consist of this alone.
+- `speakerIds`: optional array of existing speaker IDs. Every ID must also appear in the session’s top-level `speakerIds`, which drives profile/session relationships. Omit or use `[]` if the speaker is unknown. A name mentioned in prose does not justify inventing a profile or attribution.
+- `sections`: optional array using exactly the same `{ heading, paragraphs, bullets? }` structure and validation as `detailedSummary`. Vary section count and depth to fit the material.
+- `highlightedInsight`: optional `{ heading?, explanation }` object for an especially important, supported finding. Preserve qualifications and distinguish a local experiment from a general conclusion. The same object is supported directly under `summary` for a session-wide finding. Use it sparingly and avoid duplicating a long passage.
+
+The article supplies an overview index linking to each presentation when there is more than one. Numbered headings and separators make the boundaries visible; all content is expanded. Array order determines presentation order. Numbers, anchor IDs and layout are generated by the renderer and do not belong in JSON. The explanation appears first, followed by an optional highlighted insight and then any detailed sections. A session-level highlight follows the takeaways.
+
+Keep `detailedSummary` for normal single-presentation articles. For a multi-presentation article, omit it unless genuinely shared background needs a separate final section; do not duplicate presentation content there. Empty optional arrays produce no empty headings. All new text is plain text and escaped; HTML and Markdown are not interpreted. Publication filtering applies recursively, including unknown-field removal from presentations, sections and insights.
+
+Example `summary` for a fictional two-part session (replace with transcript-supported writing):
+
+```json
+{
+  "overview": "Two demonstrations compared model evaluation and software hand-offs.",
+  "keyTakeaways": [
+    { "heading": "Test the output you need", "explanation": "The experiment separated a training metric from the quality of answers." }
+  ],
+  "presentations": [
+    {
+      "title": "Comparing model-training approaches",
+      "speakerIds": [],
+      "explanation": "A presenter compared two training approaches on a local task.",
+      "highlightedInsight": {
+        "heading": "A lower metric was not sufficient",
+        "explanation": "In this example, an improved training metric did not guarantee answers closer to the target. This is an illustrative result, not a universal conclusion."
+      },
+      "sections": [
+        { "heading": "Evaluation method", "paragraphs": ["Unseen examples were reserved for comparison."], "bullets": ["Compare actual responses alongside metrics."] }
+      ]
+    },
+    {
+      "title": "Sharing project context",
+      "explanation": "A short demo showed how project notes could support a hand-off between tools."
+    }
+  ]
+}
+```
+
+Existing content requires no migration. When migrating an approved article, preserve its writing and caveats; reorganize paragraphs without introducing identities or unsupported facts. Keep schedule metadata unless the owner explicitly requests a correction.
 
 ## Complete JSON reference
 
