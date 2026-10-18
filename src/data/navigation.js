@@ -5,6 +5,7 @@ export const navigationItems = [
   { label: "Playground", path: "/playground" },
   { label: "About", path: "/about" },
   { label: "Contact", path: "/contact" },
+  { label: "Summit 2026", path: "/technlsummit", featured: true },
 ];
 
 export const contactLinks = [

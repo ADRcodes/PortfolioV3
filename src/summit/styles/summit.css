@@ -456,6 +456,89 @@ html[data-summit-transition]::view-transition-old(summit-back):only-child { anim
   .summit-app .summit-profile-people { grid-template-columns: 1fr; }
   .summit-app .summit-note-signature { font-size: 1.375rem; }
 }
+/* October 18 visual refinement: semantic programme hooks. */
+.summit-app .is-compact .summit-speaker-companies { display: flex; margin-top: .125rem; }
+.summit-app .summit-event-details { flex-basis: 100%; margin: 0; color: #d4ddd6; font-size: 1rem; }
+.summit-app .summit-explore-agenda { gap: 1rem; min-height: 52px; padding: .5rem 0; color: var(--summit-accent); font-size: 1.25rem; }
+.summit-app .summit-explore-agenda svg { transition: transform .35s var(--summit-ease); }
+.summit-app .summit-explore-agenda:hover svg { transform: translateY(4px); }
+.summit-app .summit-agenda-filters { display: flex; flex-wrap: wrap; gap: .5rem; padding-top: 2rem; border-top: 1px solid #899996; scroll-margin-top: calc(var(--summit-header-height) + 1rem); }
+.summit-app .summit-agenda-filters button { min-height: 48px; padding: .6rem 1.125rem; border: 1px solid #899996; color: #f0eee5; font-size: 1rem; transition: background .25s, color .25s; }
+.summit-app .summit-agenda-filters button:hover { background: #4b6160; }
+.summit-app .summit-agenda-filters button[aria-pressed="true"] { color: var(--summit-ink); background: var(--summit-accent); border-color: var(--summit-accent); }
+.summit-app .summit-filter-status { color: #d4ddd6; font-size: .9375rem; margin-block: .75rem 2rem; }
+.summit-app .summit-agenda-feed:has(> .summit-empty) .summit-agenda-end { margin: 0; padding: 0; }
+.summit-app .summit-agenda-feed:has(> .summit-empty) .summit-agenda-end > :is(p, span) { display: none; }
+.summit-app .summit-agenda-feed:has(> .summit-empty) .summit-agenda-end button { margin-top: 1rem; }
+.summit-app .summit-timing { white-space: nowrap; }
+.summit-app .summit-card-publication { flex-wrap: wrap; justify-content: flex-end; gap: .3rem .75rem; text-align: right; }
+.summit-app .summit-session-card[data-event-type="panel"] .summit-card-publication::before { content: 'Panel'; font-weight: 600; }
+.summit-app .summit-session-card[data-event-type="workshop"] .summit-card-publication::before { content: 'Workshop'; font-weight: 600; }
+.summit-app .summit-session-card[data-event-type="panel"] .summit-session-surface { background: #d5ded5; }
+.summit-app .summit-session-card[data-event-type="workshop"] .summit-session-surface { background: #e9c8a9; }
+.summit-app .summit-session-card:is([data-event-type="break"], [data-event-type="registration"], [data-event-type="activity"]) { padding: 1.125rem 2rem; border-block: 1px solid #899996; color: #f0eee5; }
+.summit-app .summit-session-card:is([data-event-type="break"], [data-event-type="registration"], [data-event-type="activity"]) .summit-session-surface { background: var(--summit-bg); }
+.summit-app .summit-session-card:is([data-event-type="break"], [data-event-type="registration"], [data-event-type="activity"]) h3 { max-width: 46ch; margin-bottom: .75rem; font-size: clamp(1.4rem, 2vw, 1.875rem); line-height: 1.15; }
+.summit-app .summit-session-card:is([data-event-type="break"], [data-event-type="registration"], [data-event-type="activity"]) :is(.summit-card-publication, .summit-fact-label, .summit-session-place, .summit-speaker-companies) { color: #d4ddd6; }
+.summit-app .summit-session-card[data-event-type="networking"] .summit-session-surface { background: #293b3b; }
+.summit-app .summit-session-card[data-event-type="networking"] { color: var(--summit-accent); padding-block: 2rem; }
+.summit-app .summit-session-card[data-event-type="networking"] :is(.summit-card-publication, .summit-fact-label, .summit-session-place, .summit-speaker-companies) { color: #d4ddd6; }
+.summit-app .summit-session-card[data-event-type="panel"]:hover .summit-session-surface { background: #e3e9e0; }
+.summit-app .summit-session-card[data-event-type="workshop"]:hover .summit-session-surface { background: #f1d4b8; }
+.summit-app .summit-session-card[data-event-type="networking"]:hover .summit-session-surface { background: #243434; }
+.summit-app .summit-session-card:is([data-event-type="break"], [data-event-type="registration"], [data-event-type="activity"]):hover .summit-session-surface { background: #405656; }
+.summit-app .summit-recent-summaries { margin: 0 0 4rem; padding-top: 2.5rem; }
+.summit-app .summit-recent-summaries > h2 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 2rem; }
+.summit-app .summit-recent-list { display: grid; grid-template-columns: 1.35fr 1fr; gap: 0 2.5rem; margin: 0; padding: 0; list-style: none; }
+.summit-app .summit-recent-item { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; padding-block: 1.5rem; border-top: 1px solid #899996; }
+.summit-app .summit-recent-item:first-child { grid-row: span 2; align-self: start; margin-right: 1rem; padding: clamp(1.5rem, 3vw, 3rem); color: var(--summit-ink); background: var(--summit-surface); border: 0; }
+.summit-app .summit-recent-item h3 { font-size: clamp(1.625rem, 2.5vw, 2.25rem); line-height: 1.1; margin: 0 0 1rem; }
+.summit-app .summit-recent-item:first-child h3 { font-size: clamp(2rem, 3.5vw, 3.5rem); }
+.summit-app .summit-recent-item h3 a:hover { text-decoration: underline; text-decoration-thickness: 1px; }
+.summit-app .summit-recent-speakers { font-weight: 600; font-size: 1rem; }
+.summit-app .summit-recent-date { font-size: .875rem; color: #d4ddd6; }
+.summit-app .summit-recent-item:first-child .summit-recent-date { color: var(--summit-muted); }
+.summit-app .summit-recent-excerpt { font-size: 1rem; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.summit-app .summit-recent-item:first-child .summit-recent-excerpt { font-size: 1.125rem; -webkit-line-clamp: 5; }
+.summit-app .summit-recent-link { display: inline-flex; align-items: center; min-height: 44px; gap: 1rem; margin-top: .75rem; font-size: 1rem; text-decoration: underline; text-decoration-thickness: 1px; }
+.summit-app .summit-recent-link::after { content: '↗'; text-decoration: none; }
+.summit-app .summit-directory-search { width: min(45%, 32rem); margin: -5.5rem 0 1.5rem auto; }
+.summit-app .summit-directory-search label { display: block; margin-bottom: .5rem; font-size: 1rem; }
+.summit-app .summit-directory-search input { width: 100%; min-height: 52px; border: 1px solid #a1afaa; border-radius: 0; padding: .6rem 1rem; background: #304242; color: #f0eee5; appearance: auto; color-scheme: dark; }
+.summit-app .summit-directory-search input:focus-visible { outline: 2px solid var(--summit-accent); outline-offset: 3px; box-shadow: none; }
+.summit-app .summit-search-status { margin: .5rem 0 0; min-height: 1.5rem; font-size: .875rem; color: #d4ddd6; }
+.summit-app .summit-session-share { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem 1rem; padding-block: .75rem; border-bottom: 1px solid #b5b5ac; }
+.summit-app .summit-share-button { display: inline-flex; align-items: center; gap: .65rem; min-height: 44px; padding: .5rem .75rem; border: 1px solid #75776e; background: transparent; color: var(--summit-ink); font-size: 1rem; transition: background .25s; }
+.summit-app .summit-share-button:hover { background: #d1d6ca; }
+.summit-app .summit-share-feedback { margin: 0; color: var(--summit-muted); font-size: .9375rem; }
+.summit-app [data-share-state="copied"] .summit-share-button, .summit-app [data-share-state="shared"] .summit-share-button { background: #c8d9c5; border-color: #3a573b; }
+.summit-app .summit-share-fallback { display: block; width: 100%; font-size: .9375rem; }
+.summit-app .summit-share-fallback input { display: block; width: 100%; min-height: 48px; padding: .5rem; margin-top: .5rem; border: 1px solid #75776e; border-radius: 0; color: var(--summit-ink); background: #f0eee5; }
+.summit-app .summit-current-options { padding-block: 2rem; border-top: 1px solid #899996; }
+.summit-app .summit-current-options h2 { color: var(--summit-accent); }
+.summit-app .summit-current-options ul { display: flex; flex-wrap: wrap; gap: .75rem; list-style: none; padding: 0; }
+.summit-app .summit-current-options button { min-height: 48px; padding: .65rem 1rem; border: 1px solid #899996; text-align: left; }
+.summit-app .summit-current-options button:hover { background: #4b6160; }
+@media (max-width: 60rem) {
+  .summit-app .summit-directory-search { width: min(100%, 32rem); margin: 0 0 1rem; }
+}
+@media (max-width: 40rem) {
+  .summit-app .summit-event-details { font-size: .9375rem; max-width: 28ch; }
+  .summit-app .summit-explore-agenda { font-size: 1.125rem; }
+  .summit-app .summit-agenda-filters { gap: .5rem; padding-top: 1.5rem; }
+  .summit-app .summit-agenda-filters button { flex: 1; padding-inline: .75rem; white-space: nowrap; }
+  .summit-app .summit-card-top { gap: .5rem; font-size: .8125rem; }
+  .summit-app .summit-session-card:is([data-event-type="break"], [data-event-type="registration"], [data-event-type="activity"]) { padding: 1rem; }
+  .summit-app .summit-session-card[data-event-type="networking"] { padding-block: 1.5rem; }
+  .summit-app .summit-recent-summaries { margin-bottom: 2.5rem; padding-top: 1.5rem; }
+  .summit-app .summit-recent-list { grid-template-columns: 1fr; gap: 1.5rem; }
+  .summit-app .summit-recent-item:first-child { grid-row: auto; margin: 0; }
+  .summit-app .summit-recent-item { padding-block: 1.25rem; }
+  .summit-app .summit-recent-item:first-child h3 { font-size: 2rem; }
+  .summit-app .summit-recent-item:first-child .summit-recent-excerpt { font-size: 1rem; -webkit-line-clamp: 3; }
+  .summit-app .summit-session-share { align-items: flex-start; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .summit-app *, .summit-app *::before, .summit-app *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   html[data-summit-transition]::view-transition-group(*), html[data-summit-transition]::view-transition-old(*), html[data-summit-transition]::view-transition-new(*) { animation: none !important; }

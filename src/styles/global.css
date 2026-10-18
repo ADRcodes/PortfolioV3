@@ -1,5 +1,33 @@
 @import "tailwindcss";
 
+/* A current project, set as a quiet typographic postscript to the home intro. */
+.home-summit-feature {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  width: min(100%, 29rem);
+  padding-block: 1.125rem .5rem;
+  border-top: 1px solid var(--color-line);
+  color: var(--color-ink);
+  text-align: left;
+}
+.home-summit-context { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1rem; color: var(--color-ink-soft); font-size: .8125rem; }
+.home-summit-title { display: flex; align-items: baseline; gap: .25em; font-size: clamp(1.5rem, 5vw, 2rem); font-weight: 600; letter-spacing: -.035em; line-height: 1.2; }
+.home-summit-title > span:first-child { color: var(--color-moss-dark); }
+.home-summit-arrow { margin-left: auto; color: var(--color-moss-dark); transition: transform .3s ease; }
+.home-summit-action { display: flex; align-items: center; gap: .75rem; min-height: 32px; font-size: .875rem; color: var(--color-ink-soft); }
+.home-summit-feature:hover .home-summit-action { color: var(--color-ink); text-decoration: underline; text-underline-offset: .25em; }
+.home-summit-feature:hover .home-summit-arrow { transform: translate(3px, -3px); }
+.home-summit-feature:focus-visible { outline: 2px solid var(--color-moss-dark); outline-offset: 7px; box-shadow: none; }
+.portfolio-nav-link { display: flex; align-items: center; gap: .5rem; min-height: 44px; white-space: nowrap; }
+.portfolio-nav-link.is-featured { background: #efbc92; color: #1f2a24; }
+.portfolio-nav-link.is-featured:hover { background: #f5caaa; }
+.portfolio-feature-dot { width: 5px; height: 5px; flex-shrink: 0; border-radius: 50%; background: currentColor; }
+@media (prefers-reduced-motion: reduce) {
+  .home-summit-arrow { transition: none; }
+  .home-summit-feature:hover .home-summit-arrow { transform: none; }
+}
+
 @theme {
   --font-sans:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
