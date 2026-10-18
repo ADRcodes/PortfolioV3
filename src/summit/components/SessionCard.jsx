@@ -2,17 +2,18 @@ import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router';
 import { summitPath } from '../routing/paths.js';
 import { sessionTiming } from '../lib/agenda.js';
+import { publicationLabel } from '../lib/programme.js';
 import SessionFacts from './SessionFacts.jsx';
 
 export default function SessionCard({ session, clock, highlighted = false, agenda = false }) {
   const timing = sessionTiming(session, clock);
-  return <article className={`summit-session-card${highlighted ? ' is-next' : ''}`} data-session={session.slug}>
+  return <article className={`summit-session-card${highlighted ? ' is-next' : ''}`} data-session={session.slug} data-event-type={session.eventType} data-programme={session.programme} data-publication-status={session.status}>
     <span className="summit-session-surface" data-shared="surface" aria-hidden="true" />
     <div className="summit-card-top">
       <span className={`summit-timing ${timing === 'live' ? 'is-live' : ''}`}>
         {timing === 'live' ? <><span className="summit-dot" /> Happening now</> : highlighted && timing === 'future' ? <><span className="summit-dot" /> Up next</> : timing === 'past' ? 'Earlier' : 'Coming up'}
       </span>
-      <span className="summit-card-publication">{session.status === 'published' ? 'Notes available' : 'Notes to follow'}{agenda && <ArrowUpRight size={18} aria-hidden="true" />}</span>
+      <span className="summit-card-publication">{publicationLabel(session)}{agenda && <ArrowUpRight size={18} aria-hidden="true" />}</span>
     </div>
     <h3 data-shared="title"><Link className="summit-session-link" to={summitPath(`sessions/${session.slug}`)}>{session.title}</Link></h3>
     <SessionFacts session={session} compact showTime={!agenda} />

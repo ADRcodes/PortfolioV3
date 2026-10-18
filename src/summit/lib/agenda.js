@@ -1,3 +1,5 @@
+import { officialSessions } from './programme.js';
+
 export const CONFERENCE_TIME_ZONE = 'America/St_Johns';
 const clockFormatter = new Intl.DateTimeFormat('en-CA', {
   timeZone: CONFERENCE_TIME_ZONE, year: 'numeric', month: '2-digit', day: '2-digit',
@@ -20,11 +22,18 @@ export function sessionTiming(session, clock) {
   if (`${session.date} ${session.startTime}` <= now) return 'live';
   return 'future';
 }
+// Return every active option, including overlaps with different start times.
+export function agendaNavigation(sessions, clock) {
+  const sorted = officialSessions(sessions).sort((a, b) => `${a.date} ${a.startTime}`.localeCompare(`${b.date} ${b.startTime}`));
+  const active = sorted.filter(session => sessionTiming(session, clock) === 'live');
+  if (active.length) return { state: 'current', sessions: active };
+  const next = sorted.find(session => sessionTiming(session, clock) === 'future');
+  if (next) return { state: 'next', sessions: sorted.filter(session => sameSlot(session, next)) };
+  return { state: 'ended', sessions: [] };
+}
+// Compatibility for the existing slot marker; all live cards receive equal treatment.
 export function agendaFocus(sessions, clock) {
-  // Schedule and publication state are independent. Keep simultaneous sessions together.
-  const sorted = [...sessions].sort((a, b) => `${a.date} ${a.startTime}`.localeCompare(`${b.date} ${b.startTime}`));
-  const next = sorted.find(session => `${session.date} ${session.startTime}` >= `${clock.date} ${clock.time}`);
-  return next ?? sorted.find(session => sessionTiming(session, clock) === 'live') ?? sorted.at(-1) ?? null;
+  return agendaNavigation(sessions, clock).sessions[0] ?? null;
 }
 export const sameSlot = (a, b) => Boolean(a && b && a.date === b.date && a.startTime === b.startTime);
 // Group by start, not end: concurrent sessions remain one schedule choice.

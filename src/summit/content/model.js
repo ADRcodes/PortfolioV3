@@ -11,6 +11,8 @@ export function validateSession(session) {
     if (!text(session[key])) fail(`session requires ${key}`);
   }
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(session.slug)) fail(`invalid slug ${session.slug}`);
+  if (session.eventType !== undefined && !['talk', 'panel', 'workshop', 'networking', 'registration', 'break', 'activity'].includes(session.eventType)) fail(`invalid eventType for ${session.id}`);
+  if (session.programme !== undefined && !['conference', 'external'].includes(session.programme)) fail(`invalid programme for ${session.id}`);
   if (!['upcoming', 'draft', 'published'].includes(session.status)) fail(`invalid status for ${session.id}`);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(session.date) || Number.isNaN(Date.parse(session.date)) || new Date(session.date).toISOString().slice(0, 10) !== session.date) fail(`invalid date for ${session.id}`);
   for (const key of ['startTime', 'endTime']) {
@@ -75,6 +77,7 @@ export function publicSession(session) {
   if (session.status === 'draft') return null;
   const { id, slug, title, date, startTime, endTime, location, description, speakerIds, companyIds, status, updatedAt } = session;
   return { id, slug, title, date, startTime, endTime, location, description, speakerIds, companyIds, status, updatedAt,
+    eventType: session.eventType ?? 'talk', programme: session.programme ?? 'conference',
     ...(status === 'published' ? { summary: publicSummary(session.summary), recordingUrl: session.recordingUrl ?? null } : {}) };
 }
 
@@ -111,6 +114,7 @@ export function createContent(rawSessions, speakers, companies) {
     for (const item of items) {
       if (!text(item.id) || !text(item.slug) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.slug)) fail(`invalid ${label} identity`);
       if (label !== 'sessions') {
+        if (item.demo !== undefined && typeof item.demo !== 'boolean') fail(`invalid demo flag for ${item.id}`);
         if (!text(item.name) || !text(item.description) || !Array.isArray(item.urls) || !item.urls.every(link => text(link.label) && url(link.url))) fail(`invalid ${label} profile ${item.id}`);
         if (item.image != null && (!url(item.image) || !text(item.imageAlt))) fail(`image requires HTTPS/HTTP URL and imageAlt for ${item.id}`);
       }

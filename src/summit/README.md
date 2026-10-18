@@ -1,6 +1,6 @@
 # techNL Summit 2026 foundation
 
-Independent conference notes site mounted at `/technlsummit`. The official 19–20 October 2026 programme is imported as upcoming events, with linked speaker and organization profiles. See [content/SOURCES.md](content/SOURCES.md) for provenance, registration qualifications and unresolved room details. The fictional demo sessions have been removed. Will’s meetup article remains as a clearly labelled editorial test on October 21 (its source recording is from October 13); demonstration profiles remain for the editorial-guide example and are not official conference participants.
+Independent conference notes site mounted at `/technlsummit`. The official 19–20 October 2026 programme is imported as upcoming events, with linked speaker and organization profiles. See [content/SOURCES.md](content/SOURCES.md) for provenance, registration qualifications and unresolved room details. The fictional demo sessions have been removed. Will’s meetup article remains accessible at its existing detail URL as an external editorial test (its recording is from October 13), excluded from official listings. Demonstration profiles remain in source for guide examples but are excluded from public directories and profile routes. See [LAUNCH_FUNCTIONALITY.md](LAUNCH_FUNCTIONALITY.md) for classification, navigation, filtering, search, sharing and social-preview findings.
 
 ## Structure
 
@@ -40,7 +40,7 @@ Use [EDITORIAL_GUIDE.md](./EDITORIAL_GUIDE.md) as the source of truth for editor
 
 Create any uniquely named `.json` file directly in `content/sessions/`. `import.meta.glob('./sessions/*.json', { eager: true, import: 'default' })` discovers it automatically on the next build. There is no session registry, and no React edit is required. Restart the dev server after content edits if hot updates do not appear; a fresh build is the publishing check.
 
-Exact session shape (all fields required except `recordingUrl`, which may be omitted or null):
+Exact session shape (`eventType` and `programme` default for legacy records; include them explicitly in new records. `recordingUrl` may be omitted or null):
 
 ```json
 {
@@ -55,6 +55,8 @@ Exact session shape (all fields required except `recordingUrl`, which may be omi
   "speakerIds": ["speaker-demo-jordan"],
   "companyIds": ["company-demo-labs"],
   "status": "upcoming",
+  "eventType": "talk",
+  "programme": "conference",
   "summary": {
     "overview": "",
     "keyTakeaways": [],
@@ -72,6 +74,8 @@ Rules:
 - `slug`: unique lowercase URL segment, letters/numbers separated by single hyphens.
 - `date`: valid `YYYY-MM-DD`. Times are 24-hour `HH:mm`, in `America/St_Johns`. End time must follow start time on the same day. Overnight sessions are not supported in this phase.
 - `speakerIds` and `companyIds`: arrays of existing profile IDs, empty arrays allowed. Missing references, duplicate IDs/slugs and malformed fields fail the build.
+- `eventType`: `talk`, `panel`, `workshop`, `networking`, `registration`, `break` or `activity`; independent of publication status. Only the first three promise future notes.
+- `programme`: `conference` for official schedule entries or `external` for an independent editorial article. External articles retain their public URL but are excluded from programme lists and counts.
 - `status`: exactly `upcoming`, `draft` or `published`.
 - `summary`: required plain-text `overview` and `keyTakeaways` array. Takeaways accept legacy strings or `{ "heading": "Optional heading", "explanation": "Required explanation" }`. Optional `detailedSummary` sections contain `heading`, nonempty `paragraphs` and optional `bullets`. Optional `notableIdeas` and `practicalApplications` remain string arrays. Missing/empty optional arrays are hidden; null/blank entries are invalid. No HTML or Markdown rendering. Published sessions require an overview and at least one takeaway.
 - `recordingUrl`: optional absolute HTTP(S) URL or null. Only published sessions expose it. Confirm a source link is suitable for public sharing before including it.
@@ -83,7 +87,7 @@ This excludes drafts from the production website and JavaScript, not from Git hi
 
 ## Speaker and company records
 
-`speakers.json` and `companies.json` are arrays; both directories are public. Example speaker:
+`speakers.json` and `companies.json` are arrays; public directories exclude explicitly flagged `demo: true` records (retained for guide references). Example speaker:
 
 ```json
 {

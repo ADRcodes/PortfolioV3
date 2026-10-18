@@ -126,7 +126,7 @@ test('speaker directory offers three sort buttons with bios, plain presenting ti
   assert.ok(position(byOrder, 'daniel-mccarthy') < position(byOrder, 'amanda-harris'));
   assert.ok(byName.includes('class="summit-speaker-bio"'));
   assert.ok(byName.includes('<span class="summit-speaker-session-time">Presenting at'));
-  assert.ok(/<h2 data-profile="speakers\/[^"]+">[^<]+<\/h2>/.test(byName));
+  assert.ok(byName.includes('class="summit-speaker-profile-link"'));
 });
 
 test('profiles leave back navigation to the header, omit programme links and place LinkedIn with the identity', () => {
@@ -187,8 +187,8 @@ test('short presentations omit empty sections, retain escaping and need no overv
 test('agenda groups parallel choices without losing individual session anchors or links', () => {
   const html = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Home)));
   assert.ok(html.includes('aria-label="4 simultaneous sessions at 1:00 PM"'));
-  assert.equal((html.match(/data-session="/g) ?? []).length, content.sessions.length);
-  for (const session of content.sessions) {
+  assert.equal((html.match(/data-session="/g) ?? []).length, content.conferenceSessions.length);
+  for (const session of content.conferenceSessions) {
     assert.equal(html.split(`id="agenda-${session.id}"`).length - 1, 1);
     assert.ok(html.includes(`href="/technlsummit/sessions/${session.slug}"`));
   }
@@ -200,5 +200,67 @@ test('company directory provides logos and independently labelled detail links',
   assert.ok(html.includes('<img'));
   assert.ok(html.includes('aria-label="View Mysa"'));
   assert.ok(html.includes('href="/technlsummit/companies/mysa"'));
-  assert.ok(html.indexOf('data-profile="companies/airtable"') < html.indexOf('data-profile="companies/demo-labs"'));
+  assert.ok(!html.includes('demo-labs'));
+  assert.ok(html.indexOf('data-profile="companies/airtable"') < html.indexOf('data-profile="companies/mysa"'));
+});
+
+
+test('official agenda excludes external test, hides empty recents and filters notes with accessible controls', () => {
+  const home = query => renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit${query}`] }, createElement(Home)));
+  const html = home('');
+  assert.ok(!html.includes('wills-ai-meetup-editorial-test'));
+  assert.ok(!html.includes('summit-recent-summaries'));
+  assert.ok(html.includes('October 19') && html.includes('St. John’s Convention Centre'));
+  assert.ok(html.includes('Explore agenda'));
+  const notes = home('?view=notes');
+  assert.ok(notes.includes('No conference notes published yet.'));
+  assert.ok(!notes.includes('data-session="'));
+  assert.ok(notes.includes('data-agenda-filter="notes" aria-pressed="true"'));
+  const anchored = home('?view=notes#agenda-' + content.conferenceSessions[0].id);
+  assert.ok(anchored.includes(`id="agenda-${content.conferenceSessions[0].id}"`));
+});
+test('each event type has accurate publication messaging in cards and detail pages', () => {
+  for (const eventType of ['talk', 'panel', 'workshop', 'registration', 'break', 'networking', 'activity']) {
+    const session = content.conferenceSessions.find(item => item.eventType === eventType);
+    assert.ok(session, `Missing programme classification ${eventType}`);
+    const card = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(SessionCard, { session, clock: { date: '2026-10-18', time: '12:00' } })));
+    const detail = renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit/sessions/${session.slug}`] }, createElement(Routes, null, createElement(Route, { path: '/technlsummit/sessions/:slug', element: createElement(SessionDetail) }))));
+    const expected = ['talk', 'panel', 'workshop'].includes(eventType);
+    assert.equal(card.includes('Notes to follow'), expected);
+    assert.equal(detail.includes('Notes to follow'), expected);
+    assert.ok(card.includes(`data-event-type="${eventType}"`));
+    assert.ok(detail.includes('Share session'));
+  }
+});
+test('Will’s article remains readable with its five presentations and sharing control', () => {
+  const html = renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: ['/technlsummit/sessions/wills-ai-meetup-editorial-test'] }, createElement(Routes, null, createElement(Route, { path: '/technlsummit/sessions/:slug', element: createElement(SessionDetail) }))));
+  assert.ok(html.includes('External editorial test'));
+  assert.ok(html.includes('id="session-presentation-5"'));
+  assert.ok(html.includes('Share session'));
+});
+test('directories exclude fictional profiles, search affiliations, names and biographies, and expose empty states', () => {
+  const directory = (type, query) => renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit/${type}?q=${encodeURIComponent(query)}`] }, createElement(Directory, { type })));
+  assert.ok(!directory('speakers', '').includes('demo-jordan-lee'));
+  assert.ok(!directory('companies', '').includes('demo-labs'));
+  const companyMatches = directory('speakers', 'MYSA');
+  assert.ok(companyMatches.includes('zach-green'));
+  assert.ok(!companyMatches.includes('adam-walsh'));
+  assert.ok(directory('speakers', 'Falon Okeefe').includes('falon-o-keefe'));
+  assert.ok(directory('companies', 'zzzzzzzzzzzz').includes('0 companies found. Try another name or keyword.'));
+  assert.ok(directory('speakers', 'zzzzzzzzzzzz').includes('0 speakers found. Try another name or keyword.'));
+});
+
+
+test('recent summaries render newest first with speaker, timestamp, excerpt and article links', async () => {
+  const Recent = (await server.ssrLoadModule('/src/summit/components/RecentSummaries.jsx')).default;
+  const base = content.conferenceSessions.find(session => session.speakerIds.length);
+  const records = ['2026-10-20T12:00:00Z', '2026-10-20T16:00:00Z', '2026-10-20T14:00:00Z', '2026-10-20T13:00:00Z'].map((updatedAt, index) => ({ ...base, id: `recent-${index}`, slug: `recent-${index}`, title: `Recent ${index}`, status: 'published', updatedAt, summary: { overview: `Useful excerpt ${index}` } }));
+  const html = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Recent, { sessions: [...records, { ...records[0], id: 'external', programme: 'external' }] })));
+  assert.ok(html.indexOf('Recent 1') < html.indexOf('Recent 2'));
+  assert.ok(html.indexOf('Recent 2') < html.indexOf('Recent 3'));
+  assert.ok(!html.includes('Recent 0'));
+  assert.ok(html.includes('Useful excerpt 1'));
+  assert.ok(html.includes('dateTime="2026-10-20T16:00:00Z"'));
+  assert.ok(html.includes('href="/technlsummit/sessions/recent-1"'));
+  assert.ok(html.includes(content.allSpeakers.find(speaker => base.speakerIds.includes(speaker.id)).name));
 });

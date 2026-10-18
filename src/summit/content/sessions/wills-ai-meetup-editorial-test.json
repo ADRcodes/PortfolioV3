@@ -88,5 +88,7 @@
     ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:53:49Z"
+  "updatedAt": "2026-10-17T20:53:49Z",
+  "eventType": "talk",
+  "programme": "external"
 }

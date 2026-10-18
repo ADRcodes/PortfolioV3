@@ -11,7 +11,8 @@
       }
     ],
     "image": null,
-    "imageAlt": ""
+    "imageAlt": "",
+    "demo": true
   },
   {
     "id": "company-airtable",
