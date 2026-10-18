@@ -98,3 +98,7 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 ## Summit launch functionality (October 18, 2026)
 
 - [x] Classify events, isolate external editorial tests/demo directories, prioritize current/parallel events, add latest conference notes, agenda filtering, directory search, public session sharing and intro facts; verify and investigate sharing previews without deployment changes. See `src/summit/LAUNCH_FUNCTIONALITY.md`.
+
+## Summit content and directory refinement (October 18, 2026)
+
+- [x] Clean the external editorial sample's metadata; add a coming-notes introduction; prepare compact directories/shared sticky tools, logo background hints/provenance and revised intro structure; preserve complete profiles, search, sorting, agenda relationships and existing animations. See `src/summit/REFINEMENT_HANDOFF.md`.

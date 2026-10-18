@@ -169,3 +169,17 @@ test('classification is validated, projected, separate from publication and back
   assert.equal(speakers.filter(item => item.demo).length, 1);
   assert.equal(companies.filter(item => item.demo).length, 1);
 });
+
+
+test('date-only external articles validate and project without weakening conference scheduling', () => {
+  const external = { ...published, programme: 'external', startTime: null, endTime: null, location: null };
+  validateSession(external);
+  const projected = publicSession(external);
+  assert.equal(projected.startTime, null);
+  assert.equal(projected.endTime, null);
+  assert.equal(projected.location, null);
+  assert.throws(() => validateSession({ ...external, programme: 'conference' }), /invalid startTime/);
+  assert.throws(() => validateSession({ ...external, endTime: '12:00' }), /invalid startTime/);
+  assert.throws(() => validateSession({ ...published, location: null }), /requires location/);
+  assert.throws(() => createContent([], [], [{ ...companies[0], logoBackground: 'guess' }]), /invalid logoBackground/);
+});

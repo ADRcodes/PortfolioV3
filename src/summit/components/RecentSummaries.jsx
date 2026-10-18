@@ -5,8 +5,11 @@ import { summitPath } from '../routing/paths.js';
 
 export default function RecentSummaries({ sessions }) {
   const recent = recentSummaries(sessions);
-  if (!recent.length) return null;
-  return <section className="summit-recent-summaries" aria-labelledby="summit-recent-title" id="summit-recent-summaries">
+  if (!recent.length) return <section className="summit-recent-summaries summit-notes-coming-soon" id="summit-recent-summaries" data-summary-state="coming-soon" aria-labelledby="summit-recent-title">
+    <h2 id="summit-recent-title">Session notes coming soon</h2>
+    <p className="summit-notes-coming-soon-copy">As presentations finish, AI-assisted summaries will appear here. Check back to explore what was discussed.</p>
+  </section>;
+  return <section className="summit-recent-summaries" data-summary-state="published" aria-labelledby="summit-recent-title" id="summit-recent-summaries">
     <h2 id="summit-recent-title">Latest conference notes</h2>
     <ol className="summit-recent-list">{recent.map(session => <li className="summit-recent-item" key={session.id}>
       <h3><Link to={summitPath(`sessions/${session.slug}`)}>{session.title}</Link></h3>

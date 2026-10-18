@@ -14,7 +14,7 @@ export default function SessionDetail() {
   if (!session) return <NotFound />;
   return <article className="summit-detail" data-session={session.slug} data-event-type={session.eventType} data-programme={session.programme} data-publication-status={session.status}>
     <span className="summit-session-surface" data-shared="surface" aria-hidden="true" />
-    <div className="summit-detail-topbar"><div className="summit-detail-dateline"><time dateTime={session.date}>{formatDay(session.date)}</time><span>{session.programme === 'external' ? 'External editorial test' : session.status === 'published' ? 'Session notes' : eventLabels[session.eventType]}</span></div></div>
+    <div className="summit-detail-topbar"><div className="summit-detail-dateline"><time dateTime={session.date}>{formatDay(session.date)}</time><span>{session.programme === 'external' ? 'External editorial sample' : session.status === 'published' ? 'Session notes' : eventLabels[session.eventType]}</span></div></div>
     <div className="summit-detail-header"><h1 data-shared="title">{session.title}</h1><SessionFacts session={session} /></div>
     <div className="summit-detail-content" data-shared="summary">
     <p className="summit-intro">{session.description}</p>

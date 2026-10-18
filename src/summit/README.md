@@ -72,6 +72,7 @@ Rules:
 
 - `id`: unique stable string. Do not rename when changing title or slug.
 - `slug`: unique lowercase URL segment, letters/numbers separated by single hyphens.
+- External editorial articles may explicitly use `startTime: null`, `endTime: null` and `location: null` for date-only metadata. Both times must be null together. Official conference scheduling remains required. Shared article components hide absent facts and empty presenter placeholders.
 - `date`: valid `YYYY-MM-DD`. Times are 24-hour `HH:mm`, in `America/St_Johns`. End time must follow start time on the same day. Overnight sessions are not supported in this phase.
 - `speakerIds` and `companyIds`: arrays of existing profile IDs, empty arrays allowed. Missing references, duplicate IDs/slugs and malformed fields fail the build.
 - `eventType`: `talk`, `panel`, `workshop`, `networking`, `registration`, `break` or `activity`; independent of publication status. Only the first three promise future notes.
@@ -116,7 +117,7 @@ Example company:
 }
 ```
 
-Names/descriptions/identities are required, `urls` can be empty. Images are optional HTTP(S) URLs with required nonempty `imageAlt` when set. Speakers require `companyIds`, which may be empty. Add profiles before referencing their IDs. Associated sessions are derived from session `speakerIds`/`companyIds`, and company speakers from speaker `companyIds`. Do not maintain duplicate `sessionIds` arrays; adding one session file updates every associated profile automatically. Use explicit `companyIds` on sessions to record organizations relevant to that session, independently of a speaker's affiliations.
+Names/descriptions/identities are required, `urls` can be empty. Images are optional HTTP(S) URLs with required nonempty `imageAlt` when set. Optional `logoBackground: "light" | "dark"` supplies an unchanged-image rendering hint for company marks. Speakers require `companyIds`, which may be empty. Add profiles before referencing their IDs. Associated sessions are derived from session `speakerIds`/`companyIds`, and company speakers from speaker `companyIds`. Do not maintain duplicate `sessionIds` arrays; adding one session file updates every associated profile automatically. Use explicit `companyIds` on sessions to record organizations relevant to that session, independently of a speaker's affiliations.
 
 ## Recording-to-summary workflow
 
@@ -150,3 +151,6 @@ Verify agenda, speaker/company directories, both public session states, speaker/
 Copy `src/summit/`, install the same React/Vite/React Router stack, retain `summitContent()` in the new Vite config, and supply a `BrowserRouter` entry with these routes mounted at `/*`. Set `SUMMIT_BASE` in `routing/paths.js` to `''` for a root-hosted site. Replace the footer's local portfolio `Link` with an absolute `https://alexrussell.info/` link after extraction. The current local footer link preserves SPA navigation back to the portfolio.
 
 Confirm real schedule, local timezone, content accuracy, branding/permission to use event assets and recording-link publication before launch. The shared HTML entry still carries portfolio favicon, description and social metadata; the summit sets/restores its document title only. Dedicated sharing metadata/favicon and final visual identity belong to the launch phase. No prominent portfolio link, AWS changes, workflow changes, push or deployment are included.
+
+
+Current content/directory refinements and design hooks: [REFINEMENT_HANDOFF.md](REFINEMENT_HANDOFF.md). Recent notes now use an introductory coming-soon state until actual conference summaries exist; no dummy cards are rendered.

@@ -15,7 +15,7 @@ Discovery, build validation and draft/unpublished field exclusion retain the exi
 - The conference clock uses America/St_Johns. Active intervals include the start and exclude the end. Every active option is returned, including overlaps with different start times. Between events, select the entire next start slot. Breaks and social events are scheduled events too.
 - A simultaneous start targets the existing slot without choosing a carousel card. Overlaps with different starts target a “Happening now” options section with equal links to each active event. After the conference, navigation offers published conference notes when available, otherwise omits the shortcut.
 - `?view=notes` filters the official agenda to published summaries. Current/next timing always uses the complete programme. Its shortcut clears the filter when the target is hidden. Deep links to unpublished events reveal the full schedule. Query-only search/filter changes retain reading position.
-- Latest notes appear after the welcome, before the agenda, only when published conference summaries exist. Show at most three, ordered by `updatedAt` descending, with a stable ID tiebreaker, speakers, Newfoundland-local update time, overview excerpt and article links.
+- Latest notes appear after the welcome, before the agenda, with a compact coming-soon introduction until published conference summaries exist. Show at most three, ordered by `updatedAt` descending, with a stable ID tiebreaker, speakers, Newfoundland-local update time, overview excerpt and article links.
 - Directory search uses `?q=` and preserves speaker sorting. It folds accents, case and punctuation and searches every associated company name plus name/biography. Native search inputs, visible labels, result status and empty states support keyboard and assistive technology. Speaker names now link to profiles on desktop as well as mobile.
 - Share works independently of publication: native Web Share first, clipboard second, selectable read-only canonical URL when automatic copying is unavailable/denied. User cancellation does not trigger copying. Only public title and `https://www.alexrussell.info/technlsummit/sessions/:slug` are shared; recordings/transcripts are never included.
 
@@ -37,7 +37,7 @@ New data attributes:
 - Existing nav shortcut: `data-agenda-navigation="current|next|ended"`.
 - Share wrapper: `data-share-state="idle|sharing|shared|copied|cancelled|manual"`.
 
-New anchors: `#summit-agenda-start`, `#summit-recent-summaries` (only with notes), `#agenda-current` (only overlapping starts), `#agenda-slot-<first-session-id>`. All existing `#agenda-<session-id>` anchors remain.
+New anchors: `#summit-agenda-start`, `#summit-recent-summaries` (notes or coming-soon introduction), `#agenda-current` (only overlapping starts), `#agenda-slot-<first-session-id>`. All existing `#agenda-<session-id>` anchors remain.
 
 ## Social preview investigation (no deployment changes)
 
@@ -61,3 +61,6 @@ Recommendation: separately authorize and test the exact-key static-shell approac
 All 45 Node tests passed (`node --test --test-concurrency=1 src/summit/lib/*.test.js src/summit/content/*.test.js`), including a production-asset publication regression. Production build and whitespace checks passed. Existing pnpm preferences EPERM and Vite chunk-size warnings remain non-blocking.
 
 Computer Use in-app browser fallback was used because Playwright MCP reported its shared browser was occupied. Local server: `http://127.0.0.1:5175`. Desktop and 390px phone checks covered schedule exclusion/count, notes filter/empty state, hidden-target recovery, affiliation/company-description search, empty states, focus retention, desktop speaker links and Back search retention, external article with five presentations, clipboard success/canonical URL, simulated overlapping active events, draft-route fallback and portfolio smoke routes. No horizontal overflow observed on checked Summit surfaces. Native share/cancel/clipboard denial use platform-stubbed unit tests; a real OS share dialog was not sent. Latest conference notes have no real published records yet; their ordering, fields and hiding behavior were verified with fixtures. Browser clock override was confined to the local tab and cleared by navigation. Screenshots are local `.codex/screenshots/summit-functionality-*` evidence, outside the commit.
+
+
+The October 18 refinement pass supersedes the initial empty-recents hiding behavior and external illustrative metadata. See [REFINEMENT_HANDOFF.md](REFINEMENT_HANDOFF.md) for the current date-only external schema and compact directory/toolbar markup.

@@ -271,8 +271,8 @@
         "url": "https://cbc.radio-canada.ca/en/your-public-broadcaster/history"
       }
     ],
-    "image": "https://www.canadaswalkoffame.com/wp-content/uploads/logo-cbc.png",
-    "imageAlt": "CBC logo"
+    "image": null,
+    "imageAlt": ""
   },
   {
     "id": "company-cgi",
@@ -648,7 +648,8 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/10/JAC-2.svg",
-    "imageAlt": "JAC logo"
+    "imageAlt": "JAC logo",
+    "logoBackground": "dark"
   },
   {
     "id": "company-keyin-college",
@@ -702,7 +703,8 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/10/melotech.png",
-    "imageAlt": "Melotech logo"
+    "imageAlt": "Melotech logo",
+    "logoBackground": "dark"
   },
   {
     "id": "company-memorial-university",
@@ -1020,7 +1022,8 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/10/technl.png",
-    "imageAlt": "techNL logo"
+    "imageAlt": "techNL logo",
+    "logoBackground": "dark"
   },
   {
     "id": "company-the-globe-and-mail",

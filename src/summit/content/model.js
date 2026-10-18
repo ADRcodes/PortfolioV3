@@ -7,7 +7,7 @@ const url = (value) => {
 };
 
 export function validateSession(session) {
-  for (const key of ['id', 'slug', 'title', 'location', 'description']) {
+  for (const key of ['id', 'slug', 'title', 'description']) {
     if (!text(session[key])) fail(`session requires ${key}`);
   }
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(session.slug)) fail(`invalid slug ${session.slug}`);
@@ -15,10 +15,14 @@ export function validateSession(session) {
   if (session.programme !== undefined && !['conference', 'external'].includes(session.programme)) fail(`invalid programme for ${session.id}`);
   if (!['upcoming', 'draft', 'published'].includes(session.status)) fail(`invalid status for ${session.id}`);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(session.date) || Number.isNaN(Date.parse(session.date)) || new Date(session.date).toISOString().slice(0, 10) !== session.date) fail(`invalid date for ${session.id}`);
-  for (const key of ['startTime', 'endTime']) {
-    if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(session[key])) fail(`invalid ${key} for ${session.id}`);
+  const dateOnly = session.programme === 'external' && session.startTime === null && session.endTime === null;
+  if (!dateOnly) {
+    for (const key of ['startTime', 'endTime']) {
+      if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(session[key])) fail(`invalid ${key} for ${session.id}`);
+    }
+    if (session.endTime <= session.startTime) fail(`endTime must follow startTime for ${session.id}`);
   }
-  if (session.endTime <= session.startTime) fail(`endTime must follow startTime for ${session.id}`);
+  if (!text(session.location) && !(session.programme === 'external' && session.location === null)) fail(`session requires location for ${session.id}`);
   for (const key of ['speakerIds', 'companyIds']) {
     if (!strings(session[key])) fail(`invalid ${key} for ${session.id}`);
   }
@@ -114,6 +118,7 @@ export function createContent(rawSessions, speakers, companies) {
     for (const item of items) {
       if (!text(item.id) || !text(item.slug) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.slug)) fail(`invalid ${label} identity`);
       if (label !== 'sessions') {
+        if (item.logoBackground !== undefined && !['light', 'dark'].includes(item.logoBackground)) fail(`invalid logoBackground for ${item.id}`);
         if (item.demo !== undefined && typeof item.demo !== 'boolean') fail(`invalid demo flag for ${item.id}`);
         if (!text(item.name) || !text(item.description) || !Array.isArray(item.urls) || !item.urls.every(link => text(link.label) && url(link.url))) fail(`invalid ${label} profile ${item.id}`);
         if (item.image != null && (!url(item.image) || !text(item.imageAlt))) fail(`image requires HTTPS/HTTP URL and imageAlt for ${item.id}`);

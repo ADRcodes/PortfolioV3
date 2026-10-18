@@ -6,12 +6,12 @@ import { publicationLabel } from '../lib/programme.js';
 import SessionFacts from './SessionFacts.jsx';
 
 export default function SessionCard({ session, clock, highlighted = false, agenda = false }) {
-  const timing = sessionTiming(session, clock);
+  const timing = session.startTime && session.endTime ? sessionTiming(session, clock) : null;
   return <article className={`summit-session-card${highlighted ? ' is-next' : ''}`} data-session={session.slug} data-event-type={session.eventType} data-programme={session.programme} data-publication-status={session.status}>
     <span className="summit-session-surface" data-shared="surface" aria-hidden="true" />
     <div className="summit-card-top">
-      <span className={`summit-timing ${timing === 'live' ? 'is-live' : ''}`}>
-        {timing === 'live' ? <><span className="summit-dot" /> Happening now</> : highlighted && timing === 'future' ? <><span className="summit-dot" /> Up next</> : timing === 'past' ? 'Earlier' : 'Coming up'}
+      <span className={`summit-timing ${session.programme === 'external' ? 'Editorial article' : timing === 'live' ? 'is-live' : ''}`}>
+        {session.programme === 'external' ? 'Editorial article' : timing === 'live' ? <><span className="summit-dot" /> Happening now</> : highlighted && timing === 'future' ? <><span className="summit-dot" /> Up next</> : timing === 'past' ? 'Earlier' : 'Coming up'}
       </span>
       <span className="summit-card-publication">{publicationLabel(session)}{agenda && <ArrowUpRight size={18} aria-hidden="true" />}</span>
     </div>

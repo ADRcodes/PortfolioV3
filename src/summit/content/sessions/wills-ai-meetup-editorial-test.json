@@ -1,12 +1,12 @@
 {
   "id": "session-wills-ai-meetup-editorial-test",
   "slug": "wills-ai-meetup-editorial-test",
-  "title": "Will's AI Meetup: Five AI Talks & Demos (test article)",
-  "date": "2026-10-21",
-  "startTime": "17:00",
-  "endTime": "17:57",
-  "location": "External AI meetup (test entry; not a techNL session)",
-  "description": "Editorial layout test based on a real October 13 AI meetup, not a techNL Summit session. The time shown is illustrative; the actual start time was not verified. Displayed on October 21 for editorial testing, not as a verified rescheduled meetup.",
+  "title": "Will's AI Meetup: Five AI Talks & Demos",
+  "date": "2026-10-13",
+  "startTime": null,
+  "endTime": null,
+  "location": null,
+  "description": "Model distillation, voice-first development, local speech tools, AI-assisted 3D games and agent-friendly publishing from an October 13 meetup.",
   "speakerIds": [],
   "companyIds": [],
   "status": "published",
@@ -88,7 +88,7 @@
     ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:53:49Z",
+  "updatedAt": "2026-10-18T15:28:21Z",
   "eventType": "talk",
   "programme": "external"
 }

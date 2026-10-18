@@ -2,6 +2,8 @@
 
 **Status:** Approved editorial direction and implemented article schema. The companion is live as of October 18, 2026. This guide remains the source of truth for publishing; confirm the intended branch and release authorization for each change.
 
+For an external article with no verified event time/place, use explicit null start/end times (together) and null location rather than inventing schedule facts. Official conference events still require their verified schedule. See [REFINEMENT_HANDOFF.md](REFINEMENT_HANDOFF.md).
+
 Preserve `eventType` and `programme` when updating a session. These classify the event and official-programme membership independently of `status`. External editorial tests must use `programme: "external"`; publication does not place them in the official agenda or latest conference notes. See [LAUNCH_FUNCTIONALITY.md](LAUNCH_FUNCTIONALITY.md).
 
 ## 1. Purpose and scope

@@ -35,13 +35,15 @@ export default function SummitHome() {
   return <div className="summit-agenda-layout">
     <header className="summit-agenda-intro" id="summit-welcome">
       <h1 className="summit-intro-brand" aria-label="techNL Summit 2026"><span className="summit-brand-line" aria-hidden="true"><span data-brand-part="tech">techNL</span></span><span className="summit-brand-line summit-accent-type" aria-hidden="true"><span data-brand-part="summit">Summit</span> <span data-brand-part="year">2026</span></span></h1>
+      <div className="summit-intro-event">
+        <p className="summit-event-details"><span className="summit-event-date"><time dateTime="2026-10-19">October 19</time>–<time dateTime="2026-10-20">20, 2026</time></span><span className="summit-event-location">St. John’s Convention Centre</span></p>
+        <a className="summit-official-event-link" href="https://technl.ca/technlsummit26/" target="_blank" rel="noreferrer">Visit the official event website <ArrowUpRight size={18} aria-hidden="true" /><span className="summit-sr-only"> (opens in a new tab)</span></a>
+      </div>
       <div className="summit-personal-note">
-        <div><p>In hopes of helping people get the most out of this event,<br />I made this site.</p><p className="summit-note-directions"><span>Find out what’s next.</span><span>Come back for the notes.</span></p><div className="summit-note-signature"><Link to="/">- Alex Russell</Link><a href="https://www.linkedin.com/in/alex-russell-info" target="_blank" rel="noreferrer" aria-label="Alex Russell on LinkedIn (opens in a new tab)"><Linkedin size={21} aria-hidden="true" /></a></div><p className="summit-note-small">An independent project, not affiliated with techNL. And, fittingly, built with AI.</p></div>
+        <div><p>I built this little companion to help us get more out of the Summit.</p><p className="summit-note-directions"><span>Find your next session.</span><span>Come back for the notes.</span></p><div className="summit-note-signature"><Link to="/">- Alex Russell</Link><a href="https://www.linkedin.com/in/alex-russell-info" target="_blank" rel="noreferrer" aria-label="Alex Russell on LinkedIn (opens in a new tab)"><Linkedin size={21} aria-hidden="true" /></a></div><p className="summit-note-small">An independent project, not affiliated with techNL. And, fittingly, built with AI.</p></div>
       </div>
       <div className="summit-intro-bottom">
-        <p className="summit-event-details"><time dateTime="2026-10-19">October 19</time>–<time dateTime="2026-10-20">20, 2026</time> · St. John’s Convention Centre</p>
         {sessions.length > 0 && <button className="summit-explore-agenda" aria-label="Explore the agenda" onClick={() => document.getElementById('summit-agenda-start')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })}><span>Explore agenda</span><ArrowDown size={24} aria-hidden="true" /></button>}
-        <a href="https://technl.ca/technlsummit26/" target="_blank" rel="noreferrer">Official event <ArrowUpRight size={16} aria-hidden="true" /><span className="summit-sr-only"> (new tab)</span></a>
       </div>
     </header>
     <div className="summit-agenda-feed">

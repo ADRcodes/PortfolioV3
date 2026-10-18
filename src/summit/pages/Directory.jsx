@@ -6,6 +6,7 @@ import SessionList from '../components/SessionList.jsx';
 import NotFound from './NotFound.jsx';
 import SpeakerIdentity from '../components/SpeakerIdentity.jsx';
 import LinkedInLink, { linkedInUrl } from '../components/LinkedInLink.jsx';
+import { descriptionPreview } from '../lib/preview.js';
 import { matchesSearch } from '../lib/search.js';
 import { directorySpeakers, directoryCompanies } from '../content/index.js';
 import { formatTime } from '../lib/agenda.js';
@@ -14,25 +15,25 @@ const collections = { speakers: directorySpeakers, companies: directoryCompanies
 const compare = new Intl.Collator('en-CA', { sensitivity: 'base', numeric: true }).compare;
 const weekday = date => new Intl.DateTimeFormat('en-CA', { weekday: 'long', timeZone: 'UTC' }).format(new Date(`${date}T12:00:00Z`));
 const affiliations = speaker => allCompanies.filter(company => speaker.companyIds.includes(company.id));
-const initials = name => name.split(/\s+/).slice(0, 2).map(word => word[0]).join('');
+const initials = name => /^[A-Z0-9]{2,5}$/.test(name) ? name : name.split(/\s+/).slice(0, 2).map(word => word[0]).join('');
 const firstPresentation = speaker => {
   const session = sessionsForSpeaker(speaker.id)[0];
   return session ? `${session.date} ${session.startTime}` : '9999';
 };
 function CompanyLinks({ companies, logos = false }) {
-  return <ul className="summit-affiliations">{companies.map(company => <li key={company.id}><Link data-profile={`companies/${company.slug}`} to={summitPath(`companies/${company.slug}`)}>{logos && company.image && <img src={company.image} alt="" loading="lazy" />}<span>{company.name}</span></Link></li>)}</ul>;
+  return <ul className="summit-affiliations">{companies.map(company => <li key={company.id}><Link data-profile={`companies/${company.slug}`} to={summitPath(`companies/${company.slug}`)}>{logos && company.image && <img data-company={company.slug} data-logo-background={company.logoBackground ?? 'light'} src={company.image} alt="" loading="lazy" />}<span>{company.name}</span></Link></li>)}</ul>;
 }
 function Portrait({ item, company = false, className = '' }) {
-  return <div className={`summit-portrait${company ? ' is-company' : ''} ${className}`}>{item.image ? <img src={item.image} alt="" loading="lazy" /> : <span aria-hidden="true">{initials(item.name)}</span>}</div>;
+  return <div data-logo-availability={company ? item.image ? 'image' : 'initials' : undefined} data-company={company ? item.slug : undefined} data-logo-background={company ? item.logoBackground ?? 'light' : undefined} className={`summit-portrait${company ? ' is-company' : ''} ${className}`}>{item.image ? <img src={item.image} alt="" loading="lazy" /> : <span className={company ? 'summit-logo-fallback' : undefined} aria-hidden="true">{initials(item.name)}</span>}</div>;
 }
 function SpeakerRow({ speaker }) {
-  return <li className="summit-speaker-row">
-    <Portrait item={speaker} />
+  return <li className="summit-speaker-row summit-speaker-card" data-speaker={speaker.slug}>
+    <Portrait item={speaker} className="summit-directory-portrait" />
     <div className="summit-speaker-row-copy">
       <div className="summit-person-heading"><h2 data-profile={`speakers/${speaker.slug}`}><Link className="summit-speaker-profile-link" data-profile={`speakers/${speaker.slug}`} to={summitPath(`speakers/${speaker.slug}`)}>{speaker.name}</Link></h2><LinkedInLink item={speaker} /><Link className="summit-mobile-profile-link" to={summitPath(`speakers/${speaker.slug}`)} aria-label={`About ${speaker.name}`}><ArrowUpRight size={24} aria-hidden="true" /></Link></div>
       <CompanyLinks companies={affiliations(speaker)} />
-      <p className="summit-speaker-bio">{speaker.description}</p>
-      <ul className="summit-speaker-sessions">{sessionsForSpeaker(speaker.id).map(session => <li key={session.id}><span className="summit-speaker-session-time">Presenting at {formatTime(session.startTime)} on {weekday(session.date)}</span><Link to={summitPath(`sessions/${session.slug}`)}>{session.title}<ArrowUpRight size={16} aria-hidden="true" /></Link></li>)}</ul>
+      <p className="summit-speaker-bio summit-speaker-bio-preview">{descriptionPreview(speaker.description)}</p>
+      <ul className="summit-speaker-sessions" data-directory-detail="presentations">{sessionsForSpeaker(speaker.id).map(session => <li key={session.id}><span className="summit-speaker-session-time">Presenting at {formatTime(session.startTime)} on {weekday(session.date)}</span><Link to={summitPath(`sessions/${session.slug}`)}>{session.title}<ArrowUpRight size={16} aria-hidden="true" /></Link></li>)}</ul>
     </div>
   </li>;
 }
@@ -58,13 +59,14 @@ export function Directory({ type }) {
       }
       return compare(a.name, b.name);
     });
-    return <><div className="summit-directory-heading"><h1>{title}</h1></div>{search}
-      <div className="summit-sortbar" role="group" aria-label="Sort speakers">{[['presenting', 'Presenting order'], ['name', 'Name'], ['company', 'Company']].map(([value, label]) => <button key={value} type="button" aria-pressed={sort === value} onClick={() => setParams(previous => { const next = new URLSearchParams(previous); next.set('sort', value); return next; }, { replace: true })}>{label}</button>)}</div>
-      <ul className="summit-speaker-directory">{speakers.map(speaker => <SpeakerRow key={speaker.id} speaker={speaker} />)}</ul></>;
+    return <><div className="summit-directory-heading"><h1>{title}</h1></div>
+      <div className="summit-directory-toolbar" data-directory="speakers" role="group" aria-label="Speaker directory tools">{search}
+      <div className="summit-sortbar" role="group" aria-label="Sort speakers">{[['presenting', 'Presenting order'], ['name', 'Name'], ['company', 'Company']].map(([value, label]) => <button key={value} type="button" aria-pressed={sort === value} onClick={() => setParams(previous => { const next = new URLSearchParams(previous); next.set('sort', value); return next; }, { replace: true })}>{label}</button>)}</div></div>
+      <ul className="summit-speaker-directory summit-directory-grid" data-directory="speakers">{speakers.map(speaker => <SpeakerRow key={speaker.id} speaker={speaker} />)}</ul></>;
   }
-  return <><h1>{title}</h1>{search}<ul className="summit-company-directory">{[...results].sort((a, b) => compare(a.name, b.name)).map(item => <li key={item.id}>
-    <Portrait item={item} company />
-    <div className="summit-company-row-copy"><h2 data-profile={`${type}/${item.slug}`}>{item.name}</h2><p>{item.description}</p></div>
+  return <><h1>{title}</h1><div className="summit-directory-toolbar" data-directory="companies" role="group" aria-label="Company directory tools">{search}</div><ul className="summit-company-directory summit-company-grid" data-directory="companies">{[...results].sort((a, b) => compare(a.name, b.name)).map(item => <li className="summit-company-card" data-company={item.slug} key={item.id}>
+    <Portrait item={item} company className="summit-company-card-logo" />
+    <div className="summit-company-row-copy"><h2 data-profile={`${type}/${item.slug}`}>{item.name}</h2></div>
     <Link className="summit-company-row-open" to={summitPath(`${type}/${item.slug}`)} aria-label={`View ${item.name}`}><span>View company</span><ArrowUpRight size={26} aria-hidden="true" /></Link>
   </li>)}</ul></>;
 }
