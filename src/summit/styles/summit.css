@@ -909,3 +909,22 @@ html[data-summit-transition]::view-transition-old(summit-back):only-child { anim
   html[data-summit-mobile-session]::view-transition-old(session-summary) { animation: summit-fade-out .18s both; }
   html[data-summit-mobile-session]::view-transition-new(session-summary) { animation: summit-fade-in .3s .5s both; }
 }
+
+/* Give phone card/detail titles the same type and a measure that also fits
+   the narrower parallel cards, so the morph keeps the same line breaks. */
+@media (max-width: 40rem) {
+  .summit-app .summit-session-card h3,
+  .summit-app .is-parallel .summit-session-card h3,
+  .summit-app .summit-detail-header h1 {
+    width: min(100%, calc(92vw - 5.5rem));
+    max-width: none;
+    font-size: 1.75rem;
+    line-height: 1.08;
+    text-wrap: wrap;
+  }
+  .summit-app .summit-session-card:is([data-event-type="break"], [data-event-type="registration"], [data-event-type="activity"]) h3,
+  .summit-app .summit-detail:is([data-event-type="break"], [data-event-type="registration"], [data-event-type="activity"]) .summit-detail-header h1 {
+    font-size: 1.4rem;
+    line-height: 1.15;
+  }
+}
