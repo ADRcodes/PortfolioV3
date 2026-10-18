@@ -88,3 +88,14 @@ Company profile intros run edge to edge below the fixed header. Their related pe
 - Measure actual mobile navigation height for the lower toolbar offset. Shared viewport calculations reserve the correct top/bottom controls during centering and scroll tracking. Preserve delayed reveal, reverse scrolling, range focus and reduced motion.
 
 The active preview runs on port 5173. After the October 18 manual server restart, the normal Vite entry serves the latest design and stylesheet hot updates were confirmed through the browser WebSocket. The temporary production-build QA entry has been removed.
+
+
+## Mobile session continuity (October 18)
+
+Phone card journeys (up to 40rem) retain the native shared surface and title geometry, using a 760ms morph. Capture the viewport background instead of animating the document-height `summit-page` group: interpolating that group's agenda/detail coordinates produced a multi-thousand-pixel background sweep. Actual scroll restoration remains instant inside the snapshot update, before the destination is revealed. Back/Forward restore the original history entry; a phone Agenda link from a card detail also restores its recorded origin position. Carousel reveal still happens before capture.
+
+The old and new title images share one moving box. Contain-fit preserves their captured wrapping and glyph proportions; the old title fades during 240–360ms and the destination appears during 360–520ms. Their ink never overlaps. Do not replace this with separate stationary title entrances or live font-size/width reflow. End-state typography is unchanged.
+
+Card labels and facts fade out over 200ms. Destination labels/time/location enter after 440ms, presenters after 500ms, and article content after 500ms. A persistent surface underlay prevents a translucent-panel flash. The mobile navigation has its own fixed snapshot above the content. Scroll-driven identity/toolbar measurements resolve synchronously after restoration and before capture; the returning quick toolbar fades in during 760–960ms, after the surface settles.
+
+These overrides activate only for phone session-card journeys. Desktop uses the original 1.05s shared-element motion, and directory/profile motion retains its existing geometry and scrolling. Reduced-motion and unsupported browsers take the immediate navigation path. Transition cleanup handles interruption and unmounting. No new animation dependency or scroll interception is introduced.

@@ -83,12 +83,14 @@ export default function SummitIdentity({ agenda, routeKey }) {
     measure();
     window.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', measure);
+    window.addEventListener('summit:transition-capture', measure);
     reduced.addEventListener('change', measure);
     return () => {
       cancelAnimationFrame(frame);
       observer.disconnect();
       window.removeEventListener('scroll', schedule);
       window.removeEventListener('resize', measure);
+      window.removeEventListener('summit:transition-capture', measure);
       reduced.removeEventListener('change', measure);
       delete app.dataset.identityReady;
       delete app.dataset.identityDocked;

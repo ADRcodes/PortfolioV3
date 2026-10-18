@@ -860,3 +860,52 @@ html[data-summit-transition]::view-transition-old(summit-back):only-child { anim
 @media (max-width: 60rem) {
   .summit-app .is-parallel .is-compact .summit-speaker-companies { font-size: 1rem; }
 }
+
+/* Phone session journeys: a stationary viewport, one surface morph, then type. */
+@media (max-width: 40rem) {
+  html[data-summit-mobile-session] .summit-main { view-transition-name: none; }
+  html[data-summit-mobile-session] .summit-header { visibility: visible; }
+  html[data-summit-mobile-session] .summit-primary-nav { view-transition-name: summit-mobile-nav; opacity: 1; transform: none; }
+  html[data-summit-mobile-session] .summit-agenda-browser { view-transition-name: summit-mobile-agenda; transition: none; }
+  html[data-summit-mobile-session] .summit-agenda-browser.is-visible { transform: none; }
+  html[data-summit-mobile-session]::view-transition-group(*) { animation-duration: .76s; animation-timing-function: cubic-bezier(.76,0,.24,1); }
+  html[data-summit-mobile-session]::view-transition-group(root),
+  html[data-summit-mobile-session]::view-transition-group(summit-mobile-nav),
+  html[data-summit-mobile-session]::view-transition-group(summit-mobile-agenda) { animation: none; }
+  html[data-summit-mobile-session]::view-transition-old(session-surface) { animation: none; }
+  html[data-summit-mobile-session]::view-transition-new(session-surface) { animation: summit-fade-in .4s .12s both; }
+  html[data-summit-mobile-session]::view-transition-old(root) { animation: summit-fade-out .24s .08s both; }
+  html[data-summit-mobile-session]::view-transition-new(root) { animation: summit-fade-in .28s .4s both; }
+  html[data-summit-mobile-session]::view-transition-group(summit-mobile-nav) { z-index: 10; }
+  html[data-summit-mobile-session]::view-transition-old(summit-mobile-nav),
+  html[data-summit-mobile-session]::view-transition-new(summit-mobile-nav) { animation: none; mix-blend-mode: normal; }
+  /* Both immutable title images follow one geometry, with no overlapping ink.
+     Contain preserves each image's line breaks and glyph proportions. */
+  html[data-summit-mobile-session]::view-transition-old(session-title),
+  html[data-summit-mobile-session]::view-transition-new(session-title) { width: 100%; height: 100%; object-fit: contain; object-position: left top; }
+  html[data-summit-mobile-session]::view-transition-old(session-title) { animation: summit-fade-out .12s .24s both; }
+  html[data-summit-mobile-session]::view-transition-new(session-title) { animation: summit-fade-in .16s .36s both; }
+  html[data-summit-mobile-session]::view-transition-group(summit-mobile-agenda) { z-index: 8; }
+  html[data-summit-mobile-session]::view-transition-old(summit-mobile-agenda) { animation: summit-fade-out .15s both; }
+  html[data-summit-mobile-session]::view-transition-new(summit-mobile-agenda) { animation: summit-fade-in .2s .76s both; }
+  html[data-summit-mobile-session]::view-transition-group(session-labels-out),
+  html[data-summit-mobile-session]::view-transition-group(session-labels-in),
+  html[data-summit-mobile-session]::view-transition-group(session-time-out),
+  html[data-summit-mobile-session]::view-transition-group(session-time-in),
+  html[data-summit-mobile-session]::view-transition-group(session-place-out),
+  html[data-summit-mobile-session]::view-transition-group(session-place-in),
+  html[data-summit-mobile-session]::view-transition-group(session-presenter-out),
+  html[data-summit-mobile-session]::view-transition-group(session-presenter-in) { animation: none; z-index: 4; }
+  html[data-summit-mobile-session]::view-transition-old(session-labels-out),
+  html[data-summit-mobile-session]::view-transition-old(session-time-out),
+  html[data-summit-mobile-session]::view-transition-old(session-place-out),
+  html[data-summit-mobile-session]::view-transition-old(session-presenter-out) { animation: summit-fade-out .2s both; }
+  html[data-summit-mobile-session]::view-transition-new(session-labels-in),
+  html[data-summit-mobile-session]::view-transition-new(session-time-in),
+  html[data-summit-mobile-session]::view-transition-new(session-place-in) { animation: summit-fade-in .24s .44s both; }
+  html[data-summit-mobile-session]::view-transition-new(session-presenter-in) { animation: summit-fade-in .26s .5s both; }
+  html[data-summit-mobile-session]::view-transition-old(summit-brand) { animation: summit-fade-out .16s both; }
+  html[data-summit-mobile-session]::view-transition-new(summit-brand) { animation: summit-fade-in .16s .12s both; }
+  html[data-summit-mobile-session]::view-transition-old(session-summary) { animation: summit-fade-out .18s both; }
+  html[data-summit-mobile-session]::view-transition-new(session-summary) { animation: summit-fade-in .3s .5s both; }
+}

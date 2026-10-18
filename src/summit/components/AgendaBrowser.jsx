@@ -42,12 +42,14 @@ export default function AgendaBrowser({ sessions }) {
     const schedule = () => { if (frame === undefined) frame = requestAnimationFrame(update); };
     schedule();
     window.addEventListener('scroll', schedule, { passive: true, capture: true });
+    window.addEventListener('summit:transition-capture', update);
     window.addEventListener('focusin', schedule);
     window.addEventListener('focusout', schedule);
     window.addEventListener('resize', schedule);
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener('scroll', schedule, true);
+      window.removeEventListener('summit:transition-capture', update);
       window.removeEventListener('focusin', schedule);
       window.removeEventListener('focusout', schedule);
       window.removeEventListener('resize', schedule);
