@@ -1,6 +1,6 @@
 # techNL Summit Editorial Guide
 
-**Status:** Approved editorial direction and implemented article schema. The companion is live as of October 18, 2026. This guide remains the source of truth for publishing; confirm the intended branch and release authorization for each change.
+**Status:** Active production publishing workflow and implemented article schema. The companion is live as of October 18, 2026. Publish completed, verified session articles directly to `ADRcodes/PortfolioV3` on `main` under the owner's standing authorization; no additional article-approval stage is required. This guide remains the source of truth for editorial standards, privacy and publishing checks.
 
 For an external article with no verified event time/place, use explicit null start/end times (together) and null location rather than inventing schedule facts. Official conference events still require their verified schedule. See [REFINEMENT_HANDOFF.md](REFINEMENT_HANDOFF.md).
 
@@ -20,14 +20,15 @@ Repository: `ADRcodes/PortfolioV3`. Summit files live under `src/summit/`.
 
 Before processing a recording, retrieve the latest versions of:
 
-- This guide and `src/summit/README.md` from the intended publishing branch.
+- This guide and `src/summit/README.md` from production `main`.
 - The intended `content/sessions/<filename>.json`, plus the records referenced in `content/speakers.json` and `content/companies.json`.
 - `content/model.js`, `content/vite-plugin.js`, `content/index.js`, `pages/SessionDetail.jsx` and `components/SessionSummary.jsx` to confirm what is validated, bundled and displayed.
 - Applicable repository instructions and `.github/workflows/deploy.yml` before making a publishing change.
+- `src/summit/SOCIAL_PREVIEWS.md` and the current static-preview implementation when checking publication metadata and deployment behaviour.
 
 Paths above are relative to `src/summit/` unless fully specified. Do not rely on a previous conversation, an old schema example or a cached branch. Match the session by title, date/time, speakers and subject; a recording filename alone is insufficient. Ask the owner if the match is ambiguous. Preserve existing stable IDs, slugs, schedule, description and profile references unless a correction is explicitly in scope.
 
-Current development branch: `codex/technl-summit-foundation`. Verify it rather than assuming it remains the active destination. A working website URL does not establish that launch or publication approval has occurred.
+Production publishing branch: `main`. Earlier references to `codex/technl-summit-foundation` describe historical development, not the current publishing destination. Inspect local/remote status and concurrent edits before writing; do not overwrite another session's work or switch a shared checkout out from under an active editor. Routine completed articles are already authorized for direct production publication.
 
 ## 3. Sources and verification
 
@@ -142,20 +143,26 @@ Use these implemented fields for full articles; do not hide the detailed article
 
 ## 8. Publishing workflow and authorization
 
+### Current production flow
+
+**Pocket recording → owner sends ChatGPT the transcription/share link or export → ChatGPT reads the full transcript and Pocket summary → retrieves session/speaker/company context → verifies facts → writes the article using this guide → updates the session JSON → commits directly to `main` on GitHub → GitHub Actions deploys → verifies the live article.**
+
+ChatGPT carries this workflow through publication and verification. Nora/OpenClaw is not currently involved; no hand-off to either system is required.
+
 ### Publication policy
 
-The owner has authorized routine summit session-content publication directly to this repository's `main` branch **once the website is launched**, without a separate editorial approval for each article. The owner will review published articles and request corrections. This does not authorize unrelated code, schema, infrastructure, workflow or other-repository changes.
+The owner has already authorized routine Summit session-content publication directly to this repository's production `main` branch, without an additional editorial approval stage for completed articles. The site is live and this policy is active. The owner will review published articles and request corrections. Do not stop after producing a draft or request redundant permission to commit/publish an article that meets this guide.
 
-Approval of this guide is not evidence that launch occurred. Before relying on the post-launch policy in a separate conversation, confirm launch from the owner's instructions or an explicit project launch record. Before launch, use the owner-selected test/feature branch and its specific authorization; do not merge or publish to `main` automatically. Do not seek redundant article approval after launch when this policy applies and the content passes the checks below. Material source uncertainty still blocks publication.
+Pause for consequential ambiguities, inaccessible source material or significant verification problems. Explain the precise blocker and what would resolve it. Routine editorial choices and nonessential uncertain details can be handled through careful paraphrasing or omission, as described above. This standing authorization does not cover unrelated code, schema, infrastructure, workflow or other-repository changes, new profile creation, or public disclosure of private sources. Preserve those scope and privacy safeguards.
 
 ### Execution
 
-1. Receive the Pocket share link or ZIP. Retrieve the latest guide, intended branch/session and referenced profiles. Confirm source access and session identity.
-2. Read and verify the sources as described above. Compose the article using the implemented schema and editorial structure. Keep private material outside Git.
+1. Receive the Pocket transcription/share link or export from the owner. Retrieve the latest guide and relevant production files from `main`. Confirm access to the full transcript and Pocket summary, and match the recording to the intended session.
+2. Read the full relevant transcript and Pocket summary. Retrieve the associated session, speaker and company context, verify important facts and attributions using the source hierarchy, then compose the article using this guide's editorial structure and implemented schema. Keep private material outside Git.
 3. Validate the intended JSON, IDs/references, status, timestamp and rendering. Where execution is available, run from the repository root:
 
    ```sh
-   node --test --test-concurrency=1 src/summit/content/*.test.js
+   node --test --test-concurrency=1 src/summit/content/*.test.js src/summit/lib/*.test.js
    pnpm build
    ```
 
@@ -163,9 +170,9 @@ Approval of this guide is not evidence that launch occurred. Before relying on t
 
 4. Re-read the remote session before writing. Use the current file/blob SHA or equivalent conflict protection. If it changed, reconcile with the latest version rather than overwriting another edit. Preserve unrelated local work and check the destination branch explicitly.
 5. Update only the intended session JSON. For a genuinely new, authorized session, use a unique ID/slug and existing references in a new JSON file. Review the exact diff; exclude private sources and unrelated files. Set `published` only for finished, verified content. Do not demote an already public session to draft merely while preparing an edit privately.
-6. Commit to the authorized branch and verify the resulting commit SHA, file contents and branch head on GitHub. Do not substitute a claim that a draft was prepared for proof it was committed.
-7. After an authorized `main` publication, inspect the GitHub Actions run for that exact commit. The current workflow deploys on pushes to `main`; feature-branch commits do not deploy the production site. Do not change deployment configuration or trigger unrelated reruns as part of article publishing.
-8. Verify workflow completion, then the live detail route, directory entry, summary sections and profile links. A successful workflow alone does not prove the new page is visible after cache propagation. Report the commit, branch, article URL and actual build/deployment/live-verification results. If access, checks or deployment fail, state the blocker precisely; do not mark the article live or weaken security settings.
+6. Commit the intended session change directly to `main` on GitHub under the standing article-publication authorization. If working in a local checkout, commit locally and push `main`; a local commit alone does not deploy. If using a connected GitHub tool, use its current-file SHA/conflict protection when committing to `main`. Verify the resulting remote commit SHA, file contents and branch head. No feature branch, pull request or additional article approval is required for routine publication. Do not substitute a prepared draft or local commit for proof of remote publication.
+7. Inspect the GitHub Actions run for that exact `main` commit and wait for deployment completion. The current workflow deploys automatically on pushes/commits to remote `main`. Do not change deployment configuration or trigger unrelated reruns as part of article publishing.
+8. Verify the live detail URL, complete summary sections and speaker/company links after deployment/cache propagation. For conference articles, check Notes available and the latest conference summaries where applicable; an older article may fall outside the newest three. External editorial samples must remain outside official programme listings. Verify the initial response HTML contains the correct session social-preview metadata, with no private sources. A successful workflow alone does not prove the new article or preview is live. Report the commit SHA, `main`, article URL and actual validation/deployment/live-verification results. If source access, checks, authentication, deployment or live verification fail, state the blocker precisely; do not claim publication succeeded or weaken security settings.
 
 ## 9. Corrections
 
@@ -183,15 +190,15 @@ Tests cover mixed legacy/structured takeaways, paragraph/bullet ordering, option
 
 ## Publishing checklist
 
-- [ ] Read the latest guide, schema, intended branch/session and linked profiles; confirmed launch/branch authorization.
+- [ ] Read the latest guide, schema, production `main` session and linked profiles; checked current remote state and concurrent edits.
 - [ ] Read the full transcript and secondary summary; checked important facts, wording and attributions.
 - [ ] Explained the main ideas with evidence, useful detail and clearly labelled interpretations/context.
 - [ ] Used Canadian English, proportionate length and supported takeaways; removed repetition and filler.
 - [ ] Preserved metadata/IDs/slugs; references resolve; JSON matches the **implemented** schema; updated timestamp.
 - [ ] Excluded private/off-record content and unapproved source links; no confidential material in Git.
 - [ ] Ran available tests/build and checked rendering; recorded any checks that could not be run.
-- [ ] Reviewed only the intended session diff against the latest remote file; committed to the authorized branch.
-- [ ] Verified GitHub commit/contents and, for production publication, exact Actions run and live page; reported results accurately.
+- [ ] Reviewed only the intended session diff against the latest remote file; committed directly to remote `main` under standing publication authorization.
+- [ ] Verified GitHub commit/contents, exact Actions deployment, live article and initial social-preview HTML; reported results accurately.
 
 ## Multi-presentation sessions
 
@@ -317,8 +324,8 @@ This is a realistic **fictional** example of the implemented format, not a summa
 }
 ```
 
-## Remaining publication decisions
+## Continuing publication boundaries
 
-- Confirm launch explicitly before activating the already authorized direct-to-`main` session-publishing policy. Development-branch publication does not establish a production launch.
+- The site is live and direct-to-`main` article publication is already authorized. Continue through deployment and live verification without an additional approval stage; pause only for consequential ambiguities, inaccessible source material or significant verification problems.
 - Confirm actual session identities, schedule, profiles and source-link permissions for each recording. The illustrative example is not permission to invent or replace real metadata.
 - Code/schema/infrastructure changes, new profile creation and unapproved recording-link publication remain outside routine session-only publishing authorization.
