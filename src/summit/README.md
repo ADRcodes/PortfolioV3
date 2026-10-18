@@ -1,6 +1,6 @@
 # techNL Summit 2026 foundation
 
-Independent conference notes site mounted at `/technlsummit`. All current content is fictional demonstration data, including dates, people, companies and AI summaries. Replace it before launch. Final identity and actual conference content are intentionally deferred.
+Independent conference notes site mounted at `/technlsummit`. The official 19–20 October 2026 programme is imported as upcoming events, with linked speaker and organization profiles. See [content/SOURCES.md](content/SOURCES.md) for provenance, registration qualifications and unresolved room details. The fictional demo sessions have been removed. Will’s meetup article remains as a clearly labelled editorial test on October 21 (its source recording is from October 13); demonstration profiles remain for the editorial-guide example and are not official conference participants.
 
 ## Structure
 
@@ -25,7 +25,7 @@ Integration outside this directory consists of one sibling route in `src/App.jsx
 ## Routes
 
 - `/technlsummit`
-- `/technlsummit/sessions`
+- `/technlsummit/sessions` redirects to the agenda (legacy index URL).
 - `/technlsummit/sessions/:slug`
 - `/technlsummit/speakers`
 - `/technlsummit/speakers/:slug`
@@ -139,7 +139,7 @@ pnpm preview --host 127.0.0.1 --port 4173 --strictPort
 
 Stop either server with Ctrl+C in the terminal that launched it. No separate summit build or server is needed.
 
-Verify homepage, all three directories, both public session states, speaker/company profiles, their cross-links, invalid paths and draft `/technlsummit/sessions/demo-draft`. Confirm portfolio routes still render after using the footer link. Inspect mobile/desktop widths and keyboard focus. To test discovery, copy a sample to a new file, give it unique `id`/`slug`, rebuild, and visit its URL without changing React or profile JSON. Remove temporary data afterward.
+Verify agenda, speaker/company directories, both public session states, speaker/company profiles, their cross-links, invalid paths and draft `/technlsummit/sessions/demo-draft`. Confirm portfolio routes still render after using the footer link. Inspect mobile/desktop widths and keyboard focus. To test discovery, copy a sample to a new file, give it unique `id`/`slug`, rebuild, and visit its URL without changing React or profile JSON. Remove temporary data afterward.
 
 ## Extraction and deferred decisions
 

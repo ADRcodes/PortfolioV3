@@ -1,3 +1,11 @@
+## Browser Testing
+
+- Prefer Playwright MCP for browser inspection, screenshots, responsive testing and interaction checks.
+- Use the built-in browser via Computer Use as a fallback.
+- The bundled Browser Use integration currently fails during initialization; avoid relying on it. Do not spend time troubleshooting it unless necessary.
+- Save screenshots within the project rather than `/tmp`.
+- Verify rendered results when making visual UI changes.
+
 Read order (required)
 
 1. docs/spec.md

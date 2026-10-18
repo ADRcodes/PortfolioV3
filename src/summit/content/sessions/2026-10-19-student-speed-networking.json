@@ -1,0 +1,23 @@
+{
+  "id": "session-student-speed-networking",
+  "slug": "student-speed-networking",
+  "title": "Speed Networking",
+  "date": "2026-10-19",
+  "startTime": "11:00",
+  "endTime": "13:00",
+  "location": "Bowring Ballroom",
+  "description": "Post-secondary students meet technology-sector professionals in short conversations. Separate student-event registration is required.",
+  "speakerIds": [],
+  "companyIds": [
+    "company-technl"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

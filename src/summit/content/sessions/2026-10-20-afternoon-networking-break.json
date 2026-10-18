@@ -1,0 +1,23 @@
+{
+  "id": "session-afternoon-networking-break",
+  "slug": "afternoon-networking-break",
+  "title": "Networking Break",
+  "date": "2026-10-20",
+  "startTime": "14:15",
+  "endTime": "14:40",
+  "location": "St. John’s Convention Centre (room not specified)",
+  "description": "Afternoon networking break between mainstage sessions. The official agenda does not specify a room.",
+  "speakerIds": [],
+  "companyIds": [
+    "company-technl"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

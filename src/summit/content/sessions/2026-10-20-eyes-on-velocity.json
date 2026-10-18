@@ -1,0 +1,33 @@
+{
+  "id": "session-eyes-on-velocity",
+  "slug": "eyes-on-velocity",
+  "title": "CIBC Presents: Eyes on Velocity: How AI Is Changing the Fundraising Equation",
+  "date": "2026-10-20",
+  "startTime": "14:40",
+  "endTime": "15:20",
+  "location": "Bowring Ballroom",
+  "description": "An investor and lender panel on AI, growth, productivity and the requirements for funding. Moderator: Falon O'Keefe.",
+  "speakerIds": [
+    "speaker-sarah-murphy",
+    "speaker-shelley-kuipers",
+    "speaker-eric-laflamme",
+    "speaker-brian-whiteway",
+    "speaker-falon-o-keefe"
+  ],
+  "companyIds": [
+    "company-pelorus-venture-capital-ltd",
+    "company-the51",
+    "company-cibc",
+    "company-bdc-capital",
+    "company-virtual-marine"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "session-unicorns-in-the-making",
+  "slug": "unicorns-in-the-making",
+  "title": "Unicorns in the Making: The Strategy Behind Hypergrowth",
+  "date": "2026-10-20",
+  "startTime": "09:35",
+  "endTime": "10:05",
+  "location": "Bowring Ballroom",
+  "description": "A conversation about priorities, hiring, products and international growth at fast-growing AI companies. Moderator: Amanda Perran.",
+  "speakerIds": [
+    "speaker-taylor-young",
+    "speaker-chris-gardner",
+    "speaker-amanda-perran"
+  ],
+  "companyIds": [
+    "company-colab-ai",
+    "company-spellbook",
+    "company-deloitte"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "session-sales-that-scale",
+  "slug": "sales-that-scale",
+  "title": "Sales That Scale",
+  "date": "2026-10-20",
+  "startTime": "13:55",
+  "endTime": "14:15",
+  "location": "Bowring Ballroom",
+  "description": "Tom Snyder discusses repeatable sales processes and building sales capability as a technology company grows.",
+  "speakerIds": [
+    "speaker-tom-snyder"
+  ],
+  "companyIds": [
+    "company-funnel-clarity"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

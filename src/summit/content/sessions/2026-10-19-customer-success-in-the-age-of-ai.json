@@ -1,0 +1,29 @@
+{
+  "id": "session-customer-success-in-the-age-of-ai",
+  "slug": "customer-success-in-the-age-of-ai",
+  "title": "Customer Success in the Age of AI",
+  "date": "2026-10-19",
+  "startTime": "13:50",
+  "endTime": "14:30",
+  "location": "Bannerman Ballroom 4",
+  "description": "A conversation about AI in customer support and success, alongside the role of human relationships. Moderator: Hasan Hai.",
+  "speakerIds": [
+    "speaker-amanda-harris",
+    "speaker-susan-byrd",
+    "speaker-hasan-hai"
+  ],
+  "companyIds": [
+    "company-airtable",
+    "company-trudell-medical-limited",
+    "company-keyin-college"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

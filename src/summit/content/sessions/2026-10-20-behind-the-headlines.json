@@ -1,0 +1,31 @@
+{
+  "id": "session-behind-the-headlines",
+  "slug": "behind-the-headlines",
+  "title": "Behind the Headlines",
+  "date": "2026-10-20",
+  "startTime": "11:40",
+  "endTime": "12:25",
+  "location": "Bowring Ballroom",
+  "description": "Technology journalists discuss the Canadian industry stories and developments they are watching. Moderator: Adam Walsh.",
+  "speakerIds": [
+    "speaker-sean-silcoff",
+    "speaker-catherine-mcintyre",
+    "speaker-madison-mclauchlan",
+    "speaker-adam-walsh"
+  ],
+  "companyIds": [
+    "company-the-globe-and-mail",
+    "company-the-logic",
+    "company-betakit",
+    "company-cbc"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "session-beyond-vc",
+  "slug": "beyond-vc",
+  "title": "Beyond VC: Building Big Without Venture Capital",
+  "date": "2026-10-20",
+  "startTime": "15:20",
+  "endTime": "16:00",
+  "location": "Bowring Ballroom",
+  "description": "Local technology leaders discuss growth through routes other than venture capital. Moderator: Maurice Tuff.",
+  "speakerIds": [
+    "speaker-emad-rizkalla",
+    "speaker-joe-teo",
+    "speaker-gerard-duggan",
+    "speaker-josh-taylor",
+    "speaker-maurice-tuff"
+  ],
+  "companyIds": [
+    "company-bluedrop-ism",
+    "company-heyorca",
+    "company-vision33",
+    "company-carrick"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

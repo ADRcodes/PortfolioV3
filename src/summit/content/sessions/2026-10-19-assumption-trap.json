@@ -1,0 +1,31 @@
+{
+  "id": "session-assumption-trap",
+  "slug": "assumption-trap",
+  "title": "The Assumption Trap: How Founders Move from Hype to Reality",
+  "date": "2026-10-19",
+  "startTime": "13:00",
+  "endTime": "13:40",
+  "location": "Bannerman Ballroom 1",
+  "description": "A founder panel on testing assumptions and using customer evidence to guide product decisions. Moderator: Kyle Hickey.",
+  "speakerIds": [
+    "speaker-james-geneau",
+    "speaker-steph-burry",
+    "speaker-chelsea-o-hara",
+    "speaker-jacob-critch",
+    "speaker-kyle-hickey"
+  ],
+  "companyIds": [
+    "company-propel",
+    "company-dcxix",
+    "company-melotech"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

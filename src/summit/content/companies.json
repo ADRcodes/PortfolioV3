@@ -4,8 +4,1165 @@
     "slug": "demo-labs",
     "name": "Demo Labs (demo)",
     "description": "A fictional organization for testing the conference content structure.",
-    "urls": [{ "label": "Example website", "url": "https://example.com" }],
+    "urls": [
+      {
+        "label": "Example website",
+        "url": "https://example.com"
+      }
+    ],
     "image": null,
     "imageAlt": ""
+  },
+  {
+    "id": "company-airtable",
+    "slug": "airtable",
+    "name": "Airtable",
+    "description": "Airtable provides a platform for building applications and workflows around shared data. Teams use its relational data model, interfaces, automations and integrations to coordinate work across functions such as marketing, product development and operations.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.airtable.com/platform/connected-data"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/10.png",
+    "imageAlt": "Airtable logo"
+  },
+  {
+    "id": "company-amal",
+    "slug": "amal",
+    "name": "AMAL",
+    "description": "Amal Unite & Empower supports newcomer workforce integration in Newfoundland and Labrador. Its RISE initiative works with employers on inclusive workplaces, helping organizations attract, support and retain newcomer talent.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://amalue.ca/rise/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/AMAL-1.svg",
+    "imageAlt": "AMAL logo"
+  },
+  {
+    "id": "company-angler-solutions",
+    "slug": "angler-solutions",
+    "name": "Angler Solutions",
+    "description": "Angler Solutions provides engineering, technology and advisory services in energy and ocean industries. Its Model for Energy Systems Optimization (MESO) platform supports analysis and planning of energy systems, connecting engineering models with commercial decisions.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.anglersolutions.ca/"
+      }
+    ],
+    "image": "https://cdn.prod.website-files.com/5ff618a7fc68553f4719c297/5ffc880a4328a4fbc5c5b264_ASI-Logo-Final-Stacked.png",
+    "imageAlt": "Angler Solutions logo"
+  },
+  {
+    "id": "company-aperture-ai",
+    "slug": "aperture-ai",
+    "name": "Aperture AI",
+    "description": "Aperture AI is the strategy consultancy led by Jaxson Khan. It advises businesses and governments on AI and emerging technologies, connecting technology strategy with organizational and public-policy questions.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://jaxson.org/"
+      }
+    ],
+    "image": null,
+    "imageAlt": ""
+  },
+  {
+    "id": "company-audyse-technology-inc",
+    "slug": "audyse-technology-inc",
+    "name": "Audyse Technology Inc.",
+    "description": "Audyse develops connected hearing-protection technology for noisy industrial workplaces. Its headsets combine communication and environmental awareness with software for monitoring noise exposure and safety information.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.audysetech.com/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/looping-sponsor-logos1.png",
+    "imageAlt": "Audyse Technology Inc. logo"
+  },
+  {
+    "id": "company-avalon-holographic",
+    "slug": "avalon-holographic",
+    "name": "Avalon Holographic",
+    "description": "Avalon Holographics develops displays that let people view and work with three-dimensional imagery without glasses or headsets. Its technology supports visualization, collaboration and immersive experiences, including applications involving complex data and digital twins.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://avalonholographics.com/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/avalonholographics.png",
+    "imageAlt": "Avalon Holographic logo"
+  },
+  {
+    "id": "company-bdc-capital",
+    "slug": "bdc-capital",
+    "name": "BDC Capital",
+    "description": "BDC Capital is BDC’s investment and specialized-financing subsidiary. It supports Canadian businesses through venture capital and growth and business-transition financing, providing capital for different stages of company development.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Official website",
+        "url": "https://www.bdc.ca/en"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.bdc.ca/en/about/what-we-do"
+      }
+    ],
+    "image": "https://images.seeklogo.com/logo-png/49/2/business-development-bank-of-canada-logo-png_seeklogo-496939.png",
+    "imageAlt": "BDC Capital logo"
+  },
+  {
+    "id": "company-betakit",
+    "slug": "betakit",
+    "name": "BetaKit",
+    "description": "BetaKit is a Canadian technology-news publication covering startups, innovation and the businesses and policies shaping the sector. Its newsroom reports from across Canada and publishes daily journalism alongside industry conversations and events.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://betakit.com/about-us/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/betakit1.png",
+    "imageAlt": "BetaKit logo"
+  },
+  {
+    "id": "company-birch-scientific",
+    "slug": "birch-scientific",
+    "name": "Birch Scientific",
+    "description": "Birch Scientific develops custom software, visualizations and digital-twin systems for research and industry. Its work includes scientific computing, computer vision, data-processing automation and interactive environments that integrate live information.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.birchscientific.com/"
+      }
+    ],
+    "image": null,
+    "imageAlt": ""
+  },
+  {
+    "id": "company-bluedrop-ism",
+    "slug": "bluedrop-ism",
+    "name": "Bluedrop ISM",
+    "description": "Bluedrop ISM develops technology for workforce training and skills management. Its SkillsPass platform helps governments, regulators and industry partners coordinate training, credentials and workforce mobility across organizations.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://bluedropism.com/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Bluedrop-ISM.png",
+    "imageAlt": "Bluedrop ISM logo"
+  },
+  {
+    "id": "company-boast",
+    "slug": "boast",
+    "name": "Boast",
+    "description": "Boast combines software and specialist support to help businesses prepare R&D tax-credit claims, including Canada’s SR&ED programme. Its platform brings together technical and financial evidence to identify and document eligible development work.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Official website",
+        "url": "https://www.boast.ai/en-ca/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://boast.ai/en/platform/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Boast.png",
+    "imageAlt": "Boast logo"
+  },
+  {
+    "id": "company-build-canada",
+    "slug": "build-canada",
+    "name": "Build Canada",
+    "description": "Build Canada is a non-profit, non-partisan community focused on Canadian prosperity and growth. It brings together builders and policy ideas around making it easier to establish and expand companies in Canada.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.buildcanada.com/about"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Build-Canada.png",
+    "imageAlt": "Build Canada logo"
+  },
+  {
+    "id": "company-carrick",
+    "slug": "carrick",
+    "name": "Carrick",
+    "description": "Carrick, previously TxtSquad, provides patient-communication software for healthcare organizations. It combines text messaging, phone calls, voicemail, AI-assisted voice and outreach tools in a shared workspace for healthcare teams.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://carrick.io/solutions/patient-communication-platform"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/15.png",
+    "imageAlt": "Carrick logo"
+  },
+  {
+    "id": "company-cbc",
+    "slug": "cbc",
+    "name": "CBC",
+    "description": "CBC is the English-language service of CBC/Radio-Canada, Canada’s national public broadcaster. It produces news, current affairs, cultural and entertainment programming across radio, television and digital services, including regional reporting in Newfoundland and Labrador.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://cbc.radio-canada.ca/en/your-public-broadcaster/history"
+      }
+    ],
+    "image": "https://www.canadaswalkoffame.com/wp-content/uploads/logo-cbc.png",
+    "imageAlt": "CBC logo"
+  },
+  {
+    "id": "company-cgi",
+    "slug": "cgi",
+    "name": "CGI",
+    "description": "CGI provides IT and business consulting services for organizations in the public and private sectors. Its work connects technology delivery with business operations, helping clients develop and manage digital systems.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Official website",
+        "url": "https://www.cgi.com/en"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.cgi.com/en/about-us"
+      }
+    ],
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/CGI_logo.svg/1280px-CGI_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+    "imageAlt": "CGI logo"
+  },
+  {
+    "id": "company-chapter-3",
+    "slug": "chapter-3",
+    "name": "Chapter 3",
+    "description": "Chapter 3 is a consultancy helping technical businesses move from early traction to sustainable growth. It works on strategy, market positioning and execution across sectors including software, AI, manufacturing, environmental technology and the ocean economy.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://chapter3.ca/about/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/chapter3ltd.png",
+    "imageAlt": "Chapter 3 logo"
+  },
+  {
+    "id": "company-cibc",
+    "slug": "cibc",
+    "name": "CIBC",
+    "description": "CIBC is a Canadian financial institution providing personal and business banking, commercial banking, wealth management and capital-markets services. Its Summit representatives bring perspectives from Innovation Banking and CIBC Wood Gundy.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Official website",
+        "url": "https://www.cibc.com/en/personal-banking.html"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.cibc.com/en/about-cibc/corporate-profile/quick-facts.html"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/cibc.png",
+    "imageAlt": "CIBC logo"
+  },
+  {
+    "id": "company-colab-ai",
+    "slug": "colab-ai",
+    "name": "CoLab AI",
+    "description": "CoLab provides AI-supported design-review software for engineering teams. Its platform brings together engineering discussions, files, issue tracking and organizational knowledge to help teams assess designs and coordinate product-development decisions.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.colabsoftware.com/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/colabai.png",
+    "imageAlt": "CoLab AI logo"
+  },
+  {
+    "id": "company-copsys-technologies-inc",
+    "slug": "copsys-technologies-inc",
+    "name": "Copsys Technologies Inc.",
+    "description": "Copsys Technologies develops protection and monitoring technology for critical infrastructure. Its Intelligent Digital Skin system addresses corrosion and biofouling, combining materials and digital integrity-management approaches for steel assets.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://copsys.ca/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Copsys.png",
+    "imageAlt": "Copsys Technologies Inc. logo"
+  },
+  {
+    "id": "company-council-of-canadian-innovators",
+    "slug": "council-of-canadian-innovators",
+    "name": "Council of Canadian Innovators",
+    "description": "The Council of Canadian Innovators is a membership organization representing Canadian technology-company leaders. It advocates for innovation policy and works with governments on conditions that help Canadian companies grow and compete internationally.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.canadianinnovators.org/about"
+      }
+    ],
+    "image": null,
+    "imageAlt": ""
+  },
+  {
+    "id": "company-dashboard-marketing-inc",
+    "slug": "dashboard-marketing-inc",
+    "name": "Dashboard Marketing Inc.",
+    "description": "Dashboard Marketing provides marketing leadership, strategy and brand-development services. The Halifax-based firm works on communications, digital marketing, market research and fractional marketing leadership for organizations that need senior expertise.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://ca.linkedin.com/company/dashboard-marketing-inc"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Dashboard-Marketing.png",
+    "imageAlt": "Dashboard Marketing Inc. logo"
+  },
+  {
+    "id": "company-dcxix",
+    "slug": "dcxix",
+    "name": "DCXIX",
+    "description": "DCXIX, pronounced Six Nineteen, develops software and hardware for real-time media production. Its services include virtual cameras, motion capture, photogrammetry, 3D assets and virtual- and augmented-reality technology. Its Scenecast work explores real-time 3D communication.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://ca.linkedin.com/company/dcxix"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/headshotslogos.svg",
+    "imageAlt": "DCXIX logo"
+  },
+  {
+    "id": "company-deloitte",
+    "slug": "deloitte",
+    "name": "Deloitte",
+    "description": "Deloitte Canada provides professional services including audit, consulting, financial advisory, risk management and tax. Its teams work with organizations on business, technology and operational challenges.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Official website",
+        "url": "https://www.deloitte.com/ca/en.html"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.deloitte.com/ca/en/about/deloitte-canada.html"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/16.png",
+    "imageAlt": "Deloitte logo"
+  },
+  {
+    "id": "company-dischargehub",
+    "slug": "dischargehub",
+    "name": "DischargeHUB",
+    "description": "DischargeHUB provides managed care-coordination and hospital-discharge services. It combines professional support with software, automation and communication tools to organize non-medical discharge requirements and patient transitions.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.dischargehub.ca/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/headshotslogos-2.svg",
+    "imageAlt": "DischargeHUB logo"
+  },
+  {
+    "id": "company-enaimco",
+    "slug": "enaimco",
+    "name": "Enaimco",
+    "description": "Enaimco develops asset-lifecycle management software for offshore energy. Its platform connects subsea asset data, inspections, condition information, 2D and 3D context, and operational workflows across construction, maintenance and decommissioning.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://enaimco.com/platform/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Enaimco1.png",
+    "imageAlt": "Enaimco logo"
+  },
+  {
+    "id": "company-funnel-clarity",
+    "slug": "funnel-clarity",
+    "name": "Funnel Clarity",
+    "description": "Funnel Clarity provides business-to-business sales training, coaching and consulting. Its programmes address prospecting, customer conversations, opportunity management and other selling skills, with training adapted to a team’s responsibilities and sales process.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Official website",
+        "url": "https://www.funnelclarity.com/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.funnelclarity.com/sales-training/sales-programs"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/headshotslogos1.png",
+    "imageAlt": "Funnel Clarity logo"
+  },
+  {
+    "id": "company-genesis",
+    "slug": "genesis",
+    "name": "Genesis",
+    "description": "Genesis supports technology startups in Newfoundland and Labrador through programmes, community connections and founder support. Its work spans early ideas, business development and growing companies, with hubs at Signal Hill and The Dock in St. John’s.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.genesiscentre.ca/about"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Genesis.png",
+    "imageAlt": "Genesis logo"
+  },
+  {
+    "id": "company-get-building",
+    "slug": "get-building",
+    "name": "Get Building",
+    "description": "Get Building designs and delivers technical training for Atlantic Canada’s technology sector. Formerly Get Coding, it works with industry practitioners, companies, member organizations and funders on custom programmes, skills development and community events.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://get-building.ca/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Get-Building-2.png",
+    "imageAlt": "Get Building logo"
+  },
+  {
+    "id": "company-government-of-newfoundland-and-labrador",
+    "slug": "government-of-newfoundland-and-labrador",
+    "name": "Government of Newfoundland and Labrador",
+    "description": "The Government of Newfoundland and Labrador delivers provincial public services and develops policy through its departments and agencies. Its responsibilities include education, health, infrastructure, economic development and services for employers and workers.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.gov.nl.ca/departments/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/GovNL.svg",
+    "imageAlt": "Government of Newfoundland and Labrador logo"
+  },
+  {
+    "id": "company-groundcontrol",
+    "slug": "groundcontrol",
+    "name": "GroundControl",
+    "description": "GroundControl develops AI software for highly regulated manufacturing, including aerospace. Its initial product automates first-article inspection reporting and related quality documentation, helping teams organize the information required before manufactured parts can be accepted.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.ycombinator.com/companies/groundcontrol"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/groundcontrol.png",
+    "imageAlt": "GroundControl logo"
+  },
+  {
+    "id": "company-headcase",
+    "slug": "headcase",
+    "name": "HeadCase",
+    "description": "HeadCase is a Newfoundland and Labrador non-profit focused on preventative mental-health support outside the clinical system. It organizes moderated conversations, live events and peer reflection to build community connections and reduce stigma.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.headcasecommunity.com/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Headcase-.png",
+    "imageAlt": "HeadCase logo"
+  },
+  {
+    "id": "company-heyorca",
+    "slug": "heyorca",
+    "name": "HeyOrca",
+    "description": "HeyOrca provides social-media management software for teams and agencies. Its tools support shared content calendars, client approvals, scheduling, community management and reporting across social platforms.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.heyorca.com/agency"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/24.png",
+    "imageAlt": "HeyOrca logo"
+  },
+  {
+    "id": "company-ictc",
+    "slug": "ictc",
+    "name": "ICTC",
+    "description": "The Information and Communications Technology Council (ICTC) is a Canadian non-profit focused on the digital economy. It provides research, policy advice and programmes that support digital skills, workforce development and industry capacity.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://ictc-ctic.ca/who-we-are"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/ICTC.png",
+    "imageAlt": "ICTC logo"
+  },
+  {
+    "id": "company-jac",
+    "slug": "jac",
+    "name": "JAC",
+    "description": "JAC is a digital marketing and development agency based in Newfoundland and Labrador. Its services include web design, custom programming, application development and digital strategy, connecting technical delivery with marketing goals.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://jac.co/agency/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/JAC-2.svg",
+    "imageAlt": "JAC logo"
+  },
+  {
+    "id": "company-keyin-college",
+    "slug": "keyin-college",
+    "name": "Keyin College",
+    "description": "Keyin provides career-focused education and workforce training in Canada. Its college programmes prepare learners for employment, while its workforce division offers industry-oriented skills development and short micro-credential programmes.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://keyin.com/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/keyincollege.png",
+    "imageAlt": "Keyin College logo"
+  },
+  {
+    "id": "company-measure",
+    "slug": "measure",
+    "name": "Measure",
+    "description": "Measure, previously Maple, provides billing and revenue-automation software for B2B SaaS companies. It connects contracts, billing and revenue processes to help teams maintain a consistent view of their revenue.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://getmeasure.com/blog/maple-is-now-measure"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/measure.png",
+    "imageAlt": "Measure logo"
+  },
+  {
+    "id": "company-melotech",
+    "slug": "melotech",
+    "name": "Melotech",
+    "description": "Melotech works in media and entertainment, creating music, video and applications. Its activities include producing songs and films, developing channels and collaborating with artists, labels, directors and studios.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.melotech.ai/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/melotech.png",
+    "imageAlt": "Melotech logo"
+  },
+  {
+    "id": "company-memorial-university",
+    "slug": "memorial-university",
+    "name": "Memorial University",
+    "description": "Memorial University is Newfoundland and Labrador’s public university, offering teaching and research across multiple campuses and online. Its disciplines include science, engineering, business, health, humanities and the arts, with strong connections to the province and ocean research.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.mun.ca/main/about/"
+      }
+    ],
+    "image": "https://www.marathonofhopecancercentres.ca/images/default-source/acc/mun853418d1-2511-4a39-a9a7-cd6cb7e8a12b.tmb-cfthumb_m.webp?Culture=en&sfvrsn=740ea6dc_4",
+    "imageAlt": "Memorial University logo"
+  },
+  {
+    "id": "company-milk-moovement",
+    "slug": "milk-moovement",
+    "name": "Milk Moovement",
+    "description": "Milk Moovement provides supply-chain and logistics software for dairy cooperatives. Its platform supports milk procurement, pickup scheduling, routes, inventory, quality information and payments, connecting drivers and other participants in dairy operations.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.milkmoovement.com/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/milkmoovement1.png",
+    "imageAlt": "Milk Moovement logo"
+  },
+  {
+    "id": "company-mitacs",
+    "slug": "mitacs",
+    "name": "Mitacs",
+    "description": "Mitacs connects post-secondary researchers with businesses and other organizations on collaborative research projects. Its programmes support research internships, talent development and knowledge exchange between academic and non-academic partners.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.mitacs.ca/our-programs/accelerate/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/mitacs.png",
+    "imageAlt": "Mitacs logo"
+  },
+  {
+    "id": "company-munk-school-of-global-affairs-public-policy",
+    "slug": "munk-school-of-global-affairs-public-policy",
+    "name": "Munk School of Global Affairs & Public Policy",
+    "description": "The Munk School of Global Affairs & Public Policy is part of the University of Toronto. It brings together interdisciplinary research, graduate education and public engagement on policy issues in Canada and internationally.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://munkschool.utoronto.ca/about-us"
+      }
+    ],
+    "image": null,
+    "imageAlt": ""
+  },
+  {
+    "id": "company-mysa",
+    "slug": "mysa",
+    "name": "Mysa",
+    "description": "Mysa develops smart thermostats and connected temperature-control products. Its devices and app support scheduling, remote control and room-by-room management across heating and cooling systems such as electric baseboards, central HVAC, mini-splits and in-floor heating.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://getmysa.com/collections/all"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/mysa.svg",
+    "imageAlt": "Mysa logo"
+  },
+  {
+    "id": "company-nasdaq-verafin",
+    "slug": "nasdaq-verafin",
+    "name": "Nasdaq Verafin",
+    "description": "Nasdaq Verafin provides financial-crime management software for financial institutions. Its tools support fraud detection, anti-money-laundering compliance, investigations and information sharing, bringing transaction data and case-management work into connected systems.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Official website",
+        "url": "https://verafin.com/canada/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://verafin.com/wp-content/uploads/2019/05/financial-crime-case-management-fs-verafin-190502.pdf"
+      }
+    ],
+    "image": "https://thepaymentsassociation.org/wp-content/uploads/2025/06/New-Member-Logo-10.png",
+    "imageAlt": "Nasdaq Verafin logo"
+  },
+  {
+    "id": "company-navigant-law",
+    "slug": "navigant-law",
+    "name": "Navigant Law",
+    "description": "Navigant Law is Chris Hickey’s fractional general counsel and strategic advisory practice for growing technology and data businesses. Its work includes commercial relationships, data governance, AI-related legal questions and operating in regulated markets.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.linkedin.com/posts/chris-hickey-lawyer_i-recently-shared-that-id-be-stepping-away-activity-7460029771817844736-4ocX"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Navigant-Law-2.svg",
+    "imageAlt": "Navigant Law logo"
+  },
+  {
+    "id": "company-pelorus-venture-capital-ltd",
+    "slug": "pelorus-venture-capital-ltd",
+    "name": "Pelorus Venture Capital Ltd.",
+    "description": "Pelorus Venture Capital invests in early-stage innovation companies in Newfoundland and Labrador. It manages the Venture NL funds and works with founders as an investor and active adviser during the early stages of building a business.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.pelorusvc.com/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Pelorus-VC.png",
+    "imageAlt": "Pelorus Venture Capital Ltd. logo"
+  },
+  {
+    "id": "company-polyunity-tech-inc",
+    "slug": "polyunity-tech-inc",
+    "name": "PolyUnity Tech Inc.",
+    "description": "PolyUnity provides additive-manufacturing services for healthcare organizations. It works with clinicians and hospital teams on designing and producing custom medical products, components and other healthcare applications through 3D printing.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.polyunity.com/work-with-us"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/PolyUnity.png",
+    "imageAlt": "PolyUnity Tech Inc. logo"
+  },
+  {
+    "id": "company-propel",
+    "slug": "propel",
+    "name": "Propel",
+    "description": "Propel is a virtual startup accelerator serving Atlantic Canada. It provides coaching, mentoring and programmes that help founders validate ideas, find customers and develop their businesses through early traction and growth.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Official website",
+        "url": "https://www.propelict.com/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.propelict.com/connected"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/propel.png",
+    "imageAlt": "Propel logo"
+  },
+  {
+    "id": "company-purposeful-group",
+    "slug": "purposeful-group",
+    "name": "Purposeful Group",
+    "description": "The Purposeful Group advises organizations on community economic development and social innovation. Its work includes organizational and community strategy, policy design, partnership development and facilitation across public, private and community stakeholders.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.purposefulgroup.ca/pg-team"
+      }
+    ],
+    "image": null,
+    "imageAlt": ""
+  },
+  {
+    "id": "company-rivet",
+    "slug": "rivet",
+    "name": "Rivet",
+    "description": "Rivet provides B2B sales consulting for early-stage and growing technology companies. Its work includes go-to-market planning, founder-led sales, early sales hires, CRM setup and practical sales development in complex or regulated markets.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.rivetgrowth.com/about"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/looping-sponsor-logos.png",
+    "imageAlt": "Rivet logo"
+  },
+  {
+    "id": "company-siftmed",
+    "slug": "siftmed",
+    "name": "SiftMed",
+    "description": "SiftMed develops AI-supported software for reviewing complex medical records. Its platform organizes and de-duplicates files, builds chronologies and links findings to source pages for insurance, legal, independent medical examination and related professional teams.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.siftmed.ca/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/siftmed.png",
+    "imageAlt": "SiftMed logo"
+  },
+  {
+    "id": "company-smartice",
+    "slug": "smartice",
+    "name": "SmartICE",
+    "description": "SmartICE combines Indigenous and local knowledge with sensors, remote monitoring and satellite mapping to support safer sea-ice travel. It works with northern communities, training local operators and sharing information on changing ice conditions.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://smartice.org/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/SmartIce.png",
+    "imageAlt": "SmartICE logo"
+  },
+  {
+    "id": "company-spellbook",
+    "slug": "spellbook",
+    "name": "Spellbook",
+    "description": "Spellbook develops AI tools for legal work, including reviewing and drafting contracts. Lawyers use its software to revise clauses, ask questions about documents and apply drafting guidelines within their contract workflow.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://help.spellbook.legal/en/articles/9079366-using-spellbook-as-a-transactional-lawyer"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/25.png",
+    "imageAlt": "Spellbook logo"
+  },
+  {
+    "id": "company-springboard-atlantic-inc",
+    "slug": "springboard-atlantic-inc",
+    "name": "Springboard Atlantic Inc.",
+    "description": "Springboard Atlantic connects businesses with researchers at Atlantic Canadian universities and colleges. Its network supports industry collaboration, intellectual-property development and the early commercialization of research.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Official website",
+        "url": "https://springboardatlantic.ca/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://springboardatlantic.ca/about/"
+      }
+    ],
+    "image": "https://oceansupercluster.ca/wp-content/uploads/springboard.png",
+    "imageAlt": "Springboard Atlantic Inc. logo"
+  },
+  {
+    "id": "company-technl",
+    "slug": "technl",
+    "name": "techNL",
+    "description": "techNL is a non-profit membership association supporting Newfoundland and Labrador’s technology sector. Its programmes and services cover business growth, talent development, member connections, digital adoption and the wider innovation ecosystem.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://technl.ca/about-us/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/technl.png",
+    "imageAlt": "techNL logo"
+  },
+  {
+    "id": "company-the-globe-and-mail",
+    "slug": "the-globe-and-mail",
+    "name": "The Globe and Mail",
+    "description": "The Globe and Mail is a Canadian national news organization publishing in print and online. Its journalism covers national and international affairs, business, and the issues shaping public life in Canada.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://ca.linkedin.com/company/the-globe-and-mail"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/The-globe-and-mail.png",
+    "imageAlt": "The Globe and Mail logo"
+  },
+  {
+    "id": "company-the-logic",
+    "slug": "the-logic",
+    "name": "The Logic",
+    "description": "The Logic is a Canadian business and technology newsroom. It produces in-depth reporting on companies, people and public policy, with a focus on the country’s innovation economy.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://thelogic.co/about/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/The-Logic.png",
+    "imageAlt": "The Logic logo"
+  },
+  {
+    "id": "company-the51",
+    "slug": "the51",
+    "name": "The51",
+    "description": "The51 is an investment organization directing women-led capital toward early-stage businesses and undercapitalized markets. Its venture funds back founders and companies with an emphasis on women’s participation as entrepreneurs and investors.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://the51.com/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/the51.png",
+    "imageAlt": "The51 logo"
+  },
+  {
+    "id": "company-tiller-engineering",
+    "slug": "tiller-engineering",
+    "name": "Tiller Engineering",
+    "description": "Tiller Engineering provides structural engineering, inspection and consulting services. Its work spans telecommunications facilities, infrastructure and energy assets, helping clients assess, design and maintain structures.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://tillerengineering.com/"
+      }
+    ],
+    "image": null,
+    "imageAlt": ""
+  },
+  {
+    "id": "company-trophi-ai",
+    "slug": "trophi-ai",
+    "name": "trophi.ai",
+    "description": "trophi.ai develops AI coaching and instruction technology for skilled performance. Its sim-racing product analyzes driving performance and provides guidance during practice; its broader platform explores instruction in other demanding training environments.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.trophi.ai/"
+      }
+    ],
+    "image": "https://image.pitchbook.com/P51cyZFrlEoN8WsEdjBgvbmFY5L1669389330359_200x200",
+    "imageAlt": "trophi.ai logo"
+  },
+  {
+    "id": "company-trudell-medical-limited",
+    "slug": "trudell-medical-limited",
+    "name": "Trudell Medical Limited",
+    "description": "Trudell Medical Limited is part of a Canadian healthcare group working in medical devices, distribution and patient services. The group’s businesses serve patients and healthcare providers in areas including respiratory care, surgery, diagnostics and virtual care.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.trudellmedicalgroup.com/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Trudell-Medical-Limited.png",
+    "imageAlt": "Trudell Medical Limited logo"
+  },
+  {
+    "id": "company-virtual-marine",
+    "slug": "virtual-marine",
+    "name": "Virtual Marine",
+    "description": "Virtual Marine develops maritime training simulators, including systems for lifeboats, fast rescue craft and virtual-reality exercises. Its technology lets crews practise procedures and decision-making in simulated weather, emergency and operational conditions.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.virtualmarine.ca/"
+      }
+    ],
+    "image": "https://cdn-s.acuityscheduling.com/logo31715267.png?1732115151&hasAlpha=1",
+    "imageAlt": "Virtual Marine logo"
+  },
+  {
+    "id": "company-vision33",
+    "slug": "vision33",
+    "name": "Vision33",
+    "description": "Vision33 implements, integrates and supports cloud ERP and business software. Its work includes SAP and other business applications, helping organizations connect operational systems and manage information across their businesses.",
+    "urls": [
+      {
+        "label": "Official conference listing",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "Organization background",
+        "url": "https://www.vision33.com/about-us"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/vision33.png",
+    "imageAlt": "Vision33 logo"
   }
 ]

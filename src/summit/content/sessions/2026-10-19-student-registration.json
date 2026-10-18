@@ -1,0 +1,23 @@
+{
+  "id": "session-student-registration",
+  "slug": "student-registration",
+  "title": "Post-Secondary Student Event Registration and Networking",
+  "date": "2026-10-19",
+  "startTime": "09:00",
+  "endTime": "10:00",
+  "location": "St. John’s Convention Centre (room not specified)",
+  "description": "Student-event check-in and networking. Separate student-event registration is required. The official agenda does not specify a room.",
+  "speakerIds": [],
+  "companyIds": [
+    "company-technl"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

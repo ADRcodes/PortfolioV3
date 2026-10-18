@@ -1,6 +1,6 @@
 # PortfolioV3 Progress
 
-Last updated: 2026-06-03
+Last updated: 2026-10-15
 
 ## Completed
 
@@ -21,7 +21,20 @@ Last updated: 2026-06-03
 - Added SPA fallback handling in the deploy workflow so deep links can resolve through CloudFront/S3.
 - Added project documentation in the structure required by `AGENTS.md`: `docs/spec.md`, `docs/plan.md`, `docs/todo.md`, `memory-bank/progress.md`, and `memory-bank/decisions.md`.
 
+## October 15, 2026
+
+- Reviewed required documentation, source, live pages, local production build, and GitHub Actions history.
+- Confirmed retained scroll on project navigation, missing contact labels caused by a prop mismatch, and a contact pending-send race.
+- Added shared route scroll handling and contact accessibility/pending-send fixes; preserved contact styling.
+- Reconciled README and project docs and added a deployment runbook.
+- Deferred project browsing redesign, placeholder/case-study content, and a general not-found page.
+
 ## Recent Verification
+
+- October 15: `pnpm build` passed after the fixes; `git diff --check` passed.
+- Browser checks: forward project navigation starts at scrollY 0, Back returns to the previous Projects browsing position, and consulting section links reach their anchors.
+- Contact browser checks: named/required fields, invalid-email gating, pending field/send lock, simulated success reset, and simulated failure draft preservation/retry all passed. Requests were intercepted before delivery; no real email was sent.
+- Contact styling was left unchanged; desktop/mobile rendering inspected. No source changes were pushed or deployed.
 
 - Production Vite build passed locally on 2026-06-02 by running Vite directly through the local Node binary.
 - Local Vite dev server served `/projects/hirag-personal-ai` with `200 OK` on 2026-06-02.
@@ -30,13 +43,13 @@ Last updated: 2026-06-03
 ## Current Repo State Notes
 
 - `AGENTS.md` was updated by the user to define required read order, documentation structure, and mode behavior.
-- `origin/main` is behind the local branch by one local commit at the time these docs were written. That local commit was not pushed because push permission was denied.
+- On October 15, local `main` and the cached `origin/main` ref were at `1e50a6b`. GitHub showed that commit deployed successfully on June 8, 2026. October fixes are local and have not been pushed or deployed.
 - Future `SYNC` requests should read docs and memory-bank files, summarize current state, recommend a next task, and make no code changes.
 
 ## Needs Follow-Up
 
-- Run a full browser visual QA pass once browser tooling is available.
-- Confirm GitHub Actions deploy behavior after the workflow changes are intentionally pushed.
+- Complete remaining responsive, keyboard, and reduced-motion coverage; representative desktop/mobile pages were inspected on October 15.
+- Reverify the deployment after the next authorized push. See `docs/deployment.md` for the last observed successful run and outstanding safeguards.
 - Replace placeholder visuals on AI Consulting when better assets are ready.
 - Decide which additional project pages should get custom case-study treatment.
 
@@ -66,6 +79,85 @@ Last updated: 2026-06-03
 - Browser checks covered full/legacy/minimal article rendering, detailed sections with/without bullets, draft/upcoming states and the requested reading order. Inspected 320px, 390px and 1280px layouts without horizontal overflow. Removed temporary browser fixtures; existing session JSON is unchanged.
 - No dependencies, registry, local-only production data, workflow, infrastructure or portfolio presentation changes. Development branch only; no merge or production deployment.
 
+## October 16, 2026: Summit companion design overhaul
+
+- Replaced the Summit landing page with a chronological session-card timeline, Alex’s welcome, conference-local time, desktop day shortcuts, a quick-jump dialog and an Up next action. Fresh entry centers the next event; clock updates preserve the reader’s position.
+- Created an independent plum/lilac/green visual system across the Summit, with bottom navigation on mobile, subtle scroll-linked arrivals, dialog transitions and reduced-motion alternatives. Added searchable sessions and refined published/unpublished session reading layouts.
+- Added Summit-specific history scroll restoration and direct agenda anchors. Kept existing JSON content/publication rules and portfolio presentation separate.
+- Validation: production build and `git diff --check` passed. All 19 content, publication, rendering and scheduling tests passed, including 10:45 → 11:00 focus, simultaneous starts, conference start/end, DST and date rollover.
+- Browser verification used computer-use/CDP after the browser-use native module failed. Inspected 1280px desktop and 389px/320px mobile layouts; no horizontal overflow. Verified card navigation, published notes, unpublished placeholders, quick-jump selection, Escape/focus return, browser Back restoration, search matches/empty results, speaker/profile navigation and restoration of the portfolio’s own background after leaving the Summit. Confirmed reduced motion disables card animation and dialog transitions. Sampled text contrast ratios range from 5.47:1 to 8.49:1.
+- The prior Vite process on port 5173 served stale cached modules. A fresh agent-managed preview is running at http://127.0.0.1:5174/technlsummit. File watching also appeared stale during this pass, so the preview was restarted after final source edits. No global configuration was modified.
+- Build reports non-blocking pnpm preferences EPERM and a 501.23 kB JavaScript chunk warning. Real conference content and sharing metadata remain launch follow-ups. Changes are local; nothing was pushed or deployed.
+
+
+## October 17, 2026: Summit design reference research
+
+- Added `docs/design-inspiration.md` as an extensible collection, starting with Zajno’s conference animation and original page. Recorded direct visual observations, creator-reported methods, inspection limits and four attributed study frames.
+- Established exploratory principles, ranked Summit applications and a card-to-detail motion storyboard. These are proposals, not an approved aesthetic. No source or visual implementation changes in this research pass.
+- Inspected the actual animation through browser playback and decoded intermediate frames, plus the original page’s primary composition and current Summit preview. Checked documentation asset references; no build required for documentation-only additions.
+
+## October 17, 2026: Browser workflow and session picker polish
+
+- Added browser-testing guidance to `AGENTS.md`, preserving its existing instructions: prefer Playwright MCP, use built-in Computer Use as fallback, avoid the broken bundled Browser Use integration, and save screenshots inside the project.
+- Used Impeccable's existing project context and polish guidance for one focused Summit improvement. The modal previously reserved space for controls behind its backdrop; reduced that mobile gap and gave the session list its own contained scrolling area beneath a fixed header.
+- Inspected Playwright screenshots at 1440×900, 390×667, 320×568 and 640×360. At 390×667 the dialog grows from 427px to 557px; at 640×360 it grows from 120px to 250px. Confirmed no horizontal overflow on narrow/landscape checks, Escape restores trigger focus, and selecting the final session closes the picker and focuses its agenda link. No console errors or warnings.
+- `pnpm build`, all 13 Summit content/rendering tests and `git diff --check` passed. Build retained the existing nonblocking pnpm preferences EPERM and large-chunk warnings. Restarted this chat's Vite process after detecting stale served CSS; the single server remains on port 5173. Screenshots are in the ignored `.playwright-mcp/` directory. No deployment or permission changes.
+
+
+## October 17, 2026: Summit editorial motion redesign
+
+- Implemented Alex’s requested major redesign: charcoal canvas, square gray session surfaces, larger editorial typography, open spacing, concise card copy, purple event accents and a masked letter entrance for the welcome heading. Applied the language to agenda, detail, directories, profiles, search and navigation.
+- Added native shared view transitions scoped to Summit routes. A selected background expands separately from title/time/location/presenter snapshots; surrounding content departs and the summary enters later. Browser Back/Forward and explicit agenda return retain context; matching-card focus is restored on animated returns. Generic route navigation and the session picker share sliding/fading choreography.
+- Kept semantic links, native scrolling, Newfoundland scheduling, publication filtering, mobile bottom navigation and reduced-motion alternatives. Added no dependencies and changed no portfolio presentation or deployment infrastructure. Updated the Summit design guide and inspiration collection to distinguish research from the implemented direction.
+- Validation: production build, all 19 existing Summit content/publication/rendering/scheduling tests and whitespace checks passed. Browser checks used Computer Use because Playwright MCP's profile is occupied. Inspected live shared animation groups and paused intermediate frames, verified complete opening/closing and browser Back, focus restoration, rapid successive navigation without errors, generic navigation, search filtering, unpublished placeholders, picker scrolling/Escape, and reduced motion (zero running animations). Checked 320px, 390px and wide layouts for horizontal overflow; confirmed welcome lettering fits at 320px. Saved evidence under `.codex/screenshots/`. These are browser checks, not physical-device or measured frame-rate benchmarks.
+- Preview is running at http://127.0.0.1:5174/technlsummit. Port 5173 belongs to an older project process serving stale modules; the current session could not stop that process, so the fresh preview uses 5174. File watching did not update source reliably, so the fresh process was restarted after final source changes. No permission/configuration changes were made. Existing build chunk-size and pnpm preference warnings remain non-blocking. Nothing pushed or deployed.
+
+
+## October 17, 2026: Summit navigation, typography and profile links
+
+- Enlarged supporting typography: 18px desktop fact values/article text, 16px primary navigation and 14px metadata labels, with readable phone sizes. Removed purple from every Summit color/state, including focus and selection. Promoted TechNL Summit 2026 in the wordmark, welcome heading and document title.
+- Removed the preview banner, standalone Sessions page, jump popup and floating dock. Primary navigation is Agenda, Speakers, Companies and a contrasting filled Up next link. Up next works from every route, with smooth scrolling on the agenda. Legacy `/technlsummit/sessions` redirects to the agenda; detail URLs remain intact.
+- Made presenter/company names independent links on session cards and in the detail header. Cards are semantic articles with a stretched title link, so profile links never nest. Removed the detail aside and centered the readable summary column. Added shared name-to-profile-heading transitions; card-origin history preserves session expansion/reversal when opening cards from profiles.
+- Validation: production build, all 21 Summit tests and whitespace checks passed. Added rendering regressions for valid independent card links and header-only presenter/company placement. Browser checks verified presenter/company links from cards and headers, profile-name animation groups, card expansion from profiles and browser Back, navbar Up next centering, the legacy Sessions redirect, absent banner/popup, enlarged computed font sizes, desktop/390px/320px layouts without horizontal overflow, and reduced-motion navigation with zero running animations. Captured updated screenshots under `.codex/screenshots/`.
+- Playwright MCP remains occupied by another browser session; used Computer Use fallback. Restarted the project preview to avoid stale Vite transforms. The current preview remains http://127.0.0.1:5174/technlsummit. No dependencies, global configuration, publishing content or infrastructure changed; nothing pushed or deployed.
+
+
+## October 17, 2026: Summit palette, welcome and spacing refinement
+
+- Replaced near-black/monochrome with a softer slate-green canvas, warm-neutral panels and apricot accents. Purple remains excluded. Unified the agenda title, Alex's note and date jumps into a single viewport-height section; removed the companion kicker, clock display, duplicate introductory tagline and running-order heading.
+- Reduced outer top padding across content pages and collapsed session back/date/status into a compact top row, with responsive wrapping. Preserved the existing card/profile transitions, next-event scheduling, native scrolling and reduced-motion behavior.
+- Validation: production build and all 21 content/rendering/publication/scheduling tests passed. Used Computer Use fallback because Playwright MCP's browser profile remains occupied. Inspected desktop 1280x900, phone 390x844 and short 320x568 layouts: no horizontal overflow; welcome fills the available screen at regular sizes and grows naturally on short screens. Checked card expansion and settled detail layout, return navigation, date jump focus, and reduced motion (zero animations). Saved screenshots under `.codex/screenshots/`. Current preview remains on port 5174. No dependencies or infrastructure changes; nothing pushed or deployed.
+
+
+## October 17, 2026: Import official Summit programme
+
+- Added 36 upcoming entries for October 19–20 from the official techNL programme, including 12 parallel expert sessions, student events, networking, breaks and techfest. Linked 74 real presenter/moderator profiles and 62 organizations without replacing existing test content.
+- Reconciled the shared Genesis workshop/T-Minus30 launch against its official registration page. Documented sources, organization aliases, registration qualifications and unspecified rooms in `src/summit/content/SOURCES.md`. No summaries or recordings were invented.
+- Validation: all 21 Summit tests and the production build passed; verified public projections and all imported references. Playwright MCP checks covered desktop and mobile agenda/detail pages and speaker/company navigation, with no horizontal overflow. Fresh local preview runs on port 5175. Existing test entries remain visible pending a separate decision; no UI code, dependencies or infrastructure changed, and nothing committed, pushed or deployed.
+
+
+## October 17, 2026: Remove demo agenda entries
+
+- At the user’s request, deleted the four fictional/demo session JSON files and moved Will’s meetup editorial test to October 21, the day after the conference. Preserved the article, stable URL and source recording date disclosure; this display date is not a verified rescheduling of the actual meetup. Demo profiles remain to support the editorial-guide reference example.
+- Validation: all 21 Summit tests and production build passed. Restarted the local preview to refresh cached content, then verified the demo entries are absent and the retained meetup displays October 21.
+
+
+## October 17, 2026: Official speaker images and profile context
+
+- Added 73 speaker portraits and all 33 available bios from the official conference page; biographies are concise third-person adaptations with source links and listed roles retained. Added direct LinkedIn profile links supplied by the programme.
+- Matched 56 organization logos and added 19 company background descriptions supported by the programme’s speaker bios. No separate company-bio directory is published there; profiles without additional information keep factual affiliations. Preserved stable IDs, slugs and session references. Added a scoped white backing for transparent company logos.
+- Documented provenance, missing portraits/logos and external image hosting in `src/summit/content/SOURCES.md`. No image was invented for Kristen Marumoto; the combined Aperture AI/Munk School logo was not misassigned to either organization.
+- Validation: all 129 imported image URLs loaded in Playwright MCP; checked desktop, 390px and 320px profile layouts, speaker-to-company navigation, longer biography text and missing-image profiles with no horizontal overflow. All 21 Summit tests, production build and whitespace checks passed. Local preview remains on port 5175. Nothing committed, pushed or deployed.
+
+
+## October 17, 2026: Speaker rows and directory navigation
+
+- Replaced separate presenter/company columns with shared speaker rows containing a small portrait, linked name and independently linked company affiliations. Reused rows in session detail metadata and the speaker directory. Organization links without associated presenters remain available in the same metadata block.
+- Added a labelled name/company A–Z selector to the speaker directory, with sort state in its URL, stable name tie-breaking and speakers without a company last when sorting by company. Each speaker lists their linked session times/titles in Newfoundland conference time; available LinkedIn links are accessible icon-only links in the directory and individual profile.
+- Added explicit Back to speakers / Back to companies links that also work for direct-entry profiles. Retained the existing typography, palette, route transitions and content schemas; no portfolio components or content were changed.
+- Validation: all 24 Summit tests, production build and whitespace checks passed. Playwright MCP verified both sort modes, independent card presenter/company navigation, directory session links, LinkedIn targets, profile back links, and desktop/390px/320px layouts without horizontal overflow. Screenshots are under `.playwright-mcp/`. Nothing committed, pushed or deployed.
+
+
 ## October 17, 2026: Multi-presentation editorial articles
 
 - Fast-forwarded the feature branch to the owner’s revised article commit `f2c5017` over HTTPS after SSH host-key access was blocked. Hashed the dirty checkout first and preserved all unrelated files. Kept the previously requested October 21 display date with a source-date disclosure.
@@ -73,3 +165,63 @@ Last updated: 2026-06-03
 - Migrated Will’s five presentations without changing the revised paragraphs/bullets or inventing speakers. Added a linked presentation overview, prominent numbered headings, clearer takeaway hierarchy and a qualified distillation insight. Content stays expanded with flexible section depth and plain separators.
 - Updated the editorial guide with the implemented contract, example and when to use each article format. Tests cover validation errors/references, legacy compatibility, nested unknown-field filtering, actual production assets, expanded rendering, anchors, optional fields and escaping.
 - Verification: all 29 tests passed in the working checkout, with 18 tests also passing on an export of the exact staged commit. Production build passed; Playwright checked the actual built article at desktop, 390px and 320px, all five overview anchors, qualified highlight, fully expanded content and the retained October 21 date. Only this article/schema improvement is staged; earlier local agenda/profile/layout and portfolio changes remain uncommitted.
+
+
+## October 17, 2026: Researched speaker and company profiles
+
+- Researched and added bios for all 41 real speakers without a conference-supplied biography, using public LinkedIn text/posts and employer, university, association or event biographies where access was limited. Preserved the 33 existing real biographies. Added a verified LinkedIn profile for Kristen Marumoto.
+- Replaced descriptions for all 62 real organizations with short factual accounts of their products, services or purpose. Resolved ambiguous names against conference identities, especially Aperture AI, GroundControl and Navigant Law. Excluded promotional performance claims, unrelated namesakes, personal contact details and unsupported work history.
+- Documented sources and retrieval limitations in `src/summit/content/SOURCES.md`; included public background links in profiles without duplicating existing LinkedIn profile icons. Retained IDs, slugs, images, affiliations, article/session content, schemas and fictional guide-example records.
+- Validation: all 29 tests and production build passed. Confirmed old real-profile placeholders are gone and inspected updated speaker/company descriptions at desktop and mobile in Playwright MCP. Local development remains on port 5173; no new port, dependencies or application changes. Nothing committed, pushed or deployed.
+
+
+## October 17, 2026: Agenda usability and fast navigation
+
+- Compressed agenda cards with smaller intentional spacing, inline presenter/company links, no portraits or fixed minimum height, and an arrow in the status row instead of a separate action footer. Kept every presenter and affiliation reachable. At the rendered half-width view, representative cards dropped from roughly 450–850px to 200–360px.
+- Removed redundant agenda-card time; the rail now shows start and expected end with no wrapping. Added accessible clock/location icons. Detail and profile-card times remain. The rail participates in the existing native shared transition.
+- Added a sticky inline session browser: date jumps, native range scrubbing, current date/time/count, previous/next buttons and scroll-position synchronization. Dragging and keyboard scrubbing are immediate and retain control focus. Session centering accounts for the sticky browser, header and phone navigation.
+- Validation: all 30 Summit tests, production build and whitespace checks passed. Added one rendering regression covering all profile links, absent agenda-card time/portraits and retained time outside the agenda. Computer Use fallback verified pointer selection/dragging, Home/End/arrow keys, date jumps, scroll tracking, shared time/card expansion and reverse focus restoration, reduced motion (zero animations), and no horizontal overflow or wrapped rail clocks at 1280px, 751px, 390px and 320px layout widths. Browser viewport overrides produce imperfect screenshot scaling in this environment; the default half-width view was directly inspected and saved under `.codex/screenshots/`.
+- Port 5173 remains an older process whose termination is denied by the OS, including the elevated attempt. Restarted this chat's existing 5174 preview and verified the new code there. Nothing pushed or deployed; no dependencies, global configuration or programme content changed.
+
+
+## October 17, 2026: Intro identity handoff and simultaneous-session layout
+
+- Fresh unanchored visits now open at the welcome. The header and phone navigation begin hidden; one visible techNL / Summit / 2026 identity shrinks, clears its words and joins the measured navigation positions as the header slides in. Reverse scrolling undocks it. The year matches the other words in size, and techNL retains its lowercase t. Reduced motion switches directly after the heading leaves view.
+- Removed the note byline and duplicate intro dates. Added the linked '- Alex Russell' portfolio signature and accessible LinkedIn icon, using the profile already configured in the portfolio. Kept an understated agenda arrow and official-event link.
+- Quick-scroll controls now slide in only when the first event passes under the header. Removed the visible caption; retained the native slider's accessible name/value, date shortcuts, count, keyboard behavior and focus while scrubbing early sessions. Moved scroll arrival animation onto slot contents so it cannot move the reveal threshold.
+- Grouped 37 sessions into 28 chronological slots. Concurrent choices use four desktop columns (two on narrower desktops) and native horizontal scroll snapping on phones/tablets, with a peek, counter and arrow controls. Every session keeps an independent anchor and slider stop. Horizontal scrolling updates the slider; selecting or returning to a session reveals its carousel card before shared snapshots are captured. Focus outlines stay inside clipped cards; resize observation keeps counters aligned.
+- Verification: all 32 tests passed, including new grouping/stable-order/day-boundary and complete agenda-anchor regressions. Production build and whitespace checks passed. Computer Use fallback (Playwright MCP profile occupied) inspected 1280px desktop, default 707px, 390px and 320px layouts without horizontal overflow. Verified four desktop columns, mobile carousel arrows/native horizontal scrolling, slider synchronization, delayed-control threshold, shared card transitions, explicit returns and browser Back restoring the same card/focus. Sampled six title positions at 320px: all words fit and none overlapped. Reduced motion had zero animations, a hidden header at the intro and a visible header after scrolling. Verified actual portfolio/LinkedIn hrefs. Saved intro, intermediate and carousel evidence under `.codex/screenshots/` and restored temporary browser emulation.
+- Current preview remains http://127.0.0.1:5174/technlsummit, left at the welcome. No dependencies, programme content, global configuration or infrastructure changed. Nothing committed, pushed or deployed. Existing build chunk-size/pnpm preferences warnings remain non-blocking.
+
+
+## October 17, 2026: Message, directory and profile design refinement
+
+- Rewrote and right-aligned Alex's note, separated the two practical lines, and placed a larger italic portfolio/LinkedIn closing above the independence disclosure. Made the quick-scroll background cover the full viewport, tightened name/company spacing, hid visible carousel counters and added clear Previous/Next buttons plus framed quick-scroll arrows.
+- Replaced the speaker dropdown with sticky Presenting order/Name/Company buttons, preserving sorting in the URL and defaulting to presentation order. Enlarged portraits to 192px on wide desktops, 144–160px in narrower windows and 104px on phones. Show complete biographies without profile navigation above phone widths; phone rows have a stretched profile link and independent company/session/social links. Presentation times are plain text, names are headings, and session titles remain links.
+- Added available company logos, alphabetical order and obvious full-row detail links. There are 56 supplied company images and seven entries without images; the latter use initials. Content records were not changed or researched during this design pass.
+- Redesigned both profile types with split portrait/logo and pale content heroes, large titles, affiliation logos, biographies, aligned LinkedIn controls and relevant external links. Filtered official-programme links from rendering while retaining sources in data. Company-related speaker names now have portraits. Added real history Back buttons, with directory fallbacks for direct entries.
+- Validation: all 33 tests, production build and whitespace checks passed. Updated regressions cover sort controls/order, plain presentation times, profile Back semantics, absent programme URLs, associated images and company detail links. Computer Use fallback verified default 707px and 1280px desktop layouts, 390px and 320px phone layouts, sticky sorting, each sort option, row portrait hit targets, visible desktop biographies with disabled profile navigation, no horizontal overflow with long names, profile LinkedIn placement, company speaker photos and full-width quick-scroll coverage. Confirmed direct-entry Back returns to Companies, and speaker Back returns to its originating session with presenter focus restored. Reduced-motion sorting had zero animations. Restored browser overrides and saved evidence in `.codex/screenshots/`.
+- Current preview is http://127.0.0.1:5174/technlsummit, left on the refreshed speaker directory. No dependencies, programme content, global settings or infrastructure changed; nothing committed, pushed or deployed. Existing build/pnpm warnings remain non-blocking.
+
+
+## October 17, 2026: Larger imagery and integrated Back navigation
+
+- Increased directory portraits/logos and supporting profile/session images, with stacked phone speaker rows and wider profile media.
+- Moved Back into the fixed header next to the event identity for every non-agenda route. Removed standalone profile/session Back rows; retained history navigation and a direct-entry agenda fallback.
+- Added a shared header arrow entrance/exit and moving wordmark geometry with reduced-motion support.
+- Validation: 13 rendering tests passed; production build passed. Computer Use browser checks covered 1280px, split-window, 390px and 320px layouts, real Back restoration, no agenda Back button, session portraits and an observed intermediate native arrow-animation frame. Playwright MCP remained occupied, so Computer Use supplied browser evidence.
+
+
+## October 17, 2026: Phone navigation labels and full-width company intro
+
+- Kept mobile navigation labels unbroken and allocated more width to Companies.
+- Removed the canvas gutter above/around the company hero so it spans the screen below the header; lower sections keep their normal gutters.
+- Verified via Computer Use at exact 320px and 390px mobile widths and a wide desktop: labels remain one line, company hero matches viewport edges, no horizontal overflow. Production build and whitespace checks passed.
+
+
+## October 17, 2026: Production release preparation
+
+- Owner authorized committing local work, pushing the Summit feature branch and merging into main to deploy the site. Reviewed the existing deployment workflow; no workflow, infrastructure or secret changes are part of this release.
+- Included the approved Summit architecture/content, official programme, researched profiles, editorial articles, latest agenda/profile layout and navigation work, plus pending portfolio scroll restoration/contact accessibility fixes and project documentation. Local `.codex/` screenshots/tool state remain outside the commit.
+- Validation: all 33 tests and the production build passed. Checked Summit agenda, speaker/company directories and editorial article on desktop/mobile; checked portfolio Projects and Contact, including its three accessible fields, without sending email.
+- HTTPS fetch succeeded, but push verification failed because the macOS credential helper returned `failed to get: -67674` followed by `fatal: could not read Username for https://github.com: terminal prompts disabled`. Retrying with the narrow elevated command returned the same error. Connected GitHub integration is authenticated; merge/deployment remain pending publication of the local branch from an authenticated terminal.
