@@ -570,3 +570,215 @@ html[data-summit-transition]::view-transition-old(summit-back):only-child { anim
   .summit-app .summit-presentation-explanation { font-size: 1.125rem; }
   .summit-app .summit-takeaways h3 { font-size: 1.25rem; }
 }
+
+/* Editorial reading, compact directories and responsive conference rhythm. */
+.summit-app .summit-detail-layout { max-width: 68rem; margin-top: 2.5rem; }
+.summit-app .summit-article-body { display: grid; grid-template-columns: 11rem minmax(0, 1fr); column-gap: 2.5rem; max-width: none; }
+.summit-app .summit-article-body > * { grid-column: 2; min-width: 0; }
+.summit-app .summit-article-body > section { margin-top: 2.25rem; }
+.summit-app .summit-article-body p { line-height: 1.65; max-width: 72ch; }
+.summit-app .summit-article-body h2 { font-size: 1.75rem; margin-bottom: 1.125rem; line-height: 1.12; }
+.summit-app .summit-article-body h3 { line-height: 1.25; letter-spacing: -.02em; }
+.summit-app .summit-article-body > section:first-child { grid-column: 1 / -1; display: grid; grid-template-columns: 11rem minmax(0, 1fr); column-gap: 2.5rem; }
+.summit-app .summit-article-body > section:first-child > h2 { grid-column: 1; grid-row: 1 / span 3; font-size: 1.375rem; }
+.summit-app .summit-article-body > section:first-child > p { grid-column: 2; }
+.summit-app .summit-article-body > section:first-child > .summit-meta { font-size: .875rem; line-height: 1.5; margin: 0 0 .75rem; }
+.summit-app .summit-article-body > section:first-child > p:last-child { margin-block: 0; }
+.summit-app .summit-presentation-overview { grid-column: 1 / -1; display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 1rem 2.5rem; margin-top: 2rem; padding-block: 1.25rem; }
+.summit-app .summit-presentation-overview ol { font-size: 1rem; line-height: 1.45; }
+.summit-app .summit-presentation-overview li { padding-block: .3rem; }
+.summit-app .summit-article-body > section:has(> .summit-takeaways) { grid-column: 1 / -1; }
+.summit-app .summit-article-body .summit-takeaways { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 2.5rem; margin: 1.5rem 0 0; }
+.summit-app .summit-article-body .summit-takeaways > li { margin: 0; padding-left: 2.5rem; }
+.summit-app .summit-takeaways h3 { font-size: 1.25rem; margin-bottom: .5rem; }
+.summit-app .summit-bullets { line-height: 1.6; }
+.summit-app .summit-bullets li { margin-block: .5rem; }
+.summit-app .summit-article-section { margin-top: 1.5rem; }
+.summit-app .summit-article-section h3 { margin-bottom: .65rem; font-size: 1.375rem; }
+.summit-app .summit-article-body > .summit-presentation { grid-column: 1 / -1; display: grid; grid-template-columns: 11rem minmax(0, 1fr); column-gap: 2.5rem; margin-top: 3.5rem; padding-top: 2rem; }
+.summit-app .summit-presentation > * { grid-column: 2; min-width: 0; }
+.summit-app .summit-presentation > h2 { grid-column: 1 / -1; gap: 1.25rem; font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 1.5rem; }
+.summit-app .summit-presentation-number { font-size: 1rem; padding-top: .2rem; }
+.summit-app .summit-presentation > .summit-presentation-explanation { font-size: 1.125rem; margin-block: 0 .5rem; }
+.summit-app .summit-presentation > .summit-highlighted-insight { grid-column: 1; grid-row: 2 / span 4; align-self: start; margin: .2rem 0 0; padding: .875rem 0 0; border-top: 1px solid var(--summit-line); border-bottom: 0; }
+.summit-app .summit-presentation > .summit-highlighted-insight p { font-size: .9375rem; line-height: 1.55; }
+.summit-app .summit-presentation > .summit-highlighted-insight .summit-insight-heading { font-size: 1.125rem; line-height: 1.25; }
+.summit-app .summit-highlighted-insight { margin-block: 1.75rem; padding-block: 1.125rem; }
+.summit-app .summit-highlighted-insight .summit-insight-label { font-size: .8125rem; margin-bottom: .5rem; }
+.summit-app .summit-detail-topbar { margin-bottom: 1.25rem; }
+.summit-app .summit-detail-dateline { font-size: .875rem; gap: .5rem 1.5rem; }
+.summit-app .summit-detail-header h1 { margin-bottom: 1.75rem; }
+.summit-app .summit-detail-content { margin-top: 2rem; padding-top: 1.5rem; }
+.summit-app .summit-detail[data-programme="external"] .summit-intro { font-size: 1.0625rem; line-height: 1.6; max-width: 72ch; }
+.summit-app .summit-speaker-directory { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.5rem; }
+.summit-app .summit-speaker-row { grid-template-columns: 148px minmax(0, 1fr); gap: .75rem 1.25rem; padding-block: 1.5rem; align-content: start; }
+.summit-app .summit-speaker-row > .summit-portrait { width: 148px; grid-row: 1 / span 2; aspect-ratio: 4 / 5; }
+.summit-app .summit-speaker-row .summit-person-heading { gap: .25rem; }
+.summit-app .summit-speaker-row .summit-person-heading h2 { flex: 1; font-size: clamp(1.375rem, 2vw, 1.875rem); }
+.summit-app .summit-speaker-profile-link { position: relative; z-index: 2; }
+.summit-app .summit-speaker-profile-link:hover { text-decoration: underline; text-decoration-thickness: 1px; }
+.summit-app .summit-speaker-row .summit-affiliations { margin-top: .5rem; gap: .25rem .75rem; font-size: .9375rem; line-height: 1.4; }
+.summit-app .summit-speaker-bio { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-top: .75rem; font-size: 1rem; line-height: 1.5; }
+.summit-app .summit-speaker-row > .summit-speaker-sessions { grid-column: 2; margin: 0; padding: 0; border: 0; gap: .5rem; }
+.summit-app .summit-speaker-session-time { font-size: .8125rem; margin-bottom: .2rem; }
+.summit-app .summit-speaker-sessions a { font-size: .9375rem; line-height: 1.4; gap: .5rem; }
+.summit-app .summit-company-directory { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem 2rem; margin-top: 1.5rem; }
+.summit-app .summit-company-directory > li { display: block; min-width: 0; padding: 1.25rem 0 .75rem; border-top: 1px solid #627371; }
+.summit-app .summit-company-directory .summit-portrait { width: 100%; height: 112px; aspect-ratio: auto; font-size: 2rem; background: #c8d1c9; }
+.summit-app .summit-company-directory .summit-portrait:has(img) { background: #fff; }
+.summit-app .summit-company-directory .summit-portrait img { padding: .875rem 1.25rem; object-fit: contain; object-position: center; }
+.summit-app .summit-company-directory .summit-company-row-copy { display: block; }
+.summit-app .summit-company-directory h2 { margin: 1rem 2.5rem 0 0; font-size: 1.25rem; line-height: 1.2; letter-spacing: -.025em; }
+.summit-app .summit-company-directory p { display: none; }
+.summit-app .summit-company-row-open { position: absolute; right: 0; bottom: 0; min-height: 44px; width: 36px; justify-content: flex-end; }
+.summit-app .summit-company-row-open span { display: none; }
+.summit-app .summit-company-row-open svg { width: 21px; height: 21px; }
+.summit-app .summit-portrait.is-company:is([data-company="jac"], [data-company="melotech"], [data-company="technl"]),
+.summit-app .summit-portrait.is-company:has(img:is([src$="/JAC-2.svg"], [src$="/melotech.png"], [src$="/technl.png"])) { background: #202c2c; }
+.summit-app .summit-affiliations img:is([src$="/JAC-2.svg"], [src$="/melotech.png"], [src$="/technl.png"]) { background: #202c2c; }
+.summit-app .summit-directory-toolbar { position: sticky; top: var(--summit-header-height); z-index: 5; display: grid; grid-template-columns: minmax(20rem, 1fr) auto; align-items: start; gap: 1rem 2rem; padding-block: .75rem; margin-block: 1.5rem 0; border-bottom: 1px solid #627371; background: var(--summit-bg); }
+.summit-app .summit-directory-toolbar .summit-directory-search { width: 100%; margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: .375rem .875rem; }
+.summit-app .summit-directory-toolbar .summit-directory-search label { margin: 0; font-size: .9375rem; }
+.summit-app .summit-directory-toolbar input { min-height: 44px; }
+.summit-app .summit-directory-toolbar .summit-search-status { grid-column: 2; margin: 0; min-height: 1.25rem; font-size: .8125rem; }
+.summit-app .summit-directory-toolbar .summit-sortbar { position: static; margin: 0; padding: 0; border: 0; }
+.summit-app .summit-directory-toolbar .summit-sortbar button { min-height: 44px; padding: .5rem .875rem; font-size: .9375rem; }
+.summit-app .summit-directory-toolbar:has(+ .summit-company-directory) { grid-template-columns: minmax(0, 42rem); }
+.summit-app .summit-recent-summaries { margin-bottom: 2.5rem; padding-top: 2rem; }
+.summit-app .summit-recent-summaries > h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 1.25rem; }
+.summit-app .summit-recent-list { grid-template-columns: 1.15fr 1fr; gap: 0 2rem; }
+.summit-app .summit-recent-item { padding-block: 1rem; }
+.summit-app .summit-recent-item:first-child { padding: 1.5rem; margin-right: 0; }
+.summit-app .summit-recent-item h3 { font-size: clamp(1.375rem, 2.2vw, 1.875rem); margin-bottom: .5rem; }
+.summit-app .summit-recent-item:first-child h3 { font-size: clamp(1.75rem, 2.7vw, 2.5rem); }
+.summit-app .summit-recent-item p { margin-block: .5rem; }
+.summit-app .summit-recent-speakers { font-size: .9375rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.summit-app .summit-recent-date { font-size: .8125rem; }
+.summit-app .summit-recent-item .summit-recent-excerpt { font-size: 1rem; line-height: 1.5; -webkit-line-clamp: 2; }
+.summit-app .summit-recent-item:first-child .summit-recent-excerpt { font-size: 1rem; -webkit-line-clamp: 3; }
+.summit-app .summit-recent-link { margin-top: .25rem; font-size: .9375rem; }
+.summit-app .summit-notes-coming-soon { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: baseline; gap: 1rem 3rem; margin: 0 0 2.5rem; padding-block: 1.75rem; border-block: 1px solid #899996; }
+.summit-app .summit-notes-coming-soon h2 { margin: 0; color: var(--summit-accent); font-size: clamp(1.75rem, 3vw, 2.5rem); }
+.summit-app .summit-notes-coming-soon p { margin: 0; font-size: 1rem; line-height: 1.55; max-width: 50ch; color: #d4ddd6; }
+.summit-app .summit-agenda-day { margin-top: 5rem; }
+.summit-app .summit-agenda-day > .summit-date-heading { padding: 2rem 0 0; margin-bottom: 2rem; border-top: 1px solid #899996; font-size: clamp(2rem, 4.5vw, 4rem); font-weight: 600; line-height: 1.08; letter-spacing: -.035em; color: #f0eee5; }
+.summit-app .summit-agenda-day:first-of-type { margin-top: 2.5rem; }
+@media (min-width: 75rem) {
+  .summit-app .is-parallel .summit-session-card { padding: 1.25rem; }
+  .summit-app .is-parallel .summit-session-card h3 { margin-bottom: 1.125rem; }
+  .summit-app .is-parallel .summit-session-facts.is-compact { gap: .75rem; }
+  .summit-app .is-parallel .is-compact .summit-presenter-list { grid-template-columns: 1fr; gap: .375rem; }
+  .summit-app .is-parallel .is-compact .summit-presenter-list > li { padding-top: .375rem; }
+  .summit-app .is-parallel .is-compact .summit-speaker-info { font-size: .9375rem; line-height: 1.35; }
+  .summit-app .is-parallel .is-compact .summit-speaker-companies { font-size: .8125rem; line-height: 1.35; gap: .2rem .5rem; }
+}
+@media (max-width: 75rem) {
+  .summit-app .summit-speaker-directory { gap: 0 1.75rem; }
+  .summit-app .summit-speaker-row { grid-template-columns: 112px minmax(0, 1fr); gap: .75rem 1rem; }
+  .summit-app .summit-speaker-row > .summit-portrait { width: 112px; }
+  .summit-app .summit-company-directory { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 60rem) {
+  .summit-app .summit-article-body, .summit-app .summit-article-body > section:first-child, .summit-app .summit-article-body > .summit-presentation { grid-template-columns: 8rem minmax(0, 1fr); column-gap: 1.5rem; }
+  .summit-app .summit-presentation-overview { grid-template-columns: 8rem minmax(0, 1fr); column-gap: 1.5rem; }
+  .summit-app .summit-speaker-directory { grid-template-columns: 1fr; }
+  .summit-app .summit-speaker-row { grid-template-columns: 128px minmax(0, 1fr); }
+  .summit-app .summit-speaker-row > .summit-portrait { width: 128px; }
+  .summit-app .summit-company-directory { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .summit-app .summit-directory-toolbar { grid-template-columns: 1fr; gap: .5rem; }
+  .summit-app .summit-directory-toolbar .summit-directory-search { max-width: none; }
+}
+@media (max-width: 40rem) {
+  .summit-app .summit-detail-layout { margin-top: 2rem; }
+  .summit-app .summit-article-body, .summit-app .summit-article-body > section:first-child, .summit-app .summit-article-body > .summit-presentation { display: block; }
+  .summit-app .summit-article-body p { line-height: 1.65; }
+  .summit-app .summit-article-body > section { margin-top: 1.75rem; }
+  .summit-app .summit-article-body h2 { font-size: 1.625rem; }
+  .summit-app .summit-article-body > section:first-child > h2 { font-size: 1.625rem; }
+  .summit-app .summit-presentation-overview { display: block; margin-top: 1.5rem; padding-block: 1rem; }
+  .summit-app .summit-presentation-overview h2 { font-size: 1.125rem; margin-bottom: .5rem; }
+  .summit-app .summit-article-body .summit-takeaways { grid-template-columns: 1fr; gap: 1.25rem; }
+  .summit-app .summit-article-body > .summit-presentation { margin-top: 2.75rem; padding-top: 1.5rem; }
+  .summit-app .summit-presentation > h2 { font-size: 1.75rem; gap: .75rem; }
+  .summit-app .summit-presentation > .summit-highlighted-insight { margin-block: 1.25rem; padding-block: 1rem; border-block: 1px solid var(--summit-line); }
+  .summit-app .summit-presentation > .summit-highlighted-insight p { font-size: 1rem; }
+  .summit-app .summit-speaker-directory { display: block; }
+  .summit-app .summit-speaker-row { grid-template-columns: 64px minmax(0, 1fr); gap: .5rem .75rem; padding-block: 1rem; }
+  .summit-app .summit-speaker-row > .summit-portrait { width: 64px; aspect-ratio: 1; grid-row: 1; }
+  .summit-app .summit-speaker-row-copy { display: block; }
+  .summit-app .summit-speaker-row .summit-person-heading { flex-wrap: nowrap; align-items: flex-start; gap: .25rem; }
+  .summit-app .summit-speaker-row .summit-person-heading h2 { flex: 1; font-size: 1.125rem; line-height: 1.25; }
+  .summit-app .summit-speaker-row .summit-social-link, .summit-app .summit-speaker-row .summit-speaker-bio, .summit-app .summit-speaker-row > .summit-speaker-sessions { display: none; }
+  .summit-app .summit-speaker-row .summit-mobile-profile-link { display: inline-flex; width: 44px; min-height: 44px; margin-top: -.5rem; }
+  .summit-app .summit-speaker-row .summit-mobile-profile-link > svg { display: block; width: 18px; height: 18px; }
+  .summit-app .summit-speaker-row .summit-affiliations { margin-top: .25rem; font-size: .875rem; line-height: 1.4; }
+  .summit-app .summit-company-directory { gap: 1rem 1.25rem; margin-top: .75rem; }
+  .summit-app .summit-company-directory > li { padding-block: 1rem .5rem; }
+  .summit-app .summit-company-directory .summit-portrait { height: 80px; }
+  .summit-app .summit-company-directory .summit-portrait img { padding: .5rem .75rem; }
+  .summit-app .summit-company-directory h2 { margin: .75rem 1.75rem 0 0; font-size: 1rem; line-height: 1.25; }
+  .summit-app .summit-company-row-open { width: 28px; }
+  .summit-app .summit-directory-toolbar { margin-top: 1rem; padding-block: .5rem; }
+  .summit-app .summit-directory-toolbar .summit-directory-search { gap: .25rem .5rem; }
+  .summit-app .summit-directory-toolbar .summit-directory-search label { font-size: .875rem; }
+  .summit-app .summit-directory-toolbar .summit-search-status { grid-column: 1 / -1; font-size: .8125rem; }
+  .summit-app .summit-directory-toolbar .summit-sortbar { gap: .375rem; }
+  .summit-app .summit-directory-toolbar .summit-sortbar button { flex: 1; padding-inline: .5rem; font-size: .8125rem; white-space: nowrap; }
+  .summit-app .summit-recent-summaries { padding-top: 1.5rem; margin-bottom: 2rem; }
+  .summit-app .summit-recent-list { gap: .5rem; }
+  .summit-app .summit-recent-item:first-child { padding: 1.125rem; }
+  .summit-app .summit-recent-item h3 { font-size: 1.375rem; line-height: 1.12; }
+  .summit-app .summit-recent-item:first-child h3 { font-size: 1.625rem; }
+  .summit-app .summit-recent-item .summit-recent-excerpt { display: none; }
+  .summit-app .summit-recent-item:first-child .summit-recent-excerpt { display: -webkit-box; -webkit-line-clamp: 2; }
+  .summit-app .summit-recent-speakers { -webkit-line-clamp: 1; font-size: .875rem; }
+  .summit-app .summit-recent-date { font-size: .8125rem; }
+  .summit-app .summit-recent-item p { margin-block: .375rem; }
+  .summit-app .summit-notes-coming-soon { grid-template-columns: 1fr; gap: .75rem; padding-block: 1.25rem; margin-bottom: 1.5rem; }
+  .summit-app .summit-notes-coming-soon h2 { font-size: 1.75rem; }
+  .summit-app .summit-notes-coming-soon p { font-size: .9375rem; }
+  .summit-app .summit-agenda-day { margin-top: 3.5rem; }
+  .summit-app .summit-agenda-day > .summit-date-heading { font-size: 2rem; padding-top: 1.5rem; margin-bottom: 1.5rem; }
+}
+.summit-app .summit-agenda-intro { gap: 0; }
+.summit-app .summit-agenda-intro h1 { margin-bottom: 1.25rem; }
+.summit-app .summit-intro-event { margin-bottom: 2rem; }
+.summit-app .summit-intro-event .summit-event-details { max-width: none; font-size: 1.125rem; line-height: 1.5; }
+.summit-app .summit-event-date, .summit-app .summit-event-location { display: block; }
+.summit-app .summit-official-event-link { display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; margin-top: .5rem; color: var(--summit-accent); font-size: 1rem; text-decoration: underline; text-decoration-thickness: 1px; }
+.summit-app .summit-official-event-link:hover svg { transform: translate(2px, -2px); }
+.summit-app .summit-official-event-link svg { transition: transform .3s var(--summit-ease); }
+.summit-app .summit-personal-note { width: min(60%, 42rem); margin-block: auto 1.5rem; }
+.summit-app .summit-personal-note p:first-child { font-size: clamp(1.5rem, 2.2vw, 2rem); line-height: 1.3; max-width: 30ch; margin: 0 0 1rem auto; }
+.summit-app .summit-note-directions { font-size: clamp(1.125rem, 1.6vw, 1.375rem); line-height: 1.4; margin-block: .75rem; }
+.summit-app .summit-note-signature { margin-block: 1rem .75rem; }
+.summit-app .summit-note-small { max-width: 43ch; font-size: .9375rem; line-height: 1.5; }
+.summit-app [data-logo-background="dark"].summit-portrait, .summit-app .summit-affiliations img[data-logo-background="dark"] { background: #202c2c; }
+@media (max-width: 40rem) {
+  .summit-app .summit-agenda-intro { padding-top: 10svh; }
+  .summit-app .summit-agenda-intro h1 { margin-bottom: 1rem; }
+  .summit-app .summit-intro-event { margin-bottom: 2.5rem; }
+  .summit-app .summit-intro-event .summit-event-details { font-size: 1rem; line-height: 1.5; }
+  .summit-app .summit-official-event-link { font-size: .9375rem; }
+  .summit-app .summit-personal-note { width: 100%; margin-block: auto 1.25rem; }
+  .summit-app .summit-personal-note p:first-child { font-size: 1.375rem; max-width: 27ch; }
+  .summit-app .summit-note-directions { font-size: 1.125rem; }
+  .summit-app .summit-note-small { font-size: .875rem; }
+}
+.summit-app .summit-directory-toolbar .summit-directory-search input { height: 44px; min-height: 44px; padding-block: .45rem; }
+@media (max-width: 40rem) {
+  .summit-app .summit-directory-toolbar .summit-directory-search { grid-template-columns: 7.25rem minmax(0, 1fr); gap: 0 .5rem; }
+  .summit-app .summit-directory-toolbar .summit-directory-search label { grid-column: 1; grid-row: 1; align-self: end; font-size: .8125rem; }
+  .summit-app .summit-directory-toolbar .summit-directory-search input { grid-column: 2; grid-row: 1 / span 2; }
+  .summit-app .summit-directory-toolbar .summit-search-status { grid-column: 1; grid-row: 2; min-height: 0; font-size: .75rem; line-height: 1.4; }
+}
+.summit-app .summit-company-directory .summit-portrait img { position: absolute; inset: 0; width: 100%; height: 100%; min-width: 0; min-height: 0; }
+/* Compensate only for observed whitespace inside these source-logo canvases. */
+.summit-app .summit-company-directory .summit-portrait:is([data-company="airtable"], [data-company="amal"], [data-company="audyse-technology-inc"], [data-company="avalon-holographic"], [data-company="bdc-capital"], [data-company="betakit"]) img { padding: 0; transform: scale(1.5); }
+.summit-app .summit-company-directory .summit-portrait:is([data-company="melotech"], [data-company="technl"]) img { padding: 0; transform: scale(2.1); }
+.summit-app .summit-company-directory .summit-portrait[data-company="jac"] img { padding: .5rem; }
+.summit-app .summit-notes-coming-soon + .summit-agenda-filters { border-top: 0; padding-top: 0; }
+.summit-app .summit-company-directory .summit-company-row-open { inset: 0; width: auto; min-height: 44px; align-items: flex-end; justify-content: flex-end; padding-bottom: .75rem; }
+@media (max-width: 40rem) {
+  .summit-app .summit-recent-list { grid-template-columns: 1fr; }
+}
