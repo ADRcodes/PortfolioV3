@@ -8,7 +8,9 @@ export default function SessionSlot({ sessions, clock, focus }) {
   const [index, setIndex] = useState(0);
   const first = sessions[0];
   const parallel = sessions.length > 1;
-  const current = sessions[index];
+  // Filtering can shrink a mounted slot before its scroll observer updates state.
+  const selectedIndex = Math.min(index, sessions.length - 1);
+  const current = sessions[selectedIndex];
   const endTime = sessions.reduce((end, session) => session.endTime > end ? session.endTime : end, first.endTime);
   const select = position => {
     const element = track.current.children[position];
@@ -32,7 +34,7 @@ export default function SessionSlot({ sessions, clock, focus }) {
           <SessionCard session={session} clock={clock} highlighted={sameSlot(session, focus) || (session.date === clock.date && session.startTime <= clock.time && session.endTime > clock.time)} agenda />
         </div>)}
       </div>
-      {parallel && <div className="summit-slot-controls"><span className="summit-sr-only" aria-live="polite">Session {index + 1} of {sessions.length}</span><div><button aria-label="Previous simultaneous session" disabled={index === 0} onClick={() => select(index - 1)}><ChevronLeft size={21} aria-hidden="true" /><span>Previous</span></button><button aria-label="Next simultaneous session" disabled={index === sessions.length - 1} onClick={() => select(index + 1)}><span>Next</span><ChevronRight size={21} aria-hidden="true" /></button></div></div>}
+      {parallel && <div className="summit-slot-controls"><span className="summit-sr-only" aria-live="polite">Session {selectedIndex + 1} of {sessions.length}</span><div><button aria-label="Previous simultaneous session" disabled={selectedIndex === 0} onClick={() => select(selectedIndex - 1)}><ChevronLeft size={21} aria-hidden="true" /><span>Previous</span></button><button aria-label="Next simultaneous session" disabled={selectedIndex === sessions.length - 1} onClick={() => select(selectedIndex + 1)}><span>Next</span><ChevronRight size={21} aria-hidden="true" /></button></div></div>}
     </div>
   </li>;
 }
