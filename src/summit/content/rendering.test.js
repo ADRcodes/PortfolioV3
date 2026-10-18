@@ -212,7 +212,7 @@ test('official agenda excludes external sample, introduces coming notes and filt
   assert.ok(html.includes('Session notes coming soon'));
   assert.ok(!html.includes('summit-recent-item'));
   assert.ok(html.includes('October 19') && html.includes('St. John’s Convention Centre'));
-  assert.ok(html.includes('Explore agenda'));
+  assert.ok(html.includes('Scroll to see agenda'));
   const notes = home('?view=notes');
   assert.ok(notes.includes('No conference notes published yet.'));
   assert.ok(!notes.includes('data-session="'));
@@ -324,4 +324,26 @@ test('intro places date and venue directly after identity and has a single label
   assert.equal(html.split('href="https://technl.ca/technlsummit26/"').length - 1, 1);
   assert.ok(html.includes('Visit the official event website'));
   assert.ok(html.includes('not affiliated with techNL'));
+});
+
+
+test('profile session cards show an explicit date while agenda cards avoid duplicated dates', () => {
+  const session = content.conferenceSessions[0];
+  const card = agenda => renderToStaticMarkup(createElement(MemoryRouter, null, createElement(SessionCard, { session, agenda, clock: { date: '2026-10-18', time: '12:00' } })));
+  assert.ok(card(false).includes(`class="summit-card-date" dateTime="${session.date}"`));
+  assert.ok(!card(true).includes('summit-card-date'));
+  const company = renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: ['/technlsummit/companies/mysa'] }, createElement(Routes, null, createElement(Route, { path: '/technlsummit/companies/:slug', element: createElement(Profile, { type: 'companies' }) }))));
+  assert.ok(company.includes('People presenting from Mysa'));
+  assert.ok(company.includes('summit-card-date'));
+});
+test('official CTA follows the independence note and only notes filtering announces counts', () => {
+  const home = query => renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit${query}`] }, createElement(Home)));
+  const html = home('');
+  const noteStart = html.indexOf('class="summit-personal-note"');
+  const noteEnd = html.indexOf('class="summit-intro-bottom"');
+  const note = html.slice(noteStart, noteEnd);
+  assert.ok(note.indexOf('summit-official-event-link') > note.indexOf('not affiliated with techNL'));
+  assert.ok(html.includes('aria-label="Scroll to see agenda"'));
+  assert.ok(!html.includes('events in the official schedule'));
+  assert.ok(home('?view=notes').includes('role="status">0 conference summaries available.'));
 });

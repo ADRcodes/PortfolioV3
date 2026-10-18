@@ -92,7 +92,7 @@ export function Profile({ type }) {
         {!!urls.length && <ul className="summit-profile-urls">{urls.map(link => <li key={link.url}><a href={link.url} target="_blank" rel="noreferrer">{link.label}<ArrowUpRight size={17} aria-hidden="true" /><span className="summit-sr-only"> (opens in a new tab)</span></a></li>)}</ul>}
       </div>
     </header>
-    {!isSpeaker && <section className="summit-profile-section"><h2>People at {item.name}</h2><ul className="summit-profile-people">{speakersForCompany(item.id).map(speaker => <li key={speaker.id}><SpeakerIdentity speaker={speaker} showCompanies={false} /></li>)}</ul>{!speakersForCompany(item.id).length && <p>No speakers listed yet.</p>}</section>}
+    {!isSpeaker && <section className="summit-profile-section"><h2>People presenting from {item.name}</h2><ul className="summit-profile-people">{speakersForCompany(item.id).map(speaker => <li key={speaker.id}><SpeakerIdentity speaker={speaker} showCompanies={false} /></li>)}</ul>{!speakersForCompany(item.id).length && <p>No speakers listed yet.</p>}</section>}
     <section className="summit-profile-section"><h2>At the Summit</h2><SessionList sessions={isSpeaker ? sessionsForSpeaker(item.id) : sessionsForCompany(item.id)} /></section>
   </article>;
 }
