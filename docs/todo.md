@@ -95,6 +95,11 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 
 - [x] Enlarge Summit portraits/logos and replace standalone Back rows with an animated header arrow on non-agenda routes.
 
+
+## Summit compact layouts and mobile controls (October 18, 2026)
+
+- [x] Make session/speaker intros flush and full width, arrange presenters in responsive grids, compact speaker rows, refine the correction-contact footer and move the one-line mobile quick-scroll toolbar above navigation.
+
 ## Summit launch functionality (October 18, 2026)
 
 - [x] Classify events, isolate external editorial tests/demo directories, prioritize current/parallel events, add latest conference notes, agenda filtering, directory search, public session sharing and intro facts; verify and investigate sharing previews without deployment changes. See `src/summit/LAUNCH_FUNCTIONALITY.md`.

@@ -33,8 +33,8 @@ function SpeakerRow({ speaker }) {
       <div className="summit-person-heading"><h2 data-profile={`speakers/${speaker.slug}`}><Link className="summit-speaker-profile-link" data-profile={`speakers/${speaker.slug}`} to={summitPath(`speakers/${speaker.slug}`)}>{speaker.name}</Link></h2><LinkedInLink item={speaker} /><Link className="summit-mobile-profile-link" to={summitPath(`speakers/${speaker.slug}`)} aria-label={`About ${speaker.name}`}><ArrowUpRight size={24} aria-hidden="true" /></Link></div>
       <CompanyLinks companies={affiliations(speaker)} />
       <p className="summit-speaker-bio summit-speaker-bio-preview">{descriptionPreview(speaker.description)}</p>
-      <ul className="summit-speaker-sessions" data-directory-detail="presentations">{sessionsForSpeaker(speaker.id).map(session => <li key={session.id}><span className="summit-speaker-session-time">Presenting at {formatTime(session.startTime)} on {weekday(session.date)}</span><Link to={summitPath(`sessions/${session.slug}`)}>{session.title}<ArrowUpRight size={16} aria-hidden="true" /></Link></li>)}</ul>
     </div>
+    <ul className="summit-speaker-sessions" data-directory-detail="presentations">{sessionsForSpeaker(speaker.id).map(session => <li key={session.id}><span className="summit-speaker-session-time">Presenting at {formatTime(session.startTime)} on {weekday(session.date)}</span><Link to={summitPath(`sessions/${session.slug}`)}>{session.title}<ArrowUpRight size={16} aria-hidden="true" /></Link></li>)}</ul>
   </li>;
 }
 export function Directory({ type }) {

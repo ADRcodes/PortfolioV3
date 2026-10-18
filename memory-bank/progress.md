@@ -226,6 +226,22 @@ Last updated: 2026-10-15
 - Validation: all 33 tests and the production build passed. Checked Summit agenda, speaker/company directories and editorial article on desktop/mobile; checked portfolio Projects and Contact, including its three accessible fields, without sending email.
 - HTTPS fetch succeeded, but push verification failed because the macOS credential helper returned `failed to get: -67674` followed by `fatal: could not read Username for https://github.com: terminal prompts disabled`. Retrying with the narrow elevated command returned the same error. Connected GitHub integration is authenticated; merge/deployment remain pending publication of the local branch from an authenticated terminal.
 
+
+## October 18, 2026: Compact people, full-width articles and mobile quick scrolling
+
+- Session and speaker profile surfaces now meet the fixed header and span the viewport on desktop/phone. Preserved internal reading width and profile section gutters.
+- Presenter details use three desktop/two mobile cards, with phone portraits above names and affiliation links; compact agenda identities use a text grid, including two phone columns.
+- Reduced directory portraits by 25% on desktop, tightened row spacing and restored compact 104px phone portraits with the identity, affiliation and LinkedIn beside them. Session links span beneath the phone row; desktop biographies and sort controls remain.
+- Refined footer composition and added the requested correction/removal note with mailto:alexrussellria@gmail.com.
+- Made quick scrolling one line above phone navigation, removed the count and arrow frames, and removed October 21 from the date shortcuts. Kept all feed/range entries. Shared viewport calculations now reserve the correct bottom toolbar; actual navigation height is measured.
+- Validation: 33 content/rendering/agenda checks passed, production build and whitespace checks passed. Computer Use inspected a fresh production build on port 5173 at 1280px desktop, 390px and 320px phone widths: no overflow, flush profile/session boundaries, 3/2 presenter columns, 288px/104px directory portraits, independent mobile profile navigation, date selection, native End-key range navigation retaining focus, correct toolbar/navigation boundaries and zero reduced-motion animations. Confirmed the footer mailto destination.
+- The existing dev process (14734) serves stale transforms; macOS denied stopping it in normal/elevated execution, and Computer Use denied Terminal access. A project-local `.codex/summit-design-preview.html` loads fresh dist assets on the same port for visual inspection. The dev process still needs a manual restart for live updates. No dependencies, programme records, deployment or global configuration changed.
+
+
+### October 18 preview restart resolved
+
+Alex restarted the dev server on port 5173. Verified the normal Vite page loads `/src/main.jsx` and the latest footer/date controls directly. A stylesheet timestamp update produced a browser-observed Vite WebSocket update, confirming live reload delivery. Removed the temporary production-build QA entry and returned the original tab to the normal agenda.
+
 ## October 18, 2026: Summit functionality and launch reliability
 
 - Added independent event classification and programme membership, classified all 36 official events and retained Will’s real meetup article at its existing URL as external editorial content. Retained fictional profile source records/IDs for guide references while excluding them from public directories/profile routes.

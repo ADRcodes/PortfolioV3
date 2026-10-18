@@ -52,15 +52,22 @@ export function revealSession(element, behavior = 'instant') {
     track.scrollTo({ left: track.scrollLeft + element.getBoundingClientRect().left - track.getBoundingClientRect().left, behavior });
   }
 }
+export function agendaViewport() {
+  const header = document.querySelector('.summit-header')?.getBoundingClientRect().height ?? 0;
+  const browser = document.querySelector('.summit-agenda-browser');
+  const browserHeight = browser?.getBoundingClientRect().height ?? 0;
+  const browserAtBottom = browser && getComputedStyle(browser).bottom !== 'auto';
+  const nav = document.querySelector('.summit-primary-nav');
+  const navHeight = nav && getComputedStyle(nav).position === 'fixed' ? nav.getBoundingClientRect().height : 0;
+  const top = header + (browserAtBottom ? 0 : browserHeight) + 16;
+  const bottom = navHeight + (browserAtBottom ? browserHeight : 0) + 16;
+  const available = Math.max(0, window.innerHeight - top - bottom);
+  return { top, bottom, available, center: top + available / 2 };
+}
 export function centerSession(element, behavior = 'smooth') {
   if (!element) return;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const header = document.querySelector('.summit-header')?.getBoundingClientRect().height ?? 0;
-  const browser = document.querySelector('.summit-agenda-browser')?.getBoundingClientRect().height ?? 0;
-  const nav = document.querySelector('.summit-primary-nav');
-  const bottom = nav && getComputedStyle(nav).position === 'fixed' ? nav.getBoundingClientRect().height : 0;
-  const top = header + browser + 16;
-  const available = Math.max(0, window.innerHeight - top - bottom - 16);
+  const { top, available } = agendaViewport();
   revealSession(element, reduced ? 'instant' : behavior);
   const track = element.closest('.summit-slot-cards');
   const carousel = track && track.scrollWidth > track.clientWidth + 1;

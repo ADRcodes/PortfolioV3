@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
-import { ArrowDownRight, Building2, CalendarDays, Users } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Building2, CalendarDays, Users } from 'lucide-react';
 import { Link, NavLink, Outlet, useLocation, useNavigationType } from 'react-router';
 import { navigation, summitPath } from '../routing/paths.js';
 import { agendaNavigation, centerSession, sameSlot } from '../lib/agenda.js';
@@ -33,6 +33,16 @@ export default function SummitLayout() {
     centerSession(target);
     (options.length === 1 ? target.querySelector('.summit-session-link') : target)?.focus({ preventScroll: true });
   };
+  useLayoutEffect(() => {
+    const nav = document.querySelector('.summit-primary-nav');
+    const app = nav.closest('.summit-app');
+    const measure = () => app.style.setProperty('--summit-nav-height', `${getComputedStyle(nav).position === 'fixed' ? nav.offsetHeight : 0}px`);
+    const observer = new ResizeObserver(measure);
+    observer.observe(nav);
+    window.addEventListener('resize', measure);
+    measure();
+    return () => { observer.disconnect(); window.removeEventListener('resize', measure); };
+  }, []);
   useEffect(() => {
     const previous = document.title;
     document.title = 'techNL Summit 2026 | Independent companion';
@@ -90,6 +100,9 @@ export default function SummitLayout() {
     </header>
     <SummitIdentity agenda={isAgenda} routeKey={location.key} />
     <main id="summit-main" className={`summit-container summit-main${isAgenda ? '' : ' summit-content-page'}`} tabIndex={-1}><div className="summit-route" key={location.pathname}><Outlet /></div></main>
-    <footer className="summit-footer"><div className="summit-container"><span>Made with curiosity & AI.</span><span>By <Link to="/">Alex Russell</Link> · Not affiliated with techNL.</span></div></footer>
+    <footer className="summit-footer"><div className="summit-container summit-footer-inner">
+      <div className="summit-footer-credit"><Link to="/">Alex Russell <ArrowUpRight size={20} aria-hidden="true" /></Link><p>Made with curiosity & AI.<br />An independent project, not affiliated with techNL.</p></div>
+      <div className="summit-footer-contact"><p>Something incorrect, or prefer to have your information removed? Send me a note.</p><a href="mailto:alexrussellria@gmail.com">alexrussellria@gmail.com <ArrowUpRight size={18} aria-hidden="true" /></a></div>
+    </div></footer>
   </div>;
 }
