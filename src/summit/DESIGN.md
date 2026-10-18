@@ -76,3 +76,15 @@ Use one icon-only, accessible Back button immediately before the header wordmark
 
 
 Company profile intros run edge to edge below the fixed header. Their related people and sessions retain the usual page gutters. Mobile navigation labels stay on one line; weighted columns give Companies enough width while Up next keeps its natural button width.
+
+
+## Compact people and mobile agenda controls (October 18)
+
+- Session and profile surfaces span the viewport and meet the fixed header directly. Session content keeps internal padding and a 90rem reading composition; profile follow-on sections keep page gutters.
+- Detailed session presenters use three balanced columns on wide desktops and two on smaller screens. Phone presenter cards stack square portraits over independently linked names/affiliations. Compact agenda identities use a responsive text grid with quiet top rules and two phone columns, avoiding the long single presenter column.
+- Directory portraits are 25% smaller on desktop (288px wide, 240px intermediate, 216px split-window); phone rows use 104px portraits, identity/company/LinkedIn to the right, and session links below. Preserve full desktop biographies, phone row navigation and independent links.
+- The footer uses a darker slate surface, an apricot portfolio signature and a correction/removal contact note linking to alexrussellria@gmail.com.
+- Mobile quick scrolling is one line above bottom navigation. Keep the October 19/20 shortcuts and keyboard-accessible native range/44px unboxed arrows; remove the visual count. October 21 remains readable in the feed/range but is not a conference-day shortcut. Desktop controls remain below the header.
+- Measure actual mobile navigation height for the lower toolbar offset. Shared viewport calculations reserve the correct top/bottom controls during centering and scroll tracking. Preserve delayed reveal, reverse scrolling, range focus and reduced motion.
+
+The active preview runs on port 5173. After the October 18 manual server restart, the normal Vite entry serves the latest design and stylesheet hot updates were confirmed through the browser WebSocket. The temporary production-build QA entry has been removed.

@@ -10,14 +10,16 @@ function NavItems({ onNavigate }) {
       to={item.path}
       onClick={onNavigate}
       className={({ isActive }) =>
-        `rounded-full px-3.5 py-2 text-sm font-medium transition ${
+        `portfolio-nav-link ${item.featured ? "is-featured" : ""} rounded-full px-3.5 py-2 text-sm font-medium transition ${
           isActive
             ? "bg-ink text-paper"
             : "text-ink-soft hover:bg-white/60 hover:text-ink"
         }`
       }
     >
+      {item.featured && <span className="portfolio-feature-dot" aria-hidden="true" />}
       {item.label}
+      {item.featured && <span aria-hidden="true">↗</span>}
     </NavLink>
   ));
 }

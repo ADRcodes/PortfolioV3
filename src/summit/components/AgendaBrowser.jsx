@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { centerSession, formatTime, shortDay } from '../lib/agenda.js';
+import { agendaViewport, centerSession, formatTime, shortDay } from '../lib/agenda.js';
 
 // An inline, sticky index: native scrolling and the range input stay in sync.
 // Scrubbing never moves focus away from the control or queues smooth journeys.
@@ -19,10 +19,7 @@ export default function AgendaBrowser({ sessions }) {
       const firstTop = first?.getBoundingClientRect().top ?? Infinity;
       const focused = bar.current?.contains(document.activeElement);
       setVisible(firstTop < header + 8 || Boolean(focused && firstTop < window.innerHeight * .65));
-      const top = header + (bar.current?.offsetHeight ?? 0) + 16;
-      const nav = document.querySelector('.summit-primary-nav');
-      const bottom = nav && getComputedStyle(nav).position === 'fixed' ? nav.offsetHeight : 0;
-      const center = top + Math.max(0, window.innerHeight - bottom - top - 16) / 2;
+      const { center } = agendaViewport();
       let nearest = 0;
       let distance = Infinity;
       elements.forEach((element, position) => {
@@ -72,7 +69,6 @@ export default function AgendaBrowser({ sessions }) {
       <div className="summit-browser-track">
         <button aria-label="Previous session" disabled={index === 0} onClick={() => move(index - 1)}><ChevronLeft size={18} aria-hidden="true" /></button>
         <input id="summit-session-range" type="range" min="0" max={sessions.length - 1} step="1" value={index} aria-valuetext={`${shortDay(current.date)}, ${formatTime(current.startTime)}. ${current.title}. Session ${index + 1} of ${sessions.length}`} onChange={event => move(Number(event.target.value), 'instant')} />
-        <output className="summit-browser-count" aria-hidden="true">{index + 1}/{sessions.length}</output>
         <button aria-label="Next session" disabled={index === sessions.length - 1} onClick={() => move(index + 1)}><ChevronRight size={18} aria-hidden="true" /></button>
       </div>
     </div>

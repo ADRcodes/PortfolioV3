@@ -710,7 +710,7 @@ export default function Home() {
 
   return (
     <main
-      className="relative grid h-svh place-items-center overflow-hidden bg-paper text-ink"
+      className="portfolio-home relative grid min-h-svh place-items-center overflow-hidden bg-paper text-ink"
       onClick={() => {
         if (!isComplete || !isNavVisible) {
           finishIntro();
@@ -722,7 +722,7 @@ export default function Home() {
 
       <HoverPageLabel hoverTarget={hoverTarget} />
 
-      <div className="relative z-10 mx-auto flex h-svh w-full max-w-5xl flex-col items-center justify-center gap-8 px-5 py-20 text-center sm:gap-10 sm:px-10 sm:py-24 md:px-16 lg:px-12">
+      <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-5xl flex-col items-center justify-center gap-8 px-5 py-12 text-center sm:gap-10 sm:px-10 sm:py-16 md:px-16 lg:px-12">
         <IntroText
           typedText={typedText}
           typedLength={typedLength}
@@ -744,7 +744,7 @@ export default function Home() {
         >
           Tap an underlined phrase to explore.
         </motion.p>
-        <div className="min-h-[8.5rem] sm:min-h-[9rem] lg:min-h-[10rem]">
+        <div>
           <motion.p
             className="max-w-3xl text-balance text-xl font-semibold leading-8 text-ink-soft sm:text-3xl sm:leading-10 lg:text-4xl lg:leading-[1.15]"
             aria-hidden={!isNavVisible}
@@ -786,6 +786,15 @@ export default function Home() {
             .
           </motion.p>
         </div>
+        <NavLink
+          to="/technlsummit"
+          className="home-summit-feature"
+          onClick={(event) => event.stopPropagation()}
+        >
+          <span className="home-summit-context">Currently building <span>October 19–20, 2026</span></span>
+          <span className="home-summit-title">techNL Summit <span>2026</span><span className="home-summit-arrow" aria-hidden="true">↗</span></span>
+          <span className="home-summit-action">Explore the conference companion <span aria-hidden="true">→</span></span>
+        </NavLink>
       </div>
     </main>
   );

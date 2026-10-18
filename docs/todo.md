@@ -94,3 +94,16 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 - [x] Refine/right-align the personal note and closing, cover quick-scroll edges, tighten affiliations and clarify carousel controls; add sticky speaker sort buttons/large portraits/full desktop bios; redesign both profile types with history Back and associated speaker photos; add company-directory logos and clear detail links.
 
 - [x] Enlarge Summit portraits/logos and replace standalone Back rows with an animated header arrow on non-agenda routes.
+
+
+## Summit compact layouts and mobile controls (October 18, 2026)
+
+- [x] Make session/speaker intros flush and full width, arrange presenters in responsive grids, compact speaker rows, refine the correction-contact footer and move the one-line mobile quick-scroll toolbar above navigation.
+
+## Summit launch functionality (October 18, 2026)
+
+- [x] Classify events, isolate external editorial tests/demo directories, prioritize current/parallel events, add latest conference notes, agenda filtering, directory search, public session sharing and intro facts; verify and investigate sharing previews without deployment changes. See `src/summit/LAUNCH_FUNCTIONALITY.md`.
+
+## Summit content and directory refinement (October 18, 2026)
+
+- [x] Clean the external editorial sample's metadata; add a coming-notes introduction; prepare compact directories/shared sticky tools, logo background hints/provenance and revised intro structure; preserve complete profiles, search, sorting, agenda relationships and existing animations. See `src/summit/REFINEMENT_HANDOFF.md`.

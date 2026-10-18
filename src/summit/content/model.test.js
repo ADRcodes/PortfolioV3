@@ -151,3 +151,35 @@ test('Will’s migration retains five presentations and the revised source wordi
   assert.ok(session.summary.presentations.every(item => !item.speakerIds?.length));
   assert.ok(!session.summary.detailedSummary);
 });
+
+
+test('classification is validated, projected, separate from publication and backward compatible', () => {
+  for (const eventType of ['talk', 'panel', 'workshop', 'networking', 'registration', 'break', 'activity']) {
+    const projected = publicSession({ ...published, eventType, programme: 'external' });
+    assert.equal(projected.eventType, eventType);
+    assert.equal(projected.programme, 'external');
+    assert.equal(projected.status, 'published');
+  }
+  assert.equal(publicSession(published).eventType, 'talk');
+  assert.equal(publicSession(published).programme, 'conference');
+  assert.throws(() => validateSession({ ...published, eventType: 'published' }), /invalid eventType/);
+  assert.throws(() => validateSession({ ...published, programme: 'demo' }), /invalid programme/);
+  assert.ok(sessions.every(session => session.eventType && session.programme));
+  assert.equal(sessions.filter(session => session.programme === 'conference').length, 36);
+  assert.equal(speakers.filter(item => item.demo).length, 1);
+  assert.equal(companies.filter(item => item.demo).length, 1);
+});
+
+
+test('date-only external articles validate and project without weakening conference scheduling', () => {
+  const external = { ...published, programme: 'external', startTime: null, endTime: null, location: null };
+  validateSession(external);
+  const projected = publicSession(external);
+  assert.equal(projected.startTime, null);
+  assert.equal(projected.endTime, null);
+  assert.equal(projected.location, null);
+  assert.throws(() => validateSession({ ...external, programme: 'conference' }), /invalid startTime/);
+  assert.throws(() => validateSession({ ...external, endTime: '12:00' }), /invalid startTime/);
+  assert.throws(() => validateSession({ ...published, location: null }), /requires location/);
+  assert.throws(() => createContent([], [], [{ ...companies[0], logoBackground: 'guess' }]), /invalid logoBackground/);
+});

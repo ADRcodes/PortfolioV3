@@ -163,3 +163,31 @@ Public source links are included in the profiles when not already present. Linke
 | Vision33 | [Source](https://www.vision33.com/about-us) |
 
 Kristen Marumoto’s [public LinkedIn profile](https://ca.linkedin.com/in/kristen-marumoto) was also verified and added to her profile links.
+
+## Logo review — October 18, 2026
+
+Reviewed original assets, the official organization sites below, and the rendered Summit. No image pixels, SVG paths, proportions or brand colours were edited. Public availability is not treated as a reuse licence. This pass does not copy new third-party assets into the repository or claim blanket permission to use their marks.
+
+### Existing problem assets
+
+| Organization | Source and finding | Implemented treatment |
+| --- | --- | --- |
+| JAC | [Existing official-programme SVG](https://technl.ca/wp-content/uploads/2026/10/JAC-2.svg); the mark loads but its white artwork disappears on a white backing. The [official JAC site](https://jac.co/) identifies the same agency and uses an inline SVG identity; the separate arrow image is decoration, not a substitute logo. | Retain source; `logoBackground: "dark"` exposes a CSS background hint. No recolouring or cropping. |
+| Melotech | [Official site](https://www.melotech.ai/) confirms **Melotech**, matching the existing spelling and media/entertainment description. [Existing programme PNG](https://technl.ca/wp-content/uploads/2026/10/melotech.png) loads but white artwork disappears on white. | Retain source with dark-background hint. Do not substitute similarly named MelloTech organizations. |
+| techNL | [Official site](https://technl.ca/) and [existing programme PNG](https://technl.ca/wp-content/uploads/2026/10/technl.png). The existing white artwork needs a dark backing; the website also publishes an explicitly all-white logo. | Retain existing programme asset with dark-background hint. No organizer branding is promoted as the companion's own identity. |
+| CBC | Previous third-party PNG at `https://www.canadaswalkoffame.com/wp-content/uploads/logo-cbc.png` has excessive embedded whitespace around a very small red mark. The [official corporate logo page](https://cbc.radio-canada.ca/en/graphic-standards/brand-ressources/corporate-logo) provides colour variants but explicitly requires prior authorization for use. No such authorization was established in this task. | Removed the unsuitable image reference and use the visible **CBC** text fallback. No unauthorized brand-kit replacement was imported. Revisit with an authorized tight asset. |
+
+### Organizations previously using initials
+
+All six real organizations with initials were reviewed. Standalone candidates below were observed on their own sites, including loaded natural dimensions in the browser; they are recorded for follow-up, **not installed**, because suitable public reuse terms were not established. Keep the initials rather than imply a licence or use an unrelated mark. Profiles and factual company references remain intact.
+
+| Organization | Official research / asset candidate | Result |
+| --- | --- | --- |
+| Aperture AI | [Founder Jaxson Khan's site](https://jaxson.org/) confirms the consultancy; inspected page images are a headshot and report covers. The conference asset combines Aperture AI and Munk branding. | No trustworthy separate mark found; initials retained. |
+| Birch Scientific | [Official site](https://www.birchscientific.com/) displays `Logonew-02.png`, loaded at 108×108: [exact rendered asset](https://static.wixstatic.com/media/5ca58d_18bb72d749fc4c49ad36548747cddf91~mv2.png/v1/fill/w_108,h_108,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logonew-02.png). | Candidate identity verified; small rendition and reuse terms unresolved. Initials retained. |
+| Council of Canadian Innovators | [Official site](https://www.canadianinnovators.org/) inspected; many available images are member-company logos and conference photographs, not CCI's own standalone asset. No public brand kit/reuse grant established. | Initials retained; no member logo substituted. |
+| Munk School of Global Affairs & Public Policy | [Official site](https://munkschool.utoronto.ca/) header uses a 300×67 [school SVG](https://munkschool.utoronto.ca/sites/default/files/assets/logo/munk_school_logo.svg), distinct from the university footer signature. | Correct school-specific candidate found; external reuse terms unresolved. Initials retained. |
+| Purposeful Group | [Official Canadian site](https://www.purposefulgroup.ca/) header uses a 988×249 [logo image](https://images.squarespace-cdn.com/content/v1/666e27d158496354e78c8224/3cd7b77d-664f-41d5-a8b3-be89f67deec3/Screenshot+2024-12-13+163348+%281%29.png?format=1500w). This is the Canadian organization associated with Chelsey MacNeil, not the similarly named UK training company. | Candidate identity verified; reuse terms unresolved. Initials retained. |
+| Tiller Engineering | [Official site](https://tillerengineering.com/) uses the 150×76 [side-navigation SVG](https://tillerengineering.com/wp-content/uploads/2023/02/sidenav-logo.svg) and a smaller 23×35 sticky-header symbol. | Full-logo candidate verified; reuse terms unresolved. Initials retained. |
+
+Rendering handoff: company portrait containers expose `data-company`, `data-logo-background="light|dark"` and `data-logo-availability="image|initials"`. Affiliation images also expose company/background attributes. Use proportional `contain` rendering and a suitable neutral background; avoid CSS inversion, colour filters, forced stretching or cropping brand artwork. `logoBackground` is validated as an optional profile field. CSS changes belong to the design session.
