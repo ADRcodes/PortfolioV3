@@ -782,3 +782,35 @@ html[data-summit-transition]::view-transition-old(summit-back):only-child { anim
 @media (max-width: 40rem) {
   .summit-app .summit-recent-list { grid-template-columns: 1fr; }
 }
+
+/* Follow-up: more legible welcome and session metadata. */
+.summit-app .summit-personal-note .summit-official-event-link { margin-top: 1rem; }
+.summit-app .summit-explore-agenda svg { animation: summit-scroll-cue 2.4s ease-in-out infinite; }
+@keyframes summit-scroll-cue { 0%, 100% { transform: translateY(-3px); } 50% { transform: translateY(5px); } }
+.summit-app .summit-notes-coming-soon { border-bottom: 0; padding-bottom: 0; }
+.summit-app .summit-agenda-filters { border-top: 0; padding-top: 0; margin-bottom: 1.5rem; }
+.summit-app .summit-session-card .summit-speaker-companies { font-size: 1rem; line-height: 1.45; }
+.summit-app .summit-session-card .summit-additional-companies { font-size: 1rem; }
+.summit-app .is-parallel .is-compact .summit-speaker-companies { font-size: .9375rem; line-height: 1.4; }
+.summit-app .is-parallel .summit-agenda-speaker-name { font-size: 1rem; }
+.summit-app .summit-card-date { display: block; font-size: 1rem; line-height: 1.45; margin-bottom: .75rem; }
+.summit-app .summit-detail-dateline { font-size: 1rem; }
+@media (min-width: 60rem) {
+  .summit-app .summit-agenda-intro { padding-top: clamp(3rem, 8svh, 6rem); }
+  .summit-app .summit-intro-event { margin-bottom: 1.5rem; }
+  .summit-app .summit-agenda-intro h1 { font-size: clamp(4.5rem, 8.5vw, 6.75rem); }
+  .summit-app .summit-intro-event .summit-event-details { font-size: 1.5rem; }
+  .summit-app .summit-personal-note { width: min(65%, 46rem); margin-bottom: 1.75rem; }
+  .summit-app .summit-personal-note p:first-child { font-size: clamp(1.875rem, 2.5vw, 2.25rem); }
+  .summit-app .summit-note-directions { font-size: 1.625rem; }
+  .summit-app .summit-note-signature { font-size: 2rem; }
+  .summit-app .summit-note-small { font-size: 1.0625rem; }
+  .summit-app .summit-official-event-link { font-size: 1.1875rem; }
+  .summit-app .summit-explore-agenda { font-size: 1.375rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .summit-app .summit-explore-agenda svg { animation: none; }
+}
+@media (max-width: 60rem) {
+  .summit-app .is-parallel .is-compact .summit-speaker-companies { font-size: 1rem; }
+}
