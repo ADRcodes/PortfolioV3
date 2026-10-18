@@ -1,0 +1,204 @@
+import { after, before, test } from 'node:test';
+import assert from 'node:assert/strict';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { MemoryRouter, Route, Routes } from 'react-router';
+import { createServer } from 'vite';
+
+let server;
+let SessionSummary;
+let SessionCard;
+let SessionDetail;
+let Home;
+let Directory;
+let Profile;
+let content;
+before(async () => {
+  server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
+  SessionSummary = (await server.ssrLoadModule('/src/summit/components/SessionSummary.jsx')).default;
+  SessionCard = (await server.ssrLoadModule('/src/summit/components/SessionCard.jsx')).default;
+  SessionDetail = (await server.ssrLoadModule('/src/summit/pages/SessionDetail.jsx')).default;
+  Home = (await server.ssrLoadModule('/src/summit/pages/Home.jsx')).default;
+  ({ Directory, Profile } = await server.ssrLoadModule('/src/summit/pages/Directory.jsx'));
+  content = await server.ssrLoadModule('/src/summit/content/index.js');
+});
+after(async () => { await server?.close(); });
+const render = summary => renderToStaticMarkup(createElement(SessionSummary, { summary }));
+
+test('structured article renders in reading order, with paragraphs and optional bullets', () => {
+  const html = render({
+    overview: 'Overview text',
+    keyTakeaways: [{ heading: 'Takeaway heading', explanation: 'Takeaway explanation' }, { explanation: 'Unheaded explanation' }, 'Legacy takeaway'],
+    detailedSummary: [
+      { heading: 'First section', paragraphs: ['First paragraph', 'Second paragraph'], bullets: ['Supporting bullet'] },
+      { heading: 'Second section', paragraphs: ['Final paragraph'] },
+    ],
+    notableIdeas: ['Notable observation'],
+    practicalApplications: ['Practical action'],
+  });
+  const sequence = ['Quick overview', 'Overview text', 'Key takeaways', 'Takeaway heading', 'Takeaway explanation', 'Unheaded explanation', 'Legacy takeaway', 'Detailed summary', 'First section', 'First paragraph', 'Second paragraph', 'Supporting bullet', 'Second section', 'Final paragraph', 'Notable insights', 'Notable observation', 'Practical applications', 'Practical action'];
+  let previous = -1;
+  for (const text of sequence) {
+    const position = html.indexOf(text);
+    assert.ok(position > previous, `Expected ${text} after the previous article element`);
+    previous = position;
+  }
+  assert.ok(html.includes('<h3>Takeaway heading</h3>'));
+  assert.ok(html.includes('<p>Takeaway explanation</p>'));
+});
+
+test('legacy summaries render and missing or empty optional sections disappear', () => {
+  for (const optional of [{}, { detailedSummary: [], notableIdeas: [], practicalApplications: [] }]) {
+    const html = render({ overview: 'Legacy overview', keyTakeaways: ['Legacy insight'], ...optional });
+    assert.ok(html.includes('Legacy insight'));
+    for (const heading of ['Detailed summary', 'Notable insights', 'Practical applications', 'None recorded.']) assert.ok(!html.includes(heading));
+  }
+});
+
+test('article text is escaped rather than interpreted as HTML', () => {
+  const html = render({ overview: '<script>alert(1)</script>', keyTakeaways: [{ heading: '<img>', explanation: '<b>Text</b>' }] });
+  assert.ok(!html.includes('<script>'));
+  assert.ok(html.includes('&lt;script&gt;'));
+  assert.ok(html.includes('&lt;b&gt;Text&lt;/b&gt;'));
+});
+
+test('cards expose independent session, presenter and company links without nested anchors', () => {
+  const session = content.sessions.find(item => item.speakerIds.length && item.companyIds.length);
+  const html = renderToStaticMarkup(createElement(MemoryRouter, null,
+    createElement(SessionCard, { session, clock: { date: '2026-10-17', time: '10:45' } })));
+  const speaker = content.allSpeakers.find(item => session.speakerIds.includes(item.id));
+  const company = content.allCompanies.find(item => session.companyIds.includes(item.id));
+  for (const path of [`sessions/${session.slug}`, `speakers/${speaker.slug}`, `companies/${company.slug}`]) {
+    assert.ok(html.includes(`href="/technlsummit/${path}"`), `Missing independently reachable ${path}`);
+  }
+  let depth = 0;
+  for (const [tag] of html.matchAll(/<\/?a\b[^>]*>/g)) {
+    depth += tag.startsWith('</') ? -1 : 1;
+    assert.ok(depth >= 0 && depth <= 1, 'Interactive anchors must not nest');
+  }
+  assert.equal(depth, 0);
+});
+
+test('agenda cards keep every profile link but leave time to the rail and portraits to details', () => {
+  const session = content.sessions.reduce((most, item) => item.speakerIds.length > most.speakerIds.length ? item : most);
+  const renderCard = agenda => renderToStaticMarkup(createElement(MemoryRouter, null,
+    createElement(SessionCard, { session, agenda, clock: { date: '2026-10-17', time: '10:45' } })));
+  const agenda = renderCard(true);
+  const profile = renderCard(false);
+  assert.ok(!agenda.includes('data-shared="time"'));
+  assert.ok(profile.includes('data-shared="time"'));
+  assert.ok(!agenda.includes('<img'));
+  assert.ok(agenda.includes('Location: '));
+  for (const speaker of content.allSpeakers.filter(item => session.speakerIds.includes(item.id))) {
+    assert.ok(agenda.includes(`data-profile="speakers/${speaker.slug}"`));
+    for (const company of content.allCompanies.filter(item => speaker.companyIds.includes(item.id))) {
+      assert.ok(agenda.includes(`data-profile="companies/${company.slug}"`));
+    }
+  }
+});
+
+test('session detail keeps linked presenter and company in its header, without an aside', () => {
+  const session = content.sessions.find(item => item.speakerIds.length && item.companyIds.length);
+  const html = renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit/sessions/${session.slug}`] },
+    createElement(Routes, null, createElement(Route, { path: '/technlsummit/sessions/:slug', element: createElement(SessionDetail) }))));
+  const contentStart = html.indexOf('class="summit-detail-content"');
+  assert.ok(contentStart > 0);
+  const header = html.slice(0, contentStart);
+  assert.ok(header.includes('href="/technlsummit/speakers/'));
+  assert.ok(header.includes('href="/technlsummit/companies/'));
+  assert.ok(!html.includes('<aside'));
+});
+
+test('speaker directory offers three sort buttons with bios, plain presenting times and independent links', () => {
+  const renderDirectory = query => renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit/speakers${query}`] }, createElement(Directory, { type: 'speakers' })));
+  const byOrder = renderDirectory('');
+  const byName = renderDirectory('?sort=name');
+  const byCompany = renderDirectory('?sort=company');
+  const position = (html, slug) => html.indexOf(`data-profile="speakers/${slug}"`);
+  assert.ok(position(byName, 'adam-walsh') < position(byName, 'amanda-harris'));
+  assert.ok(position(byCompany, 'amanda-harris') < position(byCompany, 'adam-walsh'));
+  assert.ok(byName.includes('Presenting at 10:00 AM on Monday'));
+  assert.ok(byName.includes('href="/technlsummit/sessions/up-next-in-tech"'));
+  assert.ok(byName.includes('on LinkedIn (opens in a new tab)'));
+  assert.ok(byName.includes('loading="lazy"'));
+  assert.ok(!byName.includes('<select'));
+  assert.ok(byOrder.includes('aria-pressed="true">Presenting order'));
+  assert.ok(position(byOrder, 'daniel-mccarthy') < position(byOrder, 'amanda-harris'));
+  assert.ok(byName.includes('class="summit-speaker-bio"'));
+  assert.ok(byName.includes('<span class="summit-speaker-session-time">Presenting at'));
+  assert.ok(/<h2 data-profile="speakers\/[^"]+">[^<]+<\/h2>/.test(byName));
+});
+
+test('profiles leave back navigation to the header, omit programme links and place LinkedIn with the identity', () => {
+  for (const [type, slug] of [['speakers', 'zach-green'], ['companies', 'mysa']]) {
+    const html = renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit/${type}/${slug}`] },
+      createElement(Routes, null, createElement(Route, { path: `/technlsummit/${type}/:slug`, element: createElement(Profile, { type }) }))));
+    assert.ok(!html.includes('class="summit-back-link"'));
+    assert.ok(!html.includes('class="summit-header-back"'));
+    assert.ok(!html.includes('href="https://technl.ca/technlsummit26/"'));
+    assert.ok(html.includes('class="summit-profile-hero"'));
+    if (type === 'companies') {
+      const people = html.slice(html.indexOf('class="summit-profile-people"'));
+      assert.ok(people.includes('<img') && people.includes('data-profile="speakers/'));
+    }
+    if (type === 'speakers') {
+      assert.ok(html.includes('aria-label="Zach Green on LinkedIn (opens in a new tab)"'));
+      assert.ok(!html.includes('>LinkedIn (new tab)</a>'));
+    }
+  }
+});
+
+test('sessions retain organization links when no presenter is assigned', () => {
+  const session = content.sessions.find(item => item.slug === 'coffee-and-networking');
+  const html = renderToStaticMarkup(createElement(MemoryRouter, null,
+    createElement(SessionCard, { session, clock: { date: '2026-10-17', time: '10:45' } })));
+  assert.ok(html.includes('href="/technlsummit/companies/cgi"'));
+  assert.ok(!html.includes('data-shared="company"'));
+});
+
+test('multiple presentations have a linked overview, numbered headings and fully visible optional detail', () => {
+  const speaker = { id: 'speaker-demo-jordan', slug: 'demo-jordan-lee' };
+  const summary = { overview: 'Session overview', keyTakeaways: [{ heading: 'A finding', explanation: 'Its meaning.' }], presentations: [
+    { title: 'First presentation', speakerIds: [speaker.id], explanation: 'First explanation',
+      highlightedInsight: { heading: 'A qualified insight', explanation: 'Only in this experiment.' },
+      sections: [{ heading: 'Supporting evidence', paragraphs: ['A supporting paragraph'], bullets: ['A useful qualification'] }] },
+    { title: 'Second presentation', explanation: 'Second explanation' },
+  ] };
+  const html = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(SessionSummary, { summary })));
+  const nav = html.slice(html.indexOf('<nav'), html.indexOf('</nav>'));
+  assert.ok(nav.includes('First presentation') && nav.includes('Second presentation'));
+  assert.ok(nav.includes('href="#session-presentation-1"'));
+  assert.ok(html.includes('id="session-presentation-1"'));
+  assert.ok(html.includes('id="session-presentation-2"'));
+  assert.ok(html.includes('>01</span>') && html.includes('>02</span>'));
+  for (const text of ['First explanation', 'A qualified insight', 'Only in this experiment.', 'Supporting evidence', 'A supporting paragraph', 'A useful qualification', 'Second explanation']) assert.ok(html.includes(text));
+  assert.ok(html.includes(`href="/technlsummit/speakers/${speaker.slug}"`));
+  assert.ok(!html.includes('<details') && !/\shidden(?:=|>|\s)/.test(html));
+});
+
+test('short presentations omit empty sections, retain escaping and need no overview index', () => {
+  const html = render({ overview: 'Overview', keyTakeaways: ['Legacy insight'], presentations: [{ title: '<script>Title</script>', explanation: 'Brief demo', sections: [] }], highlightedInsight: { explanation: '<b>A finding</b>' } });
+  assert.ok(!html.includes('<nav') && !html.includes('Detailed summary'));
+  assert.ok(html.includes('&lt;script&gt;Title&lt;/script&gt;'));
+  assert.ok(html.includes('&lt;b&gt;A finding&lt;/b&gt;'));
+  assert.ok(!html.includes('summit-article-section'));
+});
+
+test('agenda groups parallel choices without losing individual session anchors or links', () => {
+  const html = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Home)));
+  assert.ok(html.includes('aria-label="4 simultaneous sessions at 1:00 PM"'));
+  assert.equal((html.match(/data-session="/g) ?? []).length, content.sessions.length);
+  for (const session of content.sessions) {
+    assert.equal(html.split(`id="agenda-${session.id}"`).length - 1, 1);
+    assert.ok(html.includes(`href="/technlsummit/sessions/${session.slug}"`));
+  }
+});
+
+test('company directory provides logos and independently labelled detail links', () => {
+  const html = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Directory, { type: 'companies' })));
+  assert.ok(html.includes('class="summit-company-directory"'));
+  assert.ok(html.includes('<img'));
+  assert.ok(html.includes('aria-label="View Mysa"'));
+  assert.ok(html.includes('href="/technlsummit/companies/mysa"'));
+  assert.ok(html.indexOf('data-profile="companies/airtable"') < html.indexOf('data-profile="companies/demo-labs"'));
+});

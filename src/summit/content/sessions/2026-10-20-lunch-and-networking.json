@@ -1,0 +1,23 @@
+{
+  "id": "session-lunch-and-networking",
+  "slug": "lunch-and-networking",
+  "title": "Lunch and Networking",
+  "date": "2026-10-20",
+  "startTime": "12:25",
+  "endTime": "13:25",
+  "location": "St. John’s Convention Centre (room not specified)",
+  "description": "Lunch and networking during the mainstage conference day. The official agenda does not specify a room.",
+  "speakerIds": [],
+  "companyIds": [
+    "company-technl"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

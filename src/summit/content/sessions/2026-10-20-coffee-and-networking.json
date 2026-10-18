@@ -1,0 +1,24 @@
+{
+  "id": "session-coffee-and-networking",
+  "slug": "coffee-and-networking",
+  "title": "Coffee Break and Networking",
+  "date": "2026-10-20",
+  "startTime": "10:25",
+  "endTime": "10:50",
+  "location": "St. John’s Convention Centre (room not specified)",
+  "description": "Coffee and networking break. Sponsored by CGI. The official agenda does not specify a room.",
+  "speakerIds": [],
+  "companyIds": [
+    "company-technl",
+    "company-cgi"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

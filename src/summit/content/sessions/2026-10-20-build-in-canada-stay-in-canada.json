@@ -1,0 +1,27 @@
+{
+  "id": "session-build-in-canada-stay-in-canada",
+  "slug": "build-in-canada-stay-in-canada",
+  "title": "Fireside Chat: Build in Canada. Stay in Canada.",
+  "date": "2026-10-20",
+  "startTime": "10:05",
+  "endTime": "10:25",
+  "location": "Bowring Ballroom",
+  "description": "A fireside conversation about capital, ownership and retaining growing technology companies in Canada.",
+  "speakerIds": [
+    "speaker-lucy-hargreaves",
+    "speaker-johanna-brown"
+  ],
+  "companyIds": [
+    "company-build-canada",
+    "company-rivet"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

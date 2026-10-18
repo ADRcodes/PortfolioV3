@@ -1,6 +1,6 @@
 # PortfolioV3
 
-A static Vite + React foundation for Alex Russell's redesigned portfolio.
+Alex Russell's static portfolio for practical AI systems, web projects, experiments, and consulting.
 
 ## Tech
 
@@ -37,4 +37,15 @@ pnpm build
 
 The first pass uses calm, warm technical styling with shared CSS tokens for color, radius, shadow, and surfaces. Components lean on soft borders, organic rounded shapes, subtle gradients, and restrained Motion transitions. `MotionConfig` is set to respect the user's reduced-motion preference.
 
-This version is intentionally static: no backend, CMS, authentication, deployment setup, AI chatbot, or imported content from older repositories.
+The portfolio has no backend, CMS, authentication, or AI chatbot. The contact form sends through EmailJS in the browser, and selected projects were brought forward from PortfolioV2.
+
+## Documentation
+
+- `docs/spec.md`: product scope and requirements.
+- `docs/plan.md` and `docs/todo.md`: roadmap and actionable work.
+- `PRODUCT.md`: audience, voice, personality, and reference sites.
+- `DESIGN.md`: visual tokens, typography, components, and interaction guidance.
+- `memory-bank/progress.md` and `memory-bank/decisions.md`: history and rationale.
+- `docs/deployment.md`: current deployment process, verification, and limitations.
+
+Use PRODUCT.md and DESIGN.md together as the existing brand reference; a separate docs/brand.md is not currently needed.

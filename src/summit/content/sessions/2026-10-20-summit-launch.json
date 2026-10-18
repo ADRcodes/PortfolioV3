@@ -1,0 +1,23 @@
+{
+  "id": "session-summit-launch",
+  "slug": "summit-launch",
+  "title": "Summit Launch",
+  "date": "2026-10-20",
+  "startTime": "08:45",
+  "endTime": "09:15",
+  "location": "Bowring Ballroom",
+  "description": "Opening of the Summit’s mainstage programme, titled Leading from the Edge. No individual presenters are listed in the published agenda.",
+  "speakerIds": [],
+  "companyIds": [
+    "company-technl"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

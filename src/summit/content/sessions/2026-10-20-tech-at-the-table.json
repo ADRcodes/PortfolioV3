@@ -1,0 +1,27 @@
+{
+  "id": "session-tech-at-the-table",
+  "slug": "tech-at-the-table",
+  "title": "Tech at the Table: A Conversation with Premier Tony Wakeham",
+  "date": "2026-10-20",
+  "startTime": "09:15",
+  "endTime": "09:35",
+  "location": "Bowring Ballroom",
+  "description": "Andrea King speaks with Premier Tony Wakeham about the provincial economy and technology-sector growth.",
+  "speakerIds": [
+    "speaker-tony-wakeham",
+    "speaker-andrea-king"
+  ],
+  "companyIds": [
+    "company-government-of-newfoundland-and-labrador",
+    "company-technl"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

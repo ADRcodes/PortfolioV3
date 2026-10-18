@@ -1,0 +1,30 @@
+{
+  "id": "session-go-broad-or-go-deep",
+  "slug": "go-broad-or-go-deep",
+  "title": "Go Broad or Go Deep?",
+  "date": "2026-10-20",
+  "startTime": "13:25",
+  "endTime": "13:55",
+  "location": "Bowring Ballroom",
+  "description": "Technology leaders compare broad-market strategies with specialization in a particular market. Moderator: Jacquelyn Holden.",
+  "speakerIds": [
+    "speaker-aswinkumar-rajendiran",
+    "speaker-carlos-coelho",
+    "speaker-nick-warren",
+    "speaker-jacquelyn-holden"
+  ],
+  "companyIds": [
+    "company-measure",
+    "company-boast",
+    "company-groundcontrol"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "session-who-owns-the-innovation",
+  "slug": "who-owns-the-innovation",
+  "title": "Who Owns the Innovation? Protecting Intellectual Property in Collaborative Partnerships",
+  "date": "2026-10-19",
+  "startTime": "13:00",
+  "endTime": "13:40",
+  "location": "Bannerman Ballroom 4",
+  "description": "A discussion of intellectual-property ownership and agreements in industry and academic partnerships. Moderator: Libby Carew.",
+  "speakerIds": [
+    "speaker-matthew-hamilton",
+    "speaker-courtney-valvasori",
+    "speaker-james-millan",
+    "speaker-libby-carew"
+  ],
+  "companyIds": [
+    "company-memorial-university",
+    "company-birch-scientific",
+    "company-avalon-holographic",
+    "company-audyse-technology-inc",
+    "company-springboard-atlantic-inc"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

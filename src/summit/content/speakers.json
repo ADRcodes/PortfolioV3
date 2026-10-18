@@ -1,0 +1,1683 @@
+[
+  {
+    "id": "speaker-demo-jordan",
+    "slug": "demo-jordan-lee",
+    "name": "Jordan Lee (demo)",
+    "description": "Fictional speaker used to demonstrate session and company relationships.",
+    "companyIds": [
+      "company-demo-labs"
+    ],
+    "urls": [
+      {
+        "label": "Example website",
+        "url": "https://example.com"
+      }
+    ],
+    "image": null,
+    "imageAlt": ""
+  },
+  {
+    "id": "speaker-daniel-mccarthy",
+    "slug": "daniel-mccarthy",
+    "name": "Daniel McCarthy, E.I.T.",
+    "description": "Daniel is a Sales Engineer-In-Training at PolyUnity, working at the intersection of mechanical engineering, 3D printing and healthcare. His earlier product-design work included medical simulation models, new healthcare products and replacement components for hospital teams.",
+    "companyIds": [
+      "company-polyunity-tech-inc"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/danielmccarthy00/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://hackfrostnl.ca/hackathons/2023"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Daniel-Mcarthy.png",
+    "imageAlt": "Portrait of Daniel McCarthy, E.I.T."
+  },
+  {
+    "id": "speaker-samuel-adeoye",
+    "slug": "samuel-adeoye",
+    "name": "Samuel Adeoye",
+    "description": "Samuel develops software at Enaimco, where his work supports workflows for the energy industry. He studied at Memorial University and also builds independent products, including the recording tool Notable and the recipe-extraction app Rechef.",
+    "companyIds": [
+      "company-enaimco"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sam--ayo/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://www.samayo.me/resume"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Samuel-Adeoye.png",
+    "imageAlt": "Portrait of Samuel Adeoye"
+  },
+  {
+    "id": "speaker-nathan-greene",
+    "slug": "nathan-greene",
+    "name": "Nathan Greene",
+    "description": "Nathan manages day-to-day IT support at SmartICE, including computer setup, software licensing, user accounts and cybersecurity awareness. A software-development graduate of Keyin College, he also has training in cloud computing, systems administration and technical support.",
+    "companyIds": [
+      "company-smartice"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/nathan-greene-79621b278/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://smartice.org/person/nathan-greene/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Nathan-Greene.png",
+    "imageAlt": "Portrait of Nathan Greene"
+  },
+  {
+    "id": "speaker-karen-tuffaha",
+    "slug": "karen-tuffaha",
+    "name": "Karen Tuffaha",
+    "description": "Karen leads marketing and operations at trophi.ai, working across business and consumer markets. Her background includes digital marketing, analytics and social-media tools. She also mentors early-career professionals on marketing portfolios, professional networking and communicating their work.",
+    "companyIds": [
+      "company-trophi-ai"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/karentuffaha/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/KarenTuffaha.png",
+    "imageAlt": "Portrait of Karen Tuffaha"
+  },
+  {
+    "id": "speaker-ann-montet",
+    "slug": "ann-montet",
+    "name": "Ann Montet",
+    "description": "Ann works in business development at SiftMed, helping connect customers with technology for reviewing complex medical records. She brings a background in financial services and studied at Memorial University. Her professional focus combines customer relationships with understanding the information people need to make decisions.",
+    "companyIds": [
+      "company-siftmed"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/ann-montet-750634220/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/AnnMontet.png",
+    "imageAlt": "Portrait of Ann Montet"
+  },
+  {
+    "id": "speaker-rahaf-hajahmed",
+    "slug": "rahaf-hajahmed",
+    "name": "Rahaf HajAhmed",
+    "description": "Rahaf leads talent programmes at techNL, connecting students and job seekers with Newfoundland and Labrador’s technology sector. A Memorial University business graduate, she has worked in emerging-talent coordination and takes part in career events and student networking, including moderating the Summit’s Up Next in Tech panel.",
+    "companyIds": [
+      "company-technl"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/rahaf-hajahmad/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/RahafHajAhmed.jpg",
+    "imageAlt": "Portrait of Rahaf HajAhmed"
+  },
+  {
+    "id": "speaker-james-geneau",
+    "slug": "james-geneau",
+    "name": "James Geneau",
+    "description": "CEO, Propel. James has more than 25 years of experience helping technology, SaaS, investment and professional-services businesses grow in North America and Europe. His background includes go-to-market planning, revenue development, customer engagement and brand strategy.",
+    "companyIds": [
+      "company-propel"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/jamesgeneau/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/jamesgeneau.png",
+    "imageAlt": "Portrait of James Geneau"
+  },
+  {
+    "id": "speaker-steph-burry",
+    "slug": "steph-burry",
+    "name": "Steph Burry",
+    "description": "Steph is a Startup Coach at Propel with nearly two decades of experience helping businesses grow. Her technology-sector background includes early roles at Verafin and CoLab, where she worked on building teams and supporting companies through early growth and rapid expansion.",
+    "companyIds": [
+      "company-propel"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/stephanie-burry-66092712/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://www.propelict.com/about-us/our-team"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Steph-Burry.png",
+    "imageAlt": "Portrait of Steph Burry"
+  },
+  {
+    "id": "speaker-chelsea-o-hara",
+    "slug": "chelsea-o-hara",
+    "name": "Chelsea O'Hara",
+    "description": "Chelsea co-founded DCXIX, a software and hardware business working in real-time media production. Her work includes Scenecast, a broadcast toolkit for real-time 3D communication. She has pursued mechatronics studies at Memorial University and participated in its entrepreneurship programmes and pitch competitions.",
+    "companyIds": [
+      "company-dcxix"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/chelseamarieohara/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://gazette.mun.ca/campus-and-community/bright-lights/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Chelsea-Ohara.png",
+    "imageAlt": "Portrait of Chelsea O'Hara"
+  },
+  {
+    "id": "speaker-jacob-critch",
+    "slug": "jacob-critch",
+    "name": "Jacob Critch",
+    "description": "AI Product Engineer, Melotech. Jacob is a St. John’s software engineer and Memorial University computer science graduate. His background includes founding-engineer roles, startup leadership and early engineering work in legal AI. At Melotech, he works on technology connecting AI with media and entertainment.",
+    "companyIds": [
+      "company-melotech"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/jacob-critch/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/JacobCritch.png",
+    "imageAlt": "Portrait of Jacob Critch"
+  },
+  {
+    "id": "speaker-kyle-hickey",
+    "slug": "kyle-hickey",
+    "name": "Kyle Hickey",
+    "description": "Kyle leads coaching at Propel and works with startup founders on developing their businesses. He brings first-hand entrepreneurial experience, including selling his own company in 2019, and an MBA from Memorial University. His approach connects research with the practical problems founders face.",
+    "companyIds": [
+      "company-propel"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/kyle-hickey-374267191/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://www.propelict.com/about-us/our-team"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Kyle-Hickey.png",
+    "imageAlt": "Portrait of Kyle Hickey"
+  },
+  {
+    "id": "speaker-freddie-pike",
+    "slug": "freddie-pike",
+    "name": "Freddie Pike",
+    "description": "Freddie is a Staff Developer at CoLab and has also served as Director of Innovation and Growth at NL Eats. A Memorial University alumnus, he has contributed to technology education through mentoring with Canada Learning Code and volunteering with Digital Waves NL.",
+    "companyIds": [
+      "company-colab-ai"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/freddie-pike/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Freddie-.png",
+    "imageAlt": "Portrait of Freddie Pike"
+  },
+  {
+    "id": "speaker-hayley-mclellan",
+    "slug": "hayley-mclellan",
+    "name": "Hayley McLellan",
+    "description": "RISE Project Coordinator, AMAL. Through AMAL’s RISE project, Hayley helps Newfoundland and Labrador employers recruit, integrate and retain newcomer talent. She develops workplace learning programmes using research, systems thinking and practical approaches to inclusion.",
+    "companyIds": [
+      "company-amal"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/hayley-mclellan/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/HayleyMclellan.webp",
+    "imageAlt": "Portrait of Hayley McLellan"
+  },
+  {
+    "id": "speaker-ameerah-mallam-hassam",
+    "slug": "ameerah-mallam-hassam",
+    "name": "Ameerah Mallam-Hassam",
+    "description": "People & Culture, Mysa. Ameerah works in recruitment, employee experience and talent development at Mysa. Her interests include practical uses of AI in workplace processes and hiring, with attention to inclusion, access and retaining human judgement in recruitment.",
+    "companyIds": [
+      "company-mysa"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/ameerah-mallam-hassam-b18553230/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Ameerah-Mallam-Hassam.png",
+    "imageAlt": "Portrait of Ameerah Mallam-Hassam"
+  },
+  {
+    "id": "speaker-ema-shiroma-chao",
+    "slug": "ema-shiroma-chao",
+    "name": "Ema Shiroma-Chao, CCDP®",
+    "description": "Ema leads professional experience and insight work at techNL and is a Certified Career Development Practitioner. Her background includes advising international students at Memorial University and advocating for targeted career services. In 2025, she received the Canadian Association of College and University Student Services’ New and Emerging Professionals Award.",
+    "companyIds": [
+      "company-technl"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/ema-s-c/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://gazette.mun.ca/student-life/student-support-star/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/emashiromachao-1.png",
+    "imageAlt": "Portrait of Ema Shiroma-Chao, CCDP®"
+  },
+  {
+    "id": "speaker-matthew-hamilton",
+    "slug": "matthew-hamilton",
+    "name": "Professor Matthew Hamilton, PhD",
+    "description": "Matthew is an Associate Professor of Computer Science at Memorial University, directs its Visual and Analytic Computing Lab and founded Birch Scientific. His research connects computer vision, medical-image analysis, visualization and AI. His industrial research background includes simulation, virtual environments and holographic displays.",
+    "companyIds": [
+      "company-memorial-university",
+      "company-birch-scientific"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/matthew-hamilton-b58a8a5/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://www.vaclab.ca/team/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/ProfessorMatthewHamilton.jpg",
+    "imageAlt": "Portrait of Professor Matthew Hamilton, PhD"
+  },
+  {
+    "id": "speaker-courtney-valvasori",
+    "slug": "courtney-valvasori",
+    "name": "Courtney Valvasori, P.Eng.",
+    "description": "Courtney directs intellectual-property work at Avalon Holographics. A professional engineer and Memorial University alumna, she works where engineering development and intellectual-property protection meet. Her public professional profile and engineering outreach describe a career combining technical work with creative and strategic thinking.",
+    "companyIds": [
+      "company-avalon-holographic"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/courtney-valvasori-p-eng-bb8912a3/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://pegnl.ca/livinglens/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/CourtneyValvasori.png",
+    "imageAlt": "Portrait of Courtney Valvasori, P.Eng."
+  },
+  {
+    "id": "speaker-james-millan",
+    "slug": "james-millan",
+    "name": "James Millan, PhD, P.Eng.",
+    "description": "James is Chief Technology Officer at Audyse Technology and a professional engineer with more than 35 years of research-and-development experience. He holds a PhD from Memorial University and has worked in marine research and technology. His professional recognition includes the Queen Elizabeth II Diamond Jubilee Medal for contributions to marine R&D.",
+    "companyIds": [
+      "company-audyse-technology-inc"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/james-millan-phd-peng-b54975a5/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/JamesMillan.jpg",
+    "imageAlt": "Portrait of James Millan, PhD, P.Eng."
+  },
+  {
+    "id": "speaker-libby-carew",
+    "slug": "libby-carew",
+    "name": "Libby Carew",
+    "description": "Libby advises Newfoundland and Labrador innovators on intellectual property through Springboard Atlantic. She previously worked in business development at Mitacs, connecting businesses with academic researchers on applied projects. She is a graduate of Memorial University and Toronto Metropolitan University and works in English and French.",
+    "companyIds": [
+      "company-springboard-atlantic-inc"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/libby-carew/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://springboardatlantic.ca/team/libby-carew/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/LibbyCarew.jpg",
+    "imageAlt": "Portrait of Libby Carew"
+  },
+  {
+    "id": "speaker-eva-reddington",
+    "slug": "eva-reddington",
+    "name": "Eva Reddington",
+    "description": "VP of Policy, Program Development and Government Relations, Mitacs. Eva leads policy, programme development and government relations at Mitacs, where she has worked since 2016 and became Vice President in July 2025. Her earlier career included international banking, insurance and entrepreneurship education in Indonesia. She holds an International MBA from Schulich, has studied adult learning at the University of Toronto, and teaches organizational behaviour at York University.",
+    "companyIds": [
+      "company-mitacs"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/evareddington/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/EvaReddington.png",
+    "imageAlt": "Portrait of Eva Reddington"
+  },
+  {
+    "id": "speaker-tim-perron",
+    "slug": "tim-perron",
+    "name": "Tim Perron",
+    "description": "Senior Advisor, Industry and Ecosystem Engagement (Atlantic), ICTC. Tim represents ICTC in industry and ecosystem engagement across Atlantic Canada. Based in Bedford, Nova Scotia, he brings more than four decades of experience in IT, business development and regional economic growth, including leadership work in Canada and abroad.",
+    "companyIds": [
+      "company-ictc"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/tim-perron/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Tim.jpg",
+    "imageAlt": "Portrait of Tim Perron"
+  },
+  {
+    "id": "speaker-mike-maguire",
+    "slug": "mike-maguire",
+    "name": "Mike Maguire",
+    "description": "Mike is CEO and co-founder of Copsys Technologies, which develops technology for protecting infrastructure against corrosion and biofouling. A professional engineer, he brings more than three decades of engineering and innovation experience and a Memorial University background in naval architecture and ocean engineering.",
+    "companyIds": [
+      "company-copsys-technologies-inc"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/michaeljmaguire/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/MikeMaguire.png",
+    "imageAlt": "Portrait of Mike Maguire"
+  },
+  {
+    "id": "speaker-heather-craniford",
+    "slug": "heather-craniford",
+    "name": "Heather Craniford",
+    "description": "Assistant Deputy Minister, Employment and Labour Market Development, Government of Newfoundland and Labrador. Heather leads employment and labour-market development work for the provincial government. Over more than 20 years in public-sector leadership, she has held roles spanning workforce training, post-secondary education, economic development and intergovernmental affairs. Her work connects policy, programmes and partnerships to participation in the workforce.",
+    "companyIds": [
+      "company-government-of-newfoundland-and-labrador"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/heather-craniford/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/heather-craniford1.png",
+    "imageAlt": "Portrait of Heather Craniford"
+  },
+  {
+    "id": "speaker-elise-parsons",
+    "slug": "elise-parsons",
+    "name": "Elise Parsons",
+    "description": "Elise supports employers and members at techNL. Her professional background spans the public and private sectors, including four years living and working in England. A Memorial University graduate, she brings an interest in connecting people and organizations to her employer-support work.",
+    "companyIds": [
+      "company-technl"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/evparsons/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://www.linkedin.com/posts/evparsons_im-delighted-to-share-that-ive-joined-technl-activity-7457532340102356992-TuAz"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/EliseParsons.jpg",
+    "imageAlt": "Portrait of Elise Parsons"
+  },
+  {
+    "id": "speaker-chris-hickey",
+    "slug": "chris-hickey",
+    "name": "Chris Hickey",
+    "description": "Founder & General Counsel, Navigant Law. Chris founded Navigant Law after more than 17 years at Verafin and Nasdaq, where he worked through Verafin’s growth, international expansion and acquisition. He now provides fractional general counsel and strategic advice to technology businesses on contracts, privacy, AI and data governance, product strategy and scaling.",
+    "companyIds": [
+      "company-navigant-law"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/chris-hickey-lawyer/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Chris-Hickey.png",
+    "imageAlt": "Portrait of Chris Hickey"
+  },
+  {
+    "id": "speaker-mary-jane-leslie",
+    "slug": "mary-jane-leslie",
+    "name": "Mary Jane (MJ) Leslie",
+    "description": "MJ founded Chapter 3 to help companies move from early traction to sustained growth. Her background includes building and managing startups from within, with experience in technology and business development. Her consultancy works with technical businesses on strategy, market positioning and execution.",
+    "companyIds": [
+      "company-chapter-3"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/mary-jane-mj-leslie-3a09a824/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://digitalnovascotia.com/news/writing-the-third-chapter-the-journey-to-founding-chapter-3"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Mary-Jane-Leslie.png",
+    "imageAlt": "Portrait of Mary Jane (MJ) Leslie"
+  },
+  {
+    "id": "speaker-amanda-harris",
+    "slug": "amanda-harris",
+    "name": "Amanda Harris",
+    "description": "Amanda leads customer support at Airtable, working across digital services and enterprise customer needs. Her previous support and customer-experience leadership roles include Brex and Slack. Her work connects support operations with customer retention, product adoption and feedback to product teams.",
+    "companyIds": [
+      "company-airtable"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/amandatharris/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://events.customersuccesscollective.com/location/supportnyc/speaker/amandaharris"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Amanda-Harris.png",
+    "imageAlt": "Portrait of Amanda Harris"
+  },
+  {
+    "id": "speaker-susan-byrd",
+    "slug": "susan-byrd",
+    "name": "Susan Byrd",
+    "description": "Director of Customer Experience, Trudell Medical Limited. Susan brings leadership and technology-sector experience to Trudell Medical Limited’s growing St. John’s operations and AI Centre of Excellence. Her work focuses on developing teams, supporting talent and sustaining organizational growth.",
+    "companyIds": [
+      "company-trudell-medical-limited"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/susan-byrd-07560990/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Susan-Byrd.png",
+    "imageAlt": "Portrait of Susan Byrd"
+  },
+  {
+    "id": "speaker-hasan-hai",
+    "slug": "hasan-hai",
+    "name": "Hasan Hai",
+    "description": "Hasan leads client success for Keyin’s workforce micro-credential programmes and serves on techNL’s board. His technology-sector background spans telecommunications, SaaS sales, customer success and education technology. He has built teams and organizations across startup and post-acquisition settings, with a focus on strategy, culture and inclusion.",
+    "companyIds": [
+      "company-keyin-college"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/hasanhai/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://technl.ca/hasan-hai/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/HasanHai.jpg",
+    "imageAlt": "Portrait of Hasan Hai"
+  },
+  {
+    "id": "speaker-john-atkins",
+    "slug": "john-atkins",
+    "name": "John Atkins",
+    "description": "John founded JAC, a digital marketing and development agency. He began building and selling custom computers while studying behavioural neuroscience at Memorial University, then moved into web design and programming. His work brings together technology, design and an interest in how people interact with digital products.",
+    "companyIds": [
+      "company-jac"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/johnnatkins/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://jac.co/agency/john-atkins/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/John-Atkins-.png",
+    "imageAlt": "Portrait of John Atkins"
+  },
+  {
+    "id": "speaker-curtis-jennings",
+    "slug": "curtis-jennings",
+    "name": "Curtis Jennings",
+    "description": "Curtis leads commercialization of Angler Solutions’ Model for Energy Systems Optimization (MESO), supporting the platform’s deployment and adoption. He holds a mechanical engineering degree from Memorial University and works on connecting technical capabilities with customer needs and commercial applications.",
+    "companyIds": [
+      "company-angler-solutions"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/curtis-j-6469803/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://www.anglersolutions.ca/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Curtis-Jennings.png",
+    "imageAlt": "Portrait of Curtis Jennings"
+  },
+  {
+    "id": "speaker-sheena-fiander",
+    "slug": "sheena-fiander",
+    "name": "Sheena Fiander",
+    "description": "Managing Director, DischargeHUB. Sheena leads DischargeHUB and advises Branch Innovations on healthcare solutions, drawing on more than 11 years in health-sector innovation. Her work addresses care coordination, patient transitions and service delivery across health-system stakeholders. She is a Certified Value Based Healthcare professional and is completing a Master of Technology Management at Memorial University.",
+    "companyIds": [
+      "company-dischargehub"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sheena-fiander-873bb31b7/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Sheena-Fiander.png",
+    "imageAlt": "Portrait of Sheena Fiander"
+  },
+  {
+    "id": "speaker-liam-flanagan",
+    "slug": "liam-flanagan",
+    "name": "Liam Flanagan",
+    "description": "Manager, Programs and People, techNL. Liam works with technology businesses and workers at different stages of company development, from starting a business to scaling and sustaining it.",
+    "companyIds": [
+      "company-technl"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/liam-flanagan/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/LiamFlanagan.jpg",
+    "imageAlt": "Portrait of Liam Flanagan"
+  },
+  {
+    "id": "speaker-sean-williams",
+    "slug": "sean-williams",
+    "name": "Sean Williams",
+    "description": "Co-Founder & Brand Strategist, Dashboard Marketing Inc.. Sean has three decades of marketing experience across Canada, the United States, the United Kingdom, Australia and the Middle East. His background includes marketing leadership, brand strategy, digital and social marketing, communications, research and project management.",
+    "companyIds": [
+      "company-dashboard-marketing-inc"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/seanwillliams/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Sean-Williams-1.png",
+    "imageAlt": "Portrait of Sean Williams"
+  },
+  {
+    "id": "speaker-joshua-martin",
+    "slug": "joshua-martin",
+    "name": "Joshua Martin",
+    "description": "Joshua works in business development at Boast, with an interest in launching and developing new markets. His public work includes discussions of innovation funding and R&D tax credits, including how businesses document and position AI-related development work.",
+    "companyIds": [
+      "company-boast"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/joshua-martin-b9b965a6/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Joshua-Martin.png",
+    "imageAlt": "Portrait of Joshua Martin"
+  },
+  {
+    "id": "speaker-stu-greenoff",
+    "slug": "stu-greenoff",
+    "name": "Stu Greenoff",
+    "description": "Stu co-founded HeadCase, a Newfoundland and Labrador initiative that brings people together for conversations about mental health. His work with the organization focuses on community, peer connection and accessible events outside the clinical system.",
+    "companyIds": [
+      "company-headcase"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/stu-greenoff-3b479770/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://www.headcasecommunity.com/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Stu-.png",
+    "imageAlt": "Portrait of Stu Greenoff"
+  },
+  {
+    "id": "speaker-dean-macisaac",
+    "slug": "dean-macisaac",
+    "name": "Dean MacIsaac",
+    "description": "Dean co-founded HeadCase and brings more than 20 years of professional experience to his work in organizational change. His public writing also addresses startup validation, customer conversations and testing an idea before committing substantial time and resources to building it.",
+    "companyIds": [
+      "company-headcase"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/deanmarcmacisaac/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Dean-.png",
+    "imageAlt": "Portrait of Dean MacIsaac"
+  },
+  {
+    "id": "speaker-jan-mertlik",
+    "slug": "jan-mertlik",
+    "name": "Jan Mertlik",
+    "description": "Co-Founder & CEO, Get Building. Jan co-founded Get Building after a decade developing technology for clients. A Memorial University computer science graduate, he now focuses on AI adoption, custom AI systems and technical training in St. John’s.",
+    "companyIds": [
+      "company-get-building"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/JanMertlik.png",
+    "imageAlt": "Portrait of Jan Mertlik"
+  },
+  {
+    "id": "speaker-ed-j-martin",
+    "slug": "ed-j-martin",
+    "name": "Ed J. Martin",
+    "description": "CEO, Genesis. Ed leads Genesis, the St. John’s technology-startup incubator. He previously built a venture-backed education-technology business that was acquired by a US education company. His background also includes film, television and interactive media.",
+    "companyIds": [
+      "company-genesis"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/edjamartin/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Ed-Martin.png",
+    "imageAlt": "Portrait of Ed J. Martin"
+  },
+  {
+    "id": "speaker-michael-tiller",
+    "slug": "michael-tiller",
+    "name": "Michael Tiller",
+    "description": "Michael is a Project Engineer at Tiller Engineering, which he joined in 2017. His work includes structural design for telecommunications, infrastructure and energy assets, alongside business development and client relationships. He brings an interest in technology and innovation to engineering practice.",
+    "companyIds": [
+      "company-tiller-engineering"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/michaeltillernl/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://tillerengineering.com/team/michael-tiller/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Michael-Tiller.png",
+    "imageAlt": "Portrait of Michael Tiller"
+  },
+  {
+    "id": "speaker-chelsey-macneil",
+    "slug": "chelsey-macneil",
+    "name": "Chelsey MacNeil",
+    "description": "Chelsey founded and leads The Purposeful Group, advising organizations on community economic development and social innovation. Her work includes organizational strategy, rural development, policy design, partnerships and facilitation across multiple stakeholders, with a focus on connecting economic outcomes with community wellbeing.",
+    "companyIds": [
+      "company-purposeful-group"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/chelsey-macneil-community-leader-mba/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://www.purposefulgroup.ca/pg-team"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Chelsey-MacNeil.png",
+    "imageAlt": "Portrait of Chelsey MacNeil"
+  },
+  {
+    "id": "speaker-karen-moores",
+    "slug": "karen-moores",
+    "name": "Karen Moores",
+    "description": "Karen advises the Council of Canadian Innovators on Atlantic Canada, working with technology-company leaders on regional and national policy priorities. Her background connects innovation, technology and public affairs, including work with startups, non-profits and national organizations. She is an alumna of CCI’s Innovation Governance Program.",
+    "companyIds": [
+      "company-council-of-canadian-innovators"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/karenamoores/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://www.canadianinnovators.org/team/karen-moores"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/karenmoores.png",
+    "imageAlt": "Portrait of Karen Moores"
+  },
+  {
+    "id": "speaker-tony-wakeham",
+    "slug": "tony-wakeham",
+    "name": "Honourable Tony Wakeham",
+    "description": "Premier of Newfoundland and Labrador. Born in Placentia, Tony worked in government, healthcare administration and business before entering politics, including as President and CEO of Labrador-Grenfell Health. He was elected for Stephenville–Port au Port in 2019, became Progressive Conservative leader in 2023 and was sworn in as Premier in October 2025. He has also coached basketball and led provincial and national basketball associations.",
+    "companyIds": [
+      "company-government-of-newfoundland-and-labrador"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/tonywakehamnl/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Tony-Wakeham-.png",
+    "imageAlt": "Portrait of Honourable Tony Wakeham"
+  },
+  {
+    "id": "speaker-andrea-king",
+    "slug": "andrea-king",
+    "name": "Andrea King",
+    "description": "Andrea is CEO of techNL, with a background spanning entrepreneurship, media and international work. She previously led State 23 Media and has launched, operated and sold a business. Her education includes a master’s in international relations and an MBA from London Business School.",
+    "companyIds": [
+      "company-technl"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/andrea-kennedy-king/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://creativedestructionlab.com/mentors/andrea-king/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Andrea-King.png",
+    "imageAlt": "Portrait of Andrea King"
+  },
+  {
+    "id": "speaker-taylor-young",
+    "slug": "taylor-young",
+    "name": "Taylor Young",
+    "description": "Chief Strategy Officer, CoLab AI. Taylor joined CoLab in 2017 before its first product or revenue. As the business grew from three people to more than 200, she developed its go-to-market functions and helped shape company strategy. Her work now covers corporate development, partnerships, strategic initiatives and relationships with major customers.",
+    "companyIds": [
+      "company-colab-ai"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/taylor-young/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Taylor-Young.png",
+    "imageAlt": "Portrait of Taylor Young"
+  },
+  {
+    "id": "speaker-chris-gardner",
+    "slug": "chris-gardner",
+    "name": "Chris Gardner",
+    "description": "Chris is Chief Strategy Officer at Spellbook. His earlier technology leadership includes serving as CEO of Sequence Bio, and his background includes Y Combinator and corporate-director training. His career has spanned building technology businesses and contributing to discussions about innovation in Canada.",
+    "companyIds": [
+      "company-spellbook"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/chriscgardner/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Chris-Gardner.png",
+    "imageAlt": "Portrait of Chris Gardner"
+  },
+  {
+    "id": "speaker-amanda-perran",
+    "slug": "amanda-perran",
+    "name": "Amanda Perran",
+    "description": "National Technology Sector Leader, Deloitte. Amanda is a Deloitte partner with more than 20 years of experience helping organizations use technology to advance their goals. Her leadership and strategy work emphasizes inclusion and innovation for businesses and communities.",
+    "companyIds": [
+      "company-deloitte"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/amandaperran/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Amanda-Perran.png",
+    "imageAlt": "Portrait of Amanda Perran"
+  },
+  {
+    "id": "speaker-lucy-hargreaves",
+    "slug": "lucy-hargreaves",
+    "name": "Lucy Hargreaves",
+    "description": "Co-Founder, CEO, Build Canada. Lucy co-founded Build Canada following work in federal politics and leadership roles at technology companies, including Patch. Her advisory experience includes sustainability and competitiveness work with the UN, OECD and large international businesses.",
+    "companyIds": [
+      "company-build-canada"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/lucyghargreaves/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Lucy-Hargreaves.png",
+    "imageAlt": "Portrait of Lucy Hargreaves"
+  },
+  {
+    "id": "speaker-johanna-brown",
+    "slug": "johanna-brown",
+    "name": "Johanna Brown",
+    "description": "Founder & Principal, Rivet. Johanna’s work at Rivet focuses on helping innovative businesses bring their products and ideas to market more quickly.",
+    "companyIds": [
+      "company-rivet"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/JohannaBrown.jpg",
+    "imageAlt": "Portrait of Johanna Brown"
+  },
+  {
+    "id": "speaker-jon-king",
+    "slug": "jon-king",
+    "name": "Jon King",
+    "description": "Co-Founder & CEO, Milk Moovement. Jon’s background covers several parts of the dairy industry, including processing, transportation and management. He brings that supply-chain experience to his work building Milk Moovement.",
+    "companyIds": [
+      "company-milk-moovement"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/jonathanjking/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/JonKing.png",
+    "imageAlt": "Portrait of Jon King"
+  },
+  {
+    "id": "speaker-zach-green",
+    "slug": "zach-green",
+    "name": "Zach Green",
+    "description": "Co-Founder & Chief AI Officer, Mysa. Zach co-founded Mysa and became its Chief AI Officer in April 2026 after serving as COO. He leads the use of AI agents across the business. A 2016 Memorial University mechanical engineering graduate, he has worked throughout the company’s operations during his career.",
+    "companyIds": [
+      "company-mysa"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/zgreen123/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Zachary-Green-2.png",
+    "imageAlt": "Portrait of Zach Green"
+  },
+  {
+    "id": "speaker-phil-o-brien",
+    "slug": "phil-o-brien",
+    "name": "Phil O'Brien",
+    "description": "AVP - Product Development, Nasdaq Verafin. Phil’s product-development experience spans more than two decades in financial technology, cybersecurity, defence and applied research. His current interests include using AI to detect and combat financial crime.",
+    "companyIds": [
+      "company-nasdaq-verafin"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/philipobrien/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Phil-Obrien-.png",
+    "imageAlt": "Portrait of Phil O'Brien"
+  },
+  {
+    "id": "speaker-josh-quinton",
+    "slug": "josh-quinton",
+    "name": "Josh Quinton",
+    "description": "Josh is an Investment Advisor with CIBC Wood Gundy. His financial-services background includes managing the US east-coast business of a financial-technology firm in New York, working with market data, analytics and institutional investors. He brings experience in financial markets and business leadership to his advisory work.",
+    "companyIds": [
+      "company-cibc"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/joshquinton/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://woodgundyadvisors.cibc.com/web/smallwood-quinton/our-team"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/JoshQuinton.jpg",
+    "imageAlt": "Portrait of Josh Quinton"
+  },
+  {
+    "id": "speaker-jaxson-khan",
+    "slug": "jaxson-khan",
+    "name": "Jaxson Khan",
+    "description": "CEO, Aperture AI and Senior Fellow, Munk School of Global Affairs & Public Policy. Jaxson’s work spans technology strategy and public policy, with more than a decade of experience across business, government and non-profit organizations. At Aperture AI, he advises organizations on adopting AI and other emerging technologies.",
+    "companyIds": [
+      "company-aperture-ai",
+      "company-munk-school-of-global-affairs-public-policy"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/jaxson/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Jaxson-Khan.png",
+    "imageAlt": "Portrait of Jaxson Khan"
+  },
+  {
+    "id": "speaker-sean-silcoff",
+    "slug": "sean-silcoff",
+    "name": "Sean Silcoff",
+    "description": "Reporter, The Globe and Mail. Sean is a business journalist whose work includes breaking news, analysis, columns and long-form reporting. He co-authored Losing the Signal, which examines BlackBerry’s rise and decline, and has contributed research and feedback to other non-fiction books. He also moderates conference discussions and appears in broadcast and digital media.",
+    "companyIds": [
+      "company-the-globe-and-mail"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sean-silcoff-777b0912/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Sean-Silcoff.png",
+    "imageAlt": "Portrait of Sean Silcoff"
+  },
+  {
+    "id": "speaker-catherine-mcintyre",
+    "slug": "catherine-mcintyre",
+    "name": "Catherine McIntyre",
+    "description": "Reporter, The Logic. Catherine reports on startups, venture capital, institutional investment and labour in the innovation economy for The Logic. She previously wrote for Maclean’s and Canadian Business. Her reporting on Sidewalk Labs received a 2020 SABEW Canada award; her investigation of cancer clusters in New Brunswick earned the 2014 National Magazine Award for Best New Writer.",
+    "companyIds": [
+      "company-the-logic"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/catherine-mcintyre-8b28942b/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Catherine-McIntyre.png",
+    "imageAlt": "Portrait of Catherine McIntyre"
+  },
+  {
+    "id": "speaker-madison-mclauchlan",
+    "slug": "madison-mclauchlan",
+    "name": "Madison McLauchlan",
+    "description": "Madison reports on technology and innovation for BetaKit from Montréal. She works in English and French, covering the people and businesses shaping Canada’s technology sector.",
+    "companyIds": [
+      "company-betakit"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/madison-mclauchlan-9730581b5/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://betakit.com/author/madison-mclauchlan/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Madison-Mclauchlan.png",
+    "imageAlt": "Portrait of Madison McLauchlan"
+  },
+  {
+    "id": "speaker-adam-walsh",
+    "slug": "adam-walsh",
+    "name": "Adam Walsh",
+    "description": "Adam is a CBC journalist and host-producer of The Signal, Newfoundland and Labrador’s provincial lunch-hour radio programme. His experience spans radio, television and digital reporting, including an earlier assignment with Japan’s public broadcaster NHK in Tokyo.",
+    "companyIds": [
+      "company-cbc"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/adam-walsh-a1595b20/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://www.foodforwardsummit.com/speakers/adam-walsh"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/AdamWalsh.jpg",
+    "imageAlt": "Portrait of Adam Walsh"
+  },
+  {
+    "id": "speaker-aswinkumar-rajendiran",
+    "slug": "aswinkumar-rajendiran",
+    "name": "Aswinkumar Rajendiran",
+    "description": "Aswinkumar co-founded and leads Measure, the billing and revenue-automation business previously known as Maple. His background includes more than a decade in software development and entrepreneurship. His company works on connecting contracts, billing and revenue processes for SaaS businesses.",
+    "companyIds": [
+      "company-measure"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/aswinrajendiran/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://getmeasure.com/blog/maple-is-now-measure"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Aswin.png",
+    "imageAlt": "Portrait of Aswinkumar Rajendiran"
+  },
+  {
+    "id": "speaker-carlos-coelho",
+    "slug": "carlos-coelho",
+    "name": "Carlos Coelho",
+    "description": "Carlos leads sales and marketing at Boast, drawing on more than two decades in technology-sector growth and business development. His experience covers advertising, marketing and sales in Canada, the United States and Brazil. At Boast, his work connects businesses with R&D tax-credit support.",
+    "companyIds": [
+      "company-boast"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/carloscoelho/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://elevate.ca/speakers/carlos-coelho/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Carlos.png",
+    "imageAlt": "Portrait of Carlos Coelho"
+  },
+  {
+    "id": "speaker-nick-warren",
+    "slug": "nick-warren",
+    "name": "Nick Warren",
+    "description": "Nick co-founded GroundControl, which develops AI software for regulated manufacturing. He previously co-founded inspectAR, later acquired by Cadence. His work brings startup experience to the practical problem of preparing and managing complex manufacturing quality documentation.",
+    "companyIds": [
+      "company-groundcontrol"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/nickcw/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://www.ycombinator.com/companies/groundcontrol"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/nickwarren.png",
+    "imageAlt": "Portrait of Nick Warren"
+  },
+  {
+    "id": "speaker-jacquelyn-holden",
+    "slug": "jacquelyn-holden",
+    "name": "Jacquelyn Holden",
+    "description": "Jacquelyn is a consultant focused on sales processes and leadership. Her public professional writing explores sales forecasting, the role of conversation in sales technology and the challenges of moving opportunities beyond product demonstrations.",
+    "companyIds": [],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/jacquelyn-holden-3b604b13/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/JacquelynHolden.jpg",
+    "imageAlt": "Portrait of Jacquelyn Holden"
+  },
+  {
+    "id": "speaker-tom-snyder",
+    "slug": "tom-snyder",
+    "name": "Tom Snyder",
+    "description": "Founder, Funnel Clarity. Tom previously led Huthwaite as CEO. His sales-leadership work examines how human behaviour affects selling and business results.",
+    "companyIds": [
+      "company-funnel-clarity"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/snydertom/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/TomSnyder.png",
+    "imageAlt": "Portrait of Tom Snyder"
+  },
+  {
+    "id": "speaker-sarah-murphy",
+    "slug": "sarah-murphy",
+    "name": "Sarah Murphy",
+    "description": "Partner, Pelorus Venture Capital Ltd.. Sarah has worked with early-stage technology businesses as both a founder and operator, including Harbr.com and a construction-technology venture she co-founded. She previously served as an Entrepreneur-in-Residence at Propel and mentors through Creative Destruction Lab. She also co-authored the Gender Diversity Playbook for startups.",
+    "companyIds": [
+      "company-pelorus-venture-capital-ltd"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sarahannemurphy/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Sarah-Murphy.png",
+    "imageAlt": "Portrait of Sarah Murphy"
+  },
+  {
+    "id": "speaker-shelley-kuipers",
+    "slug": "shelley-kuipers",
+    "name": "Shelley Kuipers",
+    "description": "Co-Founder, CEO and General Partner, The51. Shelley co-founded The51 and leads the organization as CEO, alongside her role as a General Partner of its venture funds. Her investment work centres on women-led capital, early-stage founders and markets that have received relatively little traditional venture funding.",
+    "companyIds": [
+      "company-the51"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/shelleykuipers/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Shelley-Kuipers.png",
+    "imageAlt": "Portrait of Shelley Kuipers"
+  },
+  {
+    "id": "speaker-eric-laflamme",
+    "slug": "eric-laflamme",
+    "name": "Eric Laflamme",
+    "description": "Managing Director, Innovation Banking Quebec and Eastern Canada Region, CIBC Innovation Banking. Eric has more than 25 years of experience across technology delivery, management and financing. He joined CIBC Innovation Banking in 2018 to build its Eastern Canadian technology and life-sciences financing practice. He holds degrees from UQAM and HEC Montréal, participated in the 2015 Governor General’s Canadian Leadership Conference, and has served on education-related boards.",
+    "companyIds": [
+      "company-cibc"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/%C3%A9ric-laflamme-mba-b84aa63/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/Eric-Laflamme1.png",
+    "imageAlt": "Portrait of Eric Laflamme"
+  },
+  {
+    "id": "speaker-brian-whiteway",
+    "slug": "brian-whiteway",
+    "name": "Brian Whiteway, MBA, CPA, FCPA",
+    "description": "Brian is Senior Director of Growth & Transition Capital at BDC Capital. His background includes more than 25 years in technology leadership, alongside investing and mentoring in software and hardware businesses. His work connects growing companies with financing suited to their stage of development.",
+    "companyIds": [
+      "company-bdc-capital"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/brianwhiteway/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://technl.ca/events/bdc-member-webinar-financing-and-capital-solutions/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/BrianWhiteway.png",
+    "imageAlt": "Portrait of Brian Whiteway, MBA, CPA, FCPA"
+  },
+  {
+    "id": "speaker-falon-o-keefe",
+    "slug": "falon-o-keefe",
+    "name": "Falon O'Keefe",
+    "description": "Falon leads sales at Virtual Marine, developing markets for simulation technology in marine, defence and offshore energy. Her background includes commercialization, market expansion and complex procurement. She works with customers in North America and internationally and serves on techNL’s board.",
+    "companyIds": [
+      "company-virtual-marine"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/falon-o%E2%80%99keefe-11631250/"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://technl.ca/falon-okeefe/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/FalonOKeefe.jpg",
+    "imageAlt": "Portrait of Falon O'Keefe"
+  },
+  {
+    "id": "speaker-emad-rizkalla",
+    "slug": "emad-rizkalla",
+    "name": "Emad Rizkalla",
+    "description": "Founder and CEO, Bluedrop ISM. Emad co-founded the business that preceded Bluedrop in 1992 while studying engineering. His entrepreneurial and speaking work explores the relationship between technology, learning and workforce development. The published biography also notes recognition in Canada’s Top 40 Under 40.",
+    "companyIds": [
+      "company-bluedrop-ism"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/emad-rizkalla-352881/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2025/09/EmadRizkalla2.png",
+    "imageAlt": "Portrait of Emad Rizkalla"
+  },
+  {
+    "id": "speaker-joe-teo",
+    "slug": "joe-teo",
+    "name": "Joe Teo",
+    "description": "CEO, HeyOrca. Joe’s experience running a small social-media agency shaped the development of HeyOrca. He and his team built the product around the collaboration, content planning and reporting needs of smaller agencies, businesses and non-profits.",
+    "companyIds": [
+      "company-heyorca"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/josephteols/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Joe-Teo.png",
+    "imageAlt": "Portrait of Joe Teo"
+  },
+  {
+    "id": "speaker-gerard-duggan",
+    "slug": "gerard-duggan",
+    "name": "Gerard Duggan, ICD.D",
+    "description": "VP, Marketing, eGovernment & Enterprise, Vision33. Gerard has worked in IT services and digital transformation for more than 25 years, serving public- and private-sector organizations. His experience includes business development, complex technology initiatives and leading multidisciplinary delivery teams.",
+    "companyIds": [
+      "company-vision33"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/gerardduggan/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Gerard-.png",
+    "imageAlt": "Portrait of Gerard Duggan, ICD.D"
+  },
+  {
+    "id": "speaker-josh-taylor",
+    "slug": "josh-taylor",
+    "name": "Josh Taylor",
+    "description": "Founder and CEO, Carrick. Josh founded Carrick, previously called TxtSquad, to help healthcare teams communicate with patients. The platform brings several forms of patient communication and scheduling into a shared conversation.",
+    "companyIds": [
+      "company-carrick"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/joshtaylornl/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/09/Josh-Taylor.png",
+    "imageAlt": "Portrait of Josh Taylor"
+  },
+  {
+    "id": "speaker-maurice-tuff",
+    "slug": "maurice-tuff",
+    "name": "Maurice Tuff",
+    "description": "Maurice is a technology entrepreneur and investor with a background in new-product development and commercialization. His public professional profile lists engineering qualifications and study at London Business School. He brings experience developing technology businesses to the Summit’s discussion of growth beyond venture capital.",
+    "companyIds": [],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://technl.ca/technlsummit26/"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/mauricetuff/"
+      }
+    ],
+    "image": "https://technl.ca/wp-content/uploads/2026/10/MauriceTuff.jpg",
+    "imageAlt": "Portrait of Maurice Tuff"
+  },
+  {
+    "id": "speaker-kristen-marumoto",
+    "slug": "kristen-marumoto",
+    "name": "Kristen Marumoto",
+    "description": "Kristen manages programmes at Genesis, supporting startup founders and the organization’s residency work. Her background includes the Memorial Centre for Entrepreneurship and work with the wearable-technology startup PUSH. She also co-founded Insights to Markets, drawing on experience helping entrepreneurs navigate early business development.",
+    "companyIds": [
+      "company-genesis"
+    ],
+    "urls": [
+      {
+        "label": "Official programme",
+        "url": "https://mun.jotform.com/262655067074057?Path=Watch"
+      },
+      {
+        "label": "Biography source",
+        "url": "https://www.insights.build/about-us"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://ca.linkedin.com/in/kristen-marumoto"
+      }
+    ],
+    "image": null,
+    "imageAlt": ""
+  }
+]

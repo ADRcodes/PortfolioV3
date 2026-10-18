@@ -1,0 +1,23 @@
+{
+  "id": "session-expert-insights-registration",
+  "slug": "expert-insights-registration",
+  "title": "Expert Insight Sessions Registration and Networking",
+  "date": "2026-10-19",
+  "startTime": "12:00",
+  "endTime": "13:00",
+  "location": "St. John’s Convention Centre (room not specified)",
+  "description": "Check-in and networking before the afternoon expert sessions. The official agenda does not specify a room.",
+  "speakerIds": [],
+  "companyIds": [
+    "company-technl"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

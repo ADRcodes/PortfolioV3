@@ -1,0 +1,31 @@
+{
+  "id": "session-internal-innovation",
+  "slug": "internal-innovation",
+  "title": "Internal Innovation: Building a Startup Within Your Company",
+  "date": "2026-10-19",
+  "startTime": "14:40",
+  "endTime": "15:20",
+  "location": "Bannerman Ballroom 1",
+  "description": "Local business leaders discuss evaluating and developing new software ventures within existing organizations. Moderator: Liam Flanagan.",
+  "speakerIds": [
+    "speaker-john-atkins",
+    "speaker-curtis-jennings",
+    "speaker-sheena-fiander",
+    "speaker-liam-flanagan"
+  ],
+  "companyIds": [
+    "company-jac",
+    "company-angler-solutions",
+    "company-dischargehub",
+    "company-technl"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

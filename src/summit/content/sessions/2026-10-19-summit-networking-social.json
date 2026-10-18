@@ -1,0 +1,24 @@
+{
+  "id": "session-summit-networking-social",
+  "slug": "summit-networking-social",
+  "title": "techNL Summit '26 Networking Social",
+  "date": "2026-10-19",
+  "startTime": "17:00",
+  "endTime": "19:00",
+  "location": "O’Reilly’s Irish Pub",
+  "description": "Evening networking for conference pass holders at O’Reilly’s Irish Pub. Sponsored by Boast.",
+  "speakerIds": [],
+  "companyIds": [
+    "company-technl",
+    "company-boast"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

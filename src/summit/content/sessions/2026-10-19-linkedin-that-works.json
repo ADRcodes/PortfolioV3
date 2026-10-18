@@ -1,0 +1,25 @@
+{
+  "id": "session-linkedin-that-works",
+  "slug": "linkedin-that-works",
+  "title": "LinkedIn That Works",
+  "date": "2026-10-19",
+  "startTime": "13:00",
+  "endTime": "13:40",
+  "location": "Bannerman Ballroom 2",
+  "description": "Practical guidance on LinkedIn profiles, professional follow-up and finding relevant industry contacts.",
+  "speakerIds": [
+    "speaker-freddie-pike"
+  ],
+  "companyIds": [
+    "company-colab-ai"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

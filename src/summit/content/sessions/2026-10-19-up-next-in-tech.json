@@ -1,0 +1,35 @@
+{
+  "id": "session-up-next-in-tech",
+  "slug": "up-next-in-tech",
+  "title": "Post-Secondary Student Event: Up Next In Tech",
+  "date": "2026-10-19",
+  "startTime": "10:00",
+  "endTime": "11:00",
+  "location": "Bowring Ballroom",
+  "description": "A student-focused panel on technology career paths and working in Newfoundland and Labrador. Separate student-event registration is required. Moderator: Rahaf HajAhmed.",
+  "speakerIds": [
+    "speaker-daniel-mccarthy",
+    "speaker-samuel-adeoye",
+    "speaker-nathan-greene",
+    "speaker-karen-tuffaha",
+    "speaker-ann-montet",
+    "speaker-rahaf-hajahmed"
+  ],
+  "companyIds": [
+    "company-polyunity-tech-inc",
+    "company-enaimco",
+    "company-smartice",
+    "company-trophi-ai",
+    "company-siftmed",
+    "company-technl"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

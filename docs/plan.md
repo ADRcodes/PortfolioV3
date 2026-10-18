@@ -1,6 +1,6 @@
 # PortfolioV3 Plan
 
-Last updated: 2026-06-03
+Last updated: 2026-10-15
 
 ## Current Focus
 
@@ -31,9 +31,10 @@ Make PortfolioV3 a polished, credible portfolio for practical AI systems and pro
    - Verify reduced-motion behavior still feels usable.
 
 5. Deployment verification
-   - Confirm GitHub Actions deploy succeeds after workflow changes.
-   - Confirm CloudFront deep links return the SPA entry point.
-   - Confirm HTML is uncached and hashed assets are cacheable.
+   - Latest reviewed deployment succeeded on June 8, 2026, at commit `1e50a6b`. Reverify after future workflow changes.
+   - Live project deep links rendered during the October 15 review; add automated route checks.
+   - Verify effective cache headers; restrict immutable caching to versioned assets.
+   - Add deployment serialization and post-deployment checks. See `docs/deployment.md`.
 
 ## Backlog
 
@@ -53,9 +54,19 @@ Make PortfolioV3 a polished, credible portfolio for practical AI systems and pro
 - Project links open externally with correct labels.
 - No unrelated files are committed or pushed.
 
+## Deferred Review Findings
+
+- Revisit the scroll-driven Projects experience, direct project selection, and reduced-motion alternative.
+- Replace consulting placeholders and expand case-study evidence in a later content pass.
+- A general unknown route currently renders an empty page; the user requested an explanation, not implementation yet.
+
 ## Open Questions
 
 - Should PortfolioV3 keep the current warm editorial visual direction, or move toward a more utilitarian consulting/product feel?
 - Should hiRAG be publicly demoable, private but described, or linked only through screenshots?
 - Should the AI consulting page remain service-oriented, or become a more direct offer page with pricing or engagement packages?
 - Should deployment remain S3/CloudFront only, or should preview deployments be added later?
+
+## techNL Summit foundation
+
+The isolated application and file-based publishing foundation are implemented and validated. See `src/summit/README.md` for authoring and extraction details. Next, replace fictional conference data, confirm the schedule and public recording links, and prepare sharing metadata. The time-aware agenda and independent visual identity are implemented; see `src/summit/DESIGN.md`. Add a prominent portfolio link only when launch is authorized. Keep the existing build/deployment process; do not push or merge without authorization.

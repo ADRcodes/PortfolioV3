@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { AlertCircle, CheckCircle2, LoaderCircle, Send } from "lucide-react";
 import AnimatedPage from "../components/ui/AnimatedPage.jsx";
@@ -24,7 +24,7 @@ const getEmailErrorMessage = (error) => {
   return `EmailJS rejected the request: ${detail}`;
 };
 
-function EditablePhraseField({ ariaLabel, className = "", field, maxWidth, onChange, placeholder, resetKey }) {
+function EditablePhraseField({ ariaLabel, className = "", disabled, field, maxWidth, onChange, placeholder, resetKey }) {
   const handleInput = (event) => {
     onChange(field, event.currentTarget.textContent || "");
   };
@@ -44,8 +44,15 @@ function EditablePhraseField({ ariaLabel, className = "", field, maxWidth, onCha
   return (
     <span
       aria-label={ariaLabel}
+      aria-required="true"
+      aria-disabled={disabled}
+      aria-describedby="contact-instructions"
       className={`editable-phrase-field ${className}`}
-      contentEditable
+      contentEditable={!disabled}
+      tabIndex={0}
+      inputMode={field === "email" ? "email" : "text"}
+      autoCapitalize={field === "email" ? "none" : "sentences"}
+      spellCheck={field !== "email"}
       data-placeholder={placeholder}
       key={`${field}-${resetKey}`}
       onInput={handleInput}
@@ -67,8 +74,10 @@ export default function Contact() {
   const [resetKey, setResetKey] = useState(0);
   const [status, setStatus] = useState("idle");
   const [statusMessage, setStatusMessage] = useState("");
+  const sendingRef = useRef(false);
 
   const updateField = (field, value) => {
+    if (sendingRef.current) return;
     setFields((currentFields) => ({
       ...currentFields,
       [field]: value,
@@ -84,10 +93,11 @@ export default function Contact() {
     const message = fields.message.trim();
     const email = fields.email.trim();
 
-    if (!name || !message || !email) {
+    if (sendingRef.current || !name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return;
     }
 
+    sendingRef.current = true;
     setStatus("sending");
     setStatusMessage("");
 
@@ -122,6 +132,9 @@ export default function Contact() {
         console.error("EmailJS send failed", error);
         setStatus("error");
         setStatusMessage(getEmailErrorMessage(error));
+      })
+      .finally(() => {
+        sendingRef.current = false;
       });
   };
 
@@ -136,14 +149,21 @@ export default function Contact() {
       <section className="w-full">
         <form
           id="contact-form"
+          aria-label="Contact Alex"
+          aria-busy={isSending}
           onSubmit={sendEmail}
           className="mx-auto max-w-6xl px-3 py-10 text-center sm:px-6 sm:py-16 lg:px-10"
         >
+          <p id="contact-instructions" className="sr-only">
+            Fill in the three underlined fields: your name, message, and email address.
+            All fields are required. Use Tab to move between fields, then activate Send message.
+          </p>
           <div className="text-[clamp(2rem,4.1vw,4.25rem)] font-semibold leading-[1.16] tracking-normal text-ink">
             <span className="text-clay">You:</span>
             <span> "Hi, I'm</span>
             <EditablePhraseField
-              aria-label="Your name"
+              ariaLabel="Your name"
+              disabled={isSending}
               className="max-w-[15ch]"
               field="name"
               onChange={updateField}
@@ -152,7 +172,8 @@ export default function Contact() {
             />
             <span>, I wanted to say</span>
             <EditablePhraseField
-              aria-label="Your message"
+              ariaLabel="Your message"
+              disabled={isSending}
               className="max-w-[38ch]"
               field="message"
               onChange={updateField}
@@ -163,7 +184,8 @@ export default function Contact() {
             <div className="mt-5">
               <span>You can email me back at</span>
               <EditablePhraseField
-                aria-label="Your email"
+                ariaLabel="Your email"
+                disabled={isSending}
                 className="max-w-[27ch]"
                 field="email"
                 onChange={updateField}

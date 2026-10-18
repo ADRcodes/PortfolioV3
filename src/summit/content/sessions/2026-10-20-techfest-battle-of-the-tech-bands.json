@@ -1,0 +1,23 @@
+{
+  "id": "session-techfest-battle-of-the-tech-bands",
+  "slug": "techfest-battle-of-the-tech-bands",
+  "title": "techfest 2026: Battle of the Tech Bands",
+  "date": "2026-10-20",
+  "startTime": "19:00",
+  "endTime": "21:00",
+  "location": "Bowring Ballroom",
+  "description": "Live performances by bands from techNL member companies. Included with a full conference pass; standalone techfest passes are also available.",
+  "speakerIds": [],
+  "companyIds": [
+    "company-technl"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

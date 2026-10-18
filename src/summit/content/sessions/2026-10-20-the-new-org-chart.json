@@ -1,0 +1,31 @@
+{
+  "id": "session-the-new-org-chart",
+  "slug": "the-new-org-chart",
+  "title": "The New Org Chart: Humans + AI",
+  "date": "2026-10-20",
+  "startTime": "10:50",
+  "endTime": "11:20",
+  "location": "Bowring Ballroom",
+  "description": "A panel on team design, automation and the work that still depends on people. Moderator: Josh Quinton.",
+  "speakerIds": [
+    "speaker-jon-king",
+    "speaker-zach-green",
+    "speaker-phil-o-brien",
+    "speaker-josh-quinton"
+  ],
+  "companyIds": [
+    "company-milk-moovement",
+    "company-mysa",
+    "company-nasdaq-verafin",
+    "company-cibc"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}

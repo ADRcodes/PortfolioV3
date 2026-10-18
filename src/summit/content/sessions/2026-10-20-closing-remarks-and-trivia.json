@@ -1,0 +1,25 @@
+{
+  "id": "session-closing-remarks-and-trivia",
+  "slug": "closing-remarks-and-trivia",
+  "title": "Closing Remarks and Trivia",
+  "date": "2026-10-20",
+  "startTime": "16:00",
+  "endTime": "16:30",
+  "location": "Bowring Ballroom",
+  "description": "Liam Flanagan closes the mainstage programme with remarks and trivia.",
+  "speakerIds": [
+    "speaker-liam-flanagan"
+  ],
+  "companyIds": [
+    "company-technl"
+  ],
+  "status": "upcoming",
+  "summary": {
+    "overview": "",
+    "keyTakeaways": [],
+    "notableIdeas": [],
+    "practicalApplications": []
+  },
+  "recordingUrl": null,
+  "updatedAt": "2026-10-17T20:06:31Z"
+}
