@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#384b4b"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#e3e2d8">
+    <text x="72" y="85" font-size="20" letter-spacing="2">INDEPENDENT CONFERENCE COMPANION</text>
+    <g font-weight="700" font-size="116" letter-spacing="-5">
+      <text x="64" y="235">techNL</text>
+      <text x="64" y="361">Summit <tspan fill="#efbc92">2026</tspan></text>
+    </g>
+    <path d="M72 425H1128" stroke="#efbc92" stroke-width="2"/>
+    <text x="72" y="496" font-size="32">October 19&#8211;20 &#183; St. John&#8217;s</text>
+    <text x="72" y="543" font-size="27">Agenda, people &amp; AI-assisted session notes</text>
+    <text x="72" y="595" font-size="19" fill="#efbc92">By Alex Russell &#183; Not affiliated with techNL</text>
+  </g>
+</svg>

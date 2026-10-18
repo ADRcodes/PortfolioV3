@@ -191,3 +191,8 @@ All six real organizations with initials were reviewed. Standalone candidates be
 | Tiller Engineering | [Official site](https://tillerengineering.com/) uses the 150×76 [side-navigation SVG](https://tillerengineering.com/wp-content/uploads/2023/02/sidenav-logo.svg) and a smaller 23×35 sticky-header symbol. | Full-logo candidate verified; reuse terms unresolved. Initials retained. |
 
 Rendering handoff: company portrait containers expose `data-company`, `data-logo-background="light|dark"` and `data-logo-availability="image|initials"`. Affiliation images also expose company/background attributes. Use proportional `contain` rendering and a suitable neutral background; avoid CSS inversion, colour filters, forced stretching or cropping brand artwork. `logoBackground` is validated as an optional profile field. CSS changes belong to the design session.
+
+
+## Social preview artwork — October 18, 2026
+
+`public/images/meta/technl-summit-2026-v1.svg` is original typographic artwork created for this independent companion using its existing slate/paper/apricot palette. The adjacent 1200 × 630 PNG is its social-card export. It includes an independence disclosure and uses neither the portfolio photograph nor an official techNL logo. No third-party artwork or organization asset was downloaded. See `../SOCIAL_PREVIEWS.md` for metadata, caching and publishing details.

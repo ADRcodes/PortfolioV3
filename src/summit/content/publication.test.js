@@ -4,7 +4,7 @@ import { mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { randomUUID } from 'node:crypto';
-import { build } from 'vite';
+import { build, preview } from 'vite';
 
 const sessionDirectory = new URL('./sessions/', import.meta.url);
 async function outputText(directory) {
@@ -18,6 +18,7 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
   const token = randomUUID();
   const output = await mkdtemp(join(tmpdir(), 'summit-publication-'));
   const paths = [];
+  let previewServer;
   try {
     const summary = marker => ({
       overview: `${marker} overview`,
@@ -50,7 +51,34 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
       for (const status of ['draft', 'upcoming']) assert.ok(!built.includes(`${status}-${token} ${field}`), `${status} ${field} leaked`);
     }
     for (const status of ['draft', 'upcoming']) assert.ok(!built.includes(`https://example.com/${status}-${token}/recording`));
+    const manifest = JSON.parse(await readFile(join(output, 'summit-previews.json'), 'utf8'));
+    assert.ok(!JSON.stringify(manifest).includes(`test-draft-${token}`));
+    assert.ok(JSON.stringify(manifest).includes(`test-published-${token}`));
+    // Raw HTTP checks: no React execution or document-head mutation involved.
+    previewServer = await preview({ logLevel: 'silent', build: { outDir: output }, preview: { host: '127.0.0.1', port: 0, strictPort: true } });
+    const origin = `http://127.0.0.1:${previewServer.httpServer.address().port}`;
+    for (const route of ['', '/', '/sessions/wills-ai-meetup-editorial-test', '/sessions/wills-ai-meetup-editorial-test/', '/sessions/the-new-org-chart', `/sessions/test-published-${token}`]) {
+      const response = await fetch(`${origin}/technlsummit${route}`);
+      const html = await response.text();
+      assert.equal(response.status, 200);
+      assert.match(response.headers.get('content-type'), /^text\/html/);
+      assert.equal(response.headers.get('cache-control'), 'no-cache,no-store,must-revalidate');
+      assert.ok(html.includes('og:url'));
+      assert.ok(!html.includes('<title>Alex Russell'));
+      assert.ok(!html.includes(`https://example.com/published-${token}/recording`));
+      assert.match(html, /src="\/assets\/index-[^"]+\.js"/);
+      if (route.includes('wills-ai')) assert.ok(html.includes('Will&#39;s AI Meetup'));
+    }
+    const portfolio = await (await fetch(origin)).text();
+    assert.ok(portfolio.includes("<title>Alex Russell's Portfolio</title>"));
+    assert.ok(portfolio.includes('content="/images/meta/alex-russell-profile.png"'));
+    const image = await fetch(`${origin}/images/meta/technl-summit-2026-v1.png`);
+    assert.equal(image.status, 200);
+    assert.match(image.headers.get('content-type'), /^image\/png/);
+    const draft = await (await fetch(`${origin}/technlsummit/sessions/test-draft-${token}`)).text();
+    assert.ok(!draft.includes('draft test article'));
   } finally {
+    if (previewServer) await new Promise(resolve => previewServer.httpServer.close(resolve));
     await Promise.all(paths.map(path => rm(path, { force: true })));
     await rm(output, { recursive: true, force: true });
   }

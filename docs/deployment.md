@@ -1,6 +1,6 @@
 # Deployment
 
-Last reviewed: 2026-10-15
+Last reviewed: 2026-10-18
 
 ## Current process
 
@@ -11,12 +11,12 @@ The source of truth is `.github/workflows/deploy.yml`. Every push to `main` trig
 3. Installs dependencies with `pnpm install --frozen-lockfile` and runs `pnpm build`.
 4. Copies `dist/index.html` to `dist/404.html`.
 5. Authenticates to AWS in `us-east-1` using the GitHub secrets `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY_ID`. Never put secret values in documentation.
-6. Syncs non-HTML build files to `s3://www.alexrussell.info` with `public,max-age=31536000,immutable`. It deliberately retains previous files, including hashed bundles, to keep older cached HTML functional.
-7. Uploads index.html and 404.html separately as text/html with `no-cache,no-store,must-revalidate`.
+6. Syncs non-HTML build files to `s3://www.alexrussell.info` with `public,max-age=31536000,immutable`, excluding all `*.html` and the internal `summit-previews.json` build manifest. It deliberately retains previous files, including hashed bundles, to keep older cached HTML functional.
+7. Uploads index.html and 404.html separately as text/html with `no-cache,no-store,must-revalidate`, then uploads Summit route HTML under exact slash, non-slash and index object keys with the same non-immutable headers. Previously generated, withdrawn route heads become generic noindex entries. See [Summit social previews](../src/summit/SOCIAL_PREVIEWS.md).
 8. Updates CloudFront distribution `E2IJYG6SCPF50B`, replacing its custom error responses with 403/404 mappings to `/index.html`, HTTP 200, error cache TTL 0. This allows BrowserRouter deep links to resolve.
 9. Requests a CloudFront invalidation for `/*`.
 
-The workflow has no preview environment, manual dispatch trigger, deployment concurrency group, post-build route tests, post-deployment smoke checks, or wait for invalidation completion.
+Production deployments are serialized. The workflow has no preview environment, manual dispatch trigger, post-deployment smoke checks or wait for invalidation completion. Build/preview route checks run locally in the Node test suite.
 
 ## Last observed deployment
 
@@ -40,7 +40,7 @@ After a push, check the corresponding Actions run, wait for propagation, then ve
 ## Known limitations and follow-up
 
 - Immutable caching currently includes images with stable filenames. Restrict it to versioned assets or version image URLs; CloudFront invalidation does not clear visitors' browser caches.
-- Overlapping deployment jobs can publish out of order or conflict on CloudFront configuration updates. Serialize production deployments.
+- Production deployments are serialized to prevent overlapping uploads/configuration updates; queued GitHub runs may be superseded by newer queued runs.
 - CloudFront infrastructure is mutated on every content deployment. Consider managing fallback configuration separately.
 - Add route smoke checks and explicit invalidation completion verification.
 - Old assets accumulate intentionally; any cleanup must preserve bundles still referenced by cached HTML.

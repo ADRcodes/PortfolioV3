@@ -107,3 +107,8 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 ## Summit content and directory refinement (October 18, 2026)
 
 - [x] Clean the external editorial sample's metadata; add a coming-notes introduction; prepare compact directories/shared sticky tools, logo background hints/provenance and revised intro structure; preserve complete profiles, search, sorting, agenda relationships and existing animations. See `src/summit/REFINEMENT_HANDOFF.md`.
+
+
+## Summit static social previews (October 18, 2026)
+
+- [x] Generate privacy-filtered route HTML and a branded preview image, upload exact S3 URL keys with non-immutable HTML headers, handle slash variants and withdrawn previews, and verify raw HTTP plus React routes without deploying. See `src/summit/SOCIAL_PREVIEWS.md`.

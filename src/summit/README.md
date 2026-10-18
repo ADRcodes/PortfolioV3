@@ -4,6 +4,8 @@ Independent conference notes site mounted at `/technlsummit`. The official 19–
 
 ## Structure
 
+Static social previews are generated automatically during the normal build. See [SOCIAL_PREVIEWS.md](SOCIAL_PREVIEWS.md) for exact-key S3 uploads, slash handling, privacy and verification. No backend or client-head dependency is introduced.
+
 ```
 src/summit/
   components/         SummitLayout, SessionList, ContentLinks

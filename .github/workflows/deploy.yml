@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+# Serialize publications so an older build cannot overwrite newer previews.
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   CLOUDFRONT_DISTRIBUTION_ID: E2IJYG6SCPF50B
@@ -51,8 +56,8 @@ jobs:
       - name: Deploy Immutable Static Assets
         run: |
           aws s3 sync ./dist s3://www.alexrussell.info \
-            --exclude "index.html" \
-            --exclude "404.html" \
+            --exclude "*.html" \
+            --exclude "summit-previews.json" \
             --cache-control "public,max-age=31536000,immutable"
 
       # Keep HTML uncached so visitors do not keep an old asset manifest.
@@ -65,6 +70,11 @@ jobs:
           aws s3 cp ./dist/404.html s3://www.alexrussell.info/404.html \
             --content-type "text/html" \
             --cache-control "no-cache,no-store,must-revalidate"
+
+      # put-object preserves exact keys, including keys ending in '/', instead
+      # of treating them as destination directories. Handles withdrawn articles too.
+      - name: Deploy Summit HTML Entry Points
+        run: node scripts/upload-summit-previews.mjs www.alexrussell.info dist
 
       # BrowserRouter routes like /projects do not exist as S3 objects. With an S3 origin,
       # CloudFront receives 403/404 for those paths and must serve /index.html instead.
