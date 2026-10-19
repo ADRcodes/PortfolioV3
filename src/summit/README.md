@@ -156,3 +156,12 @@ Confirm real schedule, local timezone, content accuracy, branding/permission to 
 
 
 Current content/directory refinements and design hooks: [REFINEMENT_HANDOFF.md](REFINEMENT_HANDOFF.md). Recent notes now use an introductory coming-soon state until actual conference summaries exist; no dummy cards are rendered.
+
+
+## QR sharing
+
+The right side of the top bar includes an accessible QR sharing button on desktop and mobile. It opens a native modal dialog with a high-contrast local SVG, readable public URL, Copy Link, native sharing when supported and a high-resolution QR download. The mobile bottom navigation and existing Summit animations remain unchanged. `styles/qr-share.css` scopes this addition separately from `summit.css`. Escape, the close button and backdrop dismiss the dialog; focus returns to its trigger and agenda scroll position is preserved. Clipboard denial exposes a selectable manual-copy field.
+
+The encoded URL is exactly `https://alexrussell.info/technlsummit`. Versioned assets under `public/images/summit/` include a 2160 × 2160 PNG and a 1290 × 2796 iPhone wallpaper, with the QR below the clock/widget area. Keep the black/white contrast and four-module quiet zone. Do not add a decorative centre logo without rechecking scan reliability.
+
+Regenerate assets with `node scripts/generate-summit-qr.mjs` after installing the project's development dependencies. `qrcode`, `pngjs` and independent decoder `jsqr` are development-only; none is bundled into the website. No QR generation service or new API is involved. Bump versioned filenames and the constants in `lib/share.js` if the encoded URL/artwork changes, since public image assets are cached immutably. Tests decode the committed PNG and wallpaper at mobile sizes; browser QA also decoded screenshots of the actual SVG rendering. Physical iPhone camera scanning and wallpaper crop settings still depend on the device.

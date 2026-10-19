@@ -21,5 +21,9 @@
     "tailwindcss": "^4.1.17",
     "vite": "^7.2.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "jsqr": "1.4.0",
+    "pngjs": "7.0.0",
+    "qrcode": "1.5.4"
+  }
 }

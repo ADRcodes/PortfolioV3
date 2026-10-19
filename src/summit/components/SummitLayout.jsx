@@ -7,6 +7,7 @@ import { conferenceSessions as sessions } from '../content/index.js';
 import useConferenceClock from '../lib/useConferenceClock.js';
 import SummitIdentity from './SummitIdentity.jsx';
 import BackButton from './BackButton.jsx';
+import SummitQrShare from './SummitQrShare.jsx';
 import '../styles/summit.css';
 
 const icons = [CalendarDays, Users, Building2];
@@ -96,6 +97,7 @@ export default function SummitLayout() {
           {navigation.map((item, index) => { const Icon = icons[index]; return <NavLink key={item.path} to={summitPath(item.path)} end={item.path === ''}><Icon size={18} aria-hidden="true" /><span>{item.path === '' ? 'Agenda' : item.label}</span></NavLink>; })}
           {(options.length > 0 || hasNotes) && <Link className="summit-next-nav" data-agenda-navigation={navigationState.state} to={`${summitPath()}#${targetId}`} onClick={goToNext}><span>{nextLabel}</span><ArrowDownRight size={18} aria-hidden="true" /></Link>}
         </nav>
+        <SummitQrShare />
       </div>
     </header>
     <SummitIdentity agenda={isAgenda} routeKey={location.key} />

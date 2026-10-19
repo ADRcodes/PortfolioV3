@@ -112,3 +112,8 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 ## Summit static social previews (October 18, 2026)
 
 - [x] Generate privacy-filtered route HTML and a branded preview image, upload exact S3 URL keys with non-immutable HTML headers, handle slash variants and withdrawn previews, and verify raw HTTP plus React routes without deploying. See `src/summit/SOCIAL_PREVIEWS.md`.
+
+
+## Summit QR sharing (October 19, 2026)
+
+- [x] Add top-bar QR sharing on desktop/mobile, an accessible modal with copy/native sharing, locally generated QR assets and a high-resolution iPhone wallpaper; verify decoding, keyboard/focus, mobile layout and existing navigation without deployment.
