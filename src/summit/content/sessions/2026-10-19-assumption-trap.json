@@ -19,15 +19,77 @@
     "company-dcxix",
     "company-melotech"
   ],
-  "status": "upcoming",
+  "status": "published",
   "summary": {
-    "overview": "",
-    "keyTakeaways": [],
-    "notableIdeas": [],
-    "practicalApplications": []
+    "overview": "An encouraging conversation is not the same as proof that a business will work. In The Assumption Trap, founders and startup advisers examined how easily enthusiasm, personal conviction and early sales can obscure weak demand. Steph Burry urged founders to look for commitments rather than compliments; Jacob Critch argued for small experiments grounded in actual behaviour; and James Geneau emphasized whether customers keep using what they buy. Chelsea O’Hara offered a candid example of a technically impressive project that drew attention while diverting effort from the core commercial product. The panel’s message was not to abandon ambitious ideas, but to test the assumptions behind them repeatedly, especially when the evidence is uncomfortable.",
+    "keyTakeaways": [
+      {
+        "heading": "A compliment is not a customer commitment",
+        "explanation": "Steph Burry distinguished positive feedback from meaningful validation. A prospective customer offering money, time or a useful introduction provides a stronger signal than a friend saying an idea sounds great. Founders need to examine who supplied the feedback and whether that person experiences the problem."
+      },
+      {
+        "heading": "Revenue is only the start of validation",
+        "explanation": "James Geneau warned that sales targets and annual recurring revenue can conceal weak product-market fit. The next question after a purchase is whether customers actively use the product, depend on it and stick around. Validation continues as the company grows, rather than ending when a founder makes the first few sales."
+      },
+      {
+        "heading": "AI makes experiments faster, but judgment more important",
+        "explanation": "Jacob Critch described using AI to produce and compare prototypes at a pace that previously would have been impractical. He also warned against handing the interpretation of customer feedback entirely to AI: faster output is not better evidence if the underlying analysis is uncritical or inaccurate."
+      }
+    ],
+    "highlightedInsight": {
+      "heading": "The uncomfortable evidence may be the most useful",
+      "explanation": "Burry noted that contradicting a founder’s idea can feel demoralizing, while Critch described how attachment to a vision can blind a team to what users actually do. Their advice was to examine the source and strength of the evidence before changing direction—or dismissing it."
+    },
+    "detailedSummary": [
+      {
+        "heading": "Ask what people do, not whether they like the pitch",
+        "paragraphs": [
+          "The discussion began with a simple problem: every venture depends on assumptions about customers, pricing, demand and behaviour. Kyle Hickey, moderating, used a hypothetical coffee shop to illustrate how these assumptions form a business model long before any one of them has been tested.",
+          "Burry recommended actively seeking people outside a founder’s immediate circle and looking for concrete commitments. Critch pointed to The Mom Test, a customer-discovery approach built around open questions about present habits and problems rather than showing someone a concept and asking them to praise it. For a music product, that means asking how someone currently listens to music and what frustrates them before presenting a proposed solution."
+        ]
+      },
+      {
+        "heading": "The product customers praise may not be the one they use",
+        "paragraphs": [
+          "Critch said that even deep familiarity with a market does not guarantee an accurate prediction of behaviour. As a music producer, he once built a product around needs he believed he understood firsthand; after release, engagement fell short. His broader lesson was to ship smaller versions and collect evidence with each change.",
+          "Geneau added another dimension: a customer can pay for a product and still fail to adopt it. Chasing annual recurring revenue (ARR) without studying utilization and churn can leave a company growing its sales operation while missing the weakness in its product. Neither a friendly response nor an isolated sale resolves the question of long-term value."
+        ]
+      },
+      {
+        "heading": "Build the essential value before the spectacle",
+        "paragraphs": [
+          "Chelsea O’Hara recounted DCXIX’s work streaming performance-capture data into virtual reality. The team developed an early demonstration and presented its work at South by Southwest, receiving promising feedback. But instead of concentrating immediately on the underlying data-transport technology and its market, the company devoted substantial effort to a more elaborate virtual production.",
+          "O’Hara did not dismiss that work: it had creative, cultural and community value. Her retrospective business lesson was more specific. An impressive demonstration can attract attention while consuming time that might have been used to validate the repeatable technology customers would actually buy."
+        ]
+      },
+      {
+        "heading": "Measure small decisions and keep listening as you scale",
+        "paragraphs": [
+          "Critch advocated defining observable goals for experiments, such as whether users activate a feature, remain engaged or return. Rather than releasing feature after feature and relying on general impressions, teams can compare changes against meaningful metrics at short intervals. The point is to learn which direction a decision moved the product, not simply count how much was shipped.",
+          "Geneau said a product manager can be a pivotal hire as a company grows, helping institutionalize feedback when founders become less directly involved with customers. Burry described customer-success and product teams taking over some of the listening once performed personally by founder-led sales. The challenge is to gather patterns without turning every feature request into a commitment to build it."
+        ]
+      },
+      {
+        "heading": "Validate how buyers buy—and use AI without outsourcing thinking",
+        "paragraphs": [
+          "Geneau offered examples of businesses that learned too late that demand from one customer did not represent an entire industry, or that an advertising channel failed to reach the people making purchasing decisions. He argued that discovery must cover not only the buyer’s problem but also the purchasing process and channels through which buyers can actually be reached. The financial figures in these anecdotes were difficult to transcribe reliably and are not repeated here.",
+          "Critch ended with AI’s trade-off. Prototypes, landing pages and feature variants can be produced and tested much faster, giving founders more opportunities to collect behavioural data. But he warned against what he called “meat proxying”: passing information between people and AI systems without applying independent critical thought. AI-generated summaries and charts can feel persuasive while concealing faulty premises. His prescription was to accelerate collection and experimentation while personally scrutinizing what the results mean."
+        ]
+      }
+    ],
+    "notableIdeas": [
+      "The panel treated customer discovery as a continuing operating practice, not a launch-stage checkbox.",
+      "Early positive feedback should be weighted by the source’s experience and demonstrated behaviour, not just the number of people agreeing.",
+      "For nontechnical founders, the closing discussion suggested validating a real problem before seeking technical help to build the solution."
+    ],
+    "practicalApplications": [
+      "Before pitching, interview prospective customers about how they currently solve the problem, what they have tried and what they already spend time or money on.",
+      "Define one measurable behaviour for the next experiment—such as sign-up completion, meaningful use or retention—and compare each iteration against it.",
+      "Editorial interpretation: For every AI-produced analysis of customer feedback, review representative raw evidence and check that the reported metrics actually reflect customer behaviour."
+    ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:06:31Z",
+  "updatedAt": "2026-10-19T18:29:03.875Z",
   "eventType": "panel",
   "programme": "conference"
 }
