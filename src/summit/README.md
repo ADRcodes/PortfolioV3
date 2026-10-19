@@ -158,6 +158,14 @@ Confirm real schedule, local timezone, content accuracy, branding/permission to 
 Current content/directory refinements and design hooks: [REFINEMENT_HANDOFF.md](REFINEMENT_HANDOFF.md). Recent notes now use an introductory coming-soon state until actual conference summaries exist; no dummy cards are rendered.
 
 
+## Attendance and contribution requests
+
+Edit `content/attendance.js` to change Alex’s selected session IDs. Overlap dates and times are read from the agenda; no attendance is inferred for dates without a selected session. The current selections are The Assumption Trap, Funding for Talent and Internal Innovation on Monday, October 19.
+
+Unpublished presentations overlapping those selections show a compact “Help capture this session” notice below the normal notes placeholder. Attended sessions, registration, meals, networking, other activities and external articles are excluded. Publishing a session summary automatically hides its request. The notice asks attendees to respect speaker/event recording permissions and email transcripts to `alexrussellria@gmail.com`, rather than sharing public recording links. No upload service or new recording publication behavior is added.
+
+The nine current requests cover AI and EDI in Hiring, LinkedIn That Works, Who Owns the Innovation?, Customer Success in the Age of AI, Legal Without the Handbrake, Scrappy Marketing for Startup Growth, Keeping Pace with Change, The ‘New’ Power of Brand in the Age of AI, and Leaving Money on the Table (SR&ED). The agenda currently places Funding for Talent in Bannerman Ballroom 1; attendance selection uses its ID and does not change this venue data.
+
 ## QR sharing
 
 The right side of the top bar includes an accessible QR sharing button on desktop and mobile. It opens a native modal dialog with a high-contrast local SVG, readable public URL, Copy Link, native sharing when supported and a high-resolution QR download. The mobile bottom navigation and existing Summit animations remain unchanged. `styles/qr-share.css` scopes this addition separately from `summit.css`. Escape, the close button and backdrop dismiss the dialog; focus returns to its trigger and agenda scroll position is preserved. Clipboard denial exposes a selectable manual-copy field.

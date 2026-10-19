@@ -239,6 +239,39 @@ test('Will’s article remains readable with its five presentations and sharing 
   assert.ok(html.includes('id="session-presentation-5"'));
   assert.ok(html.includes('Share session'));
 });
+test('session details show a distinct transcript request only for the nine unattended Monday presentations', async () => {
+  const { needsRecordingRequest } = await server.ssrLoadModule('/src/summit/lib/attendance.js');
+  let requests = 0;
+  for (const session of content.sessions) {
+    const html = renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit/sessions/${session.slug}`] }, createElement(Routes, null, createElement(Route, { path: '/technlsummit/sessions/:slug', element: createElement(SessionDetail) }))));
+    const eligible = needsRecordingRequest(session, content.sessions);
+    assert.equal(html.includes('Help capture this session'), eligible, session.slug);
+    if (!eligible) continue;
+    requests++;
+    assert.ok(html.includes('Notes to follow.'));
+    assert.ok(html.indexOf('Help capture this session') > html.indexOf('Notes to follow.'));
+    assert.ok(html.includes('aria-labelledby="summit-recording-request-title"'));
+    assert.ok(html.includes('href="mailto:alexrussellria@gmail.com"'));
+    for (const text of ['Voice Memos', '(on supported devices)', 'recording permissions', 'send transcripts rather than public recording links']) assert.ok(html.includes(text), text);
+  }
+  assert.equal(requests, 9);
+});
+
+test('publishing an affected session replaces the request with its summary', () => {
+  const session = content.sessions.find(item => item.slug === 'linkedin-that-works');
+  const original = { ...session };
+  try {
+    session.status = 'published';
+    session.summary = { overview: 'Published LinkedIn insights.', keyTakeaways: ['A useful takeaway.'] };
+    const html = renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit/sessions/${session.slug}`] }, createElement(Routes, null, createElement(Route, { path: '/technlsummit/sessions/:slug', element: createElement(SessionDetail) }))));
+    assert.ok(html.includes('Published LinkedIn insights.'));
+    assert.ok(!html.includes('Help capture this session'));
+    assert.ok(!html.includes('Notes to follow.'));
+  } finally {
+    delete session.summary;
+    Object.assign(session, original);
+  }
+});
 test('directories exclude fictional profiles, search affiliations, names and biographies, and expose empty states', () => {
   const directory = (type, query) => renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit/${type}?q=${encodeURIComponent(query)}`] }, createElement(Directory, { type })));
   assert.ok(!directory('speakers', '').includes('demo-jordan-lee'));

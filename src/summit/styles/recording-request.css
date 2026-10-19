@@ -1,0 +1,14 @@
+.summit-app .summit-recording-request {
+  margin-block: .5rem 2rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--summit-line);
+  border-inline-start: 3px solid var(--summit-accent);
+  background: #eeece3;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.summit-app .summit-recording-request h2 { margin: 0 0 .75rem; font-size: 1.25rem; line-height: 1.25; letter-spacing: -.02em; }
+.summit-app .summit-recording-request p { margin-block: .75rem; }
+.summit-app .summit-recording-request p:last-child { margin-bottom: 0; }
+.summit-app .summit-recording-request a { text-decoration: underline; overflow-wrap: anywhere; }
+.summit-app .summit-recording-permissions { color: var(--summit-muted); font-size: .875rem; }

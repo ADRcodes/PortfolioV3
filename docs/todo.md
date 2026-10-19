@@ -13,6 +13,8 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 
 ## Ready
 
+- [x] Add attendance-driven contribution notices to overlapping Monday presentations, with transcript email guidance and automatic hiding after publication.
+
 - [ ] Audit all pages at mobile and desktop widths and fix any layout overflow or awkward typography.
 - [ ] Polish the hiRAG case study copy around problem, approach, constraints, outcome, and lessons learned.
 - [ ] Replace AI Consulting placeholder images with intentional visuals or project-specific assets.

@@ -5,6 +5,7 @@ import { formatDay } from '../components/SessionList.jsx';
 import SessionFacts from '../components/SessionFacts.jsx';
 import SessionSummary from '../components/SessionSummary.jsx';
 import SessionShare from '../components/SessionShare.jsx';
+import RecordingRequest from '../components/RecordingRequest.jsx';
 import { eventLabels, expectsSummary } from '../lib/programme.js';
 import NotFound from './NotFound.jsx';
 
@@ -25,6 +26,7 @@ export default function SessionDetail() {
           <SessionSummary summary={session.summary} />
           {session.recordingUrl && <p><a className="summit-source-link" href={session.recordingUrl} target="_blank" rel="noreferrer">Open source recording <ArrowUpRight size={17} aria-hidden="true" /><span className="summit-sr-only"> (new tab)</span></a></p>}
         </> : expectsSummary(session) ? <section className="summit-notes-empty"><FileText size={27} strokeWidth={1.4} aria-hidden="true" /><h2>Notes to follow.</h2><p>The summary will appear here after the session.</p></section> : <section className="summit-event-information"><h2>{eventLabels[session.eventType]}</h2><p>See the event details above for timing and location.</p></section>}
+        <RecordingRequest session={session} sessions={sessions} />
         <p className="summit-updated">Last updated <time dateTime={session.updatedAt}>{new Intl.DateTimeFormat('en-CA', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'America/St_Johns' }).format(new Date(session.updatedAt))}</time> · Newfoundland time</p>
       </div>
     </div>
