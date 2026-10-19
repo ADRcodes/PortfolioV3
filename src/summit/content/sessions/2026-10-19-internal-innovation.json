@@ -19,15 +19,78 @@
     "company-dischargehub",
     "company-technl"
   ],
-  "status": "upcoming",
+  "status": "published",
   "summary": {
-    "overview": "",
-    "keyTakeaways": [],
-    "notableIdeas": [],
-    "practicalApplications": []
+    "overview": "An established business may already have the ingredients for a software startup: customers with recurring problems, specialist knowledge and relationships that a new founder would spend years building. In Internal Innovation, three Newfoundland and Labrador ventures described creating software products from inside service-oriented organizations. Angler Solutions drew on energy-system expertise to develop MESO; DischargeHUB approached hospital transitions through a service-led workflow; and JAC identified a vehicle-inventory problem through its work with clients. The discussion also exposed the limitations of that advantage: domain experts still need product and software skills, customer access does not guarantee access to data, and even rapid AI-assisted development cannot replace careful design or a route to market.",
+    "keyTakeaways": [
+      {
+        "heading": "Existing customer relationships reveal problems worth solving",
+        "explanation": "Each venture emerged from a problem encountered through established work, whether energy-system modelling, hospital discharge coordination or vehicle inventory. Domain knowledge helped the teams recognize unmet needs and reach potential users. The panellists cautioned, however, that understanding a problem is not the same as knowing how to build and sell software."
+      },
+      {
+        "heading": "Match a new venture to the strengths already on the team",
+        "explanation": "Angler brought engineering and energy expertise but needed to develop software-product capabilities. JAC already built digital products and sought an industry partner who knew the automotive market. DischargeHUB used healthcare relationships and frontline workflows to guide technology development, while facing persistent challenges accessing the necessary data."
+      },
+      {
+        "heading": "AI shifts effort toward defining the right product",
+        "explanation": "Curtis Jennings argued that faster implementation allows teams to spend much more time deciding what to build. John Atkins warned against relying on generated code without the technical ability to evaluate it. Sheena Fiander recommended getting the service and workflow right first, then automating individual steps where that actually improves the process."
+      }
+    ],
+    "detailedSummary": [
+      {
+        "heading": "Three opportunities uncovered through existing work",
+        "paragraphs": [
+          "Moderator Liam Flanagan asked what persuaded each organization to turn a recurring customer problem into a separate product opportunity. John Atkins of JAC described noticing a client repeatedly checking vehicle information during a meeting. Investigating that frustration led toward a product for managing and marketing pre-owned vehicle inventory. His agency could handle the software and marketing side, while the client brought knowledge of automotive operations.",
+          "At Angler Solutions, Curtis Jennings traced the opportunity to clients exploring increasingly complex energy systems amid interest in hydrogen and other energy-transition projects. The consultancy knew the physics and commercial questions but found gaps in existing tools for modelling interconnected systems. That insight helped motivate development of MESO, the Model for Energy Systems Optimization.",
+          "Sheena Fiander described a different starting point at DischargeHUB: difficulties coordinating non-medical requirements when patients are ready to leave hospital. The opportunity was not simply to make an app, but to connect organizations and services that had struggled to coordinate care transitions."
+        ]
+      },
+      {
+        "heading": "An advantage in access, but not a free pass",
+        "paragraphs": [
+          "The panellists agreed that an established organization has a head start in understanding users. Years of industry experience help distinguish persistent problems from interesting but unnecessary ideas, and existing partners can become a first source of feedback or business.",
+          "Those relationships have limits. Fiander said that even with trust and healthcare partnerships, access to the data needed to establish baselines and develop a product remained difficult. Jennings described a learning curve in moving from consultancy work to creating and commercializing a software platform. The team had engineering talent, but that was not automatically the same as software-product expertise."
+        ]
+      },
+      {
+        "heading": "Partnerships fill different gaps",
+        "paragraphs": [
+          "Atkins said JAC had previously encountered software ideas from people who lacked an understanding of how their proposed product would be sold. His lesson was to partner with someone who genuinely understands the target industry. On the automotive venture, that meant access to dealership relationships and knowledge about how used vehicles move through the market.",
+          "Angler took almost the inverse path: its team already had technical domain knowledge and needed help with product discovery, commercial positioning and the software side. Jennings cited local ecosystem support and university-linked talent as useful resources. These cases showed that internal innovation works best when a company identifies its missing capabilities rather than assuming its existing strengths cover everything."
+        ]
+      },
+      {
+        "heading": "Designing before automating",
+        "paragraphs": [
+          "Several panellists saw AI as a way to change the allocation of development effort, not eliminate expertise. Jennings contrasted an older process dominated by writing code with one in which more time can be spent planning and designing what ought to be built. The 80/20 split discussed on stage was a way of illustrating that shift, not a measured industry benchmark.",
+          "Atkins emphasized technical literacy when evaluating AI-produced code, especially if a product must be maintained and scaled. He also stressed usability and planning: fast implementation cannot compensate for an unstable scope or a product people do not find useful. Fiander described taking a service-first approach at DischargeHUB, learning from frontline staff, testing workflows and automating one piece at a time rather than attempting a wholesale replacement."
+        ]
+      },
+      {
+        "heading": "How early customers shape the route to market",
+        "paragraphs": [
+          "During the audience discussion, the panellists described different paths to their first users. JAC’s automotive partner had dealership relationships that helped reach initial customers. Angler worked through longer industrial sales cycles, requiring extended trust-building, early modelling work and a phased demonstration of value.",
+          "The contrast mattered: selling software into an established technical industry can depend on face-to-face interaction and patient collaboration, while other products may be adopted through faster, more transactional channels. The panellists also described reinvesting work and revenue into product development. Existing customers can provide a starting point, but the route to market still has to fit the industry and buying process."
+        ]
+      }
+    ],
+    "highlightedInsight": {
+      "heading": "Domain knowledge can be an unfair advantage—if it stays connected to feedback",
+      "explanation": "An existing service business often knows the customer problem before the first line of software is written. Yet the discussion showed why that knowledge still needs testing: technical feasibility, access to real data, usable workflows, suitable partners and a repeatable way to reach buyers are separate questions."
+    },
+    "notableIdeas": [
+      "Fiander's service-first approach suggests using software to support a proven coordination process rather than asking technology to define the process in advance.",
+      "Jennings described the movement from domain-focused engineering consultancy to a software product as its own learning challenge.",
+      "The panel did not establish independently verified sales figures or market-share claims for the vehicle-inventory venture; unclear figures in the transcript have been omitted."
+    ],
+    "practicalApplications": [
+      "Editorial interpretation: List the customer problems your existing team sees repeatedly, then distinguish which are suitable for a repeatable software product and which require bespoke service.",
+      "Identify your team's strengths and gaps separately: domain knowledge, product discovery, software engineering, data access, sales channels and long-term maintenance.",
+      "Before automating an internal workflow, document and test how it currently operates with frontline staff; automate one measurable step, review the outcome and iterate."
+    ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:06:31Z",
+  "updatedAt": "2026-10-19T18:38:42.281Z",
   "eventType": "panel",
   "programme": "conference"
 }
