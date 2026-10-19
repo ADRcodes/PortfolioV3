@@ -322,7 +322,7 @@ test('intro places date and venue directly after identity and has a single label
   assert.ok(afterHeading.indexOf('summit-intro-event') < afterHeading.indexOf('summit-personal-note'));
   assert.ok(afterHeading.includes('summit-event-date') && afterHeading.includes('summit-event-location'));
   assert.equal(html.split('href="https://technl.ca/technlsummit26/"').length - 1, 1);
-  assert.ok(html.includes('Visit the official event website'));
+  assert.ok(html.includes('Visit the actual event website'));
   assert.ok(html.includes('not affiliated with techNL'));
 });
 
