@@ -23,15 +23,73 @@
     "company-siftmed",
     "company-technl"
   ],
-  "status": "upcoming",
+  "status": "published",
   "summary": {
-    "overview": "",
-    "keyTakeaways": [],
-    "notableIdeas": [],
-    "practicalApplications": []
+    "overview": "Breaking into Newfoundland and Labrador’s technology sector is rarely as simple as choosing a degree and applying for the matching job. At techNL Summit’s Up Next In Tech student panel, five early-career professionals described routes through software development, IT, marketing, business development and sales engineering. The recurring advice was to build relationships, demonstrate curiosity and look beyond narrowly defined job titles. But the discussion also exposed a harder reality: for graduates without co-op experience, making time for unpaid projects and repeated networking can be difficult while paying the bills. The panel’s most useful contribution was the combination of concrete examples, practical suggestions and an acknowledgement that the first opportunity may take real persistence.",
+    "keyTakeaways": [
+      {
+        "heading": "Your first role need not match your degree",
+        "explanation": "Daniel McCarthy’s mechanical engineering background led into client success and sales engineering at PolyUnity, while Ann Montet moved from banking into business development at SiftMed. Nathan Greene, trained in software development, found work in IT support at SmartICE. Each used transferable skills rather than waiting for a perfect job-title match."
+      },
+      {
+        "heading": "Build evidence and relationships before you need an introduction",
+        "explanation": "Karen Tuffaha described how volunteering and a LinkedIn coffee chat helped her reach an opening at Trophi AI. Samuel Adeoye said work with a professor and co-op experience helped him secure his first role at Enaimco. The panel emphasized relevant projects, work terms and thoughtful follow-up over simply collecting contacts."
+      },
+      {
+        "heading": "AI increases the value of problem-solving, not just output",
+        "explanation": "Adeoye argued that writing code is increasingly less important than understanding the problem being solved. Other panellists described AI helping with first drafts, information gathering, sales notes and IT workflows, while people remain responsible for context, accuracy, architecture and relationships."
+      }
+    ],
+    "detailedSummary": [
+      {
+        "heading": "Five careers, few straight lines",
+        "paragraphs": [
+          "The panel brought together Daniel McCarthy of PolyUnity, Samuel Adeoye of Enaimco, Nathan Greene of SmartICE, Karen Tuffaha of Trophi AI and Ann Montet of SiftMed, moderated by techNL’s Rahaf HajAhmed. Their backgrounds stretched from mechanical engineering and computer science to business, economics and marketing.",
+          "McCarthy had originally imagined working in design. Instead, his ability to explain technology and understand customer needs opened a role between technical and sales teams. Montet recognized a similar overlap when she moved from retail banking into technology sales: identifying a customer’s problem and finding an appropriate solution carried across industries. Greene urged students not to limit applications to roles bearing the exact name of their diploma."
+        ]
+      },
+      {
+        "heading": "Networking works best when there is something to discuss",
+        "paragraphs": [
+          "Tuffaha described beginning with volunteering and student opportunities before gaining the confidence to approach people directly. A coffee meeting arranged through LinkedIn eventually connected her to a role aligned with her skills. Montet described showing up to a SiftMed coding event despite not being a programmer, using the opportunity to meet staff while her application was pending.",
+          "Adeoye recounted doing research-related projects with a professor before applying for a co-op position, where an existing connection helped. McCarthy offered a smaller example: bringing a relevant medical book to an interview gave him an authentic subject to discuss. The point was not to perform a rehearsed networking script, but to show genuine interest and create a memorable conversation."
+        ]
+      },
+      {
+        "heading": "What the work demands after hiring",
+        "paragraphs": [
+          "The panellists offered advice they wished they had heard earlier. Tuffaha recommended startups as places to gain exposure beyond a formal job description; her marketing responsibilities expanded into operations and other business functions. Montet stressed resilience through repeated rejection in outbound sales and the need to adapt when priorities change quickly.",
+          "McCarthy singled out project management as a useful skill across technical and customer-facing roles. Greene emphasized learning from colleagues outside his own IT function. Adeoye offered perhaps the clearest technical reframing: software development is fundamentally about solving problems, which means understanding users and requirements rather than measuring progress only in lines of code."
+        ]
+      },
+      {
+        "heading": "AI as leverage, with judgment still required",
+        "paragraphs": [
+          "The AI discussion moved across five different job functions. McCarthy described using it to organize information and create initial structures for reports or documents, while retaining human judgment about clients and context. Montet discussed AI meeting notes and administrative follow-up in sales, with human review. Greene described using AI to help structure IT support tickets and onboarding workflows.",
+          "Adeoye said AI had made more ambitious personal software projects practical, including experimentation with a home lab built around an older computer. He urged students to build things that show creativity rather than submitting another generic application. When an attendee asked whether programmers still need coding knowledge, the panel argued that programming fundamentals, system architecture, security and integration remain essential even when AI writes much of the code."
+        ]
+      },
+      {
+        "heading": "The experience gap came into focus",
+        "paragraphs": [
+          "The most challenging audience question came from a computer science graduate who said they had spent more than two years trying to enter the industry. They had already attended events, volunteered and contacted companies, but lacked co-op experience and struggled to make room for personal projects while earning a living.",
+          "Panellists suggested demonstrating relevant work to hiring managers, exploring funded internships and finding mentors who could recommend projects or introduce opportunities. techNL pointed to its mentorship program and Amal as additional avenues. Those suggestions were concrete, but they did not resolve the financial and structural barriers described by the attendee. It was an important reminder that good job-search advice and an accessible entry-level labour market are not the same thing."
+        ]
+      }
+    ],
+    "notableIdeas": [
+      "An interview that does not lead to a job can still be practice: panellists recommended recording interview questions and improving answers before the next one.",
+      "McCarthy recommended that students investigate technical sales, customer success and project management roles that may not be visible through their degree programs.",
+      "Several panellists described continued learning as a career-long responsibility, not something that ends with graduation."
+    ],
+    "practicalApplications": [
+      "For job seekers: choose one or two relevant companies, study what they build and approach employees with a specific question or a small, pertinent project rather than a generic request for work.",
+      "For software applicants: be ready to explain the problem, design decisions, testing, security and integration of an AI-assisted project—not merely that a working demo was generated.",
+      "For employers and community organizers: consider what additional support is needed for graduates who lack co-op experience and cannot easily afford unpaid work. This is an editorial implication of the audience Q&A, not a formal panel recommendation."
+    ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:06:31Z",
+  "updatedAt": "2026-10-19T14:28:32.638Z",
   "eventType": "panel",
   "programme": "conference"
 }
