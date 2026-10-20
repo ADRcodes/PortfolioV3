@@ -20,15 +20,86 @@
     "company-vision33",
     "company-carrick"
   ],
-  "status": "upcoming",
+  "status": "published",
   "summary": {
-    "overview": "",
-    "keyTakeaways": [],
-    "notableIdeas": [],
-    "practicalApplications": []
+    "overview": "Venture capital is one path to building a large technology company, but the leaders of Bluedrop, Vision33, HeyOrca and Carrick described substantial businesses built partly or primarily through customers, consulting revenue, public programmes, debt and disciplined reinvestment. Their approaches were not identical: HeyOrca took early investment before shifting toward customer-funded growth, while Vision33 emphasized profitable expansion and acquisitions without diluting ownership. The panel weighed the trade-offs of investor funding against retaining control, developing customer relationships and accepting a longer road to market. Its most practical message was to define what a company needs to accomplish before assuming it needs to raise money.",
+    "keyTakeaways": [
+      {
+        "heading": "Customers can fund both learning and growth",
+        "explanation": "Joe Teo described HeyOrca's shift away from pursuing successive funding rounds and toward treating customers as the investors whose trust must be earned each month. Josh Taylor of Carrick described financing early development through consulting work and focusing on real customer problems before deciding whether outside financing would help."
+      },
+      {
+        "heading": "Profitable growth can be ambitious growth",
+        "explanation": "Gerard Duggan described Vision33's long period of profitable operation, global employees, customers and acquisitions without relying on venture capital. He emphasized growth with profit, cultural fit in acquisitions and retaining the freedom to turn down opportunities that would be too disruptive."
+      },
+      {
+        "heading": "Avoiding VC has costs as well as freedoms",
+        "explanation": "The panel acknowledged that bootstrapping limits how many opportunities a company can pursue simultaneously and may prevent the fastest possible expansion. In return, founders can retain more control over strategy, timing and customer priorities. The speakers did not argue that venture funding was universally wrong."
+      }
+    ],
+    "detailedSummary": [
+      {
+        "heading": "Four different paths outside the standard fundraising cycle",
+        "paragraphs": [
+          "Josh Taylor described Carrick as a healthcare communications business serving enterprise customers. He said consulting revenue helped support initial product development and that public innovation support also played a role. Long healthcare sales cycles made the venture-funding route a difficult fit early on.",
+          "Gerard Duggan described Vision33's enterprise systems business, which grew through paying customers, long-term profitability and acquisitions while keeping ownership intact. Emad Rizkalla discussed Bluedrop's beginnings with modest support from the National Research Council and an ongoing emphasis on solving useful problems. Joe Teo described HeyOrca's early fundraising followed by a deliberate shift toward being funded by recurring customers."
+        ]
+      },
+      {
+        "heading": "What customer-funded actually means at HeyOrca",
+        "paragraphs": [
+          "Teo said fundraising had become a distracting measure of self-worth and company success. In 2018, HeyOrca changed direction: rather than primarily travelling to meet potential investors, its team visited customers, listened to their problems and invited them to help shape product and marketing choices. He connected that change in focus to improving business performance.",
+          "He argued that the company's monthly subscribers are investors in a practical sense because HeyOrca must repeatedly earn their willingness to pay. He recommended checking the leadership team's calendar as a test of whether customer-first claims are real: how much time is actually being spent with customers?"
+        ]
+      },
+      {
+        "heading": "Vision33's profitable expansion and acquisition discipline",
+        "paragraphs": [
+          "Duggan described Vision33's emphasis on profitable growth instead of growth at any cost, and said the company had completed numerous acquisitions without taking venture capital. Those size and performance figures were his statements during the panel, not independently audited measurements.",
+          "He outlined a cautious acquisition strategy: a target must fit the company's culture and intended direction. In some deals, Vision33 has used earn-out arrangements that reward selling owners through future business performance rather than requiring all payment upfront. He also described abandoning a possible acquisition because integration would have distracted the business, even though financing might have been available."
+        ]
+      },
+      {
+        "heading": "A long sales cycle can make customer discipline essential",
+        "paragraphs": [
+          "Taylor said major healthcare deployments can require extensive procurement, piloting and implementation. That slows the path to revenue and can be difficult to reconcile with investor timelines, but successful integrations may also become deeply embedded in the customer's operations.",
+          "He suggested that founders interested in enterprise AI workflows could begin by doing consulting work inside an organization, understanding a difficult process and developing a useful product from that experience. The initial organization may become the first customer. This is a recommended possible strategy, not a guarantee that consulting will lead to scalable product demand."
+        ]
+      },
+      {
+        "heading": "Control, risk and what founders choose to optimize",
+        "paragraphs": [
+          "Rizkalla argued that focusing on customers and employees can be more satisfying than organizing every decision around a financing milestone. He also acknowledged the trade-off: without outside capital, some companies cannot accelerate to the size of heavily funded competitors or pursue as many opportunities.",
+          "The panel discussed how ownership can influence company culture, location and willingness to continue a slower-building initiative. Duggan said retaining control helped Vision33 make decisions on customer value and meaningful jobs rather than investor exit multiples. The speakers nevertheless recognized that VC is a legitimate and sometimes necessary choice for specific kinds of businesses."
+        ]
+      },
+      {
+        "heading": "What to do instead of automatically raising money",
+        "paragraphs": [
+          "The panellists discussed consulting revenue, customer payments, public programmes, conventional loans, creative partnerships and lower-cost ways of assembling a team. A central point was that founders should calculate what a proposed investment would achieve and whether the same outcome can be reached another way.",
+          "They also explored succession, liquidity and eventual sales. Not taking institutional capital does not eliminate the question of returning value to owners or employees; it can, however, change when and why the company considers a sale."
+        ]
+      }
+    ],
+    "highlightedInsight": {
+      "heading": "Start with the customer problem, not a fundraising target",
+      "explanation": "The panel's practical alternative to fundraising-first entrepreneurship was to find work a customer will pay for, learn the surrounding workflow and reinvest the resulting revenue into a product. For companies tackling slow-moving, complicated enterprise processes, that path may offer time to learn without being forced into a venture-scale timetable."
+    },
+    "notableIdeas": [
+      "HeyOrca's shift toward customer-funded growth was a change in priorities after raising money, not proof that it had never accepted outside investment.",
+      "Vision33 described earn-outs as one way to finance acquisitions through future performance.",
+      "Carrick highlighted enterprise healthcare as a domain where slow adoption can make standard venture timelines uncomfortable.",
+      "The speakers stressed that customer-focused businesses still need plans for shareholders, employees and eventual ownership transitions."
+    ],
+    "practicalApplications": [
+      "For a new product idea, test whether paid consulting or a pilot can finance discovery before assuming equity investment is needed.",
+      "Count customer meetings and meaningful product-feedback conversations to test whether customer focus is reflected in actual time allocation.",
+      "When considering an acquisition or major expansion, test cultural fit and integration burden as carefully as the potential financial upside.",
+      "Choose financing based on time to revenue, cash needs, appetite for control and realistic growth expectations, rather than treating VC funding as a universal milestone."
+    ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:06:31Z",
+  "updatedAt": "2026-10-20T20:24:26.407Z",
   "eventType": "panel",
   "programme": "conference"
 }
