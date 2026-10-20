@@ -1,0 +1,46 @@
+{
+  "identity": [
+    "No animated identity word overlap at 1440px across six scroll positions",
+    "No animated identity word overlap at 390px across six scroll positions",
+    "No animated identity word overlap at 320px across six scroll positions"
+  ],
+  "contrast": [
+    {
+      "label": "CTA text",
+      "ratio": 10.38
+    },
+    {
+      "label": "secondary on green",
+      "ratio": 6.64
+    },
+    {
+      "label": "publication badge",
+      "ratio": 7.94
+    },
+    {
+      "label": "room metadata",
+      "ratio": 6.33
+    },
+    {
+      "label": "CTA focus on green",
+      "ratio": 5.39
+    }
+  ],
+  "baseline": [
+    {
+      "width": 1440,
+      "height": 960,
+      "wordCount": 62
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "wordCount": 62
+    },
+    {
+      "width": 320,
+      "height": 844,
+      "wordCount": 62
+    }
+  ]
+}

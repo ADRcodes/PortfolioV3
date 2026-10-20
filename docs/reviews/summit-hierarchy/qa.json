@@ -1,0 +1,49 @@
+{
+  "checks": [
+    "CTA visibility/focus, notes link and filters at 1440px",
+    "Directories, article types and profiles without horizontal overflow at 1440px",
+    "CTA visibility/focus, notes link and filters at 390px",
+    "Directories, article types and profiles without horizontal overflow at 390px",
+    "CTA visibility/focus, notes link and filters at 320px",
+    "Directories, article types and profiles without horizontal overflow at 320px",
+    "Primary CTA remains unchanged before, during and after the conference",
+    "Mobile animated card/detail/Back retains matched title typography and scroll restoration; carousel controls work",
+    "Keyboard CTA activation and reduced-motion navigation",
+    "No browser JavaScript errors"
+  ],
+  "metrics": [
+    {
+      "width": 1440,
+      "height": 672.75,
+      "wordCount": 41,
+      "cta": {
+        "x": 40,
+        "y": 559.15625,
+        "width": 291.9375,
+        "height": 56
+      }
+    },
+    {
+      "width": 390,
+      "height": 609.21875,
+      "wordCount": 41,
+      "cta": {
+        "x": 16,
+        "y": 335.21875,
+        "width": 263.8125,
+        "height": 56
+      }
+    },
+    {
+      "width": 320,
+      "height": 603.53125,
+      "wordCount": 41,
+      "cta": {
+        "x": 16,
+        "y": 329.53125,
+        "width": 263.8125,
+        "height": 56
+      }
+    }
+  ]
+}

@@ -9,6 +9,7 @@ import SummitIdentity from './SummitIdentity.jsx';
 import BackButton from './BackButton.jsx';
 import SummitQrShare from './SummitQrShare.jsx';
 import '../styles/summit.css';
+import '../styles/hierarchy.css';
 
 const icons = [CalendarDays, Users, Building2];
 export default function SummitLayout() {
@@ -103,7 +104,7 @@ export default function SummitLayout() {
     <SummitIdentity agenda={isAgenda} routeKey={location.key} />
     <main id="summit-main" className={`summit-container summit-main${isAgenda ? '' : ' summit-content-page'}`} tabIndex={-1}><div className="summit-route" key={location.pathname}><Outlet /></div></main>
     <footer className="summit-footer"><div className="summit-container summit-footer-inner">
-      <div className="summit-footer-credit"><Link to="/">Alex Russell <ArrowUpRight size={20} aria-hidden="true" /></Link><p>Made with curiosity & AI.<br />An independent project, not affiliated with techNL.</p></div>
+      <div className="summit-footer-credit"><Link to="/">Alex Russell <ArrowUpRight size={20} aria-hidden="true" /></Link><p>Made with curiosity & AI.<br />An independent project, not affiliated with techNL.</p><a className="summit-official-event-link" href="https://technl.ca/technlsummit26/" target="_blank" rel="noreferrer">Visit the actual event website <ArrowUpRight size={16} aria-hidden="true" /><span className="summit-sr-only"> (opens in a new tab)</span></a></div>
       <div className="summit-footer-contact"><p>Something incorrect, or prefer to have your information removed? Send me a note.</p><a href="mailto:alexrussellria@gmail.com">alexrussellria@gmail.com <ArrowUpRight size={18} aria-hidden="true" /></a></div>
     </div></footer>
   </div>;

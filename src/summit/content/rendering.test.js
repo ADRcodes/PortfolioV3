@@ -213,7 +213,7 @@ test('official agenda excludes external samples and filters current publication 
   assert.equal(html.includes('Session notes coming soon'), published.length === 0);
   assert.equal(html.includes('summit-recent-item'), published.length > 0);
   assert.ok(html.includes('October 19') && html.includes('St. John’s Convention Centre'));
-  assert.ok(html.includes('Scroll to see agenda'));
+  assert.ok(html.includes(published.length ? 'Catch up on the sessions' : 'Explore the agenda'));
   const notes = home('?view=notes');
   assert.equal(notes.includes('No conference notes published yet.'), published.length === 0);
   for (const session of content.conferenceSessions) assert.equal(notes.includes(`data-session="${session.slug}"`), session.status === 'published', session.slug);
@@ -411,14 +411,15 @@ test('directory tools share one wrapper, compact previews retain full profiles a
   for (const slug of ['jac', 'melotech', 'technl']) assert.ok(companies.includes(`data-company="${slug}" data-logo-background="dark"`));
   assert.ok(companies.includes('src="/images/summit/companies/cbc-v1.svg"'));
 });
-test('intro places date and venue directly after identity and has a single labelled official link', () => {
+test('intro keeps secondary event details and a compact personal disclosure without an external CTA', () => {
   const html = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Home)));
   const afterHeading = html.slice(html.indexOf('</h1>'));
   assert.ok(afterHeading.indexOf('summit-intro-event') < afterHeading.indexOf('summit-personal-note'));
   assert.ok(afterHeading.includes('summit-event-date') && afterHeading.includes('summit-event-location'));
-  assert.equal(html.split('href="https://technl.ca/technlsummit26/"').length - 1, 1);
-  assert.ok(html.includes('Visit the actual event website'));
-  assert.ok(html.includes('not affiliated with techNL'));
+  assert.ok(!html.includes('href="https://technl.ca/technlsummit26/"'));
+  assert.ok(html.includes('A personal companion I built for fellow attendees.'));
+  assert.ok(html.includes('Independent and AI-assisted.'));
+  assert.ok(html.includes('Not affiliated with techNL.'));
 });
 
 
@@ -431,15 +432,29 @@ test('profile session cards show an explicit date while agenda cards avoid dupli
   assert.ok(company.includes('People presenting from Mysa'));
   assert.ok(company.includes('summit-card-date'));
 });
-test('official CTA follows the independence note and only notes filtering announces counts', () => {
+test('primary CTA follows publication availability and notes filtering retains its result status', () => {
   const home = query => renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit${query}`] }, createElement(Home)));
   const html = home('');
-  const noteStart = html.indexOf('class="summit-personal-note"');
-  const noteEnd = html.indexOf('class="summit-intro-bottom"');
-  const note = html.slice(noteStart, noteEnd);
-  assert.ok(note.indexOf('summit-official-event-link') > note.indexOf('not affiliated with techNL'));
-  assert.ok(html.includes('aria-label="Scroll to see agenda"'));
-  assert.ok(!html.includes('events in the official schedule'));
+  assert.equal(html.split('class="summit-explore-agenda"').length - 1, 1);
   const publishedCount = content.conferenceSessions.filter(session => session.status === 'published').length;
+  assert.ok(html.includes(publishedCount ? 'Catch up on the sessions' : 'Explore the agenda'));
   assert.ok(home('?view=notes').includes(`role="status">${publishedCount} conference summaries available.`));
+  const statuses = content.conferenceSessions.map(session => session.status);
+  try {
+    content.conferenceSessions.forEach(session => { session.status = 'upcoming'; });
+    const unpublished = home('');
+    assert.ok(unpublished.includes('Explore the agenda'));
+    assert.ok(!unpublished.includes('Catch up on the sessions'));
+  } finally {
+    content.conferenceSessions.forEach((session, index) => { session.status = statuses[index]; });
+  }
+});
+
+test('official event link remains available in the footer, outside the opening CTA', async () => {
+  const Layout = (await server.ssrLoadModule('/src/summit/components/SummitLayout.jsx')).default;
+  const html = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Layout)));
+  const footer = html.slice(html.indexOf('<footer'));
+  assert.equal(html.split('href="https://technl.ca/technlsummit26/"').length - 1, 1);
+  assert.ok(footer.includes('Visit the actual event website'));
+  assert.ok(footer.includes('not affiliated with techNL'));
 });

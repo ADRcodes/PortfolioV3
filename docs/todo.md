@@ -129,3 +129,7 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 ## Summit publishing workflow: speaker perspectives (October 20, 2026)
 
 - [x] Integrate transcript-backed perspectives into ChatGPT/GitHub article publishing using the existing schema, individual-attribution safeguards, session-group replacement on revisions and one combined commit. Preserve direct-publication authorization, omit uncertain candidates and add a minimal duplicate-text validation guard without changing presentation or existing content.
+
+## Summit visual hierarchy refinement (review branch)
+
+- [x] Simplify the opening around one content-driven primary action, retain the animated identity and personal credit/disclosures, strengthen recent-notes/agenda hierarchy and refine secondary metadata, articles and profiles. Verify 1440/390/320px, navigation, reduced motion and publication compatibility; capture before/after review artifacts and commit on `refine/summit-visual-hierarchy` without pushing or deploying.
