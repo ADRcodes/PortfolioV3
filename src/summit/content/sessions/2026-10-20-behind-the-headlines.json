@@ -19,15 +19,88 @@
     "company-betakit",
     "company-cbc"
   ],
-  "status": "upcoming",
+  "status": "published",
   "summary": {
-    "overview": "",
-    "keyTakeaways": [],
-    "notableIdeas": [],
-    "practicalApplications": []
+    "overview": "In Behind the Headlines, journalists Sean Silcoff, Catherine McIntyre and Madison McLauchlan discussed how to cover a technology sector changing faster than traditional news cycles. Moderated by Adam Walsh, the conversation moved from AI regulation and public trust to the changing story of Newfoundland and Labrador's startup ecosystem. The panellists praised the province's close-knit network of founders, investors and experienced operators, but cautioned against treating valuations and funding announcements as the only signs of progress. The strongest measure of durable business success, they argued, is real customers and sustainable revenue. On AI-related employment, they acknowledged disruption in particular industries while questioning broad claims that the technology has already delivered economy-wide productivity gains.",
+    "keyTakeaways": [
+      {
+        "heading": "Explain what AI can and cannot do, rather than selling certainty",
+        "explanation": "The journalists described balancing technical depth with language that wider audiences can understand. They argued that credible reporting explains where claims come from, includes more than one perspective and examines the limits of ambitious AI promises—not that journalists should persuade everyone to trust the technology."
+      },
+      {
+        "heading": "Newfoundland's connected ecosystem is part of the story",
+        "explanation": "Silcoff and the other panellists saw the province's close relationships among founders, investors and successful companies as a distinctive advantage. They also pointed to the need to build for global markets and said the effects of early technology success may be measured in the founders, capital and new companies it helps produce."
+      },
+      {
+        "heading": "Paying customers count more than headline valuations",
+        "explanation": "In audience questions about metrics, the panel returned to repeat purchases, durable revenue, profitability and business productivity. Speakers cautioned that large funding rounds, private valuations and selectively annualized revenue can make companies look more successful than actual customer demand warrants."
+      }
+    ],
+    "detailedSummary": [
+      {
+        "heading": "A news cycle that never settles",
+        "paragraphs": [
+          "The panel opened with the difficulty of covering AI, geopolitics and the technology economy while the underlying facts change week by week. Silcoff contrasted past Canadian financing milestones with the far larger deals now entering the news, and described the challenge of deciding how much global AI coverage a Canadian technology publication should pursue.",
+          "The other journalists discussed a related editorial task: knowing enough technical detail to avoid misleading readers while explaining complicated concepts without unnecessary jargon. The goal was to make the story intelligible to both industry insiders and people trying to understand a new technology for the first time."
+        ]
+      },
+      {
+        "heading": "Trust comes from evidence and clear attribution",
+        "paragraphs": [
+          "Asked about public trust in AI, the journalists distinguished their role from promoting adoption. They described testing claims, identifying the interests and expertise of sources and showing audiences both capabilities and weaknesses. An ambitious product announcement can be worth reporting without implying its success is already established.",
+          "The panel debated how Canada might respond to powerful global AI companies and the tension between innovation and regulation. The participants raised concerns about private companies setting their own guardrails while also noting the difficulty of regulation keeping pace with emerging technology. These were journalistic perspectives and questions, not an agreed policy prescription."
+        ]
+      },
+      {
+        "heading": "Why the St. John's technology ecosystem attracts attention",
+        "paragraphs": [
+          "Silcoff described how Newfoundland and Labrador's technology industry has developed from a smaller ecosystem into one with globally competitive companies and investment relationships. He stressed the value of successful founders who subsequently help or finance other firms. Other speakers pointed to the resourcefulness and direct connections they encountered locally.",
+          "One journalist relayed an observation from CoLab's Taylor Young: being outside the noise of a highly competitive technology hub can help a team focus more closely on its product and customers. This is a perspective shared during the discussion, rather than a demonstrated advantage applying to all companies in the region.",
+          "The discussion also touched on retention of graduates and the role universities, international students and investors can play in supplying a next generation of founders and employees. Several claims about retention were explicitly anecdotal."
+        ]
+      },
+      {
+        "heading": "AI jobs and productivity: uneven changes, uncertain totals",
+        "paragraphs": [
+          "The speakers pushed back against assuming either that AI would immediately replace whole categories of work or that it would have no disruptive effect. One journalist described surveys suggesting many organizations had yet to see substantial measurable gains, while noting that the underlying survey details were not available in the transcript for verification.",
+          "They also pointed to potentially sharper effects in creative fields and entry-level opportunities, and questioned whether some layoffs attributed to AI were partly connected to earlier hiring decisions. A different possibility raised was that companies may discover they still need expertise after attempting overly aggressive automation.",
+          "One possible growth area identified was helping businesses adopt AI in actual workflows. That work requires technical understanding but also communication, training and sensitivity to employees whose roles are changing."
+        ]
+      },
+      {
+        "heading": "What the journalists are watching next",
+        "paragraphs": [
+          "Among the areas the speakers said they would follow were AI data centres, physical AI and robotics, privacy and cybersecurity, Canadian space capability, quantum computing, shifting funding markets and startup exits. The discussion did not establish forecasts for which would succeed; these were subjects for future reporting.",
+          "The panel also questioned how private companies eventually deliver returns to investors, especially while funding grows for a small number of very large businesses. They distinguished successful fundraising from the longer challenge of building a profitable company that investors or public markets can value sustainably."
+        ]
+      },
+      {
+        "heading": "Better measures of business success",
+        "paragraphs": [
+          "In one of the most useful audience exchanges, the panellists questioned the value of counting unicorns alone. They returned instead to customers paying repeatedly for a product, sustainable revenue and profitability. Speakers mentioned revenue relative to headcount as another measure that may matter more as smaller teams build increasingly capable products.",
+          "They also cautioned that headline annualized revenue can disguise volatility when a company extrapolates one unusually strong month. The deeper measure is whether the product solves a problem people will continue paying to have solved."
+        ]
+      }
+    ],
+    "highlightedInsight": {
+      "heading": "Customer demand is harder to fake than a valuation",
+      "explanation": "The audience exchange brought the discussion back from investor excitement to business fundamentals: retention, repeat purchases and profitable recurring revenue reveal more about whether a technology company is creating durable value."
+    },
+    "notableIdeas": [
+      "The panel contrasted a highly connected Newfoundland startup community with examples of larger cities where company leaders may have fewer direct relationships.",
+      "A journalist relayed Taylor Young's observation that geographic distance from technology-sector noise can leave more room to focus on customers.",
+      "Some speakers saw opportunity for professionals who combine AI implementation skills with human change-management abilities.",
+      "The panellists expected physical AI, data centres, privacy, emerging space capability and company exits to remain important reporting subjects."
+    ],
+    "practicalApplications": [
+      "When describing a startup, ask about active paying customers, repeat use and revenue quality—not only valuation or capital raised.",
+      "When explaining an AI product, separate what has been demonstrated from the vendor's ambition and identify the source of consequential claims.",
+      "For founders seeking coverage, explain the customer problem, provide concrete outcomes and make technical details understandable to non-specialists.",
+      "For job seekers interested in AI adoption, look for roles that combine workflow analysis, implementation, evaluation and employee training."
+    ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:06:31Z",
+  "updatedAt": "2026-10-20T17:25:45.934Z",
   "eventType": "panel",
   "programme": "conference"
 }
