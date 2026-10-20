@@ -14,15 +14,79 @@
     "company-aperture-ai",
     "company-munk-school-of-global-affairs-public-policy"
   ],
-  "status": "upcoming",
+  "status": "published",
   "summary": {
-    "overview": "",
-    "keyTakeaways": [],
-    "notableIdeas": [],
-    "practicalApplications": []
+    "overview": "AI sovereignty is not the ability to manufacture every chip or operate every model within national borders. In a talk grounded in his work on a sovereign-AI policy paper, Aperture AI CEO Jaxson Khan argued that a more useful goal for Canadian companies and governments is freedom from coercion: retaining enough choice over infrastructure, providers, data and legal exposure to keep operating when a critical dependency changes. Khan mapped vulnerabilities throughout the AI stack, from semiconductors and cloud infrastructure to connectivity and foundation models, while identifying opportunities to sell trusted applications internationally. His recommendations centred on understanding dependencies, protecting company knowledge, diversifying suppliers and building credible AI governance and training.",
+    "keyTakeaways": [
+      {
+        "heading": "Sovereignty means reducing the power of a single dependency",
+        "explanation": "Khan rejected the idea that Canada could or should independently control every layer of AI. Instead he framed sovereignty as freedom from coercion and asked who controls infrastructure, encryption keys and the laws governing a service. The practical question for founders is what happens if an essential supplier becomes unavailable or unacceptable to a customer."
+      },
+      {
+        "heading": "The AI stack has very different kinds of risk",
+        "explanation": "Khan described highly concentrated chipmaking and cloud infrastructure as vulnerabilities, while viewing the increasingly competitive foundation-model layer as offering more substitution possibilities. He also highlighted Canadian internet routes, power and data-centre capacity as underlying dependencies that software teams may overlook."
+      },
+      {
+        "heading": "Trust and real usability can be export advantages",
+        "explanation": "Khan argued that Canadian companies could compete internationally by showing secure, reliable, useful AI systems rather than merely advertising domestic ownership. He also warned that sovereignty policies fail in practice when approved tools are so ineffective that employees quietly switch to unauthorized services."
+      }
+    ],
+    "detailedSummary": [
+      {
+        "heading": "Freedom from coercion, not technological isolation",
+        "paragraphs": [
+          "Khan approached sovereignty through a combination of startup, policy and national-security perspectives. He argued that AI is embedded in a complex international network of suppliers that no single country can fully reproduce. Attempting total self-sufficiency would be a poor practical definition of success.",
+          "His alternative was to preserve freedom of action. A company should know which jurisdiction governs its infrastructure, who holds essential cryptographic keys, which providers supply its models and what options exist if one link fails. The discussion linked these technical questions to changing trade and security relationships; the geopolitical examples were Khan’s framing, not independently established outcomes of the session."
+        ]
+      },
+      {
+        "heading": "Know which layer you actually depend on",
+        "paragraphs": [
+          "The presentation traced the AI stack through hardware, data centres, energy, connectivity, cloud services, foundation models, operations and applications. Khan described the supply chains for advanced semiconductors as especially concentrated, and highlighted a similar issue in cloud capacity. He argued that model choice has become more flexible because multiple competing and openly available models now exist.",
+          "He also stressed that sovereignty is not satisfied by placing a server in Canada if its control plane, suppliers or network traffic still depend on other jurisdictions. Several figures in the machine-generated transcript are uncertain; the article therefore preserves the underlying argument without treating those numbers as verified market measurements."
+        ]
+      },
+      {
+        "heading": "Give yourself an exit before you need one",
+        "paragraphs": [
+          "For founders, the clearest architectural recommendation was to document the stack and avoid tying essential data or operations irreversibly to one vendor. Khan encouraged safeguarding documentation, internal knowledge and the surrounding tooling that make AI systems work, so a model or provider could be replaced without rebuilding the entire organization.",
+          "He connected this to the needs of enterprise and public-sector customers, some of whom may face additional restrictions on where data is handled or which providers they may use. Diversification cannot remove every risk, but it can change the consequences of an interruption."
+        ]
+      },
+      {
+        "heading": "Make trustworthy AI something customers can use",
+        "paragraphs": [
+          "Khan suggested Canadian providers might distinguish themselves through security, reliability and trustworthy AI governance. He argued that opportunities exist beyond the United States and China, including markets in Europe and elsewhere that may value resilient, well-governed alternatives.",
+          "A particularly practical warning concerned shadow AI. When organizations mandate sovereign or approved tools without making them competitive enough for the job, employees may bypass them. Khan’s implication was that controls, training and product usefulness have to develop together; a restrictive purchasing decision alone will not produce adoption."
+        ]
+      },
+      {
+        "heading": "A national opportunity depends on shared capability",
+        "paragraphs": [
+          "The talk ended with calls for greater AI literacy and more ambitious coordination between private companies and government. Khan pointed to purchasing Canadian products, improving access to infrastructure, creating high standards and building stronger AI training as complementary options.",
+          "During audience questions, he emphasized stability and usefulness as clearer messages for Canadian products than abstract sovereignty claims. He also said AI confidence and capability cannot be created by government alone; companies, service providers, educators and communities would need to participate. These were policy and business recommendations, not announcements of enacted programmes."
+        ]
+      }
+    ],
+    "highlightedInsight": {
+      "heading": "A sovereignty claim needs an operational test",
+      "explanation": "Khan's framing suggests asking not whether an AI product is labelled Canadian, but whether its operator can identify dependencies, govern access to data and maintain useful service when a supplier, jurisdiction or contract changes."
+    },
+    "notableIdeas": [
+      "A Canadian-owned application can still rely heavily on foreign chips, cloud operations and network routes.",
+      "Model choice may be easier to diversify than the physical infrastructure underneath it.",
+      "Poor internal AI products can undermine sovereignty objectives by encouraging unauthorized alternatives.",
+      "Trust is commercially meaningful only when backed by useful products, clear controls and credible implementation."
+    ],
+    "practicalApplications": [
+      "Inventory the critical layers of an AI product: hosting, model provider, network, data storage, identity, keys and applicable legal jurisdiction.",
+      "Keep prompts, business logic, documentation and evaluation data sufficiently portable to test a replacement model or provider.",
+      "Evaluate whether approved AI tools actually meet employees’ needs; address shadow usage through usability, education and governance together.",
+      "For enterprise sales, be prepared to answer where customer data goes, who can access it and what happens if a provider becomes unavailable."
+    ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:06:31Z",
+  "updatedAt": "2026-10-20T17:25:35.457Z",
   "eventType": "talk",
   "programme": "conference"
 }
