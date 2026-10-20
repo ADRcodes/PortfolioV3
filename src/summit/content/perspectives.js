@@ -4,6 +4,9 @@ export function validateSpeakerPerspectives(speaker) {
   if (speaker.summitPerspectives === undefined) return;
   const fail = message => { throw new Error(`Summit content: ${speaker.id}.summitPerspectives ${message}`); };
   if (!Array.isArray(speaker.summitPerspectives)) fail('must be an array when supplied');
+  const summaries = new Set();
+  const quotes = new Set();
+  const key = (slug, value) => JSON.stringify([slug, value.trim().replace(/\s+/g, ' ').toLowerCase()]);
   speaker.summitPerspectives.forEach((item, index) => {
     if (!item || typeof item !== 'object' || Array.isArray(item)) fail(`[${index}] must be an object`);
     if (!text(item.sessionSlug) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.sessionSlug)) fail(`[${index}].sessionSlug must be a session slug`);
@@ -11,6 +14,14 @@ export function validateSpeakerPerspectives(speaker) {
     if (item.quote !== undefined && !text(item.quote)) fail(`[${index}].quote must be nonempty text when supplied`);
     if (item.heading !== undefined && !text(item.heading)) fail(`[${index}].heading must be nonempty text when supplied`);
     if (item.publishedAt !== undefined && (!text(item.publishedAt) || !/^\d{4}-\d{2}-\d{2}T/.test(item.publishedAt) || !/(Z|[+-]\d{2}:\d{2})$/.test(item.publishedAt) || Number.isNaN(Date.parse(item.publishedAt)))) fail(`[${index}].publishedAt must be an ISO timestamp with a timezone`);
+    const summaryKey = key(item.sessionSlug, item.summary);
+    if (summaries.has(summaryKey)) fail(`[${index}].summary duplicates an insight for session ${item.sessionSlug}; replace the existing perspective when revising`);
+    summaries.add(summaryKey);
+    if (item.quote !== undefined) {
+      const quoteKey = key(item.sessionSlug, item.quote);
+      if (quotes.has(quoteKey)) fail(`[${index}].quote duplicates a quotation for session ${item.sessionSlug}; replace the existing perspective when revising`);
+      quotes.add(quoteKey);
+    }
   });
 }
 

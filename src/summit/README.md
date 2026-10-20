@@ -123,12 +123,14 @@ Names/descriptions/identities are required, `urls` can be empty. Images are opti
 
 ## Recording-to-summary workflow
 
-1. Read this guide and the relevant existing session/speaker/company JSON files.
-2. Use the transcript to fill the summary fields; do not invent unsupported details.
-3. Keep stable IDs and existing schedule fields unless correcting verified information.
-4. Leave work in `draft` while editing, or keep a scheduled session `upcoming` until ready. Set `published` only when the finished summary is ready to appear publicly.
-5. Update `updatedAt`, run the tests and build, and review the diff.
-6. Follow the separately authorized GitHub commit/review process. A future push/merge to `main` triggers the existing deployment. This implementation does not add Pocket ingestion, GitHub automation, or credentials.
+The [editorial guide](EDITORIAL_GUIDE.md) is the authoritative publishing procedure. The normal flow is Pocket → ChatGPT (usually the dedicated conversation with the GitHub connector) → one GitHub commit → GitHub Actions deployment. Nora/OpenClaw and a local Codex ingestion process are not involved.
+
+1. Retrieve the latest guide, schemas/renderers and relevant session/speaker/company files from `main`; read the full Pocket transcript and secondary summary.
+2. Write the verified article and perform the individual speaker-perspective evidence pass. Prefer two or three substantial insights when supported, without a quota. A listed participant or collective panel takeaway does not establish individual attribution; omit ambiguous candidates and report them privately. No reliable speaker means no new perspectives.
+3. Use the existing `summitPerspectives` schema below. On revisions, replace each speaker's group for the target `sessionSlug`, remove unsupported old entries and preserve other sessions/fields. Do not append another version of the same idea. No automatic generation service or new data structure is required.
+4. Preserve IDs, slugs, schedule and unrelated content. Keep unpublished work private until ready; do not demote an existing public article while preparing a revision. Update the session's `updatedAt` and set `published` only for verified finished content.
+5. Validate both JSON files and their references, run available tests/build and review the combined diff. Re-read both remote files and reconcile concurrent edits using the connector's conflict protection. Report execution limitations honestly when no shell/browser is available.
+6. Commit the session JSON and relevant existing speaker records together directly to `main` under the owner's standing publication authorization, without an additional approval stage. Use the GitHub connector's multi-file commit capability (or one local commit/push when a checkout is available). Verify the exact Actions run, article, source links and affected profiles. See the editorial guide for revision, privacy and verification rules.
 
 ## Local development and verification
 
@@ -138,7 +140,7 @@ From the PortfolioV3 root, using Node 24 and existing pnpm dependencies:
 pnpm dev --host 127.0.0.1
 # Open http://127.0.0.1:5173/technlsummit
 
-node --test --test-concurrency=1 src/summit/content/*.test.js
+node --test --test-concurrency=1 src/summit/content/*.test.js src/summit/lib/*.test.js
 pnpm build
 pnpm preview --host 127.0.0.1 --port 4173 --strictPort
 # Open http://127.0.0.1:4173/technlsummit
@@ -180,7 +182,7 @@ An optional nonempty `quote` string displays a direct quotation above the summar
 
 Current quotes use owner-supplied, high-confidence machine-transcript excerpts, preserving their wording, punctuation and casing. Each shows the session source and explicitly notes that the excerpt has not been checked against the original audio; this is not an audio-verified quote format. Summary-only items are labelled “Paraphrased perspective.” Selection and transcript filename references are recorded in [SOURCES.md](content/SOURCES.md), without publishing the transcripts themselves.
 
-The profile section appears only when at least one perspective references a published session listing that speaker. Empty/absent arrays, missing references, unrelated sessions and unpublished/withdrawn articles produce no section. The Vite public-content projection removes ineligible perspectives and unsupported item fields before bundling, as well as filtering again during rendering. Existing biographies, search, session lists and company profiles retain their behavior. Add further perspectives manually as notes are published.
+The profile section appears only when at least one perspective references a published session listing that speaker. Empty/absent arrays, missing references, unrelated sessions and unpublished/withdrawn articles produce no section. The Vite public-content projection removes ineligible perspectives and unsupported item fields before bundling, as well as filtering again during rendering. Existing biographies, search, session lists and company profiles retain their behavior. Publish manually verified perspectives with the related article as described in the editorial guide; replace the target speaker/session groups when revising. Validation rejects repeated summary/quote text in the same group after case/whitespace normalization, without changing stored wording; semantic duplication and attribution still require editorial review.
 
 Run content/publication/rendering tests serially: the integration test temporarily adds session fixtures and speaker perspective fixtures, then restores the exact original speaker file in its cleanup. Avoid building or editing those files during that test.
 

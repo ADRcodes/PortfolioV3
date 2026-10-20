@@ -125,3 +125,7 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 ## Summit speaker quotations (October 20, 2026)
 
 - [x] Add selected owner-supplied transcript quotations to speaker perspectives, preserving wording and visible audio-verification caveats. Use labelled article paraphrases for excluded/uncertain quotes; verify publication filtering, responsive profiles and existing navigation before publishing.
+
+## Summit publishing workflow: speaker perspectives (October 20, 2026)
+
+- [x] Integrate transcript-backed perspectives into ChatGPT/GitHub article publishing using the existing schema, individual-attribution safeguards, session-group replacement on revisions and one combined commit. Preserve direct-publication authorization, omit uncertain candidates and add a minimal duplicate-text validation guard without changing presentation or existing content.
