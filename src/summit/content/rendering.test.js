@@ -205,32 +205,37 @@ test('company directory provides logos and independently labelled detail links',
 });
 
 
-test('official agenda excludes external sample, introduces coming notes and filters with accessible controls', () => {
+test('official agenda excludes external samples and filters current publication states with accessible controls', () => {
   const home = query => renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit${query}`] }, createElement(Home)));
   const html = home('');
   assert.ok(!html.includes('wills-ai-meetup-editorial-test'));
-  assert.ok(html.includes('Session notes coming soon'));
-  assert.ok(!html.includes('summit-recent-item'));
+  const published = content.conferenceSessions.filter(session => session.status === 'published');
+  assert.equal(html.includes('Session notes coming soon'), published.length === 0);
+  assert.equal(html.includes('summit-recent-item'), published.length > 0);
   assert.ok(html.includes('October 19') && html.includes('St. John’s Convention Centre'));
   assert.ok(html.includes('Scroll to see agenda'));
   const notes = home('?view=notes');
-  assert.ok(notes.includes('No conference notes published yet.'));
-  assert.ok(!notes.includes('data-session="'));
+  assert.equal(notes.includes('No conference notes published yet.'), published.length === 0);
+  for (const session of content.conferenceSessions) assert.equal(notes.includes(`data-session="${session.slug}"`), session.status === 'published', session.slug);
   assert.ok(notes.includes('data-agenda-filter="notes" aria-pressed="true"'));
-  const anchored = home('?view=notes#agenda-' + content.conferenceSessions[0].id);
-  assert.ok(anchored.includes(`id="agenda-${content.conferenceSessions[0].id}"`));
+  const unpublished = content.conferenceSessions.find(session => session.status !== 'published');
+  if (unpublished) {
+    const anchored = home('?view=notes#agenda-' + unpublished.id);
+    assert.ok(anchored.includes(`id="agenda-${unpublished.id}"`));
+  }
 });
 test('each event type has accurate publication messaging in cards and detail pages', () => {
-  for (const eventType of ['talk', 'panel', 'workshop', 'registration', 'break', 'networking', 'activity']) {
-    const session = content.conferenceSessions.find(item => item.eventType === eventType);
-    assert.ok(session, `Missing programme classification ${eventType}`);
+  for (const eventType of ['talk', 'panel', 'workshop', 'registration', 'break', 'networking', 'activity']) assert.ok(content.conferenceSessions.some(item => item.eventType === eventType));
+  for (const session of content.conferenceSessions) {
+    const { eventType } = session;
     const card = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(SessionCard, { session, clock: { date: '2026-10-18', time: '12:00' } })));
     const detail = renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit/sessions/${session.slug}`] }, createElement(Routes, null, createElement(Route, { path: '/technlsummit/sessions/:slug', element: createElement(SessionDetail) }))));
-    const expected = ['talk', 'panel', 'workshop'].includes(eventType);
+    const expected = session.status !== 'published' && ['talk', 'panel', 'workshop'].includes(eventType);
     assert.equal(card.includes('Notes to follow'), expected);
     assert.equal(detail.includes('Notes to follow'), expected);
     assert.ok(card.includes(`data-event-type="${eventType}"`));
     assert.ok(detail.includes('Share session'));
+    assert.equal(detail.includes('Quick overview'), session.status === 'published');
   }
 });
 test('Will’s article remains readable with its five presentations and sharing control', () => {
@@ -239,7 +244,47 @@ test('Will’s article remains readable with its five presentations and sharing 
   assert.ok(html.includes('id="session-presentation-5"'));
   assert.ok(html.includes('Share session'));
 });
-test('session details show a distinct transcript request only for the nine unattended Monday presentations', async () => {
+test('speaker profiles show opted-in perspectives with current article links; other profiles stay unchanged', () => {
+  const profile = (type, slug) => renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit/${type}/${slug}`] }, createElement(Routes, null, createElement(Route, { path: `/technlsummit/${type}/:slug`, element: createElement(Profile, { type }) }))));
+  for (const speaker of content.directorySpeakers.filter(speaker => speaker.summitPerspectives?.length)) {
+    const html = profile('speakers', speaker.slug);
+    assert.ok(html.includes('Perspectives from the Summit'));
+    for (const perspective of speaker.summitPerspectives) {
+      assert.ok(html.includes(perspective.summary.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll("'", '&#x27;').replaceAll('"', '&quot;')));
+      assert.ok(html.includes(`href="/technlsummit/sessions/${perspective.sessionSlug}"`));
+    }
+    assert.ok(html.includes('Read the full session notes'));
+    assert.ok(html.includes('At the Summit'));
+    assert.ok(!html.includes('<time dateTime="undefined"'));
+  }
+  for (const speaker of content.directorySpeakers.filter(speaker => !speaker.summitPerspectives?.length)) {
+    const legacy = profile('speakers', speaker.slug);
+    assert.ok(legacy.includes('At the Summit'), speaker.slug);
+    assert.ok(!legacy.includes('Perspectives from the Summit'), speaker.slug);
+  }
+  assert.ok(!profile('companies', 'mysa').includes('Perspectives from the Summit'));
+});
+
+test('perspective rendering escapes text, supports optional dates, and hides withdrawn or unrelated notes', async () => {
+  const Perspectives = (await server.ssrLoadModule('/src/summit/components/SpeakerPerspectives.jsx')).default;
+  const speaker = { id: 'speaker-test', summitPerspectives: [{ sessionSlug: 'source-session', heading: '<b>A label</b>', summary: '<script>Untrusted text</script>', publishedAt: '2026-10-19T18:00:00Z' }] };
+  const session = { slug: 'source-session', title: 'Real <article> title', status: 'published', speakerIds: [speaker.id] };
+  const render = (speaker, sessions) => renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Perspectives, { speaker, sessions })));
+  const html = render(speaker, [session]);
+  assert.ok(html.includes('Real &lt;article&gt; title'));
+  assert.ok(html.includes('&lt;b&gt;A label&lt;/b&gt;'));
+  assert.ok(html.includes('&lt;script&gt;Untrusted text&lt;/script&gt;'));
+  assert.ok(!html.includes('<script>'));
+  assert.ok(html.includes('<time dateTime="2026-10-19T18:00:00Z"'));
+  assert.ok(html.includes('href="/technlsummit/sessions/source-session"'));
+  for (const status of ['upcoming', 'draft']) assert.equal(render(speaker, [{ ...session, status }]), '');
+  assert.equal(render(speaker, [{ ...session, speakerIds: [] }]), '');
+  assert.equal(render(speaker, []), '');
+  assert.equal(render({ id: speaker.id }, [session]), '');
+  assert.equal(render({ ...speaker, summitPerspectives: [] }, [session]), '');
+});
+
+test('session details show a distinct transcript request only for eligible unattended Monday presentations', async () => {
   const { needsRecordingRequest } = await server.ssrLoadModule('/src/summit/lib/attendance.js');
   let requests = 0;
   for (const session of content.sessions) {
@@ -254,7 +299,7 @@ test('session details show a distinct transcript request only for the nine unatt
     assert.ok(html.includes('href="mailto:alexrussellria@gmail.com"'));
     for (const text of ['Voice Memos', '(on supported devices)', 'recording permissions', 'send transcripts rather than public recording links']) assert.ok(html.includes(text), text);
   }
-  assert.equal(requests, 9);
+  assert.equal(requests, content.sessions.filter(session => needsRecordingRequest(session, content.sessions)).length);
 });
 
 test('publishing an affected session replaces the request with its summary', () => {
@@ -347,7 +392,7 @@ test('directory tools share one wrapper, compact previews retain full profiles a
   assert.ok(companies.includes('summit-company-grid') && companies.includes('summit-company-card-logo'));
   assert.ok(!companies.includes(content.directoryCompanies.find(item => item.slug === 'mysa').description));
   for (const slug of ['jac', 'melotech', 'technl']) assert.ok(companies.includes(`data-company="${slug}" data-logo-background="dark"`));
-  assert.ok(companies.includes('class="summit-logo-fallback" aria-hidden="true">CBC</span>'));
+  assert.ok(companies.includes('src="/images/summit/companies/cbc-v1.svg"'));
 });
 test('intro places date and venue directly after identity and has a single labelled official link', () => {
   const html = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Home)));
@@ -378,5 +423,6 @@ test('official CTA follows the independence note and only notes filtering announ
   assert.ok(note.indexOf('summit-official-event-link') > note.indexOf('not affiliated with techNL'));
   assert.ok(html.includes('aria-label="Scroll to see agenda"'));
   assert.ok(!html.includes('events in the official schedule'));
-  assert.ok(home('?view=notes').includes('role="status">0 conference summaries available.'));
+  const publishedCount = content.conferenceSessions.filter(session => session.status === 'published').length;
+  assert.ok(home('?view=notes').includes(`role="status">${publishedCount} conference summaries available.`));
 });

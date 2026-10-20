@@ -12,8 +12,11 @@ const expectedSlugs = [
   'keeping-pace-with-change', 'power-of-brand-in-the-age-of-ai', 'sred-for-tech-companies',
 ];
 
-test('the real agenda requests help for exactly the nine overlapping Monday presentations', () => {
-  assert.deepEqual(sessions.filter(session => needsRecordingRequest(session, sessions)).map(session => session.slug).sort(), [...expectedSlugs].sort());
+test('Monday attendance identifies nine overlapping presentations and excludes those whose notes are published', () => {
+  const unpublishedSchedule = sessions.map(session => ({ ...session, status: 'upcoming' }));
+  assert.deepEqual(unpublishedSchedule.filter(session => needsRecordingRequest(session, unpublishedSchedule)).map(session => session.slug).sort(), [...expectedSlugs].sort());
+  const eligible = expectedSlugs.filter(slug => sessions.find(session => session.slug === slug).status === 'upcoming');
+  assert.deepEqual(sessions.filter(session => needsRecordingRequest(session, sessions)).map(session => session.slug).sort(), eligible.sort());
   assert.equal(attendingSessionIds.length, 3);
   for (const id of attendingSessionIds) {
     const attending = sessions.find(session => session.id === id);
@@ -33,13 +36,13 @@ test('publication, event classification and programme exclude ineligible request
 });
 
 test('overlaps use agenda dates/times, exclude touching boundaries and follow changed attendance IDs', () => {
-  const base = sessions.find(session => session.slug === expectedSlugs[0]);
+  const base = { ...sessions.find(session => session.slug === expectedSlugs[0]), status: 'upcoming' };
   for (const [startTime, endTime, expected] of [
     ['12:30', '13:00', false], ['13:40', '13:50', false],
     ['12:50', '13:10', true], ['13:20', '13:50', true], ['12:00', '15:30', true],
   ]) assert.equal(needsRecordingRequest({ ...base, startTime, endTime }, sessions), expected, `${startTime}–${endTime}`);
   const changedIds = [base.id];
-  const originallyAttending = sessions.find(session => session.id === attendingSessionIds[0]);
+  const originallyAttending = { ...sessions.find(session => session.id === attendingSessionIds[0]), status: 'upcoming' };
   assert.equal(needsRecordingRequest(base, sessions, changedIds), false);
   assert.equal(needsRecordingRequest(originallyAttending, sessions, changedIds), true);
   assert.equal(needsRecordingRequest(base, sessions, ['unknown-id']), false);

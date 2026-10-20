@@ -1,3 +1,5 @@
+import { publicSpeaker, validateSpeakerPerspectives } from './perspectives.js';
+
 const fail = (message) => { throw new Error(`Summit content: ${message}`); };
 const text = (value) => typeof value === 'string' && value.trim().length > 0;
 const strings = (value) => Array.isArray(value) && value.every(text);
@@ -5,6 +7,7 @@ const url = (value) => {
   try { return typeof value === 'string' && ['https:', 'http:'].includes(new URL(value).protocol); }
   catch { return false; }
 };
+const imageUrl = value => url(value) || (typeof value === 'string' && /^\/images\/(?:[a-z0-9_-]+\/)*[a-z0-9_-]+\.(?:svg|png|webp|jpe?g|avif)$/i.test(value));
 
 export function validateSession(session) {
   for (const key of ['id', 'slug', 'title', 'description']) {
@@ -121,7 +124,7 @@ export function createContent(rawSessions, speakers, companies) {
         if (item.logoBackground !== undefined && !['light', 'dark'].includes(item.logoBackground)) fail(`invalid logoBackground for ${item.id}`);
         if (item.demo !== undefined && typeof item.demo !== 'boolean') fail(`invalid demo flag for ${item.id}`);
         if (!text(item.name) || !text(item.description) || !Array.isArray(item.urls) || !item.urls.every(link => text(link.label) && url(link.url))) fail(`invalid ${label} profile ${item.id}`);
-        if (item.image != null && (!url(item.image) || !text(item.imageAlt))) fail(`image requires HTTPS/HTTP URL and imageAlt for ${item.id}`);
+        if (item.image != null && (!imageUrl(item.image) || !text(item.imageAlt))) fail(`image requires HTTPS/HTTP URL or local /images/ asset path and imageAlt for ${item.id}`);
       }
     }
   }
@@ -132,7 +135,10 @@ export function createContent(rawSessions, speakers, companies) {
     check(session.speakerIds, speakers, 'speaker');
     check(session.companyIds, companies, 'company');
   }
-  for (const speaker of speakers) check(speaker.companyIds, companies, 'speaker company');
+  for (const speaker of speakers) {
+    check(speaker.companyIds, companies, 'speaker company');
+    validateSpeakerPerspectives(speaker);
+  }
   // Session relationships are derived from the authoritative session files.
-  return { sessions, speakers, companies };
+  return { sessions, speakers: speakers.map(speaker => publicSpeaker(speaker, sessions)), companies };
 }

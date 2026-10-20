@@ -158,6 +158,32 @@ Confirm real schedule, local timezone, content accuracy, branding/permission to 
 Current content/directory refinements and design hooks: [REFINEMENT_HANDOFF.md](REFINEMENT_HANDOFF.md). Recent notes now use an introductory coming-soon state until actual conference summaries exist; no dummy cards are rendered.
 
 
+## Speaker perspectives
+
+Speakers may optionally include a `summitPerspectives` array in `content/speakers.json`. For example, James Geneau has this manually authored paraphrase grounded in the published Assumption Trap article:
+
+```json
+{
+  "summitPerspectives": [
+    {
+      "sessionSlug": "assumption-trap",
+      "heading": "Revenue is only the start of validation",
+      "summary": "A sale does not prove lasting product-market fit. Geneau emphasized looking at whether customers actively use the product and stay, rather than relying on annual recurring revenue alone."
+    }
+  ]
+}
+```
+
+Each item requires a stable `sessionSlug` and nonempty `summary`; `heading` is an optional short editorial label, and `publishedAt` may be an ISO timestamp with a timezone (for example, `2026-10-19T18:29:03.875Z`). The session title and internal notes link are derived from the referenced session, so they cannot drift from the article. Keep paraphrases grounded in the article; labels are not presented as verbatim quotations. No source-type taxonomy or automatic insight generation is needed.
+
+The profile section appears only when at least one perspective references a published session listing that speaker. Empty/absent arrays, missing references, unrelated sessions and unpublished/withdrawn articles produce no section. The Vite public-content projection removes ineligible perspectives and unsupported item fields before bundling, as well as filtering again during rendering. Existing biographies, search, session lists and company profiles retain their behavior. Add further perspectives manually as notes are published.
+
+Run content/publication/rendering tests serially: the integration test temporarily adds session fixtures and speaker perspective fixtures, then restores the exact original speaker file in its cleanup. Avoid building or editing those files during that test.
+
+## Profile images
+
+Profile images can use HTTP(S) sources or bundled files under `/images/` with SVG, PNG, WebP, JPEG or AVIF extensions. Local paths must be plain asset paths without traversal, queries or external-host prefixes; keep nonempty `imageAlt` text. Prefer versioned local filenames for downloaded logos because deployment caches stable asset paths immutably. Source notes belong in `content/SOURCES.md`.
+
 ## Attendance and contribution requests
 
 Edit `content/attendance.js` to change Alex’s selected session IDs. Overlap dates and times are read from the agenda; no attendance is inferred for dates without a selected session. The current selections are The Assumption Trap, Funding for Talent and Internal Innovation on Monday, October 19.

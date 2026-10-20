@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { createContent, publicSession, validateSession } from './model.js';
 
 const directory = fileURLToPath(new URL('./sessions/', import.meta.url));
+const speakerFile = fileURLToPath(new URL('./speakers.json', import.meta.url));
 export async function loadSummitContent() {
   const files = (await readdir(directory)).filter(file => file.endsWith('.json'));
   const sessions = await Promise.all(files.map(async file => validateSession(JSON.parse(await readFile(directory + file, 'utf8')))));
@@ -19,6 +20,11 @@ export default function summitContent() {
     },
     async transform(source, id) {
       const path = id.split('?')[0];
+      if (path === speakerFile) {
+        const { speakers } = await loadSummitContent();
+        for (const file of (await readdir(directory)).filter(file => file.endsWith('.json'))) this.addWatchFile(directory + file);
+        return { code: JSON.stringify(speakers), map: null };
+      }
       if (!path.startsWith(directory) || !path.endsWith('.json')) return;
       // Read the original file regardless of JSON query flags.
       const session = JSON.parse(await readFile(path, 'utf8'));

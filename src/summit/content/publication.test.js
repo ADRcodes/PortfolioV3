@@ -7,6 +7,7 @@ import { randomUUID } from 'node:crypto';
 import { build, preview } from 'vite';
 
 const sessionDirectory = new URL('./sessions/', import.meta.url);
+const speakerFile = new URL('./speakers.json', import.meta.url);
 async function outputText(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
   return (await Promise.all(entries.map(entry => entry.isDirectory()
@@ -18,6 +19,9 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
   const token = randomUUID();
   const output = await mkdtemp(join(tmpdir(), 'summit-publication-'));
   const paths = [];
+  const originalSpeakers = await readFile(speakerFile, 'utf8');
+  const speakers = JSON.parse(originalSpeakers);
+  const speaker = speakers.find(item => !item.demo);
   let previewServer;
   try {
     const summary = marker => ({
@@ -40,10 +44,16 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
         id: `test-${marker}`, slug: `test-${marker}`, title: `${status} test article`,
         date: '2026-10-19', startTime: '09:00', endTime: '09:30',
         location: 'Test room', description: 'Temporary integration fixture',
-        speakerIds: [], companyIds: [], status, summary: summary(marker),
+        speakerIds: [speaker.id], companyIds: [], status, summary: summary(marker),
         recordingUrl: `https://example.com/${marker}/recording`, updatedAt: '2026-10-16T12:00:00Z',
       }));
+      (speaker.summitPerspectives ??= []).push({
+        sessionSlug: `test-${marker}`, summary: `${marker} perspective insight`,
+        heading: `${marker} perspective heading`, publishedAt: '2026-10-19T12:00:00Z',
+        privateEditorialNote: `${marker} private-perspective-field`,
+      });
     }
+    await writeFile(speakerFile, JSON.stringify(speakers));
     await build({ logLevel: 'silent', build: { outDir: output, emptyOutDir: true } });
     const built = await outputText(output);
     for (const field of ['overview', 'heading', 'explanation', 'section', 'paragraph', 'bullet', 'notable', 'application', 'session insight', 'presentation', 'presentation explanation', 'presentation section', 'presentation paragraph', 'presentation bullet', 'insight heading', 'insight explanation']) {
@@ -51,6 +61,13 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
       for (const status of ['draft', 'upcoming']) assert.ok(!built.includes(`${status}-${token} ${field}`), `${status} ${field} leaked`);
     }
     for (const status of ['draft', 'upcoming']) assert.ok(!built.includes(`https://example.com/${status}-${token}/recording`));
+    assert.ok(built.includes(`published-${token} perspective insight`));
+    assert.ok(built.includes(`published-${token} perspective heading`));
+    for (const status of ['draft', 'upcoming']) {
+      assert.ok(!built.includes(`${status}-${token} perspective insight`));
+      assert.ok(!built.includes(`${status}-${token} perspective heading`));
+    }
+    assert.ok(!built.includes(`${token} private-perspective-field`));
     const manifest = JSON.parse(await readFile(join(output, 'summit-previews.json'), 'utf8'));
     assert.ok(!JSON.stringify(manifest).includes(`test-draft-${token}`));
     assert.ok(JSON.stringify(manifest).includes(`test-published-${token}`));
@@ -78,6 +95,7 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
     const draft = await (await fetch(`${origin}/technlsummit/sessions/test-draft-${token}`)).text();
     assert.ok(!draft.includes('draft test article'));
   } finally {
+    await writeFile(speakerFile, originalSpeakers);
     if (previewServer) await new Promise(resolve => previewServer.httpServer.close(resolve));
     await Promise.all(paths.map(path => rm(path, { force: true })));
     await rm(output, { recursive: true, force: true });

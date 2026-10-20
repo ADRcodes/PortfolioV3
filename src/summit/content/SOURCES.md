@@ -192,6 +192,16 @@ All six real organizations with initials were reviewed. Standalone candidates be
 
 Rendering handoff: company portrait containers expose `data-company`, `data-logo-background="light|dark"` and `data-logo-availability="image|initials"`. Affiliation images also expose company/background attributes. Use proportional `contain` rendering and a suitable neutral background; avoid CSS inversion, colour filters, forced stretching or cropping brand artwork. `logoBackground` is validated as an optional profile field. CSS changes belong to the design session.
 
+### Missing-logo follow-up and palette review
+
+At the owner's request to retrieve missing company images, added CBC's unmodified monochrome SVG from [Simple Icons at commit c71c69e](https://github.com/simple-icons/simple-icons/blob/c71c69e3a27e4436936b831c72643e6513b9f49b/icons/cbc.svg). The collection's CBC metadata identifies [cbc.ca](https://www.cbc.ca) as its source. The downloaded SVG has a tight square viewBox and no scripts, embedded external assets or excess padding. It is served locally at `/images/summit/companies/cbc-v1.svg`, preserving the source artwork. This supersedes the earlier CBC initials decision; it does not assert a general licence to the broadcaster's trademarks.
+
+After broader online research, the exact official URLs already verified in the earlier asset audit are assigned to Birch Scientific, Munk School, Purposeful Group and Tiller Engineering. These use the sources in the table above, with descriptive alt text. They are external image references, not newly downloaded or currently reverified files: this machine still rejects their hosts with proxy HTTP 403 responses. The prior initials decisions for those four are superseded. Their current download status, image quality and background suitability remain unverified here.
+
+Aperture AI and Council of Canadian Innovators still use initials. Broader GitHub repository, profile and README searches did not yield an appropriate standalone asset. Jaxson Khan's [public GitHub profile](https://github.com/jaxson) confirms the correct Aperture AI identity, and his [published reading-list source](https://github.com/jaxson/canadaaipolicy/blob/main/index.html) identifies `https://apertureai.org` as the consultancy's official site, distinct from similarly named AI businesses. His course and policy repositories contain no suitable standalone company mark; their Canada/Ontario illustrations are unrelated and were not substituted. General search engines, Wikimedia and the official source sites remain blocked from this cloud instance. Additional source hostnames are saved to the environment-settings draft; saving does not activate network changes.
+
+Three alternative Summit palettes and actual browser screenshots are saved locally under the ignored `.playwright-mcp/palette-review/` directory for review. The site's active stylesheet and logo colours are unchanged by these previews. The palette artifacts remain excluded from the authorized logo and speaker-perspectives update.
+
 
 ## Social preview artwork — October 18, 2026
 

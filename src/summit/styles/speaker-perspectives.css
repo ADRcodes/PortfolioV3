@@ -1,0 +1,8 @@
+.summit-app .summit-perspectives > ul { list-style: none; margin: 0; padding: 0; max-width: 70ch; }
+.summit-app .summit-perspectives li { padding-block: 1.5rem; border-top: 1px solid #627371; }
+.summit-app .summit-perspectives h3 { margin: 0 0 .75rem; line-height: 1.25; }
+.summit-app .summit-perspectives .summit-perspective-label { color: var(--summit-accent); font-size: 1rem; }
+.summit-app .summit-perspectives p { margin-block: .75rem; }
+.summit-app .summit-perspective-footer { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; margin-top: 1rem; font-size: .9375rem; }
+.summit-app .summit-perspective-footer a { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; text-decoration: underline; }
+.summit-app .summit-perspective-footer time { color: #d4ddd6; }

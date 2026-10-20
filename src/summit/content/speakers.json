@@ -174,7 +174,14 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/jamesgeneau.png",
-    "imageAlt": "Portrait of James Geneau"
+    "imageAlt": "Portrait of James Geneau",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "assumption-trap",
+        "heading": "Revenue is only the start of validation",
+        "summary": "A sale does not prove lasting product-market fit. Geneau emphasized looking at whether customers actively use the product and stay, rather than relying on annual recurring revenue alone."
+      }
+    ]
   },
   {
     "id": "speaker-steph-burry",

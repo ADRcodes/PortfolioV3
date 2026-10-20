@@ -177,8 +177,8 @@
         "url": "https://www.birchscientific.com/"
       }
     ],
-    "image": null,
-    "imageAlt": ""
+    "image": "https://static.wixstatic.com/media/5ca58d_18bb72d749fc4c49ad36548747cddf91~mv2.png/v1/fill/w_108,h_108,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logonew-02.png",
+    "imageAlt": "Birch Scientific logo"
   },
   {
     "id": "company-bluedrop-ism",
@@ -271,8 +271,8 @@
         "url": "https://cbc.radio-canada.ca/en/your-public-broadcaster/history"
       }
     ],
-    "image": null,
-    "imageAlt": ""
+    "image": "/images/summit/companies/cbc-v1.svg",
+    "imageAlt": "CBC logo"
   },
   {
     "id": "company-cgi",
@@ -775,8 +775,8 @@
         "url": "https://munkschool.utoronto.ca/about-us"
       }
     ],
-    "image": null,
-    "imageAlt": ""
+    "image": "https://munkschool.utoronto.ca/sites/default/files/assets/logo/munk_school_logo.svg",
+    "imageAlt": "Munk School of Global Affairs & Public Policy logo"
   },
   {
     "id": "company-mysa",
@@ -909,8 +909,8 @@
         "url": "https://www.purposefulgroup.ca/pg-team"
       }
     ],
-    "image": null,
-    "imageAlt": ""
+    "image": "https://images.squarespace-cdn.com/content/v1/666e27d158496354e78c8224/3cd7b77d-664f-41d5-a8b3-be89f67deec3/Screenshot+2024-12-13+163348+%281%29.png?format=1500w",
+    "imageAlt": "Purposeful Group logo"
   },
   {
     "id": "company-rivet",
@@ -1094,8 +1094,8 @@
         "url": "https://tillerengineering.com/"
       }
     ],
-    "image": null,
-    "imageAlt": ""
+    "image": "https://tillerengineering.com/wp-content/uploads/2023/02/sidenav-logo.svg",
+    "imageAlt": "Tiller Engineering logo"
   },
   {
     "id": "company-trophi-ai",

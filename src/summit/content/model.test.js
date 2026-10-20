@@ -19,6 +19,16 @@ test('sample content validates, with unique identities and resolvable relationsh
   sessions.forEach(validateSession);
   assert.equal(createContent(sessions, speakers, companies).sessions.length, sessions.length);
 });
+test('profile images accept bundled assets while rejecting unsafe or malformed local paths', () => {
+  const profile = { id: 'test-company', slug: 'test-company', name: 'Test company', description: 'Test', urls: [], imageAlt: 'Test logo' };
+  for (const image of ['/images/summit/companies/cbc-v1.svg', '/images/logo.png', 'https://example.com/logo.png']) {
+    assert.equal(createContent([], [], [{ ...profile, image }]).companies[0].image, image);
+  }
+  for (const image of ['//example.com/logo.svg', '/images/../private.svg', '/images/%2e%2e/private.svg', '/images/logo.html', 'javascript:alert(1)', 'data:image/svg+xml,invalid']) {
+    assert.throws(() => createContent([], [], [{ ...profile, image }]), /image requires/);
+  }
+  assert.throws(() => createContent([], [], [{ ...profile, image: '/images/logo.svg', imageAlt: '' }]), /imageAlt/);
+});
 test('public projection excludes drafts and all unpublished summary/source fields', () => {
   assert.equal(publicSession({ ...published, status: 'draft' }), null);
   const upcoming = publicSession({ ...published, status: 'upcoming' });
