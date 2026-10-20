@@ -15,15 +15,77 @@
     "company-build-canada",
     "company-rivet"
   ],
-  "status": "upcoming",
+  "status": "published",
   "summary": {
-    "overview": "",
-    "keyTakeaways": [],
-    "notableIdeas": [],
-    "practicalApplications": []
+    "overview": "Why do Canadian founders sometimes find it easier to raise money, win customers or expand abroad than to build at home? In a fireside conversation with Rivet founder Johanna Brown, Build Canada co-founder and CEO Lucy Hargreaves argued that the country already has entrepreneurial talent and promising companies, but its institutions and business networks often move too slowly. She described Build Canada’s work on policy ideas, public-facing digital tools and entrepreneur networks, and outlined changes the organization advocates in procurement, taxes, competition and innovation funding. The conversation was a presentation of Build Canada’s perspective, not an announcement of government policy. Its practical theme was that capital, mentoring, customers and faster decisions all affect whether a growing company chooses to stay.",
+    "keyTakeaways": [
+      {
+        "heading": "Being a customer may help more than offering another grant",
+        "explanation": "Hargreaves argued that governments can provide more meaningful support to suitable Canadian technology firms by purchasing and using their products. She cited lengthy federal procurement cycles as a barrier for companies that need early reference customers, while acknowledging that many businesses do not sell to government at all."
+      },
+      {
+        "heading": "Speed is a competitive advantage—and a Canadian challenge",
+        "explanation": "She contrasted accounts of rapid responses from US investors with slower Canadian fundraising conversations, explicitly describing those comparisons as anecdotal. Her broader recommendation was to shorten decision cycles in investment, procurement and policy while preserving appropriate judgment, rather than treating lengthy deliberation as a virtue in itself."
+      },
+      {
+        "heading": "A founder needs a whole ecosystem, not a single incentive",
+        "explanation": "Hargreaves rejected the idea of one policy change keeping companies in Canada. She described the combined influence of capital, mentors, peer communities, competitive markets and an environment where entrepreneurs believe they can scale locally. She encouraged founders to share real experiences with policymakers and each other."
+      }
+    ],
+    "detailedSummary": [
+      {
+        "heading": "Build Canada’s approach and its vision",
+        "paragraphs": [
+          "Hargreaves introduced Build Canada as a relatively new nonprofit seeking to make the country a more attractive place to establish and grow companies. She described three activities: publishing policy ideas and commentary, creating digital tools to help the public understand government choices, and connecting entrepreneurs with one another.",
+          "She said the organization reaches a broad audience online and has developed a network of founders and supporters. Those audience figures were her statements during the session, rather than independently audited reach measurements. Her desired result is an economy in which young Canadians see entrepreneurship as a viable future without assuming they must move abroad."
+        ]
+      },
+      {
+        "heading": "Play to local strengths without being confined by them",
+        "paragraphs": [
+          "Asked what Newfoundland and Labrador should prioritize, Hargreaves pointed to established strengths in ocean-related industries while arguing that geography should not limit the kinds of companies people attempt to build. She cited CoLab and Spellbook as examples of firms with opportunities that are not restricted to local industry specializations.",
+          "Her emphasis was on strengthening the relationships that help new founders: experienced entrepreneurs sharing time and advice, investors making introductions, and established firms opening doors to the next generation. The region’s growing technology community was presented as an advantage that can be reinforced through those connections."
+        ]
+      },
+      {
+        "heading": "Procurement as a pathway to a first customer",
+        "paragraphs": [
+          "Hargreaves distinguished direct government financial support from government becoming a real customer. For businesses selling software or services relevant to public-sector needs, she argued, a procurement contract can provide validation, revenue and a reference client that help further growth.",
+          "She cited examples of lengthy procurement timelines at the federal level and argued those delays are poorly matched to fast-moving technology businesses. She did not claim that every startup should sell to government, nor did the panel establish a particular change to procurement rules in Newfoundland and Labrador."
+        ]
+      },
+      {
+        "heading": "The policy changes Build Canada is advocating",
+        "paragraphs": [
+          "Hargreaves identified three recurring themes in Build Canada’s policy work. First was tax competitiveness, particularly her view that capital gains and other taxes can influence where founders and early employees choose to work and invest. Second was more open competition in concentrated sectors such as telecommunications and banking, where new entrants may face substantial obstacles.",
+          "Third was how governments allocate innovation funding. Hargreaves criticized programmes she sees as selecting individual winners rather than using more market-oriented criteria. These are Build Canada’s policy positions, not findings established independently by the session. The discussion did not examine the counterarguments or trade-offs of the proposed changes in detail."
+        ]
+      },
+      {
+        "heading": "What builders can do beyond building their own company",
+        "paragraphs": [
+          "Brown asked how time-constrained founders could contribute to a stronger innovation ecosystem. Hargreaves encouraged practical participation: attending occasional consultations, describing concrete business obstacles in public and joining communities where founders can help one another solve problems.",
+          "She said relationships formed through Build Canada had helped some people find collaborators, access capital and start ventures. She closed by describing the importance of exposing young people to entrepreneurship and challenging Canadians to expect clearer results from public institutions. Her final message tied together the session’s themes: a stronger startup environment depends on decisions by governments, investors, companies and individuals, not any one participant alone."
+        ]
+      }
+    ],
+    "highlightedInsight": {
+      "heading": "A domestic first customer can change a company’s trajectory",
+      "explanation": "Hargreaves framed public procurement as more than a budget expense: where there is a genuine fit, a Canadian institution buying from a Canadian startup can help it establish traction before seeking a first major customer overseas. This was her argument, not an announced purchasing programme."
+    },
+    "notableIdeas": [
+      "Build Canada’s representatives described an approach that combines public policy communication, digital civic tools and direct founder networking.",
+      "Hargreaves argued for quicker decisions across both government and the private sector, not solely administrative reform in government.",
+      "The panel distinguished Newfoundland and Labrador’s established sector strengths from the broader opportunity to build technology products for global markets."
+    ],
+    "practicalApplications": [
+      "For founders: map the investors, experienced operators and potential first customers who could materially help the next stage of the business, including organizations outside the immediate local sector.",
+      "For public-sector-facing startups: identify a concrete government problem that the product solves and learn the current procurement requirements; the discussion did not announce special access or an expedited process.",
+      "For ecosystem participants: share specific, verifiable examples of financing or procurement obstacles with relevant industry organizations or public consultations, while considering the different policy trade-offs."
+    ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:06:31Z",
+  "updatedAt": "2026-10-20T13:59:15.155Z",
   "eventType": "panel",
   "programme": "conference"
 }
