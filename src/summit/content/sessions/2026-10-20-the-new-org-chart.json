@@ -19,15 +19,89 @@
     "company-nasdaq-verafin",
     "company-cibc"
   ],
-  "status": "upcoming",
+  "status": "published",
   "summary": {
-    "overview": "",
-    "keyTakeaways": [],
-    "notableIdeas": [],
-    "practicalApplications": []
+    "overview": "AI is changing more than the speed of software development: it is altering how employees work, which skills companies hire for and where human judgment belongs in a workflow. In a panel moderated by Josh Quinton, Zach Green of Mysa, Jon King of Milk Moovement and Phil O’Brien of Nasdaq Verafin shared concrete examples. Mysa is reorganizing work around AI-assisted generalists, Milk Moovement is reducing the time between customer feedback and product iterations, and Verafin is building an agentic workforce to help financial-crime analysts handle investigations. The three agreed that faster generation shifts more responsibility toward planning, validation, customer contact and reliable deployment.",
+    "keyTakeaways": [
+      {
+        "heading": "AI's middle layer needs a human beginning and end",
+        "explanation": "Green described a process where people investigate customers' needs and write clear specifications, AI performs much of the building and testing, and people then validate, integrate, test and release. O’Brien stressed that maintaining and deploying real products remains difficult even when prototypes can be generated quickly."
+      },
+      {
+        "heading": "Customer iteration speed may matter more than raw code output",
+        "explanation": "King explained that Milk Moovement wants a roughly 48-hour turnaround between customer conversations and a revised product view, rather than its former six-week-to-two-month cycles. The aim is to keep customers engaged with the same problem and incorporate more rounds of useful feedback."
+      },
+      {
+        "heading": "Hiring shifts toward adaptable builders who verify results",
+        "explanation": "Green described Mysa's interest in generalists who can use AI proactively across wider responsibilities. King highlighted the distinct skill of recognizing where AI-produced work can fail, while O’Brien emphasized a builder's mindset, customer understanding and the ability to take work beyond prototype into production."
+      }
+    ],
+    "detailedSummary": [
+      {
+        "heading": "Three businesses, three ways to apply AI",
+        "paragraphs": [
+          "Mysa's Zach Green described first using AI throughout internal functions such as development, marketing and support, then extending that capability toward new opportunities. He said teams increasingly work with AI throughout the day, not only inside coding tools. His examples of productivity and spending were statements from the panel, not independently verified performance measurements.",
+          "Jon King described Milk Moovement's digital operations across dairy transportation and processing, where small improvements in a large, around-the-clock supply chain can have substantial economic value. He said the company spent considerable time building reliable data pipelines before its AI workflows could turn operational information into useful decisions.",
+          "Phil O’Brien described Verafin's work on agentic AI for financial-crime investigations. Analysts face large volumes of alerts requiring collection, research and documentation even when no meaningful risk is ultimately found. Verafin's approach automates substantial preparatory work and analysis while allowing customers to choose which capabilities and workloads to use, based on their risk tolerance. He described recommendations rather than an unconditional replacement of human decisions."
+        ]
+      },
+      {
+        "heading": "Redesign the workflow, not merely add a chatbot",
+        "paragraphs": [
+          "Green said Mysa has experimented with rebuilding functions to be AI-first, coaching teams through obstacles and helping them become self-sufficient. His proposed division of work begins with human understanding and specification, moves through AI-supported execution and returns to rigorous human review and release. This changes the sequence of work rather than only making individual tasks faster.",
+          "King described replacing Milk Moovement's internal customer relationship management system with a tool developed to fit its own operations and longstanding list of requirements. He also emphasized building an infrastructure that connects operational data with models, rather than assuming any model can deliver a return on investment from fragmented information.",
+          "O’Brien described forming a relatively small, AI-first product team inside the much larger Verafin organization. Even established software requires maintenance and compatibility with customer environments. He gave the example of a major user-interface rewrite completed much faster than previous development would have allowed, while acknowledging the complexity of deploying changes to a mature product."
+        ]
+      },
+      {
+        "heading": "Shorter feedback loops change product discovery",
+        "paragraphs": [
+          "King contrasted the old process of collecting feedback, designing and returning to a customer weeks later with a target of bringing a revised version back within about 48 hours. Keeping customers immersed in the problem could allow many more iterations in a fixed development period, with more useful input before the product is finalized.",
+          "He encouraged ideas from across the company, including customer support and employees working at unusual hours, not only product specialists. His aim was to expose more employees to customer problems and put prototypes in front of users quickly. This is a target operating approach, not proof every product can now be delivered on such a timetable."
+        ]
+      },
+      {
+        "heading": "Why quality control becomes a different skill",
+        "paragraphs": [
+          "King argued that when an employee builds something by hand, they often understand each intermediate decision and potential failure point. When much of the execution is delegated to models or agents, assessing the finished result requires deliberately searching for errors that are less visible to the person reviewing it. He saw that verification skill as increasingly important for teams.",
+          "O’Brien drew a similar boundary around turning demonstrations into dependable software. Prototypes may be inexpensive to generate, but integrations, deployment, maintenance, testing and operation inside customer systems remain demanding. The panel did not equate faster code generation with production readiness or reduced regulatory responsibilities."
+        ]
+      },
+      {
+        "heading": "The new hiring profile and tool stack",
+        "paragraphs": [
+          "Green said Mysa is moving toward candidates with broad initiative, an aptitude for learning and evidence that they already use AI, rather than waiting for workplace training to start. He described junior colleagues who have adopted AI working directly with senior engineers on customer-facing problems in ways that would previously have been unusual.",
+          "O’Brien said Verafin still seeks people with a builder's mindset, whether early in their careers or highly experienced. He saw coding time declining relative to peer review, testing, understanding the customer's problem and production work. King argued for solid technical and business foundations because rapid growth exposes weaknesses faster, not slower.",
+          "On tools, Green described connecting everyday applications such as email, messaging and work documents into an AI environment, with coding tools for development. O’Brien described an internal platform joining company knowledge, communications, policies and access to multiple models. King emphasized a custom model-and-data integration approach and exploration of local models to manage cost and data handling. The precise products named in the machine transcript are not all reliable enough to list definitively."
+        ]
+      },
+      {
+        "heading": "Looking beyond the current job description",
+        "paragraphs": [
+          "In closing, King encouraged people to consider building a personal AI system from journals and other personal records that could preserve information about their goals and working patterns. He presented this as his expectation of a developing opportunity, not a finished product from the panel.",
+          "The panel's shared conclusion was that companies still build software for people. AI can multiply the work an individual can perform, but useful outcomes depend on customer contact, sound judgment, safeguards and a team willing to learn."
+        ]
+      }
+    ],
+    "highlightedInsight": {
+      "heading": "Generation gets cheaper; knowing what to trust gets harder",
+      "explanation": "The clearest trade-off was between speed and verification. AI can draft code and research rapidly, but employees need to understand the domain, test edge cases and decide whether an output is safe and useful in the real customer's environment."
+    },
+    "notableIdeas": [
+      "Mysa's Green described coaching individual departments to redesign their workflows, not simply issuing subscriptions to an AI tool.",
+      "Milk Moovement's King discussed a 48-hour customer-feedback turnaround goal, replacing a process that often took six weeks to two months.",
+      "Verafin's O’Brien described an agentic financial-crime product that lets institutional customers choose which investigation workloads to automate.",
+      "All three discussed connected internal information as a prerequisite for effective AI, with differing approaches to model choice, cost and security."
+    ],
+    "practicalApplications": [
+      "Map a workflow into human problem discovery, documented specifications, AI-assisted execution, independent validation and release. Assign an accountable owner to each stage.",
+      "For a product experiment, set a short feedback deadline and ask real users to respond to a working change while the original problem is still fresh.",
+      "Train reviewers to check assumptions, data integrity, edge cases, permissions and operational integration instead of judging an AI output only by how polished it appears.",
+      "For career preparation, document projects demonstrating initiative, skill with AI tools, user understanding and the ability to test and ship dependable work—not just generate a demo."
+    ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:06:31Z",
+  "updatedAt": "2026-10-20T14:28:03.202Z",
   "eventType": "panel",
   "programme": "conference"
 }
