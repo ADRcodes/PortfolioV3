@@ -16,15 +16,117 @@
     "company-get-building",
     "company-genesis"
   ],
-  "status": "upcoming",
+  "status": "published",
   "summary": {
-    "overview": "",
-    "keyTakeaways": [],
-    "notableIdeas": [],
-    "practicalApplications": []
+    "overview": "Jan Mertlik used a live AI-assisted build to make a practical point: a useful first version of a software product can now be assembled quickly, but the speed comes from clearly framing the problem, keeping the scope small and giving the tools good context. His demonstration centred on a shed-planning idea that could help a builder choose dimensions, generate a materials list and eventually compare local lumber prices. He separated functionality from branding, used visual references to steer design, created reusable brand guidance and pushed a basic version online during the session. The second half introduced Genesis Centre’s T-Minus30, a free 30-day builder sprint meant to move participants from experimenting with AI tools toward shipping something that other people can try.",
+    "keyTakeaways": [
+      {
+        "heading": "Start with one concrete problem and a narrow first version",
+        "explanation": "Jan chose a problem from his own life: planning a shed and working out materials and costs. He explicitly deferred advanced features and brand decisions while building the first functional version. That made the goal understandable enough for an AI coding tool to act on immediately."
+      },
+      {
+        "heading": "Treat context and references as reusable project assets",
+        "explanation": "Instead of repeatedly describing the same product, Jan created project folders and context documents, gathered examples of designs he liked and used brand guidelines to make later AI-generated work more consistent. He demonstrated that screenshots and reference websites can communicate desired layout and interaction better than vague adjectives alone."
+      },
+      {
+        "heading": "Shipping is a separate milestone from building",
+        "explanation": "Jan demonstrated a fast path to getting a prototype online and discussed using AI to guide nontechnical builders. The Genesis speakers then distinguished building a demo, launching it, getting real users and attempting revenue as progressively harder steps. The challenge encourages participants to choose the milestone that fits their experience."
+      }
+    ],
+    "presentations": [
+      {
+        "title": "Jan Mertlik: Building and launching a prototype with AI",
+        "speakerIds": [
+          "speaker-jan-mertlik"
+        ],
+        "explanation": "A live, roughly half-hour walkthrough from idea and project setup to design direction, branding, a functional shed-planning prototype and an initial online launch. The transcript is imperfect, so uncertain tool names, exact prompts and unverified implementation details are not presented as exact instructions.",
+        "sections": [
+          {
+            "heading": "1. Pick a problem you already understand",
+            "paragraphs": [
+              "Jan did not start by inventing a large startup category. He chose a practical issue associated with building a shed: deciding on dimensions and construction options, estimating the lumber and other materials required, and exploring where to buy them affordably. The bigger vision included comparing prices among local suppliers, but the immediate demonstration concentrated on a simpler version.",
+              "The repeatable technique is to state the user’s problem, describe what inputs the person provides and define what the first version should return. Jan also told the AI not to get bogged down in branding or unnecessary complexity at the start."
+            ]
+          },
+          {
+            "heading": "2. Give the coding assistant a place to work—and context to remember",
+            "paragraphs": [
+              "He set up a dedicated project folder and asked the assistant to create a context document for continuing work later. The reason is practical: requirements, product intent and earlier decisions should not have to be reconstructed in every new chat.",
+              "Jan worked with an AI coding workflow and mentioned tools such as Cursor; the recording does not reliably preserve every model or tool selection. The important pattern is clearer than the brand name: start in an organized project, describe the outcome and have the assistant document what matters for the next iteration."
+            ]
+          },
+          {
+            "heading": "3. Separate functionality from visual polish, then use references",
+            "paragraphs": [
+              "Once the core concept was underway, Jan moved to visual direction. He browsed websites for inspiration, looked for layouts and interactive details that suited the product, and asked the AI to use a reference as inspiration rather than copying another company’s website.",
+              "He showed a separate branding pass involving a product name, colours, logo exploration and a reusable brand-guidelines document. He stressed that these guidelines help keep AI-generated output visually consistent, including across later website changes."
+            ]
+          },
+          {
+            "heading": "4. Scope data integration as a next step—not a launch prerequisite",
+            "paragraphs": [
+              "The shed concept included price research for construction materials, and Jan discussed gathering publicly displayed supplier prices and connecting them to the calculator. He also described the possibility of periodically refreshing that information with an automation.",
+              "The recording does not establish that a reliable live supplier integration or recurring automation was completed during the demonstration. Those remained product-development directions, not verified finished capabilities. For a quick launch, the useful lesson is to ship a workable interaction first and add dependable data connections in measured stages."
+            ]
+          },
+          {
+            "heading": "5. Get the prototype online and inspect what actually shipped",
+            "paragraphs": [
+              "Toward the end Jan announced that the site was live. He also noted that the generated result was not precisely what he had asked for, which is an important distinction: a deployed prototype is a starting point for review, not proof of product quality or market demand.",
+              "He recommended using AI as a technical adviser when unfamiliar decisions arise and discussed the trade-offs of simple hosted builders versus more flexible coding workflows as a project grows. His demonstration showed a rapid first pass, but the source does not verify a production-ready product, correct material calculations or a paying customer."
+            ]
+          }
+        ],
+        "highlightedInsight": {
+          "heading": "A fast launch is a sequence of constrained decisions",
+          "explanation": "Jan’s useful workflow was not a single magic prompt. He reduced the initial scope, recorded product context, developed the function first, provided visual examples, established brand consistency and deployed something to inspect. Each step narrowed ambiguity for the next."
+        }
+      },
+      {
+        "title": "Genesis Centre: The T-Minus30 builder sprint",
+        "speakerIds": [
+          "speaker-ed-j-martin",
+          "speaker-kristen-marumoto"
+        ],
+        "explanation": "The Genesis Centre team introduced a free 30-day AI builder sprint with tools, community support and several possible definitions of success.",
+        "sections": [
+          {
+            "heading": "A sprint that measures progress beyond writing a prototype",
+            "paragraphs": [
+              "Ed J. Martin described the gap between people who have built an AI-assisted tool, those who have published one, those who have reached actual users and those who have attempted to earn revenue. The sprint is intended to help builders take the next step rather than simply accumulate demonstrations.",
+              "The programme presentation described several goals, from making a first demo to putting something in front of users and attempting a sale. Participants were encouraged to choose a realistic goal for their level rather than treating immediate revenue as mandatory."
+            ]
+          },
+          {
+            "heading": "Tools, support and dates announced",
+            "paragraphs": [
+              "The organizers described AI-tool access or credits for registered participants, a Slack community, advisory support and in-person open-build gatherings. The transcript mentions Claude and optional additional development tools, but specific entitlements should be confirmed in the registration materials.",
+              "The session announced a registration deadline that Wednesday following the October 19 launch and a November 18 project submission and show-and-tell milestone. These were event announcements made at the time of the recording, not an independently verified current registration offer.",
+              "The organizers stressed building alongside other people, showing rough work early and getting feedback from real users. Even without becoming a startup founder, participants could use the exercise to develop practical product-building skills."
+            ]
+          }
+        ]
+      }
+    ],
+    "highlightedInsight": {
+      "heading": "The launch shortcut is clarity, not skipping validation",
+      "explanation": "Jan demonstrated that AI can compress the time between a problem statement and a deployed prototype. Genesis emphasized the next hurdle: getting someone else to use it. A quick launch becomes more valuable when it is treated as the beginning of a feedback loop."
+    },
+    "practicalApplications": [
+      "Practical checklist derived from Jan’s demonstration: write a one-paragraph problem statement, define the simplest useful output, make a dedicated project folder and ask the coding assistant to maintain a short context document.",
+      "Give the assistant clear boundaries: build essential functionality first; postpone complex integrations, polish and extra features until the main interaction can be tested.",
+      "Collect two or three visual reference examples, identify the specific layout or interaction patterns you like and create a concise reusable brand/style guide instead of repeating design instructions in each prompt.",
+      "Deploy an early version, inspect it personally and record gaps between the request and what the AI actually produced before adding more functionality.",
+      "Editorial extension: ask one real prospective user to try the deployed version, watch where they struggle and decide the next improvement from that observation instead of from aesthetics alone."
+    ],
+    "notableIdeas": [
+      "Jan explored a product name and logo live, showing branding as a separate AI-assisted workflow rather than a prerequisite to the initial functional build.",
+      "He suggested that AI could periodically refresh supplier pricing for a materials calculator; that automation was described as a future enhancement, not demonstrated as a completed system.",
+      "The Genesis speakers treated first builds, live releases, user feedback and revenue attempts as distinct achievements."
+    ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:06:31Z",
+  "updatedAt": "2026-10-20T00:42:44.795Z",
   "eventType": "workshop",
   "programme": "conference"
 }
