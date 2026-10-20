@@ -31,14 +31,14 @@
       },
       {
         "heading": "Talent that thrives with ambiguity is a growth bottleneck",
-        "explanation": "Both speakers said finding the right employees had become one of their biggest constraints. Young valued people who take ownership, act with limited supervision, learn quickly and accept changing responsibilities. He also stressed that the required balance of specialist experience and transferable soft skills differs by role."
+        "explanation": "Both speakers said finding the right employees had become one of their biggest constraints. Young valued people who take ownership, act with limited supervision, learn quickly and accept changing responsibilities. She also stressed that the required balance of specialist experience and transferable soft skills differs by role."
       }
     ],
     "detailedSummary": [
       {
         "heading": "A narrow beginning gives a company the right to expand",
         "paragraphs": [
-          "Young described CoLab’s original focus on the communication difficulties of engineers collaborating on complex mechanical designs. Rather than trying to serve every manufacturing market at once, the company concentrated on a comparatively narrow group of industrial equipment customers and use cases. His argument was that an early company needs to be disciplined enough to reject many attractive opportunities.",
+          "Young described CoLab’s original focus on the communication difficulties of engineers collaborating on complex mechanical designs. Rather than trying to serve every manufacturing market at once, the company concentrated on a comparatively narrow group of industrial equipment customers and use cases. Her argument was that an early company needs to be disciplined enough to reject many attractive opportunities.",
           "As the business grows, however, doing only what worked in the first years may limit its future. Young said new product and market choices should be assessed against a five- or ten-year vision, then worked backward to decide what belongs in the next phase. Gardner similarly warned against spending attention on small, satisfying fires that do not help win customers or advance the business."
         ]
       },
@@ -53,27 +53,27 @@
         "heading": "AI has changed the economics of experimentation",
         "paragraphs": [
           "Gardner described much faster feature development with AI-assisted engineering, including an example of work once scheduled far into the roadmap being prototyped much sooner. He also pointed out that the savings in developer time do not eliminate costs such as model or token usage.",
-          "Young said cheaper, faster implementation encourages his team to test more ideas directly. Where a six-month project once allowed months of discussion before release, a much shorter development cycle changes how product teams collect evidence. The result is not that validation disappears, but that working experiments can play a larger part in discovery."
+          "Young said cheaper, faster implementation encourages her team to test more ideas directly. Where a six-month project once allowed months of discussion before release, a much shorter development cycle changes how product teams collect evidence. The result is not that validation disappears, but that working experiments can play a larger part in discovery."
         ]
       },
       {
         "heading": "What breaks when headcount grows",
         "paragraphs": [
           "The panellists identified shared decision-making and ambiguous ownership as growing pains. In a small team, nearly everyone can be involved in important discussions and feel responsible for the whole company. With hundreds of employees, that approach slows decisions and leaves accountability unclear.",
-          "Young argued that leaders must create room for others to own decisions, make mistakes and learn, even when the founder believes they know how to do the work themselves. He described repeatedly handing responsibilities to new specialists and then moving into the next unfamiliar challenge. Gardner described similarly changing roles and hierarchies as Spellbook expanded. Both cautioned against assuming that a fast-growing company has tidy, settled processes behind its public success."
+          "Young argued that leaders must create room for others to own decisions, make mistakes and learn, even when the founder believes they know how to do the work themselves. She described repeatedly handing responsibilities to new specialists and then moving into the next unfamiliar challenge. Gardner described similarly changing roles and hierarchies as Spellbook expanded. Both cautioned against assuming that a fast-growing company has tidy, settled processes behind its public success."
         ]
       },
       {
         "heading": "Hiring for stretch, self-direction and the changing role",
         "paragraphs": [
           "Asked directly what makes a strong new hire, Gardner emphasized tolerance for chaos, comfort with ambiguity and the ability to take a clearly defined outcome and drive it with little supervision. Young agreed on the importance of independent ownership but made a distinction between roles: some functions have established training processes and rely heavily on soft skills, while others still require rare combinations of domain expertise, startup experience and personal initiative.",
-          "Young said CoLab has had notable success hiring people into stretch roles—individuals who had not performed the exact position or operated at the same scale before, but were eager to learn and willing to work directly on hard problems. He contrasted this with the risk of bringing in an experienced leader who expects to manage from a distance rather than get involved. Both speakers described recruiting as slow and difficult because candidates also have to want the uncertainty of a high-growth environment."
+          "Young said CoLab has had notable success hiring people into stretch roles—individuals who had not performed the exact position or operated at the same scale before, but were eager to learn and willing to work directly on hard problems. She contrasted this with the risk of bringing in an experienced leader who expects to manage from a distance rather than get involved. Both speakers described recruiting as slow and difficult because candidates also have to want the uncertainty of a high-growth environment."
         ]
       }
     ],
     "highlightedInsight": {
       "heading": "Ownership cannot scale unless leaders actually hand it over",
-      "explanation": "Young’s distinction was not simply that startups need proactive employees. He argued that leaders must allow those people to exercise judgment, make mistakes and own outcomes. Otherwise, the very behaviour the organization wants to hire for is constrained by its management habits."
+      "explanation": "Young’s distinction was not simply that startups need proactive employees. She argued that leaders must allow those people to exercise judgment, make mistakes and own outcomes. Otherwise, the very behaviour the organization wants to hire for is constrained by its management habits."
     },
     "notableIdeas": [
       "CoLab’s narrow early market focus on industrial equipment made a later expansion of its product strategy more deliberate.",
@@ -89,7 +89,7 @@
     ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-20T13:51:34.069Z",
+  "updatedAt": "2026-10-20T13:58:07.382Z",
   "eventType": "panel",
   "programme": "conference"
 }
