@@ -40,18 +40,16 @@ export default function SummitHome() {
         <p className="summit-event-details"><span className="summit-event-date"><time dateTime="2026-10-19">October 19</time>–<time dateTime="2026-10-20">20, 2026</time></span><span className="summit-event-location">St. John’s Convention Centre</span></p>
       </div>
       <div className="summit-intro-content">
-        <div className="summit-intro-lead">
-          <p className="summit-intro-purpose">Find your sessions.<br />Catch up on the ideas.</p>
+        <div className="summit-personal-note">
+          <p>I built this little companion to help us get more out of the Summit.</p>
+          <p className="summit-note-directions">Find your next session.<br />Come back for the notes.</p>
           {sessions.length > 0 && <button className="summit-explore-agenda" onClick={() => {
             const target = document.getElementById(hasNotes ? 'summit-recent-summaries' : 'summit-agenda-start');
             target?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
             target?.focus({ preventScroll: true });
           }}><span>{hasNotes ? 'Catch up on the sessions' : 'Explore the agenda'}</span><ArrowDown size={22} aria-hidden="true" /></button>}
-        </div>
-        <div className="summit-personal-note">
-          <p>A personal companion I built for fellow attendees.</p>
           <div className="summit-note-signature"><Link to="/">— Alex Russell</Link><a href="https://www.linkedin.com/in/alex-russell-info" target="_blank" rel="noreferrer" aria-label="Alex Russell on LinkedIn (opens in a new tab)"><Linkedin size={19} aria-hidden="true" /></a></div>
-          <p className="summit-note-small">Independent and AI-assisted.<br />Not affiliated with techNL.</p>
+          <p className="summit-note-small">An independent project, not affiliated with techNL.<br />And, fittingly, built with AI.</p>
         </div>
       </div>
     </header>

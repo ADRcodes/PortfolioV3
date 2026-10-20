@@ -1,6 +1,6 @@
 # techNL Summit visual hierarchy review
 
-Review branch: `refine/summit-visual-hierarchy`. Baseline: production main `19c04c5`. Nothing is pushed or deployed for this review.
+Initial review branch: `refine/summit-visual-hierarchy` at `946ed17`. Baseline: production main `19c04c5`. The comparisons below document that first draft. The owner subsequently authorized publication after the personal-voice/right-alignment follow-up described below.
 
 Open [the screenshot comparison](index.html) to switch between nine views at 1440 × 960, 390 × 844 and 320 × 844. Images are also linked directly by their before/after filenames. Screenshots use reduced motion for consistent static comparisons; normal-motion navigation was tested separately.
 
@@ -50,3 +50,9 @@ No content-schema, publication, deployment, routing, clock, carousel or shared-e
 - Live desktop/mobile browser inspection was attempted but blocked by the cloud proxy (`ERR_TUNNEL_CONNECTION_FAILED`). External image hosts are similarly restricted; their loading is not claimed as verified. Screenshots compare two builds from the actual repository under matching conditions.
 
 See [browser results](qa.json) and [identity/contrast/baseline results](extra-qa.json). To inspect the current working result locally: `pnpm build`, then `pnpm preview --host 127.0.0.1 --port 4178 --strictPort`, and open `/technlsummit`. The comparison gallery itself is a local review artifact, not shipped site UI.
+
+## Personal-voice follow-up authorized for publication
+
+Restored “I built this little companion to help us get more out of the Summit,” the practical two-line directions and “And, fittingly, built with AI.” Removed the generic left-hand purpose statement. The welcome, filled button, signature and disclosure now form one right-aligned group on desktop and mobile. The opening has 53 words, retaining the character of the original 62-word version while keeping the clearer primary action and content-sized layout.
+
+Current screenshots: [1440px](published-home-1440.png), [390px](published-home-390.png), [320px](published-home-320.png). These supersede the initial after-home screenshots for the release. All 80 tests and the production build passed after merging the latest article/profile publications from main. Browser checks confirmed right alignment, no overflow, visible 56px CTA, focus/navigation, notes filtering and a usable action at 320×568. No browser JavaScript errors were observed. The owner explicitly requested pushing this version to main to assess it live.

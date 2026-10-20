@@ -133,3 +133,5 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 ## Summit visual hierarchy refinement (review branch)
 
 - [x] Simplify the opening around one content-driven primary action, retain the animated identity and personal credit/disclosures, strengthen recent-notes/agenda hierarchy and refine secondary metadata, articles and profiles. Verify 1440/390/320px, navigation, reduced motion and publication compatibility; capture before/after review artifacts and commit on `refine/summit-visual-hierarchy` without pushing or deploying.
+
+- [x] Restore the original welcome's personal voice and right alignment at desktop/mobile sizes, retain the clearer CTA, merge current article publications, verify and publish to main under the owner's follow-up authorization.

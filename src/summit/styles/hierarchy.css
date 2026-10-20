@@ -3,15 +3,15 @@
 .summit-app .summit-agenda-intro { min-height: 0; justify-content: flex-start; padding-block: clamp(3rem, 8svh, 6rem) clamp(3rem, 6svh, 5rem); }
 .summit-app .summit-intro-event { margin-bottom: 0; }
 .summit-app .summit-intro-event .summit-event-details { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; font-size: 1rem; }
-.summit-app .summit-intro-content { display: grid; grid-template-columns: 1.5fr 1fr; align-items: end; gap: 3rem; width: 100%; margin-top: 0; padding-top: clamp(3rem, 8svh, 6rem); }
-.summit-app .summit-intro-purpose { font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.18; letter-spacing: -.035em; margin: 0 0 1.75rem; }
+.summit-app .summit-intro-content { width: 100%; padding-top: clamp(3rem, 8svh, 6rem); }
 .summit-app .summit-explore-agenda { display: inline-flex; gap: 1.5rem; min-height: 56px; padding: .875rem 1.25rem; color: var(--summit-ink); background: var(--summit-accent); font-size: 1.0625rem; font-weight: 600; text-align: left; }
 .summit-app .summit-explore-agenda:focus-visible { outline: 2px solid var(--summit-accent); outline-offset: 5px; }
 .summit-app .summit-explore-agenda:hover { background: #f7d4b4; }
 .summit-app .summit-explore-agenda svg { animation: none; }
-.summit-app .summit-personal-note { width: 100%; max-width: 31ch; margin: 0 0 0 auto; }
-.summit-app .summit-personal-note p:first-child { max-width: none; margin: 0; font-size: 1.0625rem; line-height: 1.5; letter-spacing: 0; }
-.summit-app .summit-note-signature { margin-block: .5rem; font-size: 1.25rem; }
+.summit-app .summit-personal-note { width: 100%; max-width: 40rem; margin: 0 0 0 auto; text-align: right; }
+.summit-app .summit-personal-note p:first-child { max-width: none; margin: 0; font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.3; letter-spacing: -.025em; }
+.summit-app .summit-personal-note .summit-note-directions { font-size: 1.125rem; line-height: 1.5; margin-block: 1rem 1.25rem; }
+.summit-app .summit-note-signature { justify-content: flex-end; margin-block: .75rem; font-size: 1.5rem; }
 .summit-app .summit-personal-note .summit-note-small { margin: 0; max-width: none; font-size: .875rem; line-height: 1.5; }
 .summit-app .summit-recent-summaries { padding-block: 4rem; margin-bottom: 0; scroll-margin-top: calc(var(--summit-header-height) + 1rem); }
 .summit-app .summit-section-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: .5rem 2rem; margin-bottom: 1.75rem; }
@@ -59,20 +59,17 @@
   .summit-app .summit-profile-hero { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
   .summit-app .summit-profile-media { min-height: 26rem; }
 }
-@media (max-width: 60rem) {
-  .summit-app .summit-intro-content { grid-template-columns: 1.2fr 1fr; gap: 2rem; }
-}
 @media (max-width: 40rem) {
   .summit-app .summit-agenda-intro { padding-block: 3rem 2.5rem; }
   .summit-app .summit-agenda-intro h1 { font-size: clamp(2.75rem, 12vw, 3.5rem); }
   .summit-app .summit-intro-event .summit-event-details { display: block; font-size: .9375rem; }
-  .summit-app .summit-intro-content { grid-template-columns: 1fr; gap: 2.25rem; padding-top: 2.5rem; }
-  .summit-app .summit-intro-purpose { font-size: 1.875rem; margin-bottom: 1.25rem; }
+  .summit-app .summit-intro-content { padding-top: 2.5rem; }
   .summit-app .summit-explore-agenda { width: fit-content; gap: 1rem; padding-inline: 1rem; font-size: 1rem; }
-  .summit-app .summit-personal-note { max-width: 30ch; margin: 0; text-align: left; }
-  .summit-app .summit-personal-note p:first-child { font-size: 1rem; }
-  .summit-app .summit-note-signature { justify-content: flex-start; font-size: 1.125rem; margin-block: .25rem; }
-  .summit-app .summit-personal-note p { margin-left: 0; }
+  .summit-app .summit-personal-note { max-width: 30ch; margin: 0 0 0 auto; text-align: right; }
+  .summit-app .summit-personal-note p:first-child { font-size: 1.375rem; }
+  .summit-app .summit-personal-note .summit-note-directions { font-size: 1rem; }
+  .summit-app .summit-note-signature { justify-content: flex-end; font-size: 1.25rem; margin-block: .5rem; }
+  .summit-app .summit-personal-note p { margin-left: auto; }
   .summit-app .summit-recent-summaries { padding-block: 2.5rem; }
   .summit-app .summit-recent-list { grid-template-columns: 1fr; gap: .5rem; }
   .summit-app .summit-recent-item:first-child { padding: 1.25rem; }

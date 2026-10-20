@@ -417,9 +417,9 @@ test('intro keeps secondary event details and a compact personal disclosure with
   assert.ok(afterHeading.indexOf('summit-intro-event') < afterHeading.indexOf('summit-personal-note'));
   assert.ok(afterHeading.includes('summit-event-date') && afterHeading.includes('summit-event-location'));
   assert.ok(!html.includes('href="https://technl.ca/technlsummit26/"'));
-  assert.ok(html.includes('A personal companion I built for fellow attendees.'));
-  assert.ok(html.includes('Independent and AI-assisted.'));
-  assert.ok(html.includes('Not affiliated with techNL.'));
+  assert.ok(html.includes('I built this little companion to help us get more out of the Summit.'));
+  assert.ok(html.includes('And, fittingly, built with AI.'));
+  assert.ok(html.includes('An independent project, not affiliated with techNL.'));
 });
 
 
