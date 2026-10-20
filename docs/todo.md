@@ -121,3 +121,7 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 ## Summit QR sharing (October 19, 2026)
 
 - [x] Add top-bar QR sharing on desktop/mobile, an accessible modal with copy/native sharing, locally generated QR assets and a high-resolution iPhone wallpaper; verify decoding, keyboard/focus, mobile layout and existing navigation without deployment.
+
+## Summit speaker quotations (October 20, 2026)
+
+- [x] Add selected owner-supplied transcript quotations to speaker perspectives, preserving wording and visible audio-verification caveats. Use labelled article paraphrases for excluded/uncertain quotes; verify publication filtering, responsive profiles and existing navigation before publishing.

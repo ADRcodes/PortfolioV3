@@ -1,5 +1,26 @@
 # Summit 2026 agenda sources
 
+## Speaker perspective quotations (20 October 2026)
+
+Source: the owner's supplied **techNL Summit 2026 — Speaker Quote Candidates for Codex**, containing selected excerpts from machine-generated transcripts. These excerpts were not independently checked against the original audio. “High” means confidence in attribution and fidelity to the supplied transcript, not verified verbatim audio accuracy. The displayed quotations preserve the supplied wording, punctuation and casing; contextual summaries are editorial paraphrases grounded in the existing published articles. No raw transcript, audio or private source link is published.
+
+| Existing speaker ID | Session slug | Selected candidates | Attribution evidence supplied | Internal transcript filename (audit reference only) |
+| --- | --- | --- | --- | --- |
+| `speaker-taylor-young` | `unicorns-in-the-making` | 1 (ownership), 3 (product discovery) | High; delegation/hiring turn ends before next speaker label; response follows Chris's feature-usage discussion. | `Scaling Fast Growth Tech Panel_transcript.txt` |
+| `speaker-chris-gardner` | `unicorns-in-the-making` | 5 (hiring amid chaos) | High; distinct turn answering the direct hiring question. | `Scaling Fast Growth Tech Panel_transcript.txt` |
+| `speaker-lucy-hargreaves` | `build-in-canada-stay-in-canada` | 6 (building in Canada) | High; response to the vision question. | `Build in Canada Panel Discussion_transcript.txt` |
+| `speaker-andrea-king` | `summit-launch` | 8 (people behind growth), 9 (honest feedback) | High; uninterrupted opening remarks and closing invitation within those remarks. | `TechNL Event Remarks and Interview_transcript.txt` |
+| `speaker-curtis-jennings` | `internal-innovation` | 10 (domain knowledge) | High; energy-system answer introduced by the moderator. | `Internal Software Product Innovation Panel_transcript(1).txt` |
+| `speaker-sheena-fiander` | `internal-innovation` | 11 (service first) | High; reply to the moderator's closing practical-advice question. | `Internal Software Product Innovation Panel_transcript(1).txt` |
+
+Selection omissions: Taylor's candidate 2 was less distinctive than the selected pair; Lucy's “speed matters” is too generic without its surrounding explanation; Chris's candidate 4 contains the apparent recognition error “acting the customer”; Tony Wakeham's medium-confidence “one-stop shop” is too short and context-dependent. None was repaired or expanded inside quotation marks.
+
+Tony Wakeham, Jan Mertlik, Jon King, Phil O'Brien and Zach Green instead receive clearly labelled paraphrases drawn from their existing published articles, in line with the supplied exclusions. James Geneau's existing article-grounded paraphrase remains and gains the same visible label. No direct quotes were generated for Funding for Talent or the Startup Validation/Assumption Trap panel.
+
+Andrea's quotes belong to the **Summit Launch opening remarks**, not the following Premier interview in the same source recording. The published Summit Launch article already identifies her as the speaker. Its formerly empty `speakerIds` now includes her existing profile ID so that the source link and published-session attribution guard resolve correctly; the advertised description, schedule, article prose and all other session records are preserved.
+
+## Original agenda import
+
 Verified on 17 October 2026 against the organiser's current public programme:
 
 - [Official techNL Summit 2026 agenda and speaker listings](https://technl.ca/technlsummit26/#tnl-agenda).

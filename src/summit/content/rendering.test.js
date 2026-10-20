@@ -252,6 +252,14 @@ test('speaker profiles show opted-in perspectives with current article links; ot
     for (const perspective of speaker.summitPerspectives) {
       assert.ok(html.includes(perspective.summary.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll("'", '&#x27;').replaceAll('"', '&quot;')));
       assert.ok(html.includes(`href="/technlsummit/sessions/${perspective.sessionSlug}"`));
+      if (perspective.quote) {
+        assert.ok(html.includes(perspective.quote.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll("'", '&#x27;').replaceAll('"', '&quot;')));
+        assert.ok(html.includes('Machine-transcript excerpt; not checked against the original audio.'));
+        assert.ok(html.includes('<blockquote>'));
+        assert.ok(html.includes('<figcaption>— '));
+      } else {
+        assert.ok(html.includes('Paraphrased perspective: '));
+      }
     }
     assert.ok(html.includes('Read the full session notes'));
     assert.ok(html.includes('At the Summit'));
@@ -277,6 +285,15 @@ test('perspective rendering escapes text, supports optional dates, and hides wit
   assert.ok(!html.includes('<script>'));
   assert.ok(html.includes('<time dateTime="2026-10-19T18:00:00Z"'));
   assert.ok(html.includes('href="/technlsummit/sessions/source-session"'));
+  assert.ok(!html.includes('<blockquote>'));
+  const quoted = render({ ...speaker, name: 'Speaker <name>', summitPerspectives: [{ ...speaker.summitPerspectives[0], quote: '<script>A fictional test quote</script>' }] }, [session]);
+  assert.ok(quoted.includes('<blockquote><p>“&lt;script&gt;A fictional test quote&lt;/script&gt;”</p></blockquote>'));
+  assert.ok(quoted.includes('<figcaption>— Speaker &lt;name&gt;'));
+  assert.ok(quoted.includes('Machine-transcript excerpt; not checked against the original audio.'));
+  assert.ok(quoted.includes('Source: '));
+  assert.ok(!quoted.includes('Paraphrased perspective: '));
+  assert.ok(html.includes('Paraphrased perspective: '));
+  assert.ok(!quoted.includes('<script>'));
   for (const status of ['upcoming', 'draft']) assert.equal(render(speaker, [{ ...session, status }]), '');
   assert.equal(render(speaker, [{ ...session, speakerIds: [] }]), '');
   assert.equal(render(speaker, []), '');

@@ -50,6 +50,7 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
       (speaker.summitPerspectives ??= []).push({
         sessionSlug: `test-${marker}`, summary: `${marker} perspective insight`,
         heading: `${marker} perspective heading`, publishedAt: '2026-10-19T12:00:00Z',
+        quote: `${marker} perspective quotation`,
         privateEditorialNote: `${marker} private-perspective-field`,
       });
     }
@@ -63,9 +64,11 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
     for (const status of ['draft', 'upcoming']) assert.ok(!built.includes(`https://example.com/${status}-${token}/recording`));
     assert.ok(built.includes(`published-${token} perspective insight`));
     assert.ok(built.includes(`published-${token} perspective heading`));
+    assert.ok(built.includes(`published-${token} perspective quotation`));
     for (const status of ['draft', 'upcoming']) {
       assert.ok(!built.includes(`${status}-${token} perspective insight`));
       assert.ok(!built.includes(`${status}-${token} perspective heading`));
+      assert.ok(!built.includes(`${status}-${token} perspective quotation`));
     }
     assert.ok(!built.includes(`${token} private-perspective-field`));
     const manifest = JSON.parse(await readFile(join(output, 'summit-previews.json'), 'utf8'));

@@ -21,7 +21,7 @@ test('legacy speakers keep their data shape and absent or empty perspectives res
 
 test('perspectives resolve current session titles, preserve editorial order and expose only supported public fields', () => {
   const item = { ...speaker, summitPerspectives: [
-    { ...perspective, sessionTitle: 'An obsolete title', heading: 'A short label', publishedAt: '2026-10-19T18:29:03.875Z', privateEditorialNote: 'Do not publish' },
+    { ...perspective, sessionTitle: 'An obsolete title', heading: 'A short label', quote: 'A fictional test quotation.', publishedAt: '2026-10-19T18:29:03.875Z', privateEditorialNote: 'Do not publish' },
     { ...perspective, summary: 'Another insight from the same session.' },
   ] };
   validateSpeakerPerspectives(item);
@@ -29,11 +29,19 @@ test('perspectives resolve current session titles, preserve editorial order and 
   assert.equal(result.length, 2);
   assert.equal(result[0].sessionTitle, 'Current article title');
   assert.equal(result[0].heading, 'A short label');
+  assert.equal(result[0].quote, 'A fictional test quotation.');
+  assert.equal('quote' in result[1], false);
   assert.equal(result[0].publishedAt, '2026-10-19T18:29:03.875Z');
   assert.equal(result[1].summary, 'Another insight from the same session.');
   assert.equal('privateEditorialNote' in result[0], false);
   assert.equal('heading' in result[1], false);
   assert.equal(item.summitPerspectives[0].sessionTitle, 'An obsolete title');
+});
+
+test('optional quotations must contain nonempty plain text', () => {
+  for (const quote of [null, '', '  ', 42, {}, []]) {
+    assert.throws(() => validateSpeakerPerspectives({ ...speaker, summitPerspectives: [{ ...perspective, quote }] }), /speaker-test\.summitPerspectives \[0\]\.quote/);
+  }
 });
 
 test('unpublished, missing and unrelated session references are safely hidden before public content is returned', () => {

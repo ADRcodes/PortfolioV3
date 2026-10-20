@@ -7,7 +7,9 @@
   "endTime": "09:15",
   "location": "Bowring Ballroom",
   "description": "Opening of the Summit’s mainstage programme, titled Leading from the Edge. No individual presenters are listed in the published agenda.",
-  "speakerIds": [],
+  "speakerIds": [
+    "speaker-andrea-king"
+  ],
   "companyIds": [
     "company-technl"
   ],

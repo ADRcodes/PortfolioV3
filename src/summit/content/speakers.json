@@ -738,7 +738,15 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/10/Curtis-Jennings.png",
-    "imageAlt": "Portrait of Curtis Jennings"
+    "imageAlt": "Portrait of Curtis Jennings",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "internal-innovation",
+        "heading": "Domain knowledge as a starting point",
+        "quote": "we focus a lot on the physics right and so we understand how these energy systems work",
+        "summary": "Jennings described how Angler Solutions’ energy-system expertise helped reveal a modelling opportunity, while software-product development required additional capabilities."
+      }
+    ]
   },
   {
     "id": "speaker-sheena-fiander",
@@ -759,7 +767,15 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/10/Sheena-Fiander.png",
-    "imageAlt": "Portrait of Sheena Fiander"
+    "imageAlt": "Portrait of Sheena Fiander",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "internal-innovation",
+        "heading": "Service before software",
+        "quote": "taking an approach of service first and then kind of product second",
+        "summary": "Fiander described learning from frontline healthcare workflows and automating individual steps after the service process was understood."
+      }
+    ]
   },
   {
     "id": "speaker-liam-flanagan",
@@ -885,7 +901,14 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/JanMertlik.png",
-    "imageAlt": "Portrait of Jan Mertlik"
+    "imageAlt": "Portrait of Jan Mertlik",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "essential-ai-tools-and-t-minus30-launch",
+        "heading": "A narrow first version",
+        "summary": "Mertlik’s shed-planning demonstration started with a concrete problem and a small functional version, postponing branding and complex integrations. Getting the prototype online was a starting point for inspection, not proof of production readiness."
+      }
+    ]
   },
   {
     "id": "speaker-ed-j-martin",
@@ -1002,7 +1025,14 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/10/Tony-Wakeham-.png",
-    "imageAlt": "Portrait of Honourable Tony Wakeham"
+    "imageAlt": "Portrait of Honourable Tony Wakeham",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "tech-at-the-table",
+        "heading": "Simpler government processes",
+        "summary": "Wakeham favoured more coordinated access to government services and fewer repetitive administrative steps. The discussion offered a direction rather than a finished service model, rollout date or change in procurement rules."
+      }
+    ]
   },
   {
     "id": "speaker-andrea-king",
@@ -1027,7 +1057,21 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/10/Andrea-King.png",
-    "imageAlt": "Portrait of Andrea King"
+    "imageAlt": "Portrait of Andrea King",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "summit-launch",
+        "heading": "The people behind growth",
+        "quote": "behind the numbers are real people, right?",
+        "summary": "King connected technology-sector growth to individual decisions: starting a company, backing an unfamiliar idea and helping other founders."
+      },
+      {
+        "sessionSlug": "summit-launch",
+        "heading": "Honest feedback",
+        "quote": "I welcome all of the candid, honest conversations. I think that’s the only way that we can get better, is by being honest with each other.",
+        "summary": "King invited direct criticism of techNL’s priorities and practical feedback about the support local companies need."
+      }
+    ]
   },
   {
     "id": "speaker-taylor-young",
@@ -1048,7 +1092,21 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/Taylor-Young.png",
-    "imageAlt": "Portrait of Taylor Young"
+    "imageAlt": "Portrait of Taylor Young",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "unicorns-in-the-making",
+        "heading": "Ownership and self-direction",
+        "quote": "ownership is so critical when you’re trying to do a thousand things at once.",
+        "summary": "Young described hiring people who take responsibility and giving them room to make decisions as CoLab grows."
+      },
+      {
+        "sessionSlug": "unicorns-in-the-making",
+        "heading": "Customer problems before solutions",
+        "quote": "customers tell you the problems. Then generally we show them potential solutions",
+        "summary": "Young distinguished understanding a customer’s problem from asking that customer to prescribe the product. CoLab tests possible solutions with the people using them."
+      }
+    ]
   },
   {
     "id": "speaker-chris-gardner",
@@ -1069,7 +1127,15 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/Chris-Gardner.png",
-    "imageAlt": "Portrait of Chris Gardner"
+    "imageAlt": "Portrait of Chris Gardner",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "unicorns-in-the-making",
+        "heading": "Hiring for growth",
+        "quote": "there has to be a certain amount of tolerance for chaos.",
+        "summary": "Gardner emphasized comfort with ambiguity and the ability to pursue a defined outcome with limited supervision in a fast-growing company."
+      }
+    ]
   },
   {
     "id": "speaker-amanda-perran",
@@ -1111,7 +1177,15 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/Lucy-Hargreaves.png",
-    "imageAlt": "Portrait of Lucy Hargreaves"
+    "imageAlt": "Portrait of Lucy Hargreaves",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "build-in-canada-stay-in-canada",
+        "heading": "A place to build and stay",
+        "quote": "Canadians really feeling like Canada is the best place to stay and to grow and to build a business.",
+        "summary": "Hargreaves described an ecosystem of capital, mentors, customers and faster decisions that could help Canadian founders grow at home. This was Build Canada’s vision, not an announced government policy."
+      }
+    ]
   },
   {
     "id": "speaker-johanna-brown",
@@ -1149,7 +1223,14 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/JonKing.png",
-    "imageAlt": "Portrait of Jon King"
+    "imageAlt": "Portrait of Jon King",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "the-new-org-chart",
+        "heading": "Keep customer feedback close to the problem",
+        "summary": "King described a goal of returning a revised product view to customers within about 48 hours, while the problem was still fresh. The article presents this as a target operating approach, not proof that every product can be delivered that quickly."
+      }
+    ]
   },
   {
     "id": "speaker-zach-green",
@@ -1170,7 +1251,14 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/10/Zachary-Green-2.png",
-    "imageAlt": "Portrait of Zach Green"
+    "imageAlt": "Portrait of Zach Green",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "the-new-org-chart",
+        "heading": "Human judgment at both ends of an AI workflow",
+        "summary": "Green described people investigating customer needs and writing specifications, AI supporting execution, and people returning to validate, integrate, test and release the result."
+      }
+    ]
   },
   {
     "id": "speaker-phil-o-brien",
@@ -1191,7 +1279,14 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/10/Phil-Obrien-.png",
-    "imageAlt": "Portrait of Phil O'Brien"
+    "imageAlt": "Portrait of Phil O'Brien",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "the-new-org-chart",
+        "heading": "A prototype still needs a path to production",
+        "summary": "O’Brien emphasized that integrations, deployment, maintenance and testing remain demanding even when AI makes prototypes faster to generate."
+      }
+    ]
   },
   {
     "id": "speaker-josh-quinton",

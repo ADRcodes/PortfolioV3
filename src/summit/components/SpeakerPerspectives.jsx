@@ -12,9 +12,15 @@ export default function SpeakerPerspectives({ speaker, sessions }) {
   return <section className="summit-profile-section summit-perspectives" aria-labelledby="summit-perspectives-heading">
     <h2 id="summit-perspectives-heading">Perspectives from the Summit</h2>
     <ul>{perspectives.map((perspective, index) => <li key={`${perspective.sessionSlug}-${index}`}>
-      <h3>{perspective.sessionTitle}</h3>
+      <h3>{perspective.quote && <span className="summit-perspective-source">Source: </span>}{perspective.sessionTitle}</h3>
       {perspective.heading && <p className="summit-perspective-label">{perspective.heading}</p>}
-      <p>{perspective.summary}</p>
+      {perspective.quote && <figure className="summit-perspective-quote">
+        <blockquote><p>“{perspective.quote}”</p></blockquote>
+        <figcaption>— {speaker.name}
+          <span className="summit-perspective-source">Machine-transcript excerpt; not checked against the original audio.</span>
+        </figcaption>
+      </figure>}
+      <p>{!perspective.quote && <span className="summit-perspective-source">Paraphrased perspective: </span>}{perspective.summary}</p>
       <div className="summit-perspective-footer">
         <Link to={summitPath(`sessions/${perspective.sessionSlug}`)}>Read the full session notes <ArrowUpRight size={17} aria-hidden="true" /></Link>
         {perspective.publishedAt && <time dateTime={perspective.publishedAt}>{dateFormat.format(new Date(perspective.publishedAt))}</time>}
