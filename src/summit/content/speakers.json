@@ -1450,7 +1450,24 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/Aswin.png",
-    "imageAlt": "Portrait of Aswinkumar Rajendiran"
+    "imageAlt": "Portrait of Aswinkumar Rajendiran",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "go-broad-or-go-deep",
+        "heading": "Revenue data defines Measure's boundaries",
+        "summary": "Rajendiran said Measure serves workflows across sales and finance when they share revenue data, but rejects unrelated features that dilute the product's purpose."
+      },
+      {
+        "sessionSlug": "go-broad-or-go-deep",
+        "heading": "Building is not the same as distribution",
+        "summary": "AI can make features cheaper to produce without solving who will buy, why they will switch or how the company will reach them."
+      },
+      {
+        "sessionSlug": "go-broad-or-go-deep",
+        "heading": "Overcome buyer inertia",
+        "summary": "He emphasized that a new solution must be meaningfully better than the existing approach for customers to accept the disruption of changing systems."
+      }
+    ]
   },
   {
     "id": "speaker-carlos-coelho",
@@ -1475,7 +1492,24 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/Carlos.png",
-    "imageAlt": "Portrait of Carlos Coelho"
+    "imageAlt": "Portrait of Carlos Coelho",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "go-broad-or-go-deep",
+        "heading": "Specialization makes service dependable",
+        "summary": "Coelho described Boast's decision to prioritize SR&ED tax credits over general grant services to retain expertise and reliable processes."
+      },
+      {
+        "sessionSlug": "go-broad-or-go-deep",
+        "heading": "Technical specialists remain important despite automation",
+        "summary": "Automated evidence collection helps prepare claims, but expert humans must still understand the underlying work and explain its technical uncertainty during reviews."
+      },
+      {
+        "sessionSlug": "go-broad-or-go-deep",
+        "heading": "Trust must justify switching providers",
+        "summary": "Coelho said customers making consequential claims need to see a substantial advantage and feel confident in the service before replacing an established provider."
+      }
+    ]
   },
   {
     "id": "speaker-nick-warren",
@@ -1500,7 +1534,24 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/10/nickwarren.png",
-    "imageAlt": "Portrait of Nick Warren"
+    "imageAlt": "Portrait of Nick Warren",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "go-broad-or-go-deep",
+        "heading": "Build for a repeatable customer need",
+        "summary": "GroundControl declines one-off software requests that solve a problem for only one client; Warren looks for enough shared demand to support a reusable product."
+      },
+      {
+        "sessionSlug": "go-broad-or-go-deep",
+        "heading": "Expand along connected manufacturing workflows",
+        "summary": "Warren described growing from generating inspection documentation toward reviewing that documentation elsewhere in the supply chain, while keeping regulated contract manufacturers as the core market."
+      },
+      {
+        "sessionSlug": "go-broad-or-go-deep",
+        "heading": "Founder-problem fit matters",
+        "summary": "For an early startup, Warren encouraged founders to ask what particular advantage makes their team well suited to solve the chosen problem."
+      }
+    ]
   },
   {
     "id": "speaker-jacquelyn-holden",
@@ -1540,7 +1591,24 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/TomSnyder.png",
-    "imageAlt": "Portrait of Tom Snyder"
+    "imageAlt": "Portrait of Tom Snyder",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "sales-that-scale",
+        "heading": "Help customers discover rather than simply tell",
+        "summary": "Snyder argued that buyers place more weight on conclusions they reach themselves and information they request than on unsolicited seller claims."
+      },
+      {
+        "sessionSlug": "sales-that-scale",
+        "heading": "Three ways to provide value before a sale",
+        "summary": "He recommended exposing an underestimated problem, revealing an unanticipated solution or connecting the customer with helpful expertise—not immediately pushing a demonstration."
+      },
+      {
+        "sessionSlug": "sales-that-scale",
+        "heading": "Measure the buyer's decision, not seller activity",
+        "summary": "Snyder proposed four evidence tests covering whether an opportunity exists, a provider can compete and win, and the promised value can be delivered. He recommended using AI for preparation without replacing human customer contact."
+      }
+    ]
   },
   {
     "id": "speaker-sarah-murphy",

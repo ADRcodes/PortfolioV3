@@ -13,15 +13,80 @@
   "companyIds": [
     "company-funnel-clarity"
   ],
-  "status": "upcoming",
+  "status": "published",
   "summary": {
-    "overview": "",
-    "keyTakeaways": [],
-    "notableIdeas": [],
-    "practicalApplications": []
+    "overview": "Tom Snyder of Funnel Clarity argued that AI can make salespeople much more productive while also making a bad sales process more efficient at the wrong activities. His central distinction was between a seller pushing information and a buyer reaching a decision through their own understanding. Snyder presented two behavioural rules, three ways to create customer value before a sale and four evidence questions that he recommended using to assess opportunities. Rather than rushing from an initial conversation to a demonstration or proposal, he encouraged sales teams to learn what customers are trying to accomplish, help them recognize important problems and measure progress through the customer's decision process. AI, in this approach, supports preparation and insight without replacing the human relationship.",
+    "keyTakeaways": [
+      {
+        "heading": "What buyers conclude matters more than what sellers declare",
+        "explanation": "Snyder's first rule was that customers value their own conclusions more than unsolicited claims made by a seller. His second was that requested information tends to be more valuable to them than freely offered information. He used those rules to challenge pitch-heavy sales conversations and premature demonstrations."
+      },
+      {
+        "heading": "Create value before asking for a transaction",
+        "explanation": "He identified three ways to help: reveal an unrecognized or underestimated problem; illuminate a solution the customer did not know was possible; or connect the customer with useful expertise or capabilities. Each is intended to change the customer's understanding rather than simply advertise product features."
+      },
+      {
+        "heading": "Sales stages should have customer evidence",
+        "explanation": "Snyder proposed testing whether a real opportunity exists, whether the seller can compete, whether the seller can win and whether promised value can be delivered. A returned email or a friendly meeting is not enough evidence of a customer decision. He advised asking what measurable outcome the customer would expect after implementation."
+      }
+    ],
+    "detailedSummary": [
+      {
+        "heading": "Two rules that change the conversation",
+        "paragraphs": [
+          "Snyder argued that sales is a learnable discipline involving human behaviour, not just product knowledge. He presented two principles: customers attach more value to conclusions they reach and statements they make themselves than to assertions they have not requested; and they attach more value to information they have asked for than to unsolicited advice.",
+          "These were Snyder's framing of behavioural principles, not independently verified universal laws. Their practical consequence is to replace constant telling with thoughtful questions, allowing the buyer to recognize needs and request the next useful explanation or demonstration."
+        ]
+      },
+      {
+        "heading": "Three ways to offer value before the sale",
+        "paragraphs": [
+          "The first value driver is helping a customer notice a problem they have not recognized, or grasp the true scale of a known problem. Snyder described an 'aha' moment in which a buyer realizes an issue is more costly or consequential than expected.",
+          "Second is an unanticipated solution: a new approach that the buyer might not have thought possible. Third is brokering capability—connecting a prospective customer to expertise or useful support the company can offer, even when that help is not directly the product being sold.",
+          "Snyder cautioned that simply giving demonstrations, enthusiastic pitches or unsolicited proposals should not be mistaken for value creation."
+        ]
+      },
+      {
+        "heading": "Four evidence questions for an opportunity",
+        "paragraphs": [
+          "Snyder offered a diagnostic sequence: What evidence shows that an opportunity exists? What shows that this seller can compete for the business? What shows that it can win? And what shows that it can deliver the value the customer expects?",
+          "For the first question, he encouraged looking for an actual trigger, a problem and a reason to act now, rather than treating a response to an email as proof of demand. For the second and third, he suggested exploring what the buyer cares about, including the possibility that doing nothing is the main competitor.",
+          "He gave a practical question: after the customer implements a solution, what would they observe or measure six months later to know the choice was successful? The resulting expectations should inform both the sale and the team responsible for delivering it."
+        ]
+      },
+      {
+        "heading": "Organize the pipeline around buyer decisions",
+        "paragraphs": [
+          "Snyder criticized sales pipelines whose stages reflect only the seller's tasks: qualify, discover, configure, propose, contract and eventually renew. If the buyer has not reached corresponding decisions, activity can look like progress while little has changed.",
+          "He recommended aligning stages with the evidence a buyer has gathered, the alternatives they have considered, their criteria for success and the commitments they are ready to make. This also gives implementation teams a more concrete description of promised customer value."
+        ]
+      },
+      {
+        "heading": "Where AI helps—and where it can damage sales",
+        "paragraphs": [
+          "Snyder saw substantial value in AI-supported research before outreach, meetings or responses to inbound inquiries. That information can help a seller understand a customer's context and ask better questions.",
+          "He warned against using AI primarily to send more generic emails or remove direct contact from the process. Drafting can be supported by AI, but the salesperson should adapt the work and remain accountable for the relationship. His core caution was that automation magnifies the quality, or shortcomings, of the process underneath it."
+        ]
+      }
+    ],
+    "highlightedInsight": {
+      "heading": "Don't automate an ineffective sales process",
+      "explanation": "Snyder's most useful warning was that AI may increase the volume and speed of selling without increasing the buyer's understanding or confidence. Start by proving that a sales interaction creates customer value, then use automation to make that process easier to repeat."
+    },
+    "notableIdeas": [
+      "A customer who accepts a demo has not necessarily identified a business problem or decided to change.",
+      "The 'do nothing' option can be a more serious competitor than another vendor.",
+      "Customer-defined success measures should be handed from sales to the implementation team, rather than disappearing at contract signature."
+    ],
+    "practicalApplications": [
+      "Before a demo, ask what changed recently, why the issue matters now and what outcome the customer hopes to achieve.",
+      "Ask a buyer what they would measure six months after implementation to know they made a good decision.",
+      "Review each pipeline stage for customer evidence rather than counting seller actions alone.",
+      "Use AI to research, prepare and personalize sales conversations, not to replace the conversation itself."
+    ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:06:31Z",
+  "updatedAt": "2026-10-20T17:58:39.576Z",
   "eventType": "talk",
   "programme": "conference"
 }

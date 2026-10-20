@@ -18,15 +18,80 @@
     "company-boast",
     "company-groundcontrol"
   ],
-  "status": "upcoming",
+  "status": "published",
   "summary": {
-    "overview": "",
-    "keyTakeaways": [],
-    "notableIdeas": [],
-    "practicalApplications": []
+    "overview": "When AI makes software faster to build, is it time for startups to serve every market? The founders and executives behind GroundControl, Measure and Boast argued that easier implementation does not remove the difficulty of winning and keeping customers. Their approaches to focus differed: GroundControl builds several closely related workflows for regulated contract manufacturers; Measure follows revenue data across departments while avoiding unrelated features; Boast concentrates on SR&ED tax-credit claims rather than offering every possible grant service. Their shared advice was to establish precisely whose problem is being solved, why customers would switch and what competitive advantage the team can sustain before broadening a product.",
+    "keyTakeaways": [
+      {
+        "heading": "Faster development doesn't make distribution easier",
+        "explanation": "Aswinkumar Rajendiran argued that building is only a small part of commercial success. Founders still need to know who will buy, how to reach them and why they would choose a new solution over their existing workflow. AI may make unfocused expansion more tempting, not more viable."
+      },
+      {
+        "heading": "Go deeper where workflows and customers connect",
+        "explanation": "Nick Warren described GroundControl adding adjacent solutions for the same regulated manufacturing ecosystem, including inspection-report workflows at different points in a supply chain. He distinguished that strategy from accepting custom software requests that would serve only one customer."
+      },
+      {
+        "heading": "Specialization protects trust and delivery quality",
+        "explanation": "Carlos Coelho explained Boast's decision to specialize in SR&ED rather than pursuing a broad universe of grant programmes. Its automation captures project evidence, but domain specialists remain important when explaining technical uncertainty or defending a claim. He warned that expansion without reliable processes could reduce quality."
+      }
+    ],
+    "detailedSummary": [
+      {
+        "heading": "Three different boundaries for product focus",
+        "paragraphs": [
+          "GroundControl serves contract manufacturers in regulated industries such as aerospace and medical devices. Warren described developing several products that address their connected workflows, rather than attempting all manufacturing software at once.",
+          "Measure concentrates on the flow of revenue data through contracts, subscriptions, usage-based billing and finance systems. Rajendiran said this can involve more than one department, but the product remains anchored to revenue operations.",
+          "Boast has focused on helping companies prepare SR&ED research and development tax-credit claims, using automation to document work, time and expenditure. Coelho said the specialization allows a more consistent process and deeper expertise than attempting all types of government funding."
+        ]
+      },
+      {
+        "heading": "Knowing what to refuse",
+        "paragraphs": [
+          "Warren said some GroundControl customers ask for unrelated applications, such as employee training records or other internal systems. The company seeks a critical mass of similar needs before building a generally useful product, rather than taking on one-off software for an individual account.",
+          "Rajendiran described rejecting feature requests that might be adjacent to a customer's sales workflow but outside Measure's core understanding of revenue data. Even when AI lowers implementation costs, explaining the product and maintaining a coherent market position become harder as unrelated capabilities accumulate.",
+          "Coelho said Boast has repeatedly declined broad grant-finding work because the sheer variety of programmes would stretch its expertise and delivery processes. AI pilots may make selected expansion feasible, but he did not present a wholesale shift away from the SR&ED focus."
+        ]
+      },
+      {
+        "heading": "Expanding along a supply chain",
+        "paragraphs": [
+          "GroundControl began with documentation close to different ends of manufacturing processes. Warren described inspection report generation and review as connected opportunities: the report created by a supplier must be examined by someone else, often at a customer or original equipment manufacturer. Supporting both sides can improve distribution through the existing supply-chain relationship.",
+          "That expansion also adds a new customer or stakeholder group, which Warren acknowledged increases complexity. The strategy remains more defensible because the adjacent workflow is linked to the same underlying manufacturing process."
+        ]
+      },
+      {
+        "heading": "Automation still needs domain expertise",
+        "paragraphs": [
+          "Coelho described collecting evidence of technical work and labour throughout the year so clients do not need to reconstruct projects months later. That record can support SR&ED submissions and potential reviews.",
+          "He stressed that expert employees still have to understand and communicate the technical uncertainties behind research projects. Automation can reduce administrative work, but an unfamiliar reviewer or audit cannot be handled simply by producing polished text. Specialization makes the human expertise more valuable, not less."
+        ]
+      },
+      {
+        "heading": "The problem, the buyer and the reason to switch",
+        "paragraphs": [
+          "The discussion closed with a warning against confusing a functioning prototype with a business. Rajendiran encouraged founders to understand their distribution and positioning before building, and to consider whether the advantage is significant enough to overcome a buyer's inertia.",
+          "Coelho emphasized earning trust where adopting a new provider could put substantial claims or business processes at risk. Warren suggested testing founder-problem fit: what does this particular team understand or possess that makes it unusually well suited to solving the problem? Together these approaches make market selection a question of evidence, not simply available engineering capacity."
+        ]
+      }
+    ],
+    "highlightedInsight": {
+      "heading": "Cheap software makes choosing a market more important",
+      "explanation": "The panel's sharpest distinction was between technical possibility and business viability. When competitors can also build quickly, understanding the buyer, their workflow and your route to market becomes more valuable than adding another feature."
+    },
+    "notableIdeas": [
+      "GroundControl's supply-chain approach creates opportunities on both the report-producing and report-reviewing sides of the same process.",
+      "Measure's broadness is organized around shared revenue data rather than one department or an arbitrary list of features.",
+      "Boast described a combination of automated evidence capture and specialist review in a high-trust, technical claim process."
+    ],
+    "practicalApplications": [
+      "Before building, write down the intended buyer, painful problem, distribution channel, alternative solution and reason someone would switch.",
+      "Filter feature requests by whether they solve a repeated problem for a meaningful group of existing or closely connected customers.",
+      "Use fast prototypes to test a narrowly defined product hypothesis; do not treat ease of coding as evidence of market demand.",
+      "Preserve expert review when errors carry regulatory, financial or contractual consequences."
+    ]
   },
   "recordingUrl": null,
-  "updatedAt": "2026-10-17T20:06:31Z",
+  "updatedAt": "2026-10-20T17:58:34.670Z",
   "eventType": "panel",
   "programme": "conference"
 }
