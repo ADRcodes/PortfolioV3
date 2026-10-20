@@ -1,5 +1,9 @@
 # Summit companion
 
+## Current post-event experience (October 20, 2026)
+
+The event has concluded. Preserve the existing animated identity, historical dates/venue, personal voice and shared-element transitions. “Explore insights” replaces live timing actions from every page and targets the homepage discovery section. That section links to conference notes, available speaker perspectives and the full archive, with recent articles in an expandable editorial list. No recap placeholders are shown. The existing private attendance configuration orders only parallel cards and adds no public markers. Scoped additions live in `styles/hierarchy.css`; `summit.css` and transition implementation remain unchanged. These decisions supersede historical live-session navigation descriptions below.
+
 ## Purpose and direction
 
 A conference companion for finding the next session and returning to the notes. The October 17 redesign follows Alex's explicit request for the typography, negative space and coordinated transitions of Zajno's Design Conference reference. See `docs/design-inspiration.md` for attributed visual evidence. This supersedes the earlier soft plum/lilac card system.

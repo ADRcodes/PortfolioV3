@@ -2,9 +2,7 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import { ArrowDownRight, ArrowUpRight, Building2, CalendarDays, Users } from 'lucide-react';
 import { Link, NavLink, Outlet, useLocation, useNavigationType } from 'react-router';
 import { navigation, summitPath } from '../routing/paths.js';
-import { agendaNavigation, centerSession, sameSlot } from '../lib/agenda.js';
-import { conferenceSessions as sessions } from '../content/index.js';
-import useConferenceClock from '../lib/useConferenceClock.js';
+import { centerSession } from '../lib/agenda.js';
 import SummitIdentity from './SummitIdentity.jsx';
 import BackButton from './BackButton.jsx';
 import SummitQrShare from './SummitQrShare.jsx';
@@ -19,21 +17,13 @@ export default function SummitLayout() {
   const previousPath = useRef(location.pathname);
   const previousLocation = useRef(location);
   const isAgenda = location.pathname.replace(/\/$/, '') === summitPath();
-  const clock = useConferenceClock();
-  const navigationState = agendaNavigation(sessions, clock);
-  const options = navigationState.sessions;
-  const multipleSlots = options.some(session => !sameSlot(session, options[0]));
-  const targetId = multipleSlots ? 'agenda-current' : options.length > 1 ? `agenda-slot-${options[0].id}` : options[0] ? `agenda-${options[0].id}` : 'summit-recent-summaries';
-  const hasNotes = sessions.some(session => session.status === 'published');
-  const nextLabel = navigationState.state === 'current' ? 'Happening now' : navigationState.state === 'next' ? 'Up next' : 'Session notes';
-  const goToNext = event => {
+  const goToInsights = event => {
     if (!isAgenda || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    const target = document.getElementById(targetId);
-    // Normal router navigation clears a filter that hides the real schedule target.
-    if (!target || (new URLSearchParams(location.search).get('view') === 'notes' && options.some(session => session.status !== 'published'))) return;
+    const target = document.getElementById('summit-insights');
+    if (!target) return;
     event.preventDefault();
-    centerSession(target);
-    (options.length === 1 ? target.querySelector('.summit-session-link') : target)?.focus({ preventScroll: true });
+    target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    target.focus({ preventScroll: true });
   };
   useLayoutEffect(() => {
     const nav = document.querySelector('.summit-primary-nav');
@@ -66,10 +56,10 @@ export default function SummitLayout() {
     if (queryOnly) { /* Searching and filtering retain the current reading position. */ }
     else if (saved !== false && saved !== undefined) window.scrollTo({ top: saved, behavior: 'instant' });
     else if (anchor && anchor.id.startsWith('agenda-')) centerSession(anchor, 'instant');
-    else if (anchor) anchor.scrollIntoView({ behavior: 'instant' });
+    else if (anchor) { anchor.scrollIntoView({ behavior: hash === 'summit-insights' && navigationType !== 'POP' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'smooth' : 'instant' }); anchor.focus({ preventScroll: true }); }
     else window.scrollTo({ top: 0, behavior: 'instant' });
     if (previousPath.current !== location.pathname) {
-      document.getElementById('summit-main')?.focus({ preventScroll: true });
+      if (!anchor) document.getElementById('summit-main')?.focus({ preventScroll: true });
       previousPath.current = location.pathname;
     }
     const remember = () => positions.current.set(location.key, window.scrollY);
@@ -96,7 +86,7 @@ export default function SummitLayout() {
         </div>
         <nav className="summit-primary-nav" aria-label="Conference navigation">
           {navigation.map((item, index) => { const Icon = icons[index]; return <NavLink key={item.path} to={summitPath(item.path)} end={item.path === ''}><Icon size={18} aria-hidden="true" /><span>{item.path === '' ? 'Agenda' : item.label}</span></NavLink>; })}
-          {(options.length > 0 || hasNotes) && <Link className="summit-next-nav" data-agenda-navigation={navigationState.state} to={`${summitPath()}#${targetId}`} onClick={goToNext}><span>{nextLabel}</span><ArrowDownRight size={18} aria-hidden="true" /></Link>}
+          <Link className="summit-next-nav" data-agenda-navigation="archive" to={`${summitPath()}#summit-insights`} onClick={goToInsights}><span>Explore insights</span><ArrowDownRight size={18} aria-hidden="true" /></Link>
         </nav>
         <SummitQrShare />
       </div>

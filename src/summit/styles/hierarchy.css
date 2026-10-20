@@ -85,3 +85,19 @@
 }
 
 .summit-app .summit-recent-link::after { content: none; }
+
+/* Post-event discovery reuses the existing editorial palette and rhythm. */
+.summit-app .summit-insights > p { max-width: 48rem; line-height: 1.6; }
+.summit-app .summit-insight-perspectives { margin-block: 1.75rem; }
+.summit-app .summit-insight-perspectives h3 { font-size: 1.375rem; margin-bottom: .5rem; }
+.summit-app .summit-insight-perspectives ul { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; margin-block: .75rem; list-style: none; padding: 0; }
+.summit-app .summit-insight-perspectives a, .summit-app .summit-insights-archive { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; text-decoration: underline; }
+.summit-app .summit-insights-recent { margin-top: 1.5rem; border-top: 1px solid #899996; padding-top: 1rem; }
+.summit-app .summit-insights-recent summary { cursor: pointer; min-height: 44px; padding-block: .5rem; }
+.summit-app .summit-insights-recent .summit-recent-list { display: block; }
+.summit-app .summit-insights-recent .summit-recent-item { padding: 1rem 0; background: none; color: inherit; }
+.summit-app .summit-insights-recent .summit-recent-item h3 { font-size: 1.375rem; max-width: none; }
+.summit-app .summit-insights-recent .summit-recent-excerpt { display: none; }
+.summit-app .summit-insights-recent a:focus-visible, .summit-app .summit-insights-recent summary:focus-visible { outline: 2px solid var(--summit-accent); outline-offset: 3px; }
+.summit-app .summit-insights-recent .summit-recent-speakers, .summit-app .summit-insights-recent .summit-recent-date { color: inherit; }
+@media (max-width: 600px) { .summit-app .summit-next-nav { gap: .25rem; padding-inline: .5rem; } .summit-app .summit-next-nav span { font-size: .8125rem; } }

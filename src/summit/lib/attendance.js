@@ -8,3 +8,8 @@ export function needsRecordingRequest(session, sessions, attendingIds = attendin
     && attending.date === session.date
     && attending.startTime < session.endTime && session.startTime < attending.endTime);
 }
+
+// Reorder only within an existing parallel slot; unknown choices retain source order.
+export function preferAttendedSessions(slot, attendingIds = attendingSessionIds) {
+  return [...slot].sort((a, b) => Number(attendingIds.includes(b.id)) - Number(attendingIds.includes(a.id)));
+}

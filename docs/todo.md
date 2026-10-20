@@ -13,6 +13,8 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 
 ## Ready
 
+- [x] Transition Summit to a post-event archive with insights discovery, permanent navigation and attended-first parallel choices.
+
 - [x] Add optional, publication-safe speaker perspectives with a grounded example and publish the five sourced company-logo assignments; leave palette studies unapplied.
 
 - [x] Add attendance-driven contribution notices to overlapping Monday presentations, with transcript email guidance and automatic hiding after publication.

@@ -6,15 +6,11 @@ import RecentSummaries from '../components/RecentSummaries.jsx';
 import { filterAgenda } from '../lib/programme.js';
 import SessionSlot from '../components/SessionSlot.jsx';
 import AgendaBrowser from '../components/AgendaBrowser.jsx';
-import { agendaFocus, agendaNavigation, centerSession, groupSessions, sameSlot } from '../lib/agenda.js';
-import useConferenceClock from '../lib/useConferenceClock.js';
-import { summitPath } from '../routing/paths.js';
+import { groupSessions } from '../lib/agenda.js';
+import { preferAttendedSessions } from '../lib/attendance.js';
 import { formatDay } from '../components/SessionList.jsx';
 
 export default function SummitHome() {
-  const clock = useConferenceClock();
-  const hasNotes = sessions.some(session => session.status === 'published');
-  const focus = agendaFocus(sessions, clock);
   const [params, setParams] = useSearchParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -25,14 +21,7 @@ export default function SummitHome() {
   useEffect(() => {
     if (hiddenAnchor) { const next = new URLSearchParams(params); next.delete('view'); navigate({ pathname: location.pathname, search: next.toString(), hash: location.hash }, { replace: true }); }
   }, [hiddenAnchor, navigate, params, location.pathname, location.hash]);
-  const navigation = agendaNavigation(sessions, clock);
-  const multipleSlots = navigation.state === 'current' && navigation.sessions.some(session => !sameSlot(session, navigation.sessions[0]));
   const days = [...new Set(visible.map(session => session.date))];
-  const jumpTo = (id) => {
-    const element = document.getElementById(`agenda-${id}`);
-    centerSession(element);
-    element?.querySelector('.summit-session-link')?.focus({ preventScroll: true });
-  };
   return <div className="summit-agenda-layout">
     <header className="summit-agenda-intro" id="summit-welcome">
       <h1 className="summit-intro-brand" aria-label="techNL Summit 2026"><span className="summit-brand-line" aria-hidden="true"><span data-brand-part="tech">techNL</span></span><span className="summit-brand-line summit-accent-type" aria-hidden="true"><span data-brand-part="summit">Summit</span> <span data-brand-part="year">2026</span></span></h1>
@@ -41,13 +30,13 @@ export default function SummitHome() {
       </div>
       <div className="summit-intro-content">
         <div className="summit-personal-note">
-          <p>I built this little companion to help us get more out of the Summit.</p>
-          <p className="summit-note-directions">Find your next session.<br />Come back for the notes.</p>
+          <p>I built this little companion to help us revisit the ideas from techNL Summit 2026.</p>
+          <p className="summit-note-directions">Explore the sessions, discover speaker perspectives<br />and catch up on AI-assisted notes.</p>
           {sessions.length > 0 && <button className="summit-explore-agenda" onClick={() => {
-            const target = document.getElementById(hasNotes ? 'summit-recent-summaries' : 'summit-agenda-start');
+            const target = document.getElementById('summit-insights');
             target?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
             target?.focus({ preventScroll: true });
-          }}><span>{hasNotes ? 'Catch up on the sessions' : 'Explore the agenda'}</span><ArrowDown size={22} aria-hidden="true" /></button>}
+          }}><span>Explore insights</span><ArrowDown size={22} aria-hidden="true" /></button>}
           <div className="summit-note-signature"><Link to="/">— Alex Russell</Link><a href="https://www.linkedin.com/in/alex-russell-info" target="_blank" rel="noreferrer" aria-label="Alex Russell on LinkedIn (opens in a new tab)"><Linkedin size={19} aria-hidden="true" /></a></div>
           <p className="summit-note-small">An independent project, not affiliated with techNL.<br />And, fittingly, built with AI.</p>
         </div>
@@ -55,17 +44,16 @@ export default function SummitHome() {
     </header>
     <div className="summit-agenda-feed">
       <RecentSummaries sessions={sessions} />
-      {multipleSlots && <section className="summit-current-options" id="agenda-current" tabIndex={-1} aria-labelledby="summit-current-title"><h2 id="summit-current-title">Happening now</h2><ul>{navigation.sessions.map(session => <li key={session.id}><Link to={`${summitPath()}#agenda-${session.id}`} onClick={event => { if (document.getElementById(`agenda-${session.id}`)) { event.preventDefault(); jumpTo(session.id); } }}>{session.title}</Link></li>)}</ul></section>}
-      <div className="summit-agenda-heading"><h2>Explore the agenda</h2><p>All times Newfoundland</p></div>
+      <div className="summit-agenda-heading"><h2>Complete session archive</h2><p>All times Newfoundland</p></div>
       <div id="summit-agenda-start" tabIndex={-1} className="summit-agenda-filters" role="group" aria-label="Filter agenda">{[['all', 'All sessions'], ['notes', 'Notes available']].map(([value, label]) => <button type="button" key={value} data-agenda-filter={value} aria-pressed={(hiddenAnchor ? 'all' : filter) === value} onClick={() => setParams(previous => { const next = new URLSearchParams(previous); value === 'notes' ? next.set('view', value) : next.delete('view'); return next; }, { replace: true })}>{label}</button>)}</div>
       <p className={`summit-filter-status${filter === 'notes' && !hiddenAnchor ? '' : ' summit-sr-only'}`} role="status">{filter === 'notes' && !hiddenAnchor ? `${visible.length} conference summaries available.` : ''}</p>
-      <AgendaBrowser sessions={visible} />
+      <AgendaBrowser sessions={groupSessions(visible).flatMap(slot => preferAttendedSessions(slot))} />
       {!visible.length && sessions.length > 0 && <p className="summit-empty">No conference notes published yet. Choose All sessions to explore the schedule.</p>}
-      {!sessions.length && <p className="summit-empty">The schedule is on its way. Check back here for sessions and notes.</p>}
+      {!sessions.length && <p className="summit-empty">No sessions available.</p>}
       {days.map(day => <section className="summit-agenda-day" key={day} aria-label={formatDay(day)}>
         <h2 className="summit-date-heading"><span>{formatDay(day)}</span></h2>
         <ol className="summit-timeline">
-          {groupSessions(visible.filter(session => session.date === day)).map(slot => <SessionSlot key={slot[0].id} sessions={slot} clock={clock} focus={focus} />)}
+          {groupSessions(visible.filter(session => session.date === day)).map(slot => <SessionSlot key={slot[0].id} sessions={preferAttendedSessions(slot)} slotId={slot[0].id} />)}
         </ol>
       </section>)}
       {sessions.length > 0 && <div className="summit-agenda-end"><p>More to come.</p><span>Notes appear as they’re published.</span><button onClick={() => document.getElementById('summit-welcome')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' })}><ArrowUp size={15} aria-hidden="true" /> Back to the welcome</button></div>}

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
 import { attendingSessionIds } from '../content/attendance.js';
-import { needsRecordingRequest } from './attendance.js';
+import { needsRecordingRequest, preferAttendedSessions } from './attendance.js';
 
 const directory = new URL('../content/sessions/', import.meta.url);
 const sessions = await Promise.all((await readdir(directory)).filter(file => file.endsWith('.json')).map(async file => JSON.parse(await readFile(new URL(file, directory), 'utf8'))));
@@ -47,4 +47,18 @@ test('overlaps use agenda dates/times, exclude touching boundaries and follow ch
   assert.equal(needsRecordingRequest(originallyAttending, sessions, changedIds), true);
   assert.equal(needsRecordingRequest(base, sessions, ['unknown-id']), false);
   assert.equal(needsRecordingRequest(base, sessions.map(session => ({ ...session, status: 'draft' }))), false);
+});
+
+
+test('attendance preferences reorder only known parallel choices without mutating the schedule', () => {
+  for (const id of attendingSessionIds) {
+    const selected = sessions.find(session => session.id === id);
+    const slot = sessions.filter(session => session.date === selected.date && session.startTime === selected.startTime);
+    const original = slot.map(session => session.id);
+    const ordered = preferAttendedSessions(slot);
+    assert.equal(ordered[0].id, id);
+    assert.deepEqual(ordered.filter(session => session.id !== id).map(session => session.id), original.filter(other => other !== id));
+    assert.deepEqual(slot.map(session => session.id), original);
+    assert.deepEqual(preferAttendedSessions(slot, []), slot);
+  }
 });

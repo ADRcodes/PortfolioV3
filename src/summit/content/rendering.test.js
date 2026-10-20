@@ -210,10 +210,10 @@ test('official agenda excludes external samples and filters current publication 
   const html = home('');
   assert.ok(!html.includes('wills-ai-meetup-editorial-test'));
   const published = content.conferenceSessions.filter(session => session.status === 'published');
-  assert.equal(html.includes('Session notes coming soon'), published.length === 0);
+  assert.equal(html.includes('Session notes are still being prepared.'), published.length === 0);
   assert.equal(html.includes('summit-recent-item'), published.length > 0);
   assert.ok(html.includes('October 19') && html.includes('St. John’s Convention Centre'));
-  assert.ok(html.includes(published.length ? 'Catch up on the sessions' : 'Explore the agenda'));
+  assert.ok(html.includes('Explore insights'));
   const notes = home('?view=notes');
   assert.equal(notes.includes('No conference notes published yet.'), published.length === 0);
   for (const session of content.conferenceSessions) assert.equal(notes.includes(`data-session="${session.slug}"`), session.status === 'published', session.slug);
@@ -378,14 +378,14 @@ test('external articles use date-only facts without invented time, place or pres
   const Card = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(SessionCard, { session, clock: { date: '2026-10-13', time: '12:00' } })));
   assert.ok(Card.includes('Editorial article'));
 });
-test('coming-notes introduction is replaced by exactly the available real summaries', async () => {
+test('archive discovery handles zero to three recent summaries without external articles or fictional entries', async () => {
   const Recent = (await server.ssrLoadModule('/src/summit/components/RecentSummaries.jsx')).default;
   const base = { ...content.conferenceSessions[0], status: 'published', summary: { overview: 'A useful published insight.' } };
   const external = content.sessions.find(item => item.programme === 'external');
   for (const count of [0, 1, 2, 3, 4]) {
     const records = Array.from({ length: count }, (_, index) => ({ ...base, id: `real-${index}`, slug: `real-${index}`, title: `Real article ${index}`, updatedAt: `2026-10-20T1${index}:00:00Z` }));
     const html = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Recent, { sessions: [...records, external] })));
-    assert.equal(html.includes('Session notes coming soon'), count === 0);
+    assert.equal(html.includes('Session notes are still being prepared.'), count === 0);
     assert.equal((html.match(/class="summit-recent-item"/g) ?? []).length, Math.min(count, 3));
     assert.ok(!html.includes('wills-ai-meetup-editorial-test'));
     assert.ok(!html.includes('recording'));
@@ -417,7 +417,7 @@ test('intro keeps secondary event details and a compact personal disclosure with
   assert.ok(afterHeading.indexOf('summit-intro-event') < afterHeading.indexOf('summit-personal-note'));
   assert.ok(afterHeading.includes('summit-event-date') && afterHeading.includes('summit-event-location'));
   assert.ok(!html.includes('href="https://technl.ca/technlsummit26/"'));
-  assert.ok(html.includes('I built this little companion to help us get more out of the Summit.'));
+  assert.ok(html.includes('I built this little companion to help us revisit the ideas from techNL Summit 2026.'));
   assert.ok(html.includes('And, fittingly, built with AI.'));
   assert.ok(html.includes('An independent project, not affiliated with techNL.'));
 });
@@ -432,18 +432,18 @@ test('profile session cards show an explicit date while agenda cards avoid dupli
   assert.ok(company.includes('People presenting from Mysa'));
   assert.ok(company.includes('summit-card-date'));
 });
-test('primary CTA follows publication availability and notes filtering retains its result status', () => {
+test('archive CTA stays available independent of publication availability and notes filtering retains its result status', () => {
   const home = query => renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit${query}`] }, createElement(Home)));
   const html = home('');
   assert.equal(html.split('class="summit-explore-agenda"').length - 1, 1);
   const publishedCount = content.conferenceSessions.filter(session => session.status === 'published').length;
-  assert.ok(html.includes(publishedCount ? 'Catch up on the sessions' : 'Explore the agenda'));
+  assert.ok(html.includes('Explore insights'));
   assert.ok(home('?view=notes').includes(`role="status">${publishedCount} conference summaries available.`));
   const statuses = content.conferenceSessions.map(session => session.status);
   try {
     content.conferenceSessions.forEach(session => { session.status = 'upcoming'; });
     const unpublished = home('');
-    assert.ok(unpublished.includes('Explore the agenda'));
+    assert.ok(unpublished.includes('Explore insights'));
     assert.ok(!unpublished.includes('Catch up on the sessions'));
   } finally {
     content.conferenceSessions.forEach((session, index) => { session.status = statuses[index]; });
@@ -457,4 +457,27 @@ test('official event link remains available in the footer, outside the opening C
   assert.equal(html.split('href="https://technl.ca/technlsummit26/"').length - 1, 1);
   assert.ok(footer.includes('Visit the actual event website'));
   assert.ok(footer.includes('not affiliated with techNL'));
+});
+
+
+test('archive navigation is permanent on home, article and profile routes with a real insights destination', async () => {
+  const Layout = (await server.ssrLoadModule('/src/summit/components/SummitLayout.jsx')).default;
+  for (const path of ['/technlsummit', '/technlsummit/sessions/assumption-trap', '/technlsummit/speakers/james-geneau']) {
+    const html = renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [path] }, createElement(Layout)));
+    assert.ok(html.includes('data-agenda-navigation="archive"'));
+    assert.ok(html.includes('href="/technlsummit#summit-insights"'));
+    assert.ok(!html.includes('Up next') && !html.includes('Happening now'));
+  }
+  const home = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Home)));
+  assert.ok(home.includes('id="summit-insights"'));
+  assert.ok(home.includes('Speaker perspectives'));
+  assert.ok(home.includes('Recently published notes'));
+  assert.ok(home.includes('Complete session archive'));
+  assert.ok(!home.includes('Happening now') && !home.includes('Up next') && !home.includes('Coming up'));
+  const { attendingSessionIds } = await server.ssrLoadModule('/src/summit/content/attendance.js');
+  for (const id of attendingSessionIds) {
+    const selected = content.conferenceSessions.find(session => session.id === id);
+    const others = content.conferenceSessions.filter(session => session.id !== id && session.date === selected.date && session.startTime === selected.startTime);
+    for (const other of others) assert.ok(home.indexOf(`data-session="${selected.slug}"`) < home.indexOf(`data-session="${other.slug}"`));
+  }
 });
