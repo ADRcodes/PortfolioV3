@@ -1629,7 +1629,19 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/Sarah-Murphy.png",
-    "imageAlt": "Portrait of Sarah Murphy"
+    "imageAlt": "Portrait of Sarah Murphy",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "eyes-on-velocity",
+        "heading": "Invest in learning velocity",
+        "summary": "Murphy said she looks for founders who experiment rapidly and follow early customer evidence, even when their initial AI product can easily be copied."
+      },
+      {
+        "sessionSlug": "eyes-on-velocity",
+        "heading": "Share hard news early",
+        "summary": "She values founders who raise problems and uncertainty before a crisis, making the investor relationship more useful."
+      }
+    ]
   },
   {
     "id": "speaker-shelley-kuipers",
@@ -1650,7 +1662,19 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/Shelley-Kuipers.png",
-    "imageAlt": "Portrait of Shelley Kuipers"
+    "imageAlt": "Portrait of Shelley Kuipers",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "eyes-on-velocity",
+        "heading": "Distribution is a moat",
+        "summary": "Kuipers said networks, brand, customer relationships and routes to market can differentiate a company more durably than easily replicated AI-powered functionality."
+      },
+      {
+        "sessionSlug": "eyes-on-velocity",
+        "heading": "The investor's network should add strategic value",
+        "summary": "She described using The51's connections, expertise and community to help portfolio companies, not only supplying capital."
+      }
+    ]
   },
   {
     "id": "speaker-eric-laflamme",
@@ -1671,7 +1695,19 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/10/Eric-Laflamme1.png",
-    "imageAlt": "Portrait of Eric Laflamme"
+    "imageAlt": "Portrait of Eric Laflamme",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "eyes-on-velocity",
+        "heading": "A lender evaluates who stands behind the company",
+        "summary": "Laflamme explained that venture lending supplements investor-backed companies and that the quality and willingness of investors to provide support matters."
+      },
+      {
+        "sessionSlug": "eyes-on-velocity",
+        "heading": "Examine AI threats and adoption together",
+        "summary": "He urged funders to assess how software firms use AI to improve performance while judging whether the same technology can erode their customer position."
+      }
+    ]
   },
   {
     "id": "speaker-brian-whiteway",
@@ -1696,7 +1732,19 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/10/BrianWhiteway.png",
-    "imageAlt": "Portrait of Brian Whiteway, MBA, CPA, FCPA"
+    "imageAlt": "Portrait of Brian Whiteway, MBA, CPA, FCPA",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "eyes-on-velocity",
+        "heading": "Proprietary data can be more defensible than an AI wrapper",
+        "summary": "Whiteway used cross-institution fraud patterns as an example of valuable information that competitors cannot simply reproduce with a publicly available model."
+      },
+      {
+        "sessionSlug": "eyes-on-velocity",
+        "heading": "Start with the business need, not a funding amount",
+        "summary": "He advocated selecting financing based on the actual problem, the stage of the company and a management team willing to acknowledge uncertainty."
+      }
+    ]
   },
   {
     "id": "speaker-falon-o-keefe",
@@ -1742,7 +1790,19 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2025/09/EmadRizkalla2.png",
-    "imageAlt": "Portrait of Emad Rizkalla"
+    "imageAlt": "Portrait of Emad Rizkalla",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "beyond-vc",
+        "heading": "Solving real problems defines success",
+        "summary": "Rizkalla emphasized meaningful customer outcomes, developing employees and creating local opportunities rather than treating a valuation milestone as the business's purpose."
+      },
+      {
+        "sessionSlug": "beyond-vc",
+        "heading": "Bootstrapping protects time and choice",
+        "summary": "He acknowledged that avoiding venture capital can limit hypergrowth, while reducing pressure to pursue an exit or abandon a slower-building initiative."
+      }
+    ]
   },
   {
     "id": "speaker-joe-teo",
@@ -1763,7 +1823,19 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/Joe-Teo.png",
-    "imageAlt": "Portrait of Joe Teo"
+    "imageAlt": "Portrait of Joe Teo",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "beyond-vc",
+        "heading": "Treat customers as recurring investors",
+        "summary": "Teo described shifting HeyOrca's attention from fundraising to customer visits, product co-design and earning subscription revenue each month."
+      },
+      {
+        "sessionSlug": "beyond-vc",
+        "heading": "Your calendar reveals your priorities",
+        "summary": "He encouraged leaders who claim to be customer-first to examine how much time they actually spend with customers."
+      }
+    ]
   },
   {
     "id": "speaker-gerard-duggan",
@@ -1784,7 +1856,19 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/Gerard-.png",
-    "imageAlt": "Portrait of Gerard Duggan, ICD.D"
+    "imageAlt": "Portrait of Gerard Duggan, ICD.D",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "beyond-vc",
+        "heading": "Growth should be profitable and customer-led",
+        "summary": "Duggan described Vision33 expanding through satisfied customers and carefully selected acquisitions while maintaining a commitment to profitability."
+      },
+      {
+        "sessionSlug": "beyond-vc",
+        "heading": "Acquisitions need cultural fit and creative financing",
+        "summary": "He described earn-outs linked to future business performance and said the ability to walk away from a distracting acquisition is essential."
+      }
+    ]
   },
   {
     "id": "speaker-josh-taylor",
@@ -1805,7 +1889,19 @@
       }
     ],
     "image": "https://technl.ca/wp-content/uploads/2026/09/Josh-Taylor.png",
-    "imageAlt": "Portrait of Josh Taylor"
+    "imageAlt": "Portrait of Josh Taylor",
+    "summitPerspectives": [
+      {
+        "sessionSlug": "beyond-vc",
+        "heading": "Consulting can be a route into a product opportunity",
+        "summary": "Taylor suggested entering an organization through paid problem-solving, understanding a difficult workflow and potentially developing software with that organization as an early customer."
+      },
+      {
+        "sessionSlug": "beyond-vc",
+        "heading": "Long enterprise sales cycles change the financing fit",
+        "summary": "He described why deeply integrated healthcare products can take a long time to sell and deploy, creating both funding difficulties and strong customer retention once installed."
+      }
+    ]
   },
   {
     "id": "speaker-maurice-tuff",
