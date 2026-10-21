@@ -12,8 +12,8 @@ export default function SpeakerPerspectives({ speaker, sessions }) {
   return <section className="summit-profile-section summit-perspectives" aria-labelledby="summit-perspectives-heading">
     <h2 id="summit-perspectives-heading">Perspectives from the Summit</h2>
     <ul>{perspectives.map((perspective, index) => <li key={`${perspective.sessionSlug}-${index}`}>
-      <h3>{perspective.quote && <span className="summit-perspective-source">Source: </span>}{perspective.sessionTitle}</h3>
-      {perspective.heading && <p className="summit-perspective-label">{perspective.heading}</p>}
+      <h3>{!perspective.heading && perspective.quote && <span className="summit-perspective-source">Source: </span>}{perspective.heading || perspective.sessionTitle}</h3>
+      {perspective.heading && <p className="summit-perspective-session"><span className="summit-perspective-source">Source: </span>{perspective.sessionTitle}</p>}
       {perspective.quote && <figure className="summit-perspective-quote">
         <blockquote><p>“{perspective.quote}”</p></blockquote>
         <figcaption>— {speaker.name}

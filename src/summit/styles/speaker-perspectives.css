@@ -1,13 +1,27 @@
-.summit-app .summit-perspectives > ul { list-style: none; margin: 0; padding: 0; max-width: 70ch; }
-.summit-app .summit-perspectives li { padding-block: 1.5rem; border-top: 1px solid #627371; }
-.summit-app .summit-perspectives h3 { margin: 0 0 .75rem; line-height: 1.25; }
-.summit-app .summit-perspectives .summit-perspective-label { color: var(--summit-accent); font-size: 1rem; }
-.summit-app .summit-perspectives p { margin-block: .75rem; }
-.summit-app .summit-perspective-quote { margin: 1rem 0; padding-left: 1rem; border-left: 2px solid var(--summit-accent); }
-.summit-app .summit-perspective-quote blockquote { margin: 0; font-size: 1.25rem; line-height: 1.5; }
-.summit-app .summit-perspective-quote figcaption { font-size: .9375rem; color: #d4ddd6; }
-.summit-app .summit-perspectives .summit-perspective-source { font-size: .875rem; color: #d4ddd6; font-weight: 400; }
-.summit-app .summit-perspective-quote figcaption .summit-perspective-source { display: block; margin-top: .5rem; }
-.summit-app .summit-perspective-footer { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; margin-top: 1rem; font-size: .9375rem; }
+.summit-app .summit-profile > .summit-perspectives { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 2rem 4rem; margin-block: 4rem; padding-top: 2rem; }
+.summit-app .summit-perspectives > h2 { margin: 0; max-width: 14ch; font-size: clamp(2rem, 3vw, 2.75rem); line-height: 1.1; }
+.summit-app .summit-perspectives > ul { list-style: none; margin: 0; padding: 0; max-width: none; min-width: 0; }
+.summit-app .summit-perspectives li { padding-block: 2rem; border-top: 1px solid #627371; }
+.summit-app .summit-perspectives li:first-child { padding-top: 0; border-top: 0; }
+.summit-app .summit-perspectives li:last-child { padding-bottom: 0; }
+.summit-app .summit-perspectives h3 { margin: 0 0 .75rem; max-width: 34ch; font-size: clamp(1.5rem, 2.2vw, 2rem); line-height: 1.15; }
+.summit-app .summit-perspectives p { max-width: 65ch; margin-block: 1rem; font-size: 1.125rem; line-height: 1.65; }
+.summit-app .summit-perspectives .summit-perspective-session { margin: 0 0 1.5rem; color: var(--summit-accent); font-size: 1rem; line-height: 1.5; }
+.summit-app .summit-perspective-quote { margin: 1.5rem 0; padding: 1.25rem 0; border-block: 1px solid #627371; }
+.summit-app .summit-perspective-quote blockquote { margin: 0; }
+.summit-app .summit-perspective-quote blockquote p { margin: 0 0 1rem; font-size: clamp(1.25rem, 1.6vw, 1.5rem); line-height: 1.5; }
+.summit-app .summit-perspective-quote figcaption { font-size: 1rem; color: #d4ddd6; }
+.summit-app .summit-perspectives .summit-perspective-source { font-size: 1rem; color: #d4ddd6; font-weight: 400; }
+.summit-app .summit-perspective-quote figcaption .summit-perspective-source { display: block; margin-top: .5rem; font-size: .875rem; }
+.summit-app .summit-perspective-footer { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.5rem; margin-top: 1rem; font-size: 1rem; }
 .summit-app .summit-perspective-footer a { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; text-decoration: underline; }
 .summit-app .summit-perspective-footer time { color: #d4ddd6; }
+@media (max-width: 60rem) {
+  .summit-app .summit-profile > .summit-perspectives { grid-template-columns: 1fr; gap: 2rem; }
+  .summit-app .summit-perspectives > h2 { max-width: 20ch; }
+}
+@media (max-width: 40rem) {
+  .summit-app .summit-profile > .summit-perspectives { margin-block: 2.5rem; padding-top: 1.5rem; }
+  .summit-app .summit-perspectives > h2 { font-size: 2rem; }
+  .summit-app .summit-perspectives p { font-size: 1.0625rem; }
+}
