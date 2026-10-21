@@ -369,3 +369,10 @@ This is a realistic **fictional** example of the implemented format, not a summa
 - The site is live and direct-to-`main` article publication with supported perspectives in existing speaker records is already authorized. Continue through deployment and live verification without an additional approval stage; pause only for consequential ambiguities, inaccessible source material or significant verification problems.
 - Confirm actual session identities, schedule, profiles and source-link permissions for each recording. The illustrative example is not permission to invent or replace real metadata.
 - Code/schema/infrastructure changes, new profile creation and unapproved recording-link publication remain outside routine article-and-perspective content publishing authorization.
+
+
+## Cross-session editorial recaps
+
+Use the dedicated [recap publishing reference](RECAPS.md) for cross-session analysis. Add a complete JSON file under `content/recaps/`, never a fictional session record. The same full-transcript/Pocket-summary verification, privacy, evidence categories and independent/AI-assisted disclosures apply. Explain connections without manufacturing consensus or individual attribution. Recap speaker links do not create or replace `summitPerspectives`.
+
+Keep confidential/unapproved drafts and source notes outside this public repository until ready to publish. `draft` status filters the application, not Git history. Once this infrastructure is merged, completed, verified recaps follow the established direct-to-main content authorization and normal GitHub Actions/live-verification workflow without another approval stage; this does not authorize schema/code/infrastructure changes. See RECAPS.md for valid published-session references, immutable identities, revisions, withdrawal dependencies and the exact content example.

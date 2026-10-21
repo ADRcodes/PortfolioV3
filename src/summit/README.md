@@ -29,6 +29,7 @@ Integration outside this directory consists of one sibling route in `src/App.jsx
 - `/technlsummit`
 - `/technlsummit/sessions` redirects to the agenda (legacy index URL).
 - `/technlsummit/sessions/:slug`
+- `/technlsummit/recaps/:slug` (published cross-session articles only)
 - `/technlsummit/speakers`
 - `/technlsummit/speakers/:slug`
 - `/technlsummit/companies`
@@ -209,8 +210,13 @@ Regenerate assets with `node scripts/generate-summit-qr.mjs` after installing th
 
 ## Post-event archive (October 20, 2026)
 
-The welcome and permanent “Explore insights” navigation now lead to `#summit-insights`, with published conference notes, existing speaker perspectives and the complete session archive. Recent conference articles remain in a native expandable list, newest first. The old `#summit-recent-summaries` anchor remains as an alias. No recaps exist yet: add a real recap link to this discovery component (`RecentSummaries.jsx`) when an article is published; no placeholder cards or new schema are required tonight.
+The welcome and permanent “Explore insights” navigation now lead to `#summit-insights`, with published conference notes, existing speaker perspectives and the complete session archive. Published conference articles remain accessible through the notes filter and session archive; the refined Insights spread retains speaker-perspective previews. The old `#summit-recent-summaries` anchor remains as an alias. Cross-session articles now have their own JSON content type and `/recaps/:slug` pages; published records appear automatically in this discovery component without placeholder cards. See [RECAPS.md](RECAPS.md).
 
 The existing `content/attendance.js` selections determine only the first card within each parallel slot. Other cards retain their relative order, the agenda slider follows the displayed order, and stable session/slot anchors remain intact. No attendance markers or public ranking are displayed. Unknown slots retain their existing order. The source agenda still lists Funding for Talent in Ballroom 1; that factual discrepancy with the owner's recollection is preserved for separate verification.
 
 The visible UI no longer follows the live conference clock. Timing utilities remain tested for reuse, while all archive cards keep publication messaging, historical times, filters and shared transitions. Contribution notices request existing permitted transcripts. This section supersedes earlier live-navigation and latest-notes UI descriptions; the publication workflow and social-preview pipeline are unchanged.
+
+
+## Cross-session editorial articles
+
+See [RECAPS.md](RECAPS.md) for the complete JSON contract, example and GitHub publishing workflow. Add completed articles to `content/recaps/`; do not add them as sessions. Confidential or unapproved drafts remain outside the public repository. Publishing automatically adds the page, homepage feature and static social previews, with no registry, dependency, backend or deployment-service change. Recaps do not alter existing speaker perspectives or session relationships.

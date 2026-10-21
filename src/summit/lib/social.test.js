@@ -78,3 +78,24 @@ test('upload planning rejects path traversal, malformed or duplicate keys', () =
     assert.throws(() => uploadPlan({ version: 1, entries }));
   }
 });
+
+test('recap previews share the existing exact-key, uncached HTML and withdrawal pipeline', () => {
+  const recap = { status: 'published', slug: 'cross-session', title: 'Cross-session evidence', excerpt: 'A public editorial excerpt.', publishedAt: '2026-10-21T12:00:00Z', updatedAt: '2026-10-21T13:00:00Z', privateNote: 'PRIVATE' };
+  const pages = previewPages([fixture], [recap, { ...recap, status: 'draft', slug: 'draft-recap', title: 'SECRET' }]);
+  const page = pages.find(page => page.path === '/technlsummit/recaps/cross-session');
+  const html = previewHtml(shell, page);
+  assert.ok(html.includes('Cross-session evidence') && html.includes('article:published_time'));
+  assert.ok(html.includes('property="og:type" content="article"'));
+  assert.ok(html.includes('twitter:description') && html.includes('A public editorial excerpt.'));
+  assert.ok(!JSON.stringify(pages).includes('SECRET') && !JSON.stringify(pages).includes('PRIVATE'));
+  const entry = previewEntry(page);
+  const args = putArguments('test-bucket', 'dist', { key: entry.keys[0], file: entry.file });
+  assert.equal(args[args.indexOf('--content-type') + 1], 'text/html; charset=utf-8');
+  assert.equal(args[args.indexOf('--cache-control') + 1], HTML_CACHE);
+  const plan = uploadPlan({ version: 1, entries: pages.map(previewEntry) });
+  assert.equal(plan.filter(item => item.key.includes('/recaps/')).length, 3);
+  for (const variant of entry.keys) assert.ok(plan.some(item => item.key === variant));
+  const withdrawn = uploadPlan({ version: 1, entries: previewPages([]).map(previewEntry) }, [...entry.keys, 'technlsummit/recaps/cross-session/private.txt', 'technlsummit/recaps/../escape']);
+  assert.deepEqual(withdrawn.filter(item => item.file === 'summit-preview-unavailable.html').map(item => item.key), entry.keys);
+  assert.throws(() => uploadPlan({ version: 1, entries: [{ file: 'technlsummit/recaps/../index.html', keys: [] }] }));
+});

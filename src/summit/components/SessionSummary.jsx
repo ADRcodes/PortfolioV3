@@ -5,7 +5,7 @@ function TextList({ items }) {
   return <ul className="summit-bullets">{items.map((item, index) => <li key={index}>{item}</li>)}</ul>;
 }
 
-function HighlightedInsight({ insight }) {
+export function HighlightedInsight({ insight }) {
   if (!insight) return null;
   return <aside className="summit-highlighted-insight" aria-label="Highlighted insight">
     <p className="summit-insight-label">Highlighted insight</p>
@@ -14,7 +14,7 @@ function HighlightedInsight({ insight }) {
   </aside>;
 }
 
-function DetailedSections({ sections, level = 3 }) {
+export function DetailedSections({ sections, level = 3 }) {
   const Heading = `h${level}`;
   return sections.map((section, index) => <section key={index} className="summit-article-section">
     <Heading>{section.heading}</Heading>
