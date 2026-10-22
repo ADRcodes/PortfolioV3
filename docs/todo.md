@@ -13,6 +13,8 @@ Use this file for actionable implementation tasks. `DO` and `NEXT` should comple
 
 ## Ready
 
+- [x] Finalize the connector-only recap publishing contract, explicit owner approval and concurrency-safe revision instructions.
+
 - [x] Add publication-safe cross-session recap articles, automatic Insights features and existing-pipeline social previews; keep actual articles unpublished.
 
 - [x] Transition Summit to a post-event archive with insights discovery, permanent navigation and attended-first parallel choices.
