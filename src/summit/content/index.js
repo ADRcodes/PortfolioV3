@@ -10,3 +10,8 @@ export const directoryCompanies = allCompanies.filter(item => !item.demo);
 export const sessionsForSpeaker = (id) => conferenceSessions.filter(session => session.speakerIds.includes(id));
 export const sessionsForCompany = (id) => conferenceSessions.filter(session => session.companyIds.includes(id));
 export const speakersForCompany = (id) => directorySpeakers.filter(speaker => speaker.companyIds.includes(id));
+
+// Kept separate from sessions: recaps never enter schedule counts or relationships.
+import { createRecaps } from './recaps.js';
+const recapFiles = import.meta.glob('./recaps/*.json', { eager: true, import: 'default' });
+export const recaps = createRecaps(Object.values(recapFiles).filter(Boolean), sessions, allSpeakers);

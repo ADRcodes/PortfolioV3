@@ -58,3 +58,10 @@ Tests cover discovery, raw HTTP bodies/headers, unchanged portfolio metadata, sl
 Raw live-domain curl/Python requests were blocked by this environment's proxy (`x-proxy-error: blocked-by-allowlist`); web fetch also failed. The shared entry and preceding live-browser investigation confirm the original portfolio metadata behaviour; this change has not altered live responses. Local raw HTTP checks, independent of React, succeeded for both homepage variants, Will’s variants, another session, directories and portfolio routes.
 
 After an approved deployment and completed invalidation, repeat HTTP checks against both `https://alexrussell.info` and `https://www.alexrussell.info`, following redirects with `curl -L`. Inspect final HTML, content type, cache headers and image URL; confirm PNG returns `image/png`, entry assets load, and a removed/draft route has no stale metadata. Effective CloudFront cache-policy minimum TTL and viewer-request behaviour still need production confirmation. Existing iMessage/social cards may take time to refresh after correct HTML is live.
+
+
+## Cross-session recap previews
+
+Published `content/recaps/*.json` records use the same loader, preview plugin, branded image and uploader. Each `/technlsummit/recaps/:slug` receives its title, excerpt, canonical URL, Open Graph/Twitter card, `article:published_time` and `article:modified_time` in initial HTML. Drafts have no public record, entry or manifest key; unknown/private fields are removed before bundling. Invalid recap content fails validation/build.
+
+The controlled uploader namespace now additionally accepts `technlsummit/recaps/<safe-slug>`, with the existing non-slash, slash and `/index.html` variants. Withdrawn recap keys use the same generic noindex replacement; nested files, traversal, other namespaces and retained assets remain outside the update pattern. Content type and non-immutable HTML caching remain unchanged. No CloudFront or GitHub Actions configuration change is required. Session/portfolio/directory preview generation is preserved. See [RECAPS.md](RECAPS.md) for publication and withdrawal caveats.

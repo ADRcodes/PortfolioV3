@@ -4,6 +4,7 @@ import { mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { randomUUID } from 'node:crypto';
+import { recapFixture } from './test-fixtures/recap.js';
 import { build, preview } from 'vite';
 
 const sessionDirectory = new URL('./sessions/', import.meta.url);
@@ -55,6 +56,15 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
       });
     }
     await writeFile(speakerFile, JSON.stringify(speakers));
+    for (const status of ['published', 'draft']) {
+      const marker = `recap-${status}-${token}`;
+      const path = new URL(`./recaps/${marker}.json`, import.meta.url);
+      paths.push(path);
+      await writeFile(path, JSON.stringify(recapFixture({ id: marker, slug: marker, title: `${marker} title`, excerpt: `${marker} public excerpt`, status,
+        privateEditorialNote: `${token} PRIVATE-RECAP-NOTE`,
+        sections: [{ heading: `${marker} heading`, paragraphs: [`${marker} body`], privateNote: `${token} PRIVATE-SECTION-NOTE` }],
+      })));
+    }
     await build({ logLevel: 'silent', build: { outDir: output, emptyOutDir: true } });
     const built = await outputText(output);
     for (const field of ['overview', 'heading', 'explanation', 'section', 'paragraph', 'bullet', 'notable', 'application', 'session insight', 'presentation', 'presentation explanation', 'presentation section', 'presentation paragraph', 'presentation bullet', 'insight heading', 'insight explanation']) {
@@ -71,9 +81,16 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
       assert.ok(!built.includes(`${status}-${token} perspective quotation`));
     }
     assert.ok(!built.includes(`${token} private-perspective-field`));
+    for (const text of ['title', 'body', 'public excerpt', 'heading']) {
+      assert.ok(built.includes(`recap-published-${token} ${text}`));
+      assert.ok(!built.includes(`recap-draft-${token} ${text}`));
+    }
+    assert.ok(!built.includes(`${token} PRIVATE-RECAP-NOTE`) && !built.includes(`${token} PRIVATE-SECTION-NOTE`));
     const manifest = JSON.parse(await readFile(join(output, 'summit-previews.json'), 'utf8'));
     assert.ok(!JSON.stringify(manifest).includes(`test-draft-${token}`));
     assert.ok(JSON.stringify(manifest).includes(`test-published-${token}`));
+    assert.ok(!JSON.stringify(manifest).includes(`recap-draft-${token}`));
+    assert.ok(JSON.stringify(manifest).includes(`recap-published-${token}`));
     // Raw HTTP checks: no React execution or document-head mutation involved.
     previewServer = await preview({ logLevel: 'silent', build: { outDir: output }, preview: { host: '127.0.0.1', port: 0, strictPort: true } });
     const origin = `http://127.0.0.1:${previewServer.httpServer.address().port}`;
@@ -89,6 +106,17 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
       assert.match(html, /src="\/assets\/index-[^"]+\.js"/);
       if (route.includes('wills-ai')) assert.ok(html.includes('Will&#39;s AI Meetup'));
     }
+    for (const variant of ['', '/', '/index.html']) {
+      const response = await fetch(`${origin}/technlsummit/recaps/recap-published-${token}${variant}`);
+      const html = await response.text();
+      assert.match(response.headers.get('content-type'), /^text\/html/);
+      assert.equal(response.headers.get('cache-control'), 'no-cache,no-store,must-revalidate');
+      assert.ok(html.includes(`recap-published-${token} title`) && html.includes(`recap-published-${token} public excerpt`));
+      assert.ok(html.includes('article:published_time') && html.includes('twitter:card'));
+      assert.ok(!html.includes('PRIVATE-RECAP-NOTE') && !html.includes('PRIVATE-SECTION-NOTE'));
+    }
+    const draftRecap = await (await fetch(`${origin}/technlsummit/recaps/recap-draft-${token}`)).text();
+    assert.ok(!draftRecap.includes(`recap-draft-${token} title`));
     const portfolio = await (await fetch(origin)).text();
     assert.ok(portfolio.includes("<title>Alex Russell's Portfolio</title>"));
     assert.ok(portfolio.includes('content="/images/meta/alex-russell-profile.png"'));
@@ -97,6 +125,10 @@ test('Vite discovers new article JSON and excludes draft/upcoming article fields
     assert.match(image.headers.get('content-type'), /^image\/png/);
     const draft = await (await fetch(`${origin}/technlsummit/sessions/test-draft-${token}`)).text();
     assert.ok(!draft.includes('draft test article'));
+    const invalid = new URL(`./recaps/invalid-${token}.json`, import.meta.url);
+    paths.push(invalid);
+    await writeFile(invalid, JSON.stringify(recapFixture({ sections: [] })));
+    await assert.rejects(build({ logLevel: 'silent', build: { outDir: join(output, 'invalid-build'), emptyOutDir: true } }), /requires sections/);
   } finally {
     await writeFile(speakerFile, originalSpeakers);
     if (previewServer) await new Promise(resolve => previewServer.httpServer.close(resolve));

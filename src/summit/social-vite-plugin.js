@@ -9,8 +9,8 @@ export default function summitPreviews() {
     async generateBundle(_options, bundle) {
       const shell = bundle['index.html']?.source;
       if (typeof shell !== 'string') throw new Error('Summit previews require the built index.html');
-      const { sessions } = await loadSummitContent();
-      const pages = previewPages(sessions);
+      const { sessions, recaps } = await loadSummitContent();
+      const pages = previewPages(sessions, recaps);
       for (const page of pages) this.emitFile({ type: 'asset', fileName: previewEntry(page).file, source: previewHtml(shell, page) });
       this.emitFile({ type: 'asset', fileName: 'summit-previews.json', source: JSON.stringify({ version: 1, entries: pages.map(previewEntry) }, null, 2) });
       this.emitFile({ type: 'asset', fileName: 'summit-preview-unavailable.html', source: previewHtml(shell, {

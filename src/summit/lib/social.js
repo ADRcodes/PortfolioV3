@@ -8,7 +8,7 @@ export const HTML_CACHE = 'no-cache,no-store,must-revalidate';
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const plain = value => value.replace(/\s+/g, ' ').trim();
 
-export function previewPages(rawSessions) {
+export function previewPages(rawSessions, recaps = []) {
   const home = { path: summitPath(), title: 'techNL Summit 2026 | Independent companion',
     description: 'Explore the October 19–20 programme in St. John’s and return for AI-assisted session notes. An independent companion by Alex Russell.', type: 'website' };
   return [home, ...['speakers', 'companies'].map(directory => ({ ...home, path: summitPath(directory),
@@ -18,7 +18,7 @@ export function previewPages(rawSessions) {
     description: descriptionPreview(plain(`${session.programme === 'external' ? `External editorial sample (${session.date}). ` : ''}${session.status === 'published' ? session.summary.overview : session.description}`), 240),
     type: session.status === 'published' ? 'article' : 'website',
     ...(session.status === 'published' ? { modifiedAt: session.updatedAt } : {}),
-  }))];
+  })), ...recaps.filter(recap => recap.status === 'published').map(recap => ({ path: summitPath(`recaps/${recap.slug}`), title: recap.title, description: descriptionPreview(plain(recap.excerpt), 240), type: 'article', publishedAt: recap.publishedAt, modifiedAt: recap.updatedAt }))];
 }
 
 export function previewHtml(shell, page) {
@@ -39,6 +39,7 @@ export function previewHtml(shell, page) {
       'og:site_name': 'Independent techNL Summit companion', 'og:image': SITE_ORIGIN + SOCIAL_IMAGE,
       'og:image:type': 'image/png', 'og:image:width': '1200', 'og:image:height': '630',
       'og:image:alt': 'techNL Summit 2026 — independent conference companion',
+      ...(page.publishedAt ? { 'article:published_time': page.publishedAt } : {}),
       ...(page.modifiedAt ? { 'article:modified_time': page.modifiedAt } : {}) })
       .map(([property, content]) => `<meta property="${property}" content="${escape(content)}" />`),
   ].join('\n    ');
@@ -49,4 +50,4 @@ export const previewEntry = page => ({ file: `${page.path.slice(1)}/index.html`,
   keys: [page.path.slice(1), `${page.path.slice(1)}/`, `${page.path.slice(1)}/index.html`] });
 
 // This exact namespace belongs to generated HTML, never images, bundles or profiles.
-export const isPreviewKey = key => /^technlsummit(?:\/(?:speakers|companies|sessions\/[a-z0-9]+(?:-[a-z0-9]+)*))?(?:\/|\/index\.html)?$/.test(key);
+export const isPreviewKey = key => /^technlsummit(?:\/(?:speakers|companies|(?:sessions|recaps)\/[a-z0-9]+(?:-[a-z0-9]+)*))?(?:\/|\/index\.html)?$/.test(key);

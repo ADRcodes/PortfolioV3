@@ -1,3 +1,4 @@
+import RecapFeatures from './RecapFeatures.jsx';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router';
 import { allSpeakers } from '../content/index.js';
@@ -22,5 +23,6 @@ export default function RecentSummaries({ sessions }) {
       <ul>{speakers.slice(0, 3).map(({ speaker, perspective }) => <li key={speaker.id}><Link to={summitPath(`speakers/${speaker.slug}`)}><span><span className="summit-insight-speaker-name">{speaker.name}</span>{perspective.heading && <span className="summit-insight-preview">{perspective.heading}</span>}</span><ArrowUpRight size={22} aria-hidden="true" /></Link></li>)}</ul>
       <Link className="summit-insights-all-speakers" to={summitPath('speakers')}>Explore all speakers <ArrowUpRight size={18} aria-hidden="true" /></Link>
     </div>}
+    <RecapFeatures />
   </section>;
 }

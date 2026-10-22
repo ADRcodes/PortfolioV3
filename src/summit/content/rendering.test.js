@@ -485,3 +485,34 @@ test('archive navigation is permanent on home, article and profile routes with a
     for (const other of others) assert.ok(home.indexOf(`data-session="${selected.slug}"`) < home.indexOf(`data-session="${other.slug}"`));
   }
 });
+
+test('recap pages and editorial features support zero, one and three articles without changing session records', async () => {
+  const { recapFixture } = await import('./test-fixtures/recap.js');
+  const { createRecaps } = await server.ssrLoadModule('/src/summit/content/recaps.js');
+  const RecapDetail = (await server.ssrLoadModule('/src/summit/pages/RecapDetail.jsx')).default;
+  const snapshot = JSON.stringify(content.sessions);
+  const original = [...content.recaps];
+  const renderArticle = slug => renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [`/technlsummit/recaps/${slug}`] }, createElement(Routes, null, createElement(Route, { path: '/technlsummit/recaps/:slug', element: createElement(RecapDetail) }))));
+  try {
+    content.recaps.splice(0);
+    assert.ok(renderArticle('unknown').includes('Page not found'));
+    const home = () => renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Home)));
+    assert.ok(!home().includes('summit-recap-features'));
+    for (const count of [1, 3]) {
+      const records = Array.from({ length: count }, (_, i) => recapFixture({ id: `fixture-${i}`, slug: `fixture-${i}`, title: `Editorial fixture ${i}`, publishedAt: `2026-10-21T1${i}:00:00Z`, updatedAt: '2026-10-21T15:00:00Z', speakerIds: [content.allSpeakers.find(speaker => !speaker.demo).id] }));
+      content.recaps.splice(0, content.recaps.length, ...createRecaps(records, content.sessions, content.allSpeakers));
+      const featured = home();
+      assert.equal((featured.match(/class="summit-recap-feature"/g) ?? []).length, count);
+      assert.ok(featured.includes('Speaker perspectives') && featured.includes('Read published session notes'));
+      if (count === 3) assert.ok(featured.indexOf('Editorial fixture 2') < featured.indexOf('Editorial fixture 1'));
+      const article = renderArticle('fixture-0');
+      for (const text of ['Editorial fixture 0', 'Cross-session recap', 'Independent, AI-assisted editorial analysis', 'Share article', 'Related speakers', 'Explore the supporting sessions', '/technlsummit/sessions/assumption-trap', '/technlsummit#summit-insights']) assert.ok(article.includes(text), text);
+      assert.ok(article.includes('dateTime="2026-10-21T10:00:00Z"'));
+      assert.ok(!article.includes('Bannerman') && !article.includes('Notes to follow'));
+      content.recaps[0].sections[0].paragraphs[0] = '<script>private()</script>';
+      const escaped = renderArticle(content.recaps[0].slug);
+      assert.ok(escaped.includes('&lt;script&gt;private()&lt;/script&gt;') && !escaped.includes('<script>private()'));
+    }
+    assert.equal(JSON.stringify(content.sessions), snapshot);
+  } finally { content.recaps.splice(0, content.recaps.length, ...original); }
+});

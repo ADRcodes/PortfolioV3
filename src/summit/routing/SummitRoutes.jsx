@@ -3,6 +3,7 @@ import useSummitTransition from '../lib/useSummitTransition.js';
 import SummitLayout from '../components/SummitLayout.jsx';
 import Home from '../pages/Home.jsx';
 import { summitPath } from './paths.js';
+import RecapDetail from '../pages/RecapDetail.jsx';
 import SessionDetail from '../pages/SessionDetail.jsx';
 import { Directory, Profile } from '../pages/Directory.jsx';
 import NotFound from '../pages/NotFound.jsx';
@@ -12,6 +13,7 @@ export default function SummitRoutes() {
   return <Routes location={displayed}><Route element={<SummitLayout />}>
     <Route index element={<Home />} />
     <Route path="sessions" element={<Navigate to={summitPath()} replace />} />
+    <Route path="recaps/:slug" element={<RecapDetail />} />
     <Route path="sessions/:slug" element={<SessionDetail />} />
     <Route path="speakers" element={<Directory type="speakers" />} />
     <Route path="speakers/:slug" element={<Profile type="speakers" />} />

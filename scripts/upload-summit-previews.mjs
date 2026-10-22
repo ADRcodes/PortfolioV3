@@ -8,7 +8,7 @@ export function uploadPlan(manifest, existingKeys = []) {
   if (manifest.version !== 1 || !Array.isArray(manifest.entries) || !manifest.entries.length) throw new Error('Invalid preview manifest');
   const current = new Map();
   for (const entry of manifest.entries) {
-    if (!/^technlsummit(?:\/(?:speakers|companies|sessions\/[a-z0-9]+(?:-[a-z0-9]+)*))?\/index\.html$/.test(entry.file)) throw new Error('Invalid preview file');
+    if (!/^technlsummit(?:\/(?:speakers|companies|(?:sessions|recaps)\/[a-z0-9]+(?:-[a-z0-9]+)*))?\/index\.html$/.test(entry.file)) throw new Error('Invalid preview file');
     const base = entry.file.slice(0, -'/index.html'.length);
     if (JSON.stringify(entry.keys) !== JSON.stringify([base, `${base}/`, entry.file])) throw new Error('Invalid preview keys');
     for (const key of entry.keys) {
