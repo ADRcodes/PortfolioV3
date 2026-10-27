@@ -58,7 +58,7 @@ export default function SummitIdentity({ agenda, routeKey }) {
         geometry.parts.forEach((part, index) => {
           const word = floating[index];
           word.style.transform = `translate3d(${positions[index].x}px, ${positions[index].y}px, 0) scale(${mix(1, part.scale, shrink)})`;
-          if (index === 1) word.style.color = `rgb(${mix(239, 240, eased)} ${mix(188, 238, eased)} ${mix(146, 229, eased)})`;
+          if (index === 1) word.style.color = `rgb(${part.color.map((channel, i) => mix(channel, part.targetColor[i], eased)).join(' ')})`;
         });
       }
     };
@@ -66,7 +66,8 @@ export default function SummitIdentity({ agenda, routeKey }) {
       const parts = source.map((element, index) => {
         const rect = element.getBoundingClientRect();
         const destination = target[index].getBoundingClientRect();
-        return { x: rect.left, y: rect.top + window.scrollY, width: rect.width, font: parseFloat(getComputedStyle(element).fontSize), scale: destination.width / rect.width, target: { x: destination.left, y: destination.top, width: destination.width } };
+        const channels = node => getComputedStyle(node).color.match(/[\d.]+/g).slice(0, 3).map(Number);
+        return { color: channels(element), targetColor: channels(target[index]), x: rect.left, y: rect.top + window.scrollY, width: rect.width, font: parseFloat(getComputedStyle(element).fontSize), scale: destination.width / rect.width, target: { x: destination.left, y: destination.top, width: destination.width } };
       });
       parts.forEach((part, index) => { floating[index].style.fontSize = `${part.font}px`; });
       geometry = {

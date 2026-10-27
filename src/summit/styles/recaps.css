@@ -1,5 +1,5 @@
-/* Recaps extend the existing slate/paper editorial spread, without changing session geometry. */
-.summit-app .summit-recap-features { grid-column: 1 / -1; min-width: 0; border-top: 1px solid #aeb5aa; padding-top: 1.75rem; }
+/* Recaps extend the shared Oxblood & Limestone editorial spread, without changing session geometry. */
+.summit-app .summit-recap-features { grid-column: 1 / -1; min-width: 0; border-top: 1px solid var(--summit-line); padding-top: 1.75rem; }
 .summit-app .summit-recap-features > h3 { font-size: 1.5rem; margin: 0 0 1.5rem; }
 .summit-app .summit-recap-collection { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1.75rem 3rem; }
 .summit-app .summit-recap-feature { min-width: 0; }
@@ -8,7 +8,7 @@
 .summit-app .summit-recap-feature h4 { font-size: clamp(1.5rem, 2.3vw, 2rem); line-height: 1.15; letter-spacing: -.025em; margin: 0 0 .75rem; overflow-wrap: anywhere; }
 .summit-app .summit-recap-feature:first-child h4 { font-size: clamp(1.875rem, 3.4vw, 3rem); }
 .summit-app .summit-recap-feature p { font-size: 1.0625rem; line-height: 1.55; margin-bottom: .75rem; }
-.summit-app .summit-recap-feature .summit-recap-feature-date { font-size: .875rem; color: #454d47; }
+.summit-app .summit-recap-feature .summit-recap-feature-date { font-size: .875rem; color: var(--summit-muted); }
 .summit-app .summit-recap-read { display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; text-decoration: underline; }
 .summit-app .summit-recap { background: var(--summit-surface); }
 .summit-app .summit-recap .summit-detail-topbar { display: flex; flex-wrap: wrap; gap: .75rem 2rem; margin-bottom: 1.5rem; }
@@ -23,12 +23,12 @@
 .summit-app .summit-recap-body .summit-article-section { margin-top: 2rem; }
 .summit-app .summit-recap-body p { margin-bottom: 1.25rem; }
 .summit-app .summit-recap-body a { text-decoration: underline; text-underline-offset: .2em; }
-.summit-app .summit-recap-related { margin-top: 2rem; border-top: 1px solid #adada8; padding-top: 1.5rem; }
+.summit-app .summit-recap-related { margin-top: 2rem; border-top: 1px solid var(--summit-line); padding-top: 1.5rem; }
 .summit-app .summit-recap-related li, .summit-app .summit-recap-section-links li { margin-block: .75rem; }
 .summit-app .summit-recap-return { display: inline-block; margin-top: 2rem; min-height: 44px; }
 @media (max-width: 40rem) {
   .summit-app .summit-recap-collection { grid-template-columns: 1fr; gap: 1.5rem; }
   .summit-app .summit-recap-feature:first-child { grid-row: auto; }
-  .summit-app .summit-recap-feature + .summit-recap-feature { border-top: 1px solid #aeb5aa; padding-top: 1.5rem; }
+  .summit-app .summit-recap-feature + .summit-recap-feature { border-top: 1px solid var(--summit-line); padding-top: 1.5rem; }
   .summit-app .summit-recap-body { font-size: 1.0625rem; }
 }

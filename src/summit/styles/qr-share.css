@@ -1,26 +1,26 @@
 /* QR sharing is scoped separately so the existing Summit motion/layout stays intact. */
 .summit-app .summit-header-inner:has(.summit-qr-nav) { gap: 1rem; }
 .summit-app .summit-header-inner:has(.summit-qr-nav) > .summit-primary-nav { margin-left: auto; }
-.summit-app .summit-qr-nav { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: #e3e2d8; cursor: pointer; }
+.summit-app .summit-qr-nav { display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: var(--summit-surface); cursor: pointer; }
 .summit-app .summit-qr-nav svg { display: block; width: 23px; height: 23px; }
 .summit-app .summit-qr-nav:hover { color: var(--summit-accent); }
-.summit-app .summit-qr-nav:focus-visible, .summit-app .summit-qr-dialog :focus-visible { outline: 2px solid #efbc92; outline-offset: 4px; }
-.summit-app .summit-qr-dialog :focus-visible { outline-color: #304242; }
+.summit-app .summit-qr-nav:focus-visible, .summit-app .summit-qr-dialog :focus-visible { outline: 2px solid var(--summit-accent); outline-offset: 4px; }
+.summit-app .summit-qr-dialog :focus-visible { outline-color: var(--summit-bg-deep); }
 .summit-app .summit-qr-dialog { position: fixed; inset: 0; box-sizing: border-box; width: min(26rem, calc(100vw - 2rem)); max-height: calc(100dvh - 2rem); margin: auto; padding: 2rem; overflow: auto; overscroll-behavior: contain; border: 0; border-radius: 8px; background: var(--summit-surface); color: var(--summit-ink); color-scheme: light; font: inherit; text-align: center; }
-.summit-app .summit-qr-dialog::backdrop { background: rgb(15 27 27 / .82); }
-.summit-app .summit-qr-close { display: grid; place-items: center; position: absolute; top: .5rem; right: .5rem; width: 44px; height: 44px; border: 0; background: transparent; color: #181818; cursor: pointer; }
+.summit-app .summit-qr-dialog::backdrop { background: var(--summit-overlay); }
+.summit-app .summit-qr-close { display: grid; place-items: center; position: absolute; top: .5rem; right: .5rem; width: 44px; height: 44px; border: 0; background: transparent; color: var(--summit-ink); cursor: pointer; }
 .summit-app .summit-qr-dialog h2 { margin: 1rem 0 .5rem; font-size: clamp(1.75rem, 6vw, 2.25rem); font-weight: 600; line-height: 1.1; letter-spacing: -.03em; }
-.summit-app .summit-qr-dialog > p { margin: .5rem 0 1.25rem; font-size: .9375rem; line-height: 1.5; color: #3f4541; }
+.summit-app .summit-qr-dialog > p { margin: .5rem 0 1.25rem; font-size: .9375rem; line-height: 1.5; color: var(--summit-muted); }
 .summit-app .summit-qr-image { display: block; width: min(100%, 280px); height: auto; margin: 1.5rem auto 1rem; background: white; }
-.summit-app .summit-qr-url { display: block; overflow-wrap: anywhere; color: #263e3e; font-size: .9375rem; text-decoration: underline; text-underline-offset: .2em; }
+.summit-app .summit-qr-url { display: block; overflow-wrap: anywhere; color: var(--summit-link); font-size: .9375rem; text-decoration: underline; text-underline-offset: .2em; }
 .summit-app .summit-qr-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin-top: 1.25rem; }
-.summit-app .summit-qr-actions button { display: inline-flex; justify-content: center; align-items: center; gap: .5rem; min-height: 46px; padding: .65rem 1rem; border: 0; border-radius: 0; background: #304242; color: #fff; font: inherit; font-size: .9375rem; cursor: pointer; }
-.summit-app .summit-qr-actions button:first-child { background: var(--summit-accent); color: #181818; }
+.summit-app .summit-qr-actions button { display: inline-flex; justify-content: center; align-items: center; gap: .5rem; min-height: 46px; padding: .65rem 1rem; border: 0; border-radius: 0; background: var(--summit-bg-deep); color: var(--summit-on-dark); font: inherit; font-size: .9375rem; cursor: pointer; }
+.summit-app .summit-qr-actions button:first-child { background: var(--summit-accent); color: var(--summit-ink); }
 .summit-app .summit-qr-actions button:disabled { opacity: .65; cursor: wait; }
 .summit-app .summit-qr-dialog .summit-qr-feedback { min-height: 1.5em; margin: .65rem 0 .25rem; font-size: .875rem; }
-.summit-app .summit-qr-download { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 44px; color: #263e3e; font-size: .875rem; text-decoration: underline; text-underline-offset: .2em; }
+.summit-app .summit-qr-download { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 44px; color: var(--summit-link); font-size: .875rem; text-decoration: underline; text-underline-offset: .2em; }
 .summit-app .summit-qr-manual { display: block; margin: .75rem 0; text-align: left; font-size: .875rem; }
-.summit-app .summit-qr-manual input { box-sizing: border-box; width: 100%; min-height: 44px; padding: .5rem; border: 1px solid #51514e; color: #181818; background: white; font: inherit; }
+.summit-app .summit-qr-manual input { box-sizing: border-box; width: 100%; min-height: 44px; padding: .5rem; border: 1px solid var(--summit-muted); color: var(--summit-ink); background: var(--summit-surface-raised); font: inherit; }
 @media (max-width: 50rem) {
   .summit-app .summit-header-inner:has(.summit-qr-nav) { width: calc(100% - 1rem); gap: .25rem; }
   .summit-app .summit-qr-dialog { padding: 1.25rem; }

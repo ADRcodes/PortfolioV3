@@ -10,8 +10,8 @@ A conference companion for finding the next session and returning to the notes. 
 
 ## Visual language
 
-- Muted slate-green `#384b4b` canvas; broad warm-neutral `#e3e2d8` session panels; near-black `#181818` ink on panels. Supporting panel text `#51514e`.
-- Use warm apricot `#efbc92` for the opening title, year, Up next, current-session markers and selection. Purple is excluded; colour is encouraged. The site is prominently named techNL Summit 2026 in its wordmark and opening heading.
+- Owner-selected Oxblood & Limestone palette: deep oxblood `#43282e` canvas, limestone `#f1ede4` reading surfaces, warm ink `#2e2527` and secondary ink `#65585b`. This supersedes the historical slate-green/apricot references below.
+- Use copper `#e4af83` for the opening title, year, primary actions and selection, with darker oxblood `#8a3846` for links on light surfaces. Purple is excluded; colour is encouraged. The site is prominently named techNL Summit 2026 in its wordmark and opening heading.
 - Arial/Helvetica sans typography, substantial weight/scale contrast, tight display spacing and readable metadata. Desktop article text and fact values are 18px; navigation is 16px and fact labels are 14px. Mobile article text is 17px and factual values are 16px. No external fonts or dependencies.
 - Keep route top padding compact. Back navigation lives beside the event identity in the fixed header on every non-agenda route; date/status remain in the session content; avoid adding separate large margins above the title.
 - Square surfaces and a consistent time rail. Agenda cards show location plus compact presenter/company identities; start and expected end times appear once in the rail. Detail headers and cards outside the agenda retain their own time. Presenter and company names are independent profile links in both cards and detail headers. The reading body has no redundant profile aside. Card descriptions move to the detail page, keeping the agenda concise.
@@ -123,3 +123,12 @@ Focused overrides are in `styles/hierarchy.css`; transition geometry and phone c
 - Keep publication labels and their arrow in an unbroken inline-flex group; the whole group may move to a new row. At 320px the Explore insights navigation label uses two lines so the other 14px navigation labels retain comfortable, separate targets.
 - Speaker profile heroes remain full width. Portrait regions cap at 448px, use a 4:5 frame and contain-fit artwork without cropping; mobile uses a bounded square frame. The cream background fills remaining header space instead of enlarging photographs indefinitely.
 - Perspectives align a section-heading column with a wider reading column at desktop sizes and stack below 960px. Insight headings lead; source sessions, quotations/paraphrases, caveats and reading actions retain clear attribution and ordered spacing. No schema, source text, URL or publishing behavior changes.
+
+
+## Oxblood & Limestone palette (October 27)
+
+The owner selected this palette after reviewing four options. Colour roles are centralized in `summit.css` and shared by the hierarchy, recaps, perspectives, recording notice and QR-dialog styles. Root/background tokens apply only while the Summit is mounted; portfolio styling remains independent.
+
+Use dark oxblood for the outer canvas/navigation, limestone for reading surfaces, copper for primary actions, and the readable darker oxblood counterpart for links on paper. Panel/workshop tints remain distinct within the same warm family. Hover, selected, copied, focus, input and backdrop states use the same roles. Company-logo surfaces remain neutral, and official artwork, QR modules, downloadable QR artwork and existing static social-preview assets retain their original colours.
+
+The animated identity reads its source/target colours during measurement rather than interpolating obsolete hardcoded RGB endpoints. Geometry, timing, shared elements, responsive title wrapping and reduced-motion behavior remain unchanged. Palette tests check normal-text contrast (4.5:1), control boundaries (3:1) and detached literal colours across the Summit stylesheets.
