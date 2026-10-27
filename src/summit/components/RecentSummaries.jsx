@@ -14,15 +14,15 @@ export default function RecentSummaries({ sessions }) {
     <span id="summit-recent-summaries" aria-hidden="true" />
     <div className="summit-insights-intro">
       <h2 id="summit-recent-title">Explore the insights</h2>
-      <p>Revisit the discussions and the ideas worth carrying forward. I’m continuing to add AI-assisted summaries as I work through the sessions.</p>
-      <Link className="summit-insights-notes" to={`${summitPath()}?view=notes#summit-agenda-start`}>Read published session notes <ArrowUpRight size={22} aria-hidden="true" /></Link>
-      {!recent.length && <p className="summit-insights-pending">Session notes are still being prepared. Explore the archive in the meantime.</p>}
+      <p>Cross-session analysis connecting the Summit’s ideas, tensions and practical lessons.</p>
     </div>
-    {!!speakers.length && <div className="summit-insight-perspectives">
-      <h3>Speaker perspectives</h3><p>Ideas in the speakers’ own words, alongside attributed insights from their sessions.</p>
-      <ul>{speakers.slice(0, 3).map(({ speaker, perspective }) => <li key={speaker.id}><Link to={summitPath(`speakers/${speaker.slug}`)}><span><span className="summit-insight-speaker-name">{speaker.name}</span>{perspective.heading && <span className="summit-insight-preview">{perspective.heading}</span>}</span><ArrowUpRight size={22} aria-hidden="true" /></Link></li>)}</ul>
-      <Link className="summit-insights-all-speakers" to={summitPath('speakers')}>Explore all speakers <ArrowUpRight size={18} aria-hidden="true" /></Link>
-    </div>}
     <RecapFeatures />
+    {!!speakers.length && <div className="summit-insight-perspectives">
+      <div className="summit-insight-perspectives-intro">
+        <h3>Speaker perspectives</h3><p>Session ideas, with context and attribution.</p>
+        <Link className="summit-insights-all-speakers" to={summitPath('speakers')}>Explore all speakers <ArrowUpRight size={18} aria-hidden="true" /></Link>
+      </div>
+      <ul>{speakers.slice(0, 3).map(({ speaker, perspective }) => <li key={speaker.id}><Link to={summitPath(`speakers/${speaker.slug}`)}><span><span className="summit-insight-speaker-name">{speaker.name}</span>{perspective.heading && <span className="summit-insight-preview">{perspective.heading}</span>}</span><ArrowUpRight size={18} aria-hidden="true" /></Link></li>)}</ul>
+    </div>}
   </section>;
 }

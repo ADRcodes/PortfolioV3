@@ -8,12 +8,16 @@ import '../styles/recaps.css';
 export default function RecapFeatures() {
   if (!recaps.length) return null;
   return <section className="summit-recap-features" aria-labelledby="summit-recaps-title">
-    <h3 id="summit-recaps-title">Across the sessions</h3>
+    <h3 id="summit-recaps-title" className="summit-sr-only">Across the sessions</h3>
     <div className="summit-recap-collection">{recaps.map(recap => <article className="summit-recap-feature" key={recap.id}>
-      <h4><Link to={summitPath(`recaps/${recap.slug}`)}>{recap.title}</Link></h4>
-      <p>{recap.excerpt}</p>
-      <p className="summit-recap-feature-date"><time dateTime={recap.publishedAt}>{formatPublication(recap.publishedAt)}</time></p>
-      <Link className="summit-recap-read" to={summitPath(`recaps/${recap.slug}`)}>Read the recap<span className="summit-sr-only">: {recap.title}</span><ArrowUpRight size={20} aria-hidden="true" /></Link>
+      <Link className="summit-recap-preview" to={summitPath(`recaps/${recap.slug}`)} aria-labelledby={`recap-title-${recap.slug}`} aria-describedby={`recap-excerpt-${recap.slug}`}>
+        <h4 id={`recap-title-${recap.slug}`}>{recap.title}</h4>
+        <p id={`recap-excerpt-${recap.slug}`}>{recap.excerpt}</p>
+        <div className="summit-recap-feature-footer">
+          <time className="summit-recap-feature-date" dateTime={recap.publishedAt}>{formatPublication(recap.publishedAt)}</time>
+          <span className="summit-recap-read" aria-hidden="true">Read the recap <ArrowUpRight size={20} /></span>
+        </div>
+      </Link>
     </article>)}</div>
   </section>;
 }

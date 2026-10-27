@@ -349,13 +349,15 @@ test('directories exclude fictional profiles, search affiliations, names and bio
 });
 
 
-test('insights discovery keeps notes access without a duplicate recent-article list or archive action', async () => {
+test('insights discovery leads with recap analysis and keeps speaker profiles secondary', async () => {
   const Recent = (await server.ssrLoadModule('/src/summit/components/RecentSummaries.jsx')).default;
   const html = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Recent, { sessions: content.conferenceSessions })));
   assert.ok(html.includes('id="summit-insights"'));
   assert.ok(html.includes('class="summit-insights-intro"'));
-  assert.ok(html.includes('Read published session notes'));
-  assert.ok(html.includes('href="/technlsummit?view=notes#summit-agenda-start"'));
+  assert.ok(!html.includes('Read published session notes'));
+  assert.ok(!html.includes('href="/technlsummit?view=notes#summit-agenda-start"'));
+  assert.ok(html.includes('Cross-session analysis connecting'));
+  assert.ok(html.indexOf('summit-recap-features') < html.indexOf('summit-insight-perspectives'));
   assert.ok(!html.includes('<details'));
   assert.ok(!html.includes('summit-recent-item'));
   assert.ok(!html.includes('Browse the complete session archive'));
@@ -387,10 +389,10 @@ test('insights discovery handles sparse publication states without duplicate art
   for (const count of [0, 1, 2, 3, 4]) {
     const records = Array.from({ length: count }, (_, index) => ({ ...base, id: `real-${index}`, slug: `real-${index}`, title: `Real article ${index}`, updatedAt: `2026-10-20T1${index}:00:00Z` }));
     const html = renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Recent, { sessions: [...records, external] })));
-    assert.equal(html.includes('Session notes are still being prepared.'), count === 0);
+    assert.ok(!html.includes('Session notes are still being prepared.'));
     assert.ok(!html.includes('summit-recent-item'));
     assert.ok(html.includes(`data-summary-state="${count ? 'published' : 'coming-soon'}"`));
-    assert.ok(html.includes('Read published session notes'));
+    assert.ok(!html.includes('Read published session notes'));
     assert.ok(!html.includes('wills-ai-meetup-editorial-test'));
     assert.ok(!html.includes('recording'));
   }
@@ -486,7 +488,7 @@ test('archive navigation is permanent on home, article and profile routes with a
   }
 });
 
-test('recap pages and editorial features support zero, one and three articles without changing session records', async () => {
+test('recap pages and editorial features support zero, one and several articles without changing session records', async () => {
   const { recapFixture } = await import('./test-fixtures/recap.js');
   const { createRecaps } = await server.ssrLoadModule('/src/summit/content/recaps.js');
   const RecapDetail = (await server.ssrLoadModule('/src/summit/pages/RecapDetail.jsx')).default;
@@ -498,13 +500,22 @@ test('recap pages and editorial features support zero, one and three articles wi
     assert.ok(renderArticle('unknown').includes('Page not found'));
     const home = () => renderToStaticMarkup(createElement(MemoryRouter, null, createElement(Home)));
     assert.ok(!home().includes('summit-recap-features'));
-    for (const count of [1, 3]) {
+    for (const count of [1, 2, 5]) {
       const records = Array.from({ length: count }, (_, i) => recapFixture({ id: `fixture-${i}`, slug: `fixture-${i}`, title: `Editorial fixture ${i}`, publishedAt: `2026-10-21T1${i}:00:00Z`, updatedAt: '2026-10-21T15:00:00Z', speakerIds: [content.allSpeakers.find(speaker => !speaker.demo).id] }));
       content.recaps.splice(0, content.recaps.length, ...createRecaps(records, content.sessions, content.allSpeakers));
       const featured = home();
       assert.equal((featured.match(/class="summit-recap-feature"/g) ?? []).length, count);
-      assert.ok(featured.includes('Speaker perspectives') && featured.includes('Read published session notes'));
-      if (count === 3) assert.ok(featured.indexOf('Editorial fixture 2') < featured.indexOf('Editorial fixture 1'));
+      assert.ok(featured.includes('Speaker perspectives') && !featured.includes('Read published session notes'));
+      assert.ok(featured.indexOf('summit-recap-features') < featured.indexOf('summit-insight-perspectives'));
+      if (count > 1) assert.ok(featured.indexOf(`Editorial fixture ${count - 1}`) < featured.indexOf('Editorial fixture 0'));
+      const previews = [...featured.matchAll(/<article class="summit-recap-feature">(.*?)<\/article>/g)];
+      for (const [index, [, preview]] of previews.entries()) {
+        const recap = content.recaps[index];
+        // One native link covers the complete preview, including its explanation and reading action.
+        assert.equal((preview.match(/<a /g) ?? []).length, 1);
+        assert.ok(preview.startsWith('<a class="summit-recap-preview"') && preview.endsWith('</a>'));
+        for (const text of [`href="/technlsummit/recaps/${recap.slug}"`, `aria-labelledby="recap-title-${recap.slug}"`, `id="recap-title-${recap.slug}"`, `aria-describedby="recap-excerpt-${recap.slug}"`, `id="recap-excerpt-${recap.slug}"`, recap.excerpt, 'Read the recap']) assert.ok(preview.includes(text), text);
+      }
       const article = renderArticle('fixture-0');
       for (const text of ['Editorial fixture 0', 'Summit 2026 / Analysis', 'Independent, AI-assisted editorial analysis', 'Share article', 'Related speakers', 'Explore the supporting sessions', '/technlsummit/sessions/assumption-trap', '/technlsummit#summit-insights']) assert.ok(article.includes(text), text);
       assert.ok(article.includes('dateTime="2026-10-21T10:00:00Z"'));
