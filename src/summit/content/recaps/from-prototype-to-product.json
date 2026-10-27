@@ -6,7 +6,7 @@
   "excerpt": "A 30-minute prototype was just the beginning. Seven Summit sessions connect faster AI development with customer discovery, real-world testing and the discipline to say no.",
   "status": "published",
   "publishedAt": "2026-10-22T00:15:28.374Z",
-  "updatedAt": "2026-10-27T14:16:19.105Z",
+  "updatedAt": "2026-10-27T16:06:06.108Z",
   "relatedSessionSlugs": [
     "essential-ai-tools-and-t-minus30-launch",
     "assumption-trap",
@@ -29,7 +29,9 @@
     "speaker-nick-warren",
     "speaker-carlos-coelho",
     "speaker-sarah-murphy",
-    "speaker-jacob-critch"
+    "speaker-jacob-critch",
+    "speaker-shelley-kuipers",
+    "speaker-brian-whiteway"
   ],
   "sections": [
     {
@@ -42,6 +44,13 @@
       ],
       "sessionSlugs": [
         "essential-ai-tools-and-t-minus30-launch"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 0,
+          "speakerId": "speaker-jan-mertlik",
+          "text": "Jan Mertlik"
+        }
       ]
     },
     {
@@ -62,7 +71,24 @@
         "label": "The product trap",
         "heading": "Attention isn't the same as validation.",
         "explanation": "DCXIX's ambitious virtual-reality demonstration attracted genuine interest while also diverting effort from commercializing the underlying data-transport technology. The attention mattered, but it couldn't establish demand for the product."
-      }
+      },
+      "speakerLinks": [
+        {
+          "paragraphIndex": 1,
+          "speakerId": "speaker-steph-burry",
+          "text": "Steph Burry"
+        },
+        {
+          "paragraphIndex": 2,
+          "speakerId": "speaker-james-geneau",
+          "text": "James Geneau"
+        },
+        {
+          "paragraphIndex": 5,
+          "speakerId": "speaker-chelsea-o-hara",
+          "text": "Chelsea O'Hara"
+        }
+      ]
     },
     {
       "heading": "Customers know their problems. They don't always know the solution.",
@@ -77,6 +103,23 @@
       "sessionSlugs": [
         "unicorns-in-the-making",
         "internal-innovation"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 0,
+          "speakerId": "speaker-taylor-young",
+          "text": "Taylor Young"
+        },
+        {
+          "paragraphIndex": 0,
+          "speakerId": "speaker-chris-gardner",
+          "text": "Chris Gardner"
+        },
+        {
+          "paragraphIndex": 4,
+          "speakerId": "speaker-sheena-fiander",
+          "text": "Sheena Fiander"
+        }
       ]
     },
     {
@@ -92,6 +135,18 @@
       ],
       "sessionSlugs": [
         "the-new-org-chart"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 1,
+          "speakerId": "speaker-jon-king",
+          "text": "Jon King"
+        },
+        {
+          "paragraphIndex": 4,
+          "speakerId": "speaker-phil-o-brien",
+          "text": "Phil O'Brien"
+        }
       ]
     },
     {
@@ -108,6 +163,33 @@
       "sessionSlugs": [
         "go-broad-or-go-deep",
         "eyes-on-velocity"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 1,
+          "speakerId": "speaker-nick-warren",
+          "text": "Nick Warren"
+        },
+        {
+          "paragraphIndex": 2,
+          "speakerId": "speaker-carlos-coelho",
+          "text": "Carlos Coelho"
+        },
+        {
+          "paragraphIndex": 4,
+          "speakerId": "speaker-sarah-murphy",
+          "text": "Sarah Murphy"
+        },
+        {
+          "paragraphIndex": 5,
+          "speakerId": "speaker-shelley-kuipers",
+          "text": "Shelley Kuipers"
+        },
+        {
+          "paragraphIndex": 5,
+          "speakerId": "speaker-brian-whiteway",
+          "text": "Brian Whiteway"
+        }
       ]
     },
     {
@@ -135,6 +217,13 @@
       ],
       "sessionSlugs": [
         "assumption-trap"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 1,
+          "speakerId": "speaker-jacob-critch",
+          "text": "Jacob Critch"
+        }
       ]
     }
   ]
