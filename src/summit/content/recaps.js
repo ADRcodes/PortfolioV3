@@ -20,6 +20,15 @@ export function validateRecap(recap) {
   for (const section of recap.sections) {
     if (!section || !text(section.heading) || !strings(section.paragraphs) || !section.paragraphs.length) fail(`invalid section for ${recap.id}`);
     if (section.highlightedInsight !== undefined && !insight(section.highlightedInsight)) fail(`invalid section highlightedInsight for ${recap.id}`);
+    if (section.speakerLinks !== undefined) {
+      if (!Array.isArray(section.speakerLinks)) fail(`invalid speakerLinks for ${recap.id}`);
+      for (const link of section.speakerLinks) {
+        if (!link || !Number.isInteger(link.paragraphIndex) || link.paragraphIndex < 0 || link.paragraphIndex >= section.paragraphs.length ||
+            !text(link.speakerId) || !text(link.text)) fail(`invalid speaker link for ${recap.id}`);
+        const paragraph = section.paragraphs[link.paragraphIndex];
+        if (paragraph.indexOf(link.text) === -1 || paragraph.indexOf(link.text) !== paragraph.lastIndexOf(link.text)) fail(`speaker link must match exactly once in paragraph for ${recap.id}`);
+      }
+    }
     if (section.bullets !== undefined && !strings(section.bullets)) fail(`invalid bullets for ${recap.id}`);
     if (section.sessionSlugs !== undefined && (!strings(section.sessionSlugs) || !section.sessionSlugs.every(value => recap.relatedSessionSlugs.includes(value)))) fail(`section links must be relatedSessionSlugs for ${recap.id}`);
   }
@@ -35,7 +44,8 @@ export function publicRecap(record) {
     ['speakerIds', recap.speakerIds ?? []],
     ['sections', recap.sections.map(section => ({ heading: section.heading, paragraphs: section.paragraphs,
       ...(section.bullets ? { bullets: section.bullets } : {}), ...(section.sessionSlugs ? { sessionSlugs: section.sessionSlugs } : {}),
-      ...(section.highlightedInsight ? { highlightedInsight: publicInsight(section.highlightedInsight) } : {}) }))],
+      ...(section.highlightedInsight ? { highlightedInsight: publicInsight(section.highlightedInsight) } : {}),
+      ...(section.speakerLinks ? { speakerLinks: section.speakerLinks.map(link => ({ paragraphIndex: link.paragraphIndex, speakerId: link.speakerId, text: link.text })) } : {}) }))],
     ...(recap.highlightedInsight ? [['highlightedInsight', publicInsight(recap.highlightedInsight)]] : []),
   ]);
 }
@@ -50,6 +60,26 @@ export function createRecaps(records, sessions, speakers) {
     if (record.status === 'draft') continue;
     for (const related of record.relatedSessionSlugs) if (!sessions.some(session => session.slug === related && session.programme === 'conference' && session.status === 'published')) fail(`related session must be a published conference article: ${related}`);
     for (const id of record.speakerIds ?? []) if (!speakers.some(speaker => speaker.id === id && !speaker.demo)) fail(`unknown public speaker ${id}`);
+    const linked = new Set();
+    const earlierParagraphs = [];
+    for (const section of record.sections) {
+      const linksByParagraph = new Map();
+      for (const link of section.speakerLinks ?? []) {
+        const speaker = speakers.find(item => item.id === link.speakerId && !item.demo);
+        if (!speaker || !record.speakerIds?.includes(link.speakerId)) fail(`linked speaker must belong to the recap: ${link.speakerId}`);
+        if (speaker.name !== link.text && !speaker.name.startsWith(`${link.text},`)) fail(`speaker link must use the speaker's full name: ${link.speakerId}`);
+        if (linked.has(link.speakerId) || earlierParagraphs.some(paragraph => paragraph.includes(link.text))) fail(`only the first mention may link a speaker: ${link.speakerId}`);
+        linked.add(link.speakerId);
+        const list = linksByParagraph.get(link.paragraphIndex) ?? [];
+        list.push(link);
+        linksByParagraph.set(link.paragraphIndex, list);
+      }
+      for (const [index, paragraph] of section.paragraphs.entries()) {
+        const range = (linksByParagraph.get(index) ?? []).map(link => ({ start: paragraph.indexOf(link.text), end: paragraph.indexOf(link.text) + link.text.length })).sort((a, b) => a.start - b.start);
+        if (range.some((item, i) => i > 0 && item.start < range[i - 1].end)) fail(`overlapping speaker links for ${record.id}`);
+        earlierParagraphs.push(paragraph);
+      }
+    }
   }
   return records.map(publicRecap).filter(Boolean).sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt) || a.slug.localeCompare(b.slug));
 }
