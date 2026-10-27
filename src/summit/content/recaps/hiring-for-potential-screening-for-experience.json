@@ -1,0 +1,206 @@
+{
+  "id": "recap-hiring-for-potential-screening-for-experience",
+  "slug": "hiring-for-potential-screening-for-experience",
+  "title": "Hiring for Potential, Screening for Experience?",
+  "description": "At techNL Summit, growing companies described the qualities they value in employees. Another discussion revealed how difficult it can be for people without industry experience to demonstrate them.",
+  "excerpt": "Companies value initiative and adaptability. But how can people demonstrate those qualities when getting a first opportunity is so difficult? A look across techNL Summit.",
+  "status": "published",
+  "publishedAt": "2026-10-27T17:42:04.524Z",
+  "updatedAt": "2026-10-27T17:42:04.524Z",
+  "relatedSessionSlugs": [
+    "unicorns-in-the-making",
+    "the-new-org-chart",
+    "up-next-in-tech",
+    "funding-for-talent"
+  ],
+  "speakerIds": [
+    "speaker-taylor-young",
+    "speaker-chris-gardner",
+    "speaker-zach-green",
+    "speaker-jon-king",
+    "speaker-phil-o-brien",
+    "speaker-daniel-mccarthy",
+    "speaker-ann-montet",
+    "speaker-nathan-greene",
+    "speaker-karen-tuffaha",
+    "speaker-samuel-adeoye"
+  ],
+  "sections": [
+    {
+      "heading": "Two conversations, one difficult question",
+      "paragraphs": [
+        "At one techNL Summit session, leaders from CoLab and Spellbook described hiring as one of the biggest challenges facing their growing companies.",
+        "They weren't simply looking for people who could perform a predefined set of tasks. They wanted employees who could take ownership, navigate uncertainty and figure things out without constant direction.",
+        "At another session, a computer science graduate told a very different story.",
+        "They had spent more than two years trying to break into the technology industry. They had attended networking events, volunteered and contacted companies, but still struggled to land an opportunity. Without co-op experience, they faced the familiar challenge of needing experience to get hired. And with bills to pay, finding time for additional unpaid projects was difficult.",
+        "The two conversations weren't directly connected on stage. But together, they raised a question: if technology companies increasingly value initiative, adaptability and the ability to learn, how do people get the opportunity to demonstrate those qualities in the first place?",
+        "It's a question made more urgent by AI, which is changing not only what employees can accomplish, but how businesses evaluate the people doing the work."
+      ],
+      "sessionSlugs": [
+        "unicorns-in-the-making",
+        "up-next-in-tech"
+      ]
+    },
+    {
+      "heading": "The changing definition of a strong hire",
+      "paragraphs": [
+        "During Unicorns in the Making, Taylor Young of CoLab and Chris Gardner of Spellbook discussed the organizational challenges of scaling technology companies. One of their clearest shared constraints was finding the right people.",
+        "Gardner emphasized comfort with ambiguity and the ability to take a desired outcome and make progress without detailed supervision.",
+        "Young described CoLab's success hiring people into stretch roles: positions for which they hadn't necessarily held the exact title or operated at the same scale before, but where their initiative and willingness to learn suggested they could succeed.",
+        "There's something encouraging about that approach. For people changing careers or entering unfamiliar industries, it suggests that previous job titles don't have to determine future opportunities.",
+        "But Young also made an important qualification. Some roles have established processes that can be taught, while others still demand substantial specialist or industry expertise.",
+        "The implication isn't that experience has become irrelevant. It's that experience alone may be an incomplete measure of someone's potential. And that's particularly interesting when AI is changing what an individual employee can realistically accomplish."
+      ],
+      "sessionSlugs": [
+        "unicorns-in-the-making"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 0,
+          "speakerId": "speaker-taylor-young",
+          "text": "Taylor Young"
+        },
+        {
+          "paragraphIndex": 0,
+          "speakerId": "speaker-chris-gardner",
+          "text": "Chris Gardner"
+        }
+      ]
+    },
+    {
+      "heading": "When AI can do more of the work, what becomes valuable?",
+      "paragraphs": [
+        "In The New Org Chart: Humans + AI, leaders from Mysa, Milk Moovement and Nasdaq Verafin described how AI is changing the organization of work. Their examples suggested a shift in where human effort is most valuable.",
+        "At Mysa, Zach Green described growing interest in generalists who can use AI effectively across broader responsibilities. He also discussed junior employees working directly with senior technical colleagues on meaningful customer-facing problems.",
+        "Milk Moovement's Jon King emphasized a different challenge: evaluating work produced by AI. When someone builds software manually, they typically understand many of the intermediate decisions. When much of that execution happens through AI tools, problems can be harder to recognize simply by looking at a convincing final result.",
+        "Recognizing those problems becomes an increasingly important skill.",
+        "At Verafin, Phil O'Brien described the continuing importance of a builder's mindset. Producing a working prototype has become easier. Turning that prototype into dependable software operating within complex customer environments remains difficult.",
+        "The common thread isn't that AI makes technical expertise unnecessary. It's that valuable employees need to combine technical or domain understanding with judgment, curiosity and the ability to take responsibility for an outcome.",
+        "Being able to generate something is different from understanding whether it works. And knowing how to use AI tools is most valuable when paired with an understanding of the problem being solved."
+      ],
+      "sessionSlugs": [
+        "the-new-org-chart"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 1,
+          "speakerId": "speaker-zach-green",
+          "text": "Zach Green"
+        },
+        {
+          "paragraphIndex": 2,
+          "speakerId": "speaker-jon-king",
+          "text": "Jon King"
+        },
+        {
+          "paragraphIndex": 4,
+          "speakerId": "speaker-phil-o-brien",
+          "text": "Phil O'Brien"
+        }
+      ]
+    },
+    {
+      "heading": "Careers rarely follow the neat path described in a job posting",
+      "paragraphs": [
+        "The Up Next in Tech student panel offered several examples of people finding opportunities through routes they hadn't originally expected.",
+        "Daniel McCarthy studied mechanical engineering before moving toward customer success and sales engineering at PolyUnity. His technical background became useful in a role that also demanded communication and an understanding of customers.",
+        "Ann Montet moved from banking into business development at SiftMed, bringing transferable skills in understanding customer needs.",
+        "Nathan Greene, trained in software development, found an opportunity in IT support at SmartICE.",
+        "Other panellists described how relationships opened doors.",
+        "Karen Tuffaha discussed volunteering and arranging a coffee conversation through LinkedIn, which eventually helped connect her with an opportunity at Trophi AI.",
+        "Samuel Adeoye described research projects and co-op experience that helped establish connections before his first role at Enaimco.",
+        "These aren't identical stories, and there's no single formula connecting them. But they demonstrate that technology careers don't always begin with a conventional software developer position or a perfectly aligned educational background.",
+        "Transferable skills, initiative, relationships and evidence of practical work can all contribute. The challenge is that not everyone has equal access to opportunities to develop or demonstrate them."
+      ],
+      "sessionSlugs": [
+        "up-next-in-tech"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 1,
+          "speakerId": "speaker-daniel-mccarthy",
+          "text": "Daniel McCarthy"
+        },
+        {
+          "paragraphIndex": 2,
+          "speakerId": "speaker-ann-montet",
+          "text": "Ann Montet"
+        },
+        {
+          "paragraphIndex": 3,
+          "speakerId": "speaker-nathan-greene",
+          "text": "Nathan Greene"
+        },
+        {
+          "paragraphIndex": 5,
+          "speakerId": "speaker-karen-tuffaha",
+          "text": "Karen Tuffaha"
+        },
+        {
+          "paragraphIndex": 6,
+          "speakerId": "speaker-samuel-adeoye",
+          "text": "Samuel Adeoye"
+        }
+      ]
+    },
+    {
+      "heading": "The hidden cost of proving yourself",
+      "paragraphs": [
+        "That brings us back to the audience member who described spending more than two years trying to enter the industry.",
+        "The advice offered by the student panel was practical: develop projects, seek mentorship, connect with people, explore internships and look for ways to demonstrate your abilities. Much of that advice was supported by the panellists' own experiences.",
+        "But the question exposed a limitation.",
+        "Networking takes time. Personal projects take time. Volunteering and unpaid experience can be difficult to pursue while supporting yourself financially. And the opportunities that help one person establish connections may not be available to another.",
+        "This creates a difficult tension. Companies may genuinely want self-directed people who can learn quickly and take ownership. Yet some common paths into employment are easier for people who already have industry access, relevant experience or the resources to build an extensive portfolio outside paid work.",
+        "That doesn't mean employers are wrong to value initiative. It means the ability to demonstrate initiative can depend partly on having been given an opportunity to use it.",
+        "Recognizing that distinction matters, particularly when companies are evaluating candidates who have taken unconventional career paths. The discussions did not establish that any of the companies on stage screen candidates in ways that contradict their stated priorities."
+      ],
+      "sessionSlugs": [
+        "up-next-in-tech"
+      ],
+      "highlightedInsight": {
+        "label": "The opportunity gap",
+        "heading": "Potential needs a chance to be demonstrated.",
+        "explanation": "The graduate's question exposed something that hiring advice can overlook: volunteering, networking and portfolio work are easier to recommend than to pursue when someone is working to pay the bills. Valuing initiative matters, but so does recognizing unequal access to opportunities to show it."
+      }
+    },
+    {
+      "heading": "What demonstrating potential could look like",
+      "paragraphs": [
+        "For aspiring employees, the Summit offered a useful direction: demonstrate how you approach problems, rather than focusing exclusively on lists of technologies or credentials.",
+        "A project becomes much more informative when it shows the decisions behind the result. What problem were you trying to solve? Why did you choose that approach? Where did you encounter difficulties? What did you test? What changed after feedback?",
+        "If AI was involved, what did you delegate to the tools, and what did you personally verify?",
+        "Someone who can explain those decisions demonstrates more than familiarity with a development framework or AI assistant. They demonstrate judgment.",
+        "A small, thoroughly documented project may provide stronger evidence of that judgment than several polished demonstrations whose underlying decisions remain invisible. That's an editorial implication of the Summit discussions, not a guarantee of what every hiring manager will prioritize.",
+        "For employers, a corresponding opportunity exists. If initiative, adaptability and problem-solving matter, hiring processes should provide meaningful ways to recognize those qualities.",
+        "A candidate's previous job title might not reveal how they approach an unfamiliar challenge. Equally, a polished AI-assisted portfolio might conceal important gaps in their understanding.",
+        "Practical discussions about completed work, carefully designed assessments and opportunities for candidates to explain their decisions could help distinguish the two. Importantly, evaluating potential shouldn't require extensive unpaid labour from applicants.",
+        "And where specialized expertise is genuinely necessary, employers should communicate that clearly rather than suggesting initiative alone can replace it."
+      ]
+    },
+    {
+      "heading": "Creating the opportunity to grow",
+      "paragraphs": [
+        "The Funding for Talent session added another practical dimension.",
+        "Representatives from Mitacs, ICTC and the provincial government discussed programmes that can support student placements, research projects, hiring and workforce development.",
+        "The speakers emphasized matching funding to actual business needs, planning ahead and consulting programme advisers about eligibility.",
+        "These programmes aren't universal solutions, and eligibility and funding availability vary. But they provide examples of mechanisms through which employers may be able to develop talent while addressing real business challenges.",
+        "For smaller companies especially, creating a structured placement or entry-level opportunity could help develop skills that are difficult to assess through applications alone.",
+        "The challenge is connecting those opportunities to actual work, thoughtful mentorship and a realistic pathway forward."
+      ],
+      "sessionSlugs": [
+        "funding-for-talent"
+      ]
+    },
+    {
+      "heading": "Potential needs a place to develop",
+      "paragraphs": [
+        "One of the striking things about the Summit's conversations on talent was that employers and prospective employees weren't necessarily describing incompatible goals.",
+        "Companies wanted people who could take ownership and keep learning. Aspiring professionals wanted opportunities to contribute, develop skills and demonstrate what they were capable of doing.",
+        "AI changes the tools available to both groups. It can help individuals take on more ambitious work and allow small teams to operate in new ways.",
+        "But it doesn't automatically solve the problem of recognizing potential or providing meaningful early-career opportunities.",
+        "Perhaps the most important shift in hiring isn't simply toward generalists, specialists or people who know how to use AI. It's toward understanding which qualities genuinely make someone effective, how to assess them fairly and how to help capable people develop them.",
+        "If companies want more people who can take initiative and solve problems, they also need pathways through which those people can build experience."
+      ]
+    }
+  ]
+}
