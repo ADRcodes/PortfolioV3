@@ -1,0 +1,262 @@
+{
+  "id": "recap-beyond-the-funding-headline",
+  "slug": "beyond-the-funding-headline",
+  "title": "Beyond the Funding Headline: What Does It Really Take to Grow a Tech Company?",
+  "description": "Across techNL Summit 2026, founders, investors and journalists offered different perspectives on building successful businesses. What kind of company are you actually trying to build?",
+  "excerpt": "Funding rounds and valuations tell only part of the story. Summit speakers explore customer-funded growth, financing choices and what makes a lasting technology business.",
+  "status": "published",
+  "publishedAt": "2026-10-27T18:52:32.297Z",
+  "updatedAt": "2026-10-27T18:52:32.297Z",
+  "relatedSessionSlugs": [
+    "behind-the-headlines",
+    "beyond-vc",
+    "eyes-on-velocity",
+    "build-in-canada-stay-in-canada"
+  ],
+  "speakerIds": [
+    "speaker-joe-teo",
+    "speaker-gerard-duggan",
+    "speaker-sarah-murphy",
+    "speaker-brian-whiteway",
+    "speaker-josh-taylor",
+    "speaker-shelley-kuipers",
+    "speaker-lucy-hargreaves",
+    "speaker-sean-silcoff",
+    "speaker-catherine-mcintyre",
+    "speaker-madison-mclauchlan"
+  ],
+  "sections": [
+    {
+      "heading": "What should count as success?",
+      "paragraphs": [
+        "Near the end of Behind the Headlines, an audience question shifted the discussion away from technology announcements and toward something more fundamental.",
+        "When measuring the success of Newfoundland and Labrador's technology sector, what should we actually be looking at?",
+        "The amount of investment raised? The number of billion-dollar companies? The valuations attached to promising startups?",
+        "The journalists' responses returned to less glamorous measures: paying customers, repeat business, sustainable revenue and profitability.",
+        "Those answers connected to another conversation at the Summit, where four business leaders described building substantial companies without following the conventional venture-capital playbook.",
+        "And they offered an interesting contrast to the investor panel, where funding partners explained why some companies genuinely do need outside capital to grow.",
+        "The conversations weren't contradictory. They were looking at different aspects of the same challenge.",
+        "Raising money can help a company grow. But deciding what kind of growth is worth pursuing is a different question."
+      ],
+      "sessionSlugs": [
+        "behind-the-headlines",
+        "beyond-vc",
+        "eyes-on-velocity"
+      ]
+    },
+    {
+      "heading": "When customers become the investors",
+      "paragraphs": [
+        "Joe Teo, CEO of HeyOrca, offered one of the more personal examples during Beyond VC: Building Big Without Venture Capital.",
+        "HeyOrca hadn't always avoided outside investment. The social media management company raised money early in its development.",
+        "But by 2018, Teo described reaching a point where the business needed to reconsider its priorities.",
+        "Fundraising had become entangled with how he evaluated the company's progress and his own success as a founder.",
+        "Rather than continuing to organize the business around the next investment milestone, HeyOrca shifted its attention toward customers.",
+        "Teo described spending less time pursuing investors and more time meeting the people using the product, understanding their problems and involving them in decisions about where the business should go.",
+        "He now prefers to describe HeyOrca as customer-funded rather than simply bootstrapped.",
+        "The distinction is meaningful.",
+        "A conventional investor might provide capital in exchange for ownership and an expectation of future returns. HeyOrca's customers provide recurring revenue in exchange for something the company must continue delivering.",
+        "Their commitment has to be earned again and again.",
+        "That changes the relationship between growth and accountability. A company cannot rely indefinitely on excitement about what it might become. It must keep giving customers reasons to stay.",
+        "There's also something personally significant about Teo's decision. It meant changing which achievements he allowed to define success.",
+        "The next financing announcement was no longer necessarily the milestone that mattered most."
+      ],
+      "sessionSlugs": [
+        "beyond-vc"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 0,
+          "speakerId": "speaker-joe-teo",
+          "text": "Joe Teo"
+        }
+      ]
+    },
+    {
+      "heading": "Growth can also mean knowing when to stop",
+      "paragraphs": [
+        "Another perspective came from Gerard Duggan of Vision33.",
+        "Duggan described a business built through paying customers, sustained profitability and acquisitions, without relying on venture capital to fund its expansion.",
+        "Vision33 has still pursued ambitious growth. Duggan described decades of operations, hundreds of employees and numerous acquisitions, while emphasizing profitability and maintaining ownership.",
+        "One story was particularly revealing.",
+        "Vision33 had considered acquiring another company. The transaction appeared financially possible, although it would have required the business to take on additional obligations.",
+        "Ultimately, the deciding factor wasn't simply whether Vision33 could afford the acquisition.",
+        "It was what integrating the other business would demand from the people already running the company.",
+        "Duggan concluded that the disruption and distraction could outweigh the opportunity, and Vision33 walked away.",
+        "It's an interesting counterpoint to the way company growth is often presented.",
+        "An acquisition announcement looks like progress. So does entering another market, hiring rapidly or raising a larger investment round.",
+        "But each decision also commits a company to new responsibilities.",
+        "More customers need support. More employees need leadership. Acquired operations must be integrated. Investors may expect an accelerated timeline.",
+        "Choosing not to pursue an opportunity can be just as consequential as pursuing one.",
+        "For Vision33, retaining control gave its leadership room to make that decision according to the business's own priorities.",
+        "That doesn't mean independently financed businesses face no pressure or make better decisions automatically. They still answer to customers, employees, owners and their own financial obligations.",
+        "But it illustrates something that can be lost in the celebration of rapid expansion.",
+        "Growth creates possibilities. It also changes what a company is responsible for maintaining."
+      ],
+      "sessionSlugs": [
+        "beyond-vc"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 0,
+          "speakerId": "speaker-gerard-duggan",
+          "text": "Gerard Duggan"
+        }
+      ]
+    },
+    {
+      "heading": "Venture capital isn't the wrong answer. It's a different commitment.",
+      "paragraphs": [
+        "The contrast becomes more interesting when considering what investors actually said at the Summit.",
+        "During Eyes on Velocity, representatives from venture capital, investment networks and lending organizations discussed how they evaluate growing companies.",
+        "Sarah Murphy of Pelorus emphasized how quickly early-stage founders can learn.",
+        "At the pre-seed stage, she doesn't necessarily expect a product to be impossible for competitors to reproduce.",
+        "She described a founder who tested numerous ideas over a matter of weeks, abandoned directions that weren't attracting interest and concentrated on the opportunity showing genuine market pull.",
+        "At that stage, the ability to test assumptions and adapt can be a stronger signal than an elaborate initial product.",
+        "Meanwhile, Brian Whiteway of BDC approached financing through the needs of the business.",
+        "Rather than beginning with an ambitious fundraising target, he encouraged founders to identify the problem they need capital to solve, then determine the appropriate amount and type of financing.",
+        "That distinction matters because funding instruments serve different purposes.",
+        "A company pursuing a very large market with substantial upfront development costs may need equity investors willing to accept significant risk.",
+        "A profitable business expanding operations may benefit from loans or patient growth capital.",
+        "A founder developing a product around a difficult enterprise workflow might begin with consulting revenue, an initial customer or a public innovation programme.",
+        "In the Beyond VC discussion, Josh Taylor described Carrick's experience using consulting work to support product development in healthcare.",
+        "The company's customers operate in an environment where procurement, pilots and deployment can take substantial time.",
+        "That creates a different financial challenge from launching a consumer application that can attract users almost immediately.",
+        "Consulting revenue and public support helped Carrick pursue an opportunity that might not have aligned neatly with a conventional venture-capital timeline.",
+        "Neither approach is inherently superior.",
+        "The important decision is whether the financing model supports the business the founders actually want and need to build."
+      ],
+      "sessionSlugs": [
+        "eyes-on-velocity",
+        "beyond-vc"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 2,
+          "speakerId": "speaker-sarah-murphy",
+          "text": "Sarah Murphy"
+        },
+        {
+          "paragraphIndex": 6,
+          "speakerId": "speaker-brian-whiteway",
+          "text": "Brian Whiteway"
+        },
+        {
+          "paragraphIndex": 12,
+          "speakerId": "speaker-josh-taylor",
+          "text": "Josh Taylor"
+        }
+      ]
+    },
+    {
+      "heading": "What investors are looking for is changing, too",
+      "paragraphs": [
+        "AI added another dimension to the investor discussion.",
+        "When software can be developed more quickly, a functioning application alone may be less convincing as evidence that a company has a durable advantage.",
+        "Shelley Kuipers of The51 emphasized strengths such as distribution, communities and customer relationships.",
+        "Whiteway pointed toward differentiated data that competitors cannot simply reproduce using the same publicly available AI tools.",
+        "Together, those perspectives shift attention from the first version of a product toward the capabilities surrounding it.",
+        "Who understands the customer better? Who can reach the market? What information does the company possess? Why would customers continue choosing it?",
+        "These aren't entirely new questions, but faster development may make them harder to avoid.",
+        "The investor panel also emphasized the importance of management teams that can admit uncertainty and communicate problems early.",
+        "A founder who treats every setback as something to conceal leaves investors with fewer opportunities to help.",
+        "A team willing to acknowledge that an assumption was wrong, adjust its plans and explain the consequences may be more credible than one presenting uninterrupted confidence.",
+        "It's a reminder that financial backing is ultimately a relationship, not just a transaction."
+      ],
+      "sessionSlugs": [
+        "eyes-on-velocity"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 2,
+          "speakerId": "speaker-shelley-kuipers",
+          "text": "Shelley Kuipers"
+        }
+      ]
+    },
+    {
+      "heading": "Canada's growth challenge isn't only about capital",
+      "paragraphs": [
+        "The Summit also explored what happens when the surrounding business environment makes growth more difficult.",
+        "In Build in Canada. Stay in Canada., Lucy Hargreaves of Build Canada argued that supporting domestic technology companies requires more than grants or encouragement.",
+        "One of her most interesting suggestions was that Canadian institutions could help suitable startups by becoming customers.",
+        "For a company attempting to sell into government or another major institution, securing a real contract can do several things at once.",
+        "It generates revenue. It demonstrates that the product solves a meaningful problem. And it provides a reference customer that may make future sales easier.",
+        "Hargreaves argued that lengthy procurement processes can prevent promising businesses from obtaining that foothold in Canada.",
+        "This was her organization's policy perspective, not an announcement of new procurement rules. Government purchasing also has legitimate requirements around accountability, competition and public value.",
+        "But the underlying business question is worth considering.",
+        "If a company must look outside Canada to find its first serious customers, investors or growth opportunities, what does that mean for its ability to build and remain here?",
+        "There's a connection to Josh Taylor's experience with lengthy healthcare purchasing cycles and Joe Teo's emphasis on customer relationships.",
+        "The availability of investment is important, but so is access to markets.",
+        "A company with financing but no practical route to customers still faces a difficult path.",
+        "And a company with paying customers, established relationships and a sustainable business may be able to grow further before seeking outside capital."
+      ],
+      "sessionSlugs": [
+        "build-in-canada-stay-in-canada",
+        "beyond-vc"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 1,
+          "speakerId": "speaker-lucy-hargreaves",
+          "text": "Lucy Hargreaves"
+        }
+      ]
+    },
+    {
+      "heading": "The value of a company doesn't end at its valuation",
+      "paragraphs": [
+        "The journalists on the Behind the Headlines panel returned to this distinction while discussing the development of Newfoundland and Labrador's technology ecosystem.",
+        "Sean Silcoff, Catherine McIntyre and Madison McLauchlan considered how to distinguish genuine economic progress from exciting company announcements.",
+        "Among the measures discussed were durable customer revenue, profitability and, increasingly, how much revenue a company can generate relative to the size of its team.",
+        "The panellists also warned about relying too heavily on headline numbers.",
+        "A large valuation represents an assessment of a company's potential at a particular moment. It isn't the same as sales, profit or money available to operate the business.",
+        "Even revenue figures require context. Annualizing an unusually strong month can create an impression of momentum that may not persist.",
+        "None of this makes funding announcements irrelevant. Investment can enable research, employment, market expansion and products that would otherwise be difficult to develop.",
+        "And companies at different stages should not be judged by identical financial measures. A young venture pursuing a significant technical breakthrough may have little revenue while still making meaningful progress.",
+        "But those qualifications make it more important to ask what lies behind each number.",
+        "The journalists also pointed to another measure of an ecosystem's success: what earlier companies make possible for the next generation.",
+        "Experienced founders can mentor newer ones. Employees can go on to start businesses of their own. Investors can reinvest capital and experience. International success can bring relationships and credibility back to a smaller market.",
+        "For Newfoundland and Labrador, those effects may matter long after a particular financing announcement has left the headlines."
+      ],
+      "sessionSlugs": [
+        "behind-the-headlines"
+      ],
+      "speakerLinks": [
+        {
+          "paragraphIndex": 1,
+          "speakerId": "speaker-sean-silcoff",
+          "text": "Sean Silcoff"
+        },
+        {
+          "paragraphIndex": 1,
+          "speakerId": "speaker-catherine-mcintyre",
+          "text": "Catherine McIntyre"
+        },
+        {
+          "paragraphIndex": 1,
+          "speakerId": "speaker-madison-mclauchlan",
+          "text": "Madison McLauchlan"
+        }
+      ]
+    },
+    {
+      "heading": "The kind of company you choose to build",
+      "paragraphs": [
+        "Across the Summit, the founders weren't all pursuing the same outcome.",
+        "HeyOrca's Joe Teo described finding a more meaningful direction by changing the company's relationship with customers.",
+        "Vision33's Gerard Duggan described ambitious growth that remained accountable to profitability, ownership and organizational stability.",
+        "Carrick's Josh Taylor described working within the realities of an enterprise healthcare market, using consulting and other support to develop the business.",
+        "The investor panel represented a different but equally legitimate ambition: building companies where outside capital can enable opportunities that might otherwise remain out of reach.",
+        "And the journalists reminded everyone that the story doesn't end when the investment is announced.",
+        "Taken together, these perspectives suggest that founders need to be clear about more than the market they're entering or the amount of money they hope to raise.",
+        "They need to understand what they're optimizing for.",
+        "Is the priority rapid market expansion? Independence? Long-term profitability? Building an enduring organization? Creating jobs and opportunities in a particular community?",
+        "Those goals can overlap, but they can also pull a company in different directions.",
+        "The choice of financing, customers, investors and growth strategy influences which trade-offs become possible later.",
+        "Perhaps that is the most useful lesson from these conversations.",
+        "A funding announcement tells us what a company has the resources to attempt. The decisions that follow, and the value it continues creating for customers, tell us much more about the business it is becoming."
+      ]
+    }
+  ]
+}
