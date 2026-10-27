@@ -8,10 +8,13 @@ const speakers = [{ id: 'speaker-real' }, { id: 'speaker-demo', demo: true }];
 test('recaps are independent, automatically ordered by publication, and recursively projected', () => {
   const first = recapFixture({ privateNote: 'PRIVATE', recordingUrl: 'PRIVATE' });
   first.sections[0].privateNote = 'PRIVATE'; first.highlightedInsight.privateNote = 'PRIVATE';
+  first.sections[0].highlightedInsight = { label: 'Editorial context', heading: 'Meaning', explanation: 'Supported explanation', privateNote: 'PRIVATE' };
   const newer = recapFixture({ id: 'newer', slug: 'newer', publishedAt: '2026-10-21T14:00:00Z', updatedAt: '2026-10-21T14:00:00Z' });
   const records = createRecaps([first, { ...first, id: 'draft', slug: 'draft', status: 'draft' }, newer], sessions, speakers);
   assert.deepEqual(records.map(item => item.id), ['newer', first.id]);
   assert.ok(!JSON.stringify(records).includes('PRIVATE'));
+  assert.equal(records[1].sections[0].highlightedInsight.label, 'Editorial context');
+  assert.ok(!('privateNote' in records[1].sections[0].highlightedInsight));
   assert.equal(publicRecap({ ...first, status: 'draft' }), null);
   assert.ok(!('date' in records[0]) && !('location' in records[0]) && !('startTime' in records[0]));
   assert.deepEqual(createRecaps([], sessions, speakers), []);
@@ -20,7 +23,10 @@ test('recaps are independent, automatically ordered by publication, and recursiv
 test('invalid records fail closed, and all links resolve to public conference articles or real speakers', () => {
   for (const change of [
     { slug: '../escape' }, { publishedAt: '2026-02-30T12:00:00Z' }, { status: 'upcoming' }, { publishedAt: 'yesterday' }, { updatedAt: '2026-10-20T00:00:00Z' },
-    { sections: [] }, { sections: [{ heading: 'Missing paragraphs' }] }, { relatedSessionSlugs: [] },
+    { sections: [] }, { sections: [{ heading: 'Missing paragraphs' }] },
+    { sections: [{ heading: 'Invalid insight', paragraphs: ['Text'], highlightedInsight: { heading: 'Missing explanation' } }] },
+    { sections: [{ heading: 'Invalid label', paragraphs: ['Text'], highlightedInsight: { label: '', explanation: 'Text' } }] },
+    { relatedSessionSlugs: [] },
     { sections: [{ heading: 'Bad link', paragraphs: ['Text'], sessionSlugs: ['missing'] }] },
     { relatedSessionSlugs: ['missing'] }, { speakerIds: ['missing'] }, { speakerIds: ['speaker-demo'] },
   ]) assert.throws(() => createRecaps([recapFixture(change)], sessions, speakers));
