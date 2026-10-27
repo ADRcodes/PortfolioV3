@@ -1,0 +1,141 @@
+{
+  "id": "recap-from-prototype-to-product",
+  "slug": "from-prototype-to-product",
+  "title": "From Prototype to Product: What AI Can't Decide for You",
+  "description": "A 30-minute demo showed how quickly AI can help build software. Across techNL Summit, founders and investors explored what it takes to build something customers actually value.",
+  "excerpt": "A 30-minute prototype was just the beginning. Seven Summit sessions connect faster AI development with customer discovery, real-world testing and the discipline to say no.",
+  "status": "published",
+  "publishedAt": "2026-10-22T00:15:28.374Z",
+  "updatedAt": "2026-10-27T14:16:19.105Z",
+  "relatedSessionSlugs": [
+    "essential-ai-tools-and-t-minus30-launch",
+    "assumption-trap",
+    "unicorns-in-the-making",
+    "internal-innovation",
+    "the-new-org-chart",
+    "go-broad-or-go-deep",
+    "eyes-on-velocity"
+  ],
+  "speakerIds": [
+    "speaker-jan-mertlik",
+    "speaker-chelsea-o-hara",
+    "speaker-steph-burry",
+    "speaker-james-geneau",
+    "speaker-chris-gardner",
+    "speaker-taylor-young",
+    "speaker-sheena-fiander",
+    "speaker-jon-king",
+    "speaker-phil-o-brien",
+    "speaker-nick-warren",
+    "speaker-carlos-coelho",
+    "speaker-sarah-murphy",
+    "speaker-jacob-critch"
+  ],
+  "sections": [
+    {
+      "heading": "A 30-minute prototype, and a bigger question",
+      "paragraphs": [
+        "At techNL Summit 2026, Jan Mertlik demonstrated how far AI-assisted development has come by building and publishing an early software prototype during a 30-minute demonstration.",
+        "His idea was straightforward: an application to help plan a shed, work out the materials required and, eventually, compare prices from local suppliers. He started with a concrete problem, kept the initial scope manageable, used AI tools to develop functionality and design direction, and put an early version online.",
+        "That speed is remarkable. But elsewhere at the Summit, founders, investors and technology leaders were grappling with a question the demonstration couldn't answer on its own: if software is becoming dramatically easier to create, how do you know whether you're building something people actually need?",
+        "Faster development creates more opportunities to experiment. It doesn't eliminate the difficult work of understanding customers, making good decisions and earning trust. In some ways, it makes that work even more important."
+      ],
+      "sessionSlugs": [
+        "essential-ai-tools-and-t-minus30-launch"
+      ]
+    },
+    {
+      "heading": "A prototype is not proof of a business",
+      "paragraphs": [
+        "The Assumption Trap offered an important counterbalance to the excitement surrounding AI development tools.",
+        "Steph Burry encouraged founders to distinguish positive feedback from genuine customer commitment. Someone saying an idea sounds interesting is different from someone investing time, money or meaningful effort in solving the problem.",
+        "James Geneau pushed the distinction further. Even a sale doesn't necessarily establish lasting product-market fit. Companies still need to know whether customers use the product, depend on it and continue finding value after purchasing.",
+        "That creates an uncomfortable possibility: a company can become better at building and selling software without becoming much better at solving its customers' problems.",
+        "AI makes it easier to pursue the next intriguing demonstration. When a new feature or prototype takes hours instead of weeks, there are fewer practical obstacles stopping a team from building it. Deciding which experiments deserve the time becomes the harder discipline.",
+        "Chelsea O'Hara shared an example from DCXIX's work with performance-capture technology and virtual reality. Her team developed an impressive demonstration and presented its work at South by Southwest, attracting interest and attention. But the more elaborate virtual production also consumed effort that might have gone toward validating and commercializing the underlying data-transport technology.",
+        "That wasn't a dismissal of the creative work, which had value of its own. The difficult business lesson was that something can be technically ambitious, attract genuine enthusiasm and still distract from the repeatable product customers might actually buy."
+      ],
+      "sessionSlugs": [
+        "assumption-trap"
+      ],
+      "highlightedInsight": {
+        "label": "The product trap",
+        "heading": "Attention isn't the same as validation.",
+        "explanation": "DCXIX's ambitious virtual-reality demonstration attracted genuine interest while also diverting effort from commercializing the underlying data-transport technology. The attention mattered, but it couldn't establish demand for the product."
+      }
+    },
+    {
+      "heading": "Customers know their problems. They don't always know the solution.",
+      "paragraphs": [
+        "A related theme emerged in Unicorns in the Making, featuring CoLab's Taylor Young and Spellbook's Chris Gardner.",
+        "Gardner described an earlier Spellbook product developed around workflows legal professionals had requested. The team invested in understanding those requests and building the product, but it didn't achieve the expected adoption. Spellbook's later AI-first approach tackled the underlying work differently.",
+        "Young drew a distinction between understanding customers' difficulties and treating their preferred solutions as instructions. At CoLab, the challenge includes recognizing that an enterprise buyer approving software may have different priorities from the engineers using it each day.",
+        "A customer can explain where their work becomes frustrating, expensive or slow without necessarily knowing the best way to improve it. AI gives teams more freedom to explore possible solutions, but choosing between them still requires understanding the work itself.",
+        "That was particularly apparent in the Internal Innovation panel. Sheena Fiander described DischargeHUB's service-led approach to coordinating hospital discharges. Rather than starting with a technology platform and asking organizations to change around it, the team worked to understand frontline processes and identify which parts could usefully be automated.",
+        "Faster implementation doesn't remove the need to define the right product. It creates an opportunity to spend more effort on that definition."
+      ],
+      "sessionSlugs": [
+        "unicorns-in-the-making",
+        "internal-innovation"
+      ]
+    },
+    {
+      "heading": "What changes when feedback takes days instead of months?",
+      "paragraphs": [
+        "Perhaps the most exciting possibility isn't how quickly AI can generate software, but how much faster teams can learn from customers.",
+        "During The New Org Chart: Humans + AI, Milk Moovement's Jon King described a goal of reducing the time between receiving customer feedback and returning with a revised product view. Where the process could previously take six weeks to two months, the company is targeting roughly 48 hours.",
+        "That changes how product discovery can feel. Instead of discussing an idea, placing it in a backlog and returning months later, a team can potentially show a customer a working response while the original problem is still fresh. More iterations can happen before people lose context or priorities change.",
+        "The 48-hour turnaround is a target operating approach, not evidence that every feature can now be built, tested and deployed in two days.",
+        "The panel also discussed the importance of reviewing AI-produced work, understanding its limitations and integrating it into reliable systems. Phil O'Brien of Nasdaq Verafin emphasized that generating a prototype and operating dependable software in production remain very different challenges.",
+        "Software still needs to be tested, secured, maintained and integrated into real workflows. Those responsibilities don't disappear because part of the implementation happened faster.",
+        "The opportunity is to shorten the distance between a customer problem, a working experiment and useful evidence about what to do next."
+      ],
+      "sessionSlugs": [
+        "the-new-org-chart"
+      ]
+    },
+    {
+      "heading": "When you can build almost anything, what should you refuse to build?",
+      "paragraphs": [
+        "The Go Broad or Go Deep? panel examined another consequence of cheaper software development: the temptation to expand into more markets, features and customer requests.",
+        "GroundControl's Nick Warren described expanding into connected workflows within regulated manufacturing, including the generation and review of inspection reports across a supply chain. That lets the company address multiple related needs without becoming a general-purpose provider of every application a customer might request.",
+        "Carlos Coelho described why Boast has maintained a strong focus on SR&ED tax-credit services rather than attempting to support every possible government funding programme. Specialization helps the company maintain the expertise and consistency needed for complex claims even as automation reduces administrative work.",
+        "The approaches differ, but both show that the technical capacity to build something isn't a good reason by itself to expand. A company still needs to know whom it serves, why customers would choose it and whether the team can deliver reliably.",
+        "The same question surfaced among investors in Eyes on Velocity. Sarah Murphy of Pelorus emphasized early-stage founders testing assumptions and following evidence quickly. At that stage, learning speed can matter more than having a first prototype competitors cannot copy.",
+        "Shelley Kuipers of The51 highlighted strengths that are harder to reproduce through code alone, including customer relationships, distribution networks and community. Brian Whiteway of BDC pointed to differentiated data and the capabilities built around it.",
+        "Taken together, these perspectives suggest that as technical barriers fall, advantages such as market understanding, distribution, trust and reliable delivery become more consequential."
+      ],
+      "sessionSlugs": [
+        "go-broad-or-go-deep",
+        "eyes-on-velocity"
+      ]
+    },
+    {
+      "heading": "A better way to measure progress",
+      "paragraphs": [
+        "There was plenty of optimism about AI at the Summit, and understandably so. Smaller teams can attempt work that once required more resources. Established companies can investigate new opportunities. Developers can spend less time on repetitive implementation and more time exploring possible solutions.",
+        "But several presentations suggested that the benefits depend on asking better questions. These are some worth carrying into the next experiment:"
+      ],
+      "bullets": [
+        "Before building, can you identify the specific problem and who experiences it?",
+        "Before adding a feature, what customer behaviour would demonstrate that it helped?",
+        "Before expanding, does the new direction strengthen the business or simply increase its workload?",
+        "Before calling something finished, has it been tested outside the demonstration?"
+      ]
+    },
+    {
+      "heading": "The opportunity isn't just to build faster",
+      "paragraphs": [
+        "Those questions aren't new. What's changing is how quickly teams can test their answers. A startup that once had resources to explore one prototype may be able to compare several. An established company can investigate an internal problem without committing to a long development programme. A founder can put an early idea in front of real users sooner.",
+        "But the evidence is useful only when someone is prepared to evaluate it critically and change direction. Jacob Critch made that distinction during The Assumption Trap, warning against handing the interpretation of customer feedback entirely to AI without questioning the resulting analysis.",
+        "Faster experimentation is an advantage. Faster reinforcement of a mistaken assumption is not.",
+        "One of the most interesting things about techNL Summit was how often speakers approached this same challenge from different directions. Developers talked about prototypes. Founders talked about customer behaviour. Investors talked about market evidence and defensibility. Established companies talked about reliability, judgment and what it takes to put software to work.",
+        "AI can make it easier to turn an idea into something tangible. It can also make it easier to build impressive things nobody really needs.",
+        "A prototype can demonstrate what's possible. What happens after people start using it tells you whether it matters."
+      ],
+      "sessionSlugs": [
+        "assumption-trap"
+      ]
+    }
+  ]
+}

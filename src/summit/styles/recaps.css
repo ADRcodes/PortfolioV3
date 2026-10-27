@@ -11,24 +11,66 @@
 .summit-app .summit-recap-feature .summit-recap-feature-date { font-size: .875rem; color: var(--summit-muted); }
 .summit-app .summit-recap-read { display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; text-decoration: underline; }
 .summit-app .summit-recap { background: var(--summit-surface); }
-.summit-app .summit-recap .summit-detail-topbar { display: flex; flex-wrap: wrap; gap: .75rem 2rem; margin-bottom: 1.5rem; }
-.summit-app .summit-recap .summit-detail-topbar a { text-decoration: underline; }
-.summit-app .summit-recap .summit-detail-header { max-width: 65rem; }
-.summit-app .summit-recap .summit-detail-header h1 { font-size: clamp(2.25rem, 4.7vw, 4.25rem); margin-bottom: 1.25rem; max-width: 28ch; overflow-wrap: anywhere; }
-.summit-app .summit-recap .summit-intro { max-width: 60ch; }
-.summit-app .summit-recap-dates { font-size: .9375rem; line-height: 1.6; }
-.summit-app .summit-recap-body { max-width: 74ch; margin: 1.5rem auto 0; font-size: 1.125rem; line-height: 1.75; }
-.summit-app .summit-recap-body > .summit-meta { font-size: .9375rem; line-height: 1.6; }
+.summit-app .summit-recap .summit-detail-topbar,
+.summit-app .summit-recap .summit-detail-header,
+.summit-app .summit-recap-body { width: 100%; max-width: 48rem; margin-inline: auto; }
+.summit-app .summit-recap .summit-detail-topbar { margin-bottom: 1.75rem; }
+.summit-app .summit-recap .summit-detail-topbar a { text-decoration: underline; text-underline-offset: .2em; }
+.summit-app .summit-recap .summit-detail-header h1 {
+  font-size: clamp(2.35rem, 4.4vw, 3.95rem);
+  line-height: 1.06;
+  max-width: none;
+  margin-bottom: 1.25rem;
+  letter-spacing: -.035em;
+}
+.summit-app .summit-recap-eyebrow {
+  margin: 0 0 .85rem;
+  color: var(--summit-muted);
+  font-size: .875rem;
+  font-weight: 650;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+.summit-app .summit-recap .summit-intro { max-width: 64ch; font-size: clamp(1.125rem, 1.75vw, 1.375rem); line-height: 1.5; }
+.summit-app .summit-recap-meta-row { display: flex; align-items: center; justify-content: space-between; gap: .25rem 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; padding-bottom: .85rem; border-bottom: 1px solid var(--summit-line); }
+.summit-app .summit-recap-dates { margin: 0; color: var(--summit-muted); font-size: .9375rem; line-height: 1.5; }
+.summit-app .summit-recap .summit-session-share { border: 0; padding: 0; gap: .5rem; }
+.summit-app .summit-recap .summit-share-button { font-size: .9375rem; border-color: transparent; padding-inline: .65rem; }
+.summit-app .summit-recap .summit-share-feedback:empty { display: none; }
+.summit-app .summit-recap-body { margin-top: 1.35rem; font-size: 1.125rem; line-height: 1.75; }
 .summit-app .summit-recap-body h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.2; margin-bottom: 1rem; }
 .summit-app .summit-recap-body .summit-article-section { margin-top: 2rem; }
-.summit-app .summit-recap-body p { margin-bottom: 1.25rem; }
+.summit-app .summit-recap-body .summit-article-section:first-child { margin-top: .5rem; }
+.summit-app .summit-recap-body p { margin-bottom: 1.25rem; max-width: 74ch; }
 .summit-app .summit-recap-body a { text-decoration: underline; text-underline-offset: .2em; }
+.summit-app .summit-recap .summit-highlighted-insight {
+  margin: 1.5rem 0 2rem;
+  padding: 1.25rem clamp(1rem, 3vw, 1.5rem);
+  border: 0;
+  border-left: 3px solid var(--summit-link);
+  background: var(--summit-surface-soft);
+}
+.summit-app .summit-recap .summit-highlighted-insight .summit-insight-label {
+  margin-bottom: .5rem;
+  color: var(--summit-muted);
+  font-size: .875rem;
+  font-weight: 650;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.summit-app .summit-recap .summit-highlighted-insight .summit-insight-heading { font-size: clamp(1.35rem, 2.3vw, 1.7rem); line-height: 1.25; }
 .summit-app .summit-recap-related { margin-top: 2rem; border-top: 1px solid var(--summit-line); padding-top: 1.5rem; }
 .summit-app .summit-recap-related li, .summit-app .summit-recap-section-links li { margin-block: .75rem; }
-.summit-app .summit-recap-return { display: inline-block; margin-top: 2rem; min-height: 44px; }
+.summit-app .summit-recap-editorial { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--summit-line); color: var(--summit-muted); }
+.summit-app .summit-recap-editorial h2 { font-size: 1rem; margin: 0 0 .5rem; }
+.summit-app .summit-recap-editorial p { font-size: .9375rem; line-height: 1.6; margin-bottom: .5rem; }
+.summit-app .summit-recap-return { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1.5rem; }
 @media (max-width: 40rem) {
   .summit-app .summit-recap-collection { grid-template-columns: 1fr; gap: 1.5rem; }
   .summit-app .summit-recap-feature:first-child { grid-row: auto; }
   .summit-app .summit-recap-feature + .summit-recap-feature { border-top: 1px solid var(--summit-line); padding-top: 1.5rem; }
   .summit-app .summit-recap-body { font-size: 1.0625rem; }
+  .summit-app .summit-recap .summit-detail-topbar { margin-bottom: 1.25rem; }
+  .summit-app .summit-recap .summit-detail-header h1 { font-size: clamp(2.2rem, 9vw, 2.85rem); }
+  .summit-app .summit-recap-meta-row { gap: .25rem 1rem; }
 }

@@ -506,13 +506,21 @@ test('recap pages and editorial features support zero, one and three articles wi
       assert.ok(featured.includes('Speaker perspectives') && featured.includes('Read published session notes'));
       if (count === 3) assert.ok(featured.indexOf('Editorial fixture 2') < featured.indexOf('Editorial fixture 1'));
       const article = renderArticle('fixture-0');
-      for (const text of ['Editorial fixture 0', 'Cross-session recap', 'Independent, AI-assisted editorial analysis', 'Share article', 'Related speakers', 'Explore the supporting sessions', '/technlsummit/sessions/assumption-trap', '/technlsummit#summit-insights']) assert.ok(article.includes(text), text);
+      for (const text of ['Editorial fixture 0', 'Summit 2026 / Analysis', 'Independent, AI-assisted editorial analysis', 'Share article', 'Related speakers', 'Explore the supporting sessions', '/technlsummit/sessions/assumption-trap', '/technlsummit#summit-insights']) assert.ok(article.includes(text), text);
       assert.ok(article.includes('dateTime="2026-10-21T10:00:00Z"'));
       assert.ok(!article.includes('Bannerman') && !article.includes('Notes to follow'));
       content.recaps[0].sections[0].paragraphs[0] = '<script>private()</script>';
       const escaped = renderArticle(content.recaps[0].slug);
       assert.ok(escaped.includes('&lt;script&gt;private()&lt;/script&gt;') && !escaped.includes('<script>private()'));
     }
+    content.recaps.splice(0, content.recaps.length, ...original);
+    const publishedArticle = renderArticle('from-prototype-to-product');
+    assert.ok(publishedArticle.indexOf('A 30-minute prototype') < publishedArticle.indexOf('A prototype is not proof of a business'));
+    assert.ok(publishedArticle.indexOf('A prototype is not proof of a business') < publishedArticle.indexOf('The product trap'));
+    assert.ok(publishedArticle.indexOf('The product trap') < publishedArticle.indexOf('Customers know their problems'));
+    assert.ok(publishedArticle.indexOf('About this article') > publishedArticle.indexOf('Explore the supporting sessions'));
+    assert.ok(publishedArticle.includes('class="summit-recap-meta-row"'));
+    assert.ok(!publishedArticle.includes('Cross-session recap'));
     assert.equal(JSON.stringify(content.sessions), snapshot);
   } finally { content.recaps.splice(0, content.recaps.length, ...original); }
 });
