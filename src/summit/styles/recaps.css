@@ -1,15 +1,17 @@
 /* Recaps extend the shared Oxblood & Limestone editorial spread, without changing session geometry. */
-.summit-app .summit-recap-features { grid-column: 1 / -1; min-width: 0; border-top: 1px solid var(--summit-line); padding-top: 1.75rem; }
-.summit-app .summit-recap-features > h3 { font-size: 1.5rem; margin: 0 0 1.5rem; }
-.summit-app .summit-recap-collection { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1.75rem 3rem; }
+.summit-app .summit-recap-features { min-width: 0; margin: 0; }
+.summit-app .summit-recap-collection { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: 1.5rem; }
 .summit-app .summit-recap-feature { min-width: 0; }
-.summit-app .summit-recap-feature:first-child { grid-row: span 2; }
-.summit-app .summit-recap-feature:only-child { grid-column: 1 / -1; max-width: 52rem; }
-.summit-app .summit-recap-feature h4 { font-size: clamp(1.5rem, 2.3vw, 2rem); line-height: 1.15; letter-spacing: -.025em; margin: 0 0 .75rem; overflow-wrap: anywhere; }
-.summit-app .summit-recap-feature:first-child h4 { font-size: clamp(1.875rem, 3.4vw, 3rem); }
-.summit-app .summit-recap-feature p { font-size: 1.0625rem; line-height: 1.55; margin-bottom: .75rem; }
+.summit-app .summit-recap-feature:only-child { max-width: 52rem; }
+.summit-app .summit-recap-preview { display: flex; flex-direction: column; height: 100%; padding: clamp(1.25rem, 2.5vw, 2.25rem); background: var(--summit-surface-raised); border: 1px solid var(--summit-line); transition: background-color 160ms ease-out, border-color 160ms ease-out; }
+.summit-app .summit-recap-feature h4 { max-width: 26ch; font-size: clamp(1.75rem, 2.5vw, 2.25rem); font-weight: 600; line-height: 1.15; letter-spacing: -.025em; margin: 0 0 1rem; text-wrap: pretty; overflow-wrap: anywhere; }
+.summit-app .summit-recap-feature p { max-width: 65ch; font-size: 1.0625rem; line-height: 1.55; margin: 0 0 1.5rem; text-wrap: pretty; }
+.summit-app .summit-recap-feature-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: auto; }
 .summit-app .summit-recap-feature .summit-recap-feature-date { font-size: .875rem; color: var(--summit-muted); }
-.summit-app .summit-recap-read { display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; text-decoration: underline; }
+.summit-app .summit-recap-read { display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; font-size: 1rem; font-weight: 600; text-decoration: underline; white-space: nowrap; }
+.summit-app .summit-recap-preview:is(:hover, :focus-visible) { background: var(--summit-surface-hover); border-color: var(--summit-link); }
+.summit-app .summit-recap-preview:is(:hover, :focus-visible) h4 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .15em; }
+.summit-app .summit-insights .summit-recap-preview:focus-visible { outline: 2px solid var(--summit-link); outline-offset: 4px; }
 .summit-app .summit-recap { background: var(--summit-surface); }
 .summit-app .summit-recap .summit-detail-topbar,
 .summit-app .summit-recap .summit-detail-header,
@@ -76,11 +78,12 @@
 .summit-app .summit-recap-editorial p { font-size: .9375rem; line-height: 1.6; margin-bottom: .5rem; }
 .summit-app .summit-recap-return { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1.5rem; }
 @media (max-width: 40rem) {
-  .summit-app .summit-recap-collection { grid-template-columns: 1fr; gap: 1.5rem; }
-  .summit-app .summit-recap-feature:first-child { grid-row: auto; }
-  .summit-app .summit-recap-feature + .summit-recap-feature { border-top: 1px solid var(--summit-line); padding-top: 1.5rem; }
+  .summit-app .summit-recap-collection { grid-template-columns: 1fr; }
   .summit-app .summit-recap-body { font-size: 1.0625rem; }
   .summit-app .summit-recap .summit-detail-topbar { margin-bottom: 1.25rem; }
   .summit-app .summit-recap .summit-detail-header h1 { font-size: clamp(2.2rem, 9vw, 2.85rem); }
   .summit-app .summit-recap-meta-row { gap: .25rem 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .summit-app .summit-recap-preview { transition: none; }
 }
