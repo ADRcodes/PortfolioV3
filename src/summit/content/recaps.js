@@ -3,7 +3,8 @@ const text = value => typeof value === 'string' && value.trim().length > 0;
 const slug = value => typeof value === 'string' && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value);
 const strings = value => Array.isArray(value) && value.every(text) && new Set(value).size === value.length;
 const timestamp = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(`${value.slice(0, 10)}T00:00:00Z`).toISOString().slice(0, 10) === value.slice(0, 10);
-const insight = value => value && text(value.explanation) && (value.heading === undefined || text(value.heading));
+const insight = value => value && text(value.explanation) && (value.heading === undefined || text(value.heading)) && (value.label === undefined || text(value.label));
+const publicInsight = value => ({ ...(value.label ? { label: value.label } : {}), ...(value.heading ? { heading: value.heading } : {}), explanation: value.explanation });
 
 export function validateRecap(recap) {
   if (!recap || typeof recap !== 'object') fail('expected an object');
@@ -18,6 +19,7 @@ export function validateRecap(recap) {
   if (!Array.isArray(recap.sections) || !recap.sections.length) fail(`requires sections for ${recap.id}`);
   for (const section of recap.sections) {
     if (!section || !text(section.heading) || !strings(section.paragraphs) || !section.paragraphs.length) fail(`invalid section for ${recap.id}`);
+    if (section.highlightedInsight !== undefined && !insight(section.highlightedInsight)) fail(`invalid section highlightedInsight for ${recap.id}`);
     if (section.bullets !== undefined && !strings(section.bullets)) fail(`invalid bullets for ${recap.id}`);
     if (section.sessionSlugs !== undefined && (!strings(section.sessionSlugs) || !section.sessionSlugs.every(value => recap.relatedSessionSlugs.includes(value)))) fail(`section links must be relatedSessionSlugs for ${recap.id}`);
   }
@@ -32,8 +34,9 @@ export function publicRecap(record) {
     ...['id', 'slug', 'title', 'description', 'excerpt', 'status', 'publishedAt', 'updatedAt', 'relatedSessionSlugs'].map(field => [field, recap[field]]),
     ['speakerIds', recap.speakerIds ?? []],
     ['sections', recap.sections.map(section => ({ heading: section.heading, paragraphs: section.paragraphs,
-      ...(section.bullets ? { bullets: section.bullets } : {}), ...(section.sessionSlugs ? { sessionSlugs: section.sessionSlugs } : {}) }))],
-    ...(recap.highlightedInsight ? [['highlightedInsight', { ...(recap.highlightedInsight.heading ? { heading: recap.highlightedInsight.heading } : {}), explanation: recap.highlightedInsight.explanation }]] : []),
+      ...(section.bullets ? { bullets: section.bullets } : {}), ...(section.sessionSlugs ? { sessionSlugs: section.sessionSlugs } : {}),
+      ...(section.highlightedInsight ? { highlightedInsight: publicInsight(section.highlightedInsight) } : {}) }))],
+    ...(recap.highlightedInsight ? [['highlightedInsight', publicInsight(recap.highlightedInsight)]] : []),
   ]);
 }
 

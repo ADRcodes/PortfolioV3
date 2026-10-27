@@ -6,7 +6,7 @@
   "excerpt": "A 30-minute prototype was just the beginning. Seven Summit sessions connect faster AI development with customer discovery, real-world testing and the discipline to say no.",
   "status": "published",
   "publishedAt": "2026-10-22T00:15:28.374Z",
-  "updatedAt": "2026-10-22T00:15:28.374Z",
+  "updatedAt": "2026-10-27T14:16:19.105Z",
   "relatedSessionSlugs": [
     "essential-ai-tools-and-t-minus30-launch",
     "assumption-trap",
@@ -31,10 +31,6 @@
     "speaker-sarah-murphy",
     "speaker-jacob-critch"
   ],
-  "highlightedInsight": {
-    "heading": "When an impressive demo competes with the product",
-    "explanation": "Chelsea O'Hara's DCXIX example captures a difficult product-development tension: technical ambition and enthusiastic attention can coexist with a missed opportunity to validate the underlying technology customers would buy. The point isn't that ambitious demonstrations are bad; it's that attention is not the same as evidence of a business."
-  },
   "sections": [
     {
       "heading": "A 30-minute prototype, and a bigger question",
@@ -55,13 +51,18 @@
         "Steph Burry encouraged founders to distinguish positive feedback from genuine customer commitment. Someone saying an idea sounds interesting is different from someone investing time, money or meaningful effort in solving the problem.",
         "James Geneau pushed the distinction further. Even a sale doesn't necessarily establish lasting product-market fit. Companies still need to know whether customers use the product, depend on it and continue finding value after purchasing.",
         "That creates an uncomfortable possibility: a company can become better at building and selling software without becoming much better at solving its customers' problems.",
+        "AI makes it easier to pursue the next intriguing demonstration. When a new feature or prototype takes hours instead of weeks, there are fewer practical obstacles stopping a team from building it. Deciding which experiments deserve the time becomes the harder discipline.",
         "Chelsea O'Hara shared an example from DCXIX's work with performance-capture technology and virtual reality. Her team developed an impressive demonstration and presented its work at South by Southwest, attracting interest and attention. But the more elaborate virtual production also consumed effort that might have gone toward validating and commercializing the underlying data-transport technology.",
-        "That wasn't a dismissal of the creative work, which had value of its own. The difficult business lesson was that something can be technically ambitious, attract genuine enthusiasm and still distract from the repeatable product customers might actually buy.",
-        "AI makes it easier to pursue the next intriguing demonstration. When a new feature or prototype takes hours instead of weeks, there are fewer practical obstacles stopping a team from building it. Deciding which experiments deserve the time becomes the harder discipline."
+        "That wasn't a dismissal of the creative work, which had value of its own. The difficult business lesson was that something can be technically ambitious, attract genuine enthusiasm and still distract from the repeatable product customers might actually buy."
       ],
       "sessionSlugs": [
         "assumption-trap"
-      ]
+      ],
+      "highlightedInsight": {
+        "label": "The product trap",
+        "heading": "Attention isn't the same as validation.",
+        "explanation": "DCXIX's ambitious virtual-reality demonstration attracted genuine interest while also diverting effort from commercializing the underlying data-transport technology. The attention mattered, but it couldn't establish demand for the product."
+      }
     },
     {
       "heading": "Customers know their problems. They don't always know the solution.",

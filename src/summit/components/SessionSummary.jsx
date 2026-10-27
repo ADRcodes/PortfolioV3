@@ -8,7 +8,7 @@ function TextList({ items }) {
 export function HighlightedInsight({ insight }) {
   if (!insight) return null;
   return <aside className="summit-highlighted-insight" aria-label="Highlighted insight">
-    <p className="summit-insight-label">Highlighted insight</p>
+    <p className="summit-insight-label">{insight.label ?? 'Highlighted insight'}</p>
     {insight.heading && <p className="summit-insight-heading">{insight.heading}</p>}
     <p>{insight.explanation}</p>
   </aside>;
