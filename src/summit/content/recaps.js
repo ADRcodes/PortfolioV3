@@ -68,7 +68,7 @@ export function createRecaps(records, sessions, speakers) {
         const speaker = speakers.find(item => item.id === link.speakerId && !item.demo);
         if (!speaker || !record.speakerIds?.includes(link.speakerId)) fail(`linked speaker must belong to the recap: ${link.speakerId}`);
         if (speaker.name !== link.text && !speaker.name.startsWith(`${link.text},`)) fail(`speaker link must use the speaker's full name: ${link.speakerId}`);
-        if (linked.has(link.speakerId) || earlierParagraphs.some(paragraph => paragraph.includes(link.text))) fail(`only the first mention may link a speaker: ${link.speakerId}`);
+        if (linked.has(link.speakerId) || earlierParagraphs.some(paragraph => paragraph.includes(link.text)) || section.paragraphs.slice(0, link.paragraphIndex).some(paragraph => paragraph.includes(link.text))) fail(`only the first mention may link a speaker: ${link.speakerId}`);
         linked.add(link.speakerId);
         const list = linksByParagraph.get(link.paragraphIndex) ?? [];
         list.push(link);
