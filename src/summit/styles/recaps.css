@@ -43,6 +43,16 @@
 .summit-app .summit-recap-body .summit-article-section:first-child { margin-top: .5rem; }
 .summit-app .summit-recap-body p { margin-bottom: 1.25rem; max-width: 74ch; }
 .summit-app .summit-recap-body a { text-decoration: underline; text-underline-offset: .2em; }
+.summit-app .summit-recap-body .summit-recap-speaker-link {
+  color: var(--summit-link);
+  font-weight: 550;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .15em;
+}
+.summit-app .summit-recap-body .summit-recap-speaker-link:hover,
+.summit-app .summit-recap-body .summit-recap-speaker-link:focus-visible {
+  text-decoration-thickness: 2px;
+}
 .summit-app .summit-recap .summit-highlighted-insight {
   margin: 1.5rem 0 2rem;
   padding: 1.25rem clamp(1rem, 3vw, 1.5rem);
