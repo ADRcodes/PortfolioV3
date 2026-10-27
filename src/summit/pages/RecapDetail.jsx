@@ -11,6 +11,23 @@ import '../styles/recaps.css';
 
 const articleDate = new Intl.DateTimeFormat('en-CA', { dateStyle: 'long', timeZone: 'America/St_Johns' });
 
+// Speaker references are editorially selected, validated content, not automatic name matching.
+// Text stays escaped React content; only these explicit first mentions become profile links.
+function linkedParagraph(paragraph, links) {
+  if (!links?.length) return paragraph;
+  const sorted = links.map(link => ({ ...link, start: paragraph.indexOf(link.text) })).sort((a, b) => a.start - b.start);
+  const parts = [];
+  let cursor = 0;
+  for (const link of sorted) {
+    parts.push(paragraph.slice(cursor, link.start));
+    const speaker = allSpeakers.find(item => item.id === link.speakerId);
+    parts.push(<Link key={link.speakerId} className="summit-recap-speaker-link" to={summitPath(`speakers/${speaker.slug}`)}>{link.text}</Link>);
+    cursor = link.start + link.text.length;
+  }
+  parts.push(paragraph.slice(cursor));
+  return parts;
+}
+
 export default function RecapDetail() {
   const { slug } = useParams();
   const recap = recaps.find(item => item.slug === slug);
@@ -29,7 +46,7 @@ export default function RecapDetail() {
     </header>
     <div className="summit-recap-body">
       {recap.sections.map((section, index) => <Fragment key={index}>
-        <DetailedSections sections={[section]} level={2} />
+        <DetailedSections sections={[section]} level={2} renderParagraph={(paragraph, paragraphIndex) => linkedParagraph(paragraph, section.speakerLinks?.filter(link => link.paragraphIndex === paragraphIndex))} />
         <HighlightedInsight insight={section.highlightedInsight ?? (index === 0 ? recap.highlightedInsight : null)} />
         {!!section.sessionSlugs?.length && <nav className="summit-recap-section-links" aria-label={`Session notes supporting ${section.heading}`}><ul>{section.sessionSlugs.map(slug => <li key={slug}><Link to={summitPath(`sessions/${slug}`)}>{related.find(session => session.slug === slug).title}</Link></li>)}</ul></nav>}
       </Fragment>)}

@@ -14,11 +14,11 @@ export function HighlightedInsight({ insight }) {
   </aside>;
 }
 
-export function DetailedSections({ sections, level = 3 }) {
+export function DetailedSections({ sections, level = 3, renderParagraph }) {
   const Heading = `h${level}`;
   return sections.map((section, index) => <section key={index} className="summit-article-section">
     <Heading>{section.heading}</Heading>
-    {section.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+    {section.paragraphs.map((paragraph, index) => <p key={index}>{renderParagraph ? renderParagraph(paragraph, index) : paragraph}</p>)}
     {!!section.bullets?.length && <TextList items={section.bullets} />}
   </section>);
 }

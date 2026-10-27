@@ -521,6 +521,11 @@ test('recap pages and editorial features support zero, one and three articles wi
     assert.ok(publishedArticle.indexOf('About this article') > publishedArticle.indexOf('Explore the supporting sessions'));
     assert.ok(publishedArticle.includes('class="summit-recap-meta-row"'));
     assert.ok(!publishedArticle.includes('Cross-session recap'));
+    assert.equal((publishedArticle.match(/class="summit-recap-speaker-link"/g) ?? []).length, 15);
+    for (const [slug, name] of [['jan-mertlik', 'Jan Mertlik'], ['chelsea-o-hara', 'Chelsea O&#x27;Hara'], ['taylor-young', 'Taylor Young'], ['chris-gardner', 'Chris Gardner']]) {
+      assert.ok(publishedArticle.includes(`href="/technlsummit/speakers/${slug}"`), slug);
+      assert.ok(publishedArticle.includes(`>${name}</a>`), name);
+    }
     assert.equal(JSON.stringify(content.sessions), snapshot);
   } finally { content.recaps.splice(0, content.recaps.length, ...original); }
 });
